@@ -7,3 +7,5 @@
 /.quarto/
 .snakemake
 report.html
+
+**/*.quarto_ipynb

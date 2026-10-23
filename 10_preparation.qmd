@@ -1,5 +1,3 @@
 # Preparation {.unnumbered}
 
-All informations and documents needed for the FEFACCION 2025 preparation.
-
-The link toward the workshop for the Friday is available here [Forest dynamic with R](workshop/workshop.html) .
+All informations and documents needed for the functional sampling.

@@ -46,7 +46,7 @@ inventory <- forest %>%
   st_as_sf(coords = c("x", "y"), crs = 31981)
 ```
 
-# Maps {.unnumbered}
+# Belterra - Maps {.unnumbered}
 
 We will collect the following species:
 
