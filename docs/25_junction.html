@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,13 +12,10 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -79,10 +76,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f2e609f69be186d5c4c9edbe573f62a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -264,11 +261,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
    
   <ul>
   <li><a href="#correcting-typos-in-vernacular-codes-and-tree-id" id="toc-correcting-typos-in-vernacular-codes-and-tree-id" class="nav-link active" data-scroll-target="#correcting-typos-in-vernacular-codes-and-tree-id">Correcting typos in vernacular codes and tree ID</a></li>
-  <li><a href="#checking-for-duplicated-leaves-in-each-dataset" id="toc-checking-for-duplicated-leaves-in-each-dataset" class="nav-link" data-scroll-target="#checking-for-duplicated-leaves-in-each-dataset">Checking for duplicated leaves in each dataset</a></li>
-  <li><a href="#checking-for-missing-measurments-in-some-datasets" id="toc-checking-for-missing-measurments-in-some-datasets" class="nav-link" data-scroll-target="#checking-for-missing-measurments-in-some-datasets">Checking for missing measurments in some datasets</a></li>
+  <li><a href="#checking-for-duplicated-leaves-in-each-dataset" id="toc-checking-for-duplicated-leaves-in-each-dataset" class="nav-link" data-scroll-target="#checking-for-duplicated-leaves-in-each-dataset">Checking for duplicated leaves in each dataset</a>
+  <ul class="collapse">
+  <li><a href="#tlp" id="toc-tlp" class="nav-link" data-scroll-target="#tlp">tlp</a></li>
+  <li><a href="#la" id="toc-la" class="nav-link" data-scroll-target="#la">la</a></li>
+  <li><a href="#hydrated" id="toc-hydrated" class="nav-link" data-scroll-target="#hydrated">hydrated</a></li>
+  <li><a href="#dry" id="toc-dry" class="nav-link" data-scroll-target="#dry">dry</a></li>
+  <li><a href="#manual-check" id="toc-manual-check" class="nav-link" data-scroll-target="#manual-check">manual check</a></li>
+  <li><a href="#decisions-for-duplicated-leaves" id="toc-decisions-for-duplicated-leaves" class="nav-link" data-scroll-target="#decisions-for-duplicated-leaves">Decisions for duplicated leaves</a></li>
+  </ul></li>
+  <li><a href="#checking-for-missing-measurements-in-some-datasets" id="toc-checking-for-missing-measurements-in-some-datasets" class="nav-link" data-scroll-target="#checking-for-missing-measurements-in-some-datasets">Checking for missing measurements in some datasets</a></li>
   <li><a href="#joining-the-datasets-and-calculating-the-trait-values" id="toc-joining-the-datasets-and-calculating-the-trait-values" class="nav-link" data-scroll-target="#joining-the-datasets-and-calculating-the-trait-values">Joining the datasets and calculating the trait values</a></li>
-  <li><a href="#exploring-the-effects-of-leaf-quality" id="toc-exploring-the-effects-of-leaf-quality" class="nav-link" data-scroll-target="#exploring-the-effects-of-leaf-quality">Exploring the effects of leaf quality</a></li>
+  <li><a href="#exploring-the-effects-of-leaf-quality" id="toc-exploring-the-effects-of-leaf-quality" class="nav-link" data-scroll-target="#exploring-the-effects-of-leaf-quality">Exploring the effects of leaf quality</a>
+  <ul class="collapse">
+  <li><a href="#incomplete-leaves" id="toc-incomplete-leaves" class="nav-link" data-scroll-target="#incomplete-leaves">Incomplete leaves</a></li>
+  <li><a href="#anomalies-seen-on-the-masks" id="toc-anomalies-seen-on-the-masks" class="nav-link" data-scroll-target="#anomalies-seen-on-the-masks">Anomalies seen on the masks</a></li>
+  <li><a href="#danmaged-and-young-leaves" id="toc-danmaged-and-young-leaves" class="nav-link" data-scroll-target="#danmaged-and-young-leaves">Danmaged and young leaves</a></li>
+  </ul></li>
   <li><a href="#filtering-and-exploring" id="toc-filtering-and-exploring" class="nav-link" data-scroll-target="#filtering-and-exploring">Filtering and exploring</a></li>
+  <li><a href="#summary-on-number-of-samples-and-out-put-files" id="toc-summary-on-number-of-samples-and-out-put-files" class="nav-link" data-scroll-target="#summary-on-number-of-samples-and-out-put-files">Summary on number of samples and out put files</a></li>
   </ul>
 </nav>
     </div>
@@ -296,7 +307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="correcting-typos-in-vernacular-codes-and-tree-id" class="level2">
 <h2 class="anchored" data-anchor-id="correcting-typos-in-vernacular-codes-and-tree-id">Correcting typos in vernacular codes and tree ID</h2>
-<p>See the issues <a href="https://github.com/sylvainschmitt/fefaccion_2025/issues/3#issue-3474388377">here</a> and <a href="https://github.com/sylvainschmitt/fefaccion_2025/issues/2#issue-3470699745">here</a> to understand the rationale for these corrections.</p>
+<p>See the issues <a href="https://github.com/PlantForAdapt/functional/issues/3#issue-3474388377">here</a> and <a href="https://github.com/PlantForAdapt/functional/issues/2#issue-3470699745">here</a> to understand the rationale for these corrections.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -308,18 +319,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    data <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(my_file, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>)</span>
 <span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>  }</span>
 <span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>  data <span class="ot">&lt;-</span> data <span class="sc">%&gt;%</span> <span class="fu">mutate</span>(</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">vernacular =</span> <span class="fu">case_match</span>(vernacular,</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">vernacular =</span> <span class="fu">recode_values</span>(vernacular,</span>
 <span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"CUPUI"</span> <span class="sc">~</span> <span class="st">"CUPIU"</span>,</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                            <span class="at">.default =</span> vernacular),</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">vernacular =</span> <span class="fu">case_match</span>(vernacular,</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>                            <span class="at">default =</span> vernacular),</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">vernacular =</span> <span class="fu">recode_values</span>(vernacular,</span>
 <span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"PEQUI"</span> <span class="sc">~</span> <span class="st">"PIQUI"</span>,</span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                            <span class="at">.default =</span> vernacular),</span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">tree =</span> <span class="fu">case_match</span>(tree,</span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>                            <span class="at">default =</span> vernacular),</span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a>    <span class="at">tree =</span> <span class="fu">recode_values</span>(tree,</span>
 <span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                      <span class="dv">8833</span> <span class="sc">~</span> <span class="dv">8883</span>,</span>
 <span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>                      <span class="dv">8383</span> <span class="sc">~</span> <span class="dv">8883</span>,</span>
 <span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>                      <span class="dv">6616</span> <span class="sc">~</span> <span class="dv">6617</span>,</span>
 <span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>                      <span class="dv">7734</span> <span class="sc">~</span> <span class="dv">7334</span>,</span>
-<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                      <span class="at">.default =</span> tree),</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>                      <span class="at">default =</span> tree),</span>
 <span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>    <span class="at">vernacular =</span> <span class="fu">if_else</span>(tree <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">5685</span>,<span class="dv">6513</span>), <span class="st">"FAVAO"</span>, vernacular)</span>
 <span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>  ) </span>
 <span id="cb1-23"><a href="#cb1-23" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="st">"comment"</span> <span class="sc">%in%</span> <span class="fu">colnames</span>(data)) {</span>
@@ -328,40 +339,31 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  data</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>tlp <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/tlp_raw.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: There was 1 warning in `mutate()`.
-ℹ In argument: `vernacular = case_match(vernacular, "CUPUI" ~ "CUPIU", .default
-  = vernacular)`.
-Caused by warning:
-! `case_match()` was deprecated in dplyr 1.2.0.
-ℹ Please use `recode_values()` instead.</code></pre>
-</div>
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>la <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/la.tsv"</span>) </span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>hydrated <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/hydrated_raw.tsv"</span>)</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>dry <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/dry_raw.tsv"</span>)</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>check <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/raw/manual_check.csv"</span>, <span class="at">type =</span> <span class="st">"csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>tlp <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/tlp_raw.tsv"</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>la <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/la.tsv"</span>) </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>hydrated <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/hydrated_raw.tsv"</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>dry <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/dry_raw.tsv"</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>check <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/raw/manual_check.csv"</span>, <span class="at">type =</span> <span class="st">"csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
 <section id="checking-for-duplicated-leaves-in-each-dataset" class="level2">
 <h2 class="anchored" data-anchor-id="checking-for-duplicated-leaves-in-each-dataset">Checking for duplicated leaves in each dataset</h2>
+<section id="tlp" class="level3">
+<h3 class="anchored" data-anchor-id="tlp">tlp</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> tlp <span class="sc">%&gt;%</span> </span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in tlp data."</span>) </span>
-<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
-<span id="cb4-8"><a href="#cb4-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in tlp data."</span>)</span>
-<span id="cb4-9"><a href="#cb4-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
-<span id="cb4-10"><a href="#cb4-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> tlp <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in tlp data."</span>) </span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in tlp data."</span>)</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The following leaves are duplicated in tlp data."</code></pre>
@@ -399,11 +401,11 @@ Caused by warning:
 </table>
 </div>
 </div>
-<p>Look at the values for the duplicated =&gt; nothing special…</p>
+<p>Look at the values for the duplicated:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>tlp <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6896</span>, <span class="dv">6910</span>)) <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>tlp <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">6896</span>, <span class="dv">6910</span>)) <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -456,37 +458,44 @@ Caused by warning:
 </table>
 </div>
 </div>
+<p>There is nothing that looks abnormal in tlp of the duplicated leaves.</p>
+</section>
+<section id="la" class="level3">
+<h3 class="anchored" data-anchor-id="la">la</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> la <span class="sc">%&gt;%</span> </span>
-<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
-<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in la data."</span>) </span>
-<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
-<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in la data."</span>)</span>
-<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
-<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> la <span class="sc">%&gt;%</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in la data."</span>) </span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in la data."</span>)</span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
+<span id="cb5-10"><a href="#cb5-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "There are no duplicated leaves in la data."</code></pre>
 </div>
 </div>
+</section>
+<section id="hydrated" class="level3">
+<h3 class="anchored" data-anchor-id="hydrated">hydrated</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> hydrated <span class="sc">%&gt;%</span> </span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
-<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in hydrated data."</span>) </span>
-<span id="cb9-7"><a href="#cb9-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
-<span id="cb9-8"><a href="#cb9-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in hydrated data."</span>)</span>
-<span id="cb9-9"><a href="#cb9-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
-<span id="cb9-10"><a href="#cb9-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> hydrated <span class="sc">%&gt;%</span> </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in hydrated data."</span>) </span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in hydrated data."</span>)</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The following leaves are duplicated in hydrated data."</code></pre>
@@ -522,7 +531,7 @@ Caused by warning:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>hydrated <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> <span class="dv">6910</span>) <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>hydrated <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> <span class="dv">6910</span>) <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -589,19 +598,22 @@ Caused by warning:
 </table>
 </div>
 </div>
+</section>
+<section id="dry" class="level3">
+<h3 class="anchored" data-anchor-id="dry">dry</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> dry <span class="sc">%&gt;%</span> </span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
-<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in dry data."</span>) </span>
-<span id="cb12-7"><a href="#cb12-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
-<span id="cb12-8"><a href="#cb12-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in dry data."</span>)</span>
-<span id="cb12-9"><a href="#cb12-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
-<span id="cb12-10"><a href="#cb12-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> dry <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in dry data."</span>) </span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in dry data."</span>)</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The following leaves are duplicated in dry data."</code></pre>
@@ -633,11 +645,11 @@ Caused by warning:
 </table>
 </div>
 </div>
-<p>Look at the values for the duplicated =&gt; 2 duplicated leaves have a very high weight</p>
+<p>Look at the values for the duplicated:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>dry <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> <span class="dv">6910</span>) <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>dry <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> <span class="dv">6910</span>) <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -696,77 +708,88 @@ Caused by warning:
 </table>
 </div>
 </div>
+<p>Two duplicated leaves have a very high weight.</p>
+</section>
+<section id="manual-check" class="level3">
+<h3 class="anchored" data-anchor-id="manual-check">manual check</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> check <span class="sc">%&gt;%</span> </span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in manual check data."</span>) </span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in manual check data."</span>)</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> check <span class="sc">%&gt;%</span> </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in manual check data."</span>) </span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in manual check data."</span>)</span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "There are no duplicated leaves in manual check data."</code></pre>
 </div>
 </div>
+</section>
+<section id="decisions-for-duplicated-leaves" class="level3">
+<h3 class="anchored" data-anchor-id="decisions-for-duplicated-leaves">Decisions for duplicated leaves</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>tlp <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> <span class="dv">6910</span> <span class="sc">&amp;</span> leaf <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  count</span>
-<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>hydrated <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> <span class="dv">6910</span> <span class="sc">&amp;</span> leaf <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  count</span>
-<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>dry <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> <span class="dv">6910</span> <span class="sc">&amp;</span> leaf <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>  count</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>tlp <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> <span class="dv">6910</span> <span class="sc">&amp;</span> leaf <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  count</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>hydrated <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> <span class="dv">6910</span> <span class="sc">&amp;</span> leaf <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  count</span>
+<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>dry <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> <span class="dv">6910</span> <span class="sc">&amp;</span> leaf <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb15-11"><a href="#cb15-11" aria-hidden="true" tabindex="-1"></a>  count</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Leaves 1 and 2 of COPAI 6910 are duplicated in tlp, hydrated and dry (each time with different values), but they have just one scan each.</p>
+<blockquote class="blockquote">
+<p>DECISSION 1: we what to do with duplicated leaves and update what’s follow. I have seen later that these leaves are the ones with massive outliers in LDMC and SLA. So I propose to remove all measurments of the leaves 1 and 2 of COPAI 6910. This is what I do in the trait table generated below. NEED TO CHANGE THIS if you disagree.</p>
+</blockquote>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>tlp <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> <span class="dv">6896</span> <span class="sc">&amp;</span> leaf <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  count</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>tlp <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> <span class="dv">6896</span> <span class="sc">&amp;</span> leaf <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  count</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Leaf 1 of COPAI 6896 is dupliated in tlp only (each time with different values), but there is no leaf 2.</p>
+<p>Leaf 1 of COPAI 6896 is duplicated in tlp only (each time with different values), but there is no leaf 2.</p>
 <blockquote class="blockquote">
-<p>TO DO Decide what to do with duplicated leaves and update what’s follow. I have seen later that these leaves are the ones with massive outliers in LDMC and SLA. So I propose to remove all measurments of the leaves 1 and 2 of COPAI 6910. This is what I do in the trait table generated below. NEED TO CHANGE THIS if you disagree.</p>
+<p>DECISSION 2: I take (later) the mean of the tlp values for the two measurment of this leaf and attribute it to leave 1. An alternative would be to randomly attribute one measurment to leaf 1, the other to leaf 2.</p>
 </blockquote>
 </section>
-<section id="checking-for-missing-measurments-in-some-datasets" class="level2">
-<h2 class="anchored" data-anchor-id="checking-for-missing-measurments-in-some-datasets">Checking for missing measurments in some datasets</h2>
+</section>
+<section id="checking-for-missing-measurements-in-some-datasets" class="level2">
+<h2 class="anchored" data-anchor-id="checking-for-missing-measurements-in-some-datasets">Checking for missing measurements in some datasets</h2>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>symdiff2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, by) {</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  x_sel <span class="ot">&lt;-</span> <span class="fu">select</span>(x, <span class="fu">all_of</span>(by))</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  y_sel <span class="ot">&lt;-</span> <span class="fu">select</span>(y, <span class="fu">all_of</span>(by))</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  diff <span class="ot">&lt;-</span> <span class="fu">union</span>(<span class="fu">setdiff</span>(x_sel, y_sel), <span class="fu">setdiff</span>(y_sel, x_sel))</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">nrow</span>(diff) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"There is a complete overlap between the two datasets"</span>)</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"The following tree/leaf are present in only one of the two datasets"</span>)</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>   diff <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>symdiff2 <span class="ot">&lt;-</span> <span class="cf">function</span>(x, y, by) {</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  x_sel <span class="ot">&lt;-</span> <span class="fu">select</span>(x, <span class="fu">all_of</span>(by))</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  y_sel <span class="ot">&lt;-</span> <span class="fu">select</span>(y, <span class="fu">all_of</span>(by))</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a>  diff <span class="ot">&lt;-</span> <span class="fu">union</span>(<span class="fu">setdiff</span>(x_sel, y_sel), <span class="fu">setdiff</span>(y_sel, x_sel))</span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">nrow</span>(diff) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"There is a complete overlap between the two datasets"</span>)</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">print</span>(<span class="st">"The following tree/leaf are present in only one of the two datasets"</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a>   diff <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Between tlp and hydrated (checking only differences in individuals, as less leaves have been measured for tlp):</p>
+<p>Between tlp and hydrated (checking only differences in individuals, as less leaves have been measured for tlp).</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(tlp, hydrated, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(tlp, hydrated, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The following tree/leaf are present in only one of the two datasets"</code></pre>
@@ -800,7 +823,7 @@ Caused by warning:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(tlp, la, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(tlp, la, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The following tree/leaf are present in only one of the two datasets"</code></pre>
@@ -834,7 +857,7 @@ Caused by warning:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(tlp, dry, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(tlp, dry, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The following tree/leaf are present in only one of the two datasets"</code></pre>
@@ -865,13 +888,13 @@ Caused by warning:
 </div>
 </div>
 <blockquote class="blockquote">
-<p>Only FAVAO and FAVA differs, which is normal as tlp was not possible to measure for these species.</p>
+<p>Between tlp and all the other data, only FAVAO and FAVA differs, which is normal as tlp was not possible to measure for these species.</p>
 </blockquote>
 <p>Between hydrated and dry (checking down to the leaf level):</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(hydrated, dry, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(hydrated, dry, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "There is a complete overlap between the two datasets"</code></pre>
@@ -881,7 +904,7 @@ Caused by warning:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(hydrated, la, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(hydrated, la, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "There is a complete overlap between the two datasets"</code></pre>
@@ -891,7 +914,7 @@ Caused by warning:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(dry, la, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(dry, la, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "There is a complete overlap between the two datasets"</code></pre>
@@ -901,34 +924,54 @@ Caused by warning:
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(la, check, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">symdiff2</span>(la, check, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "There is a complete overlap between the two datasets"</code></pre>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>Conclusion: there is no problem of missing measurments in some datasets.</p>
+</blockquote>
 </section>
 <section id="joining-the-datasets-and-calculating-the-trait-values" class="level2">
 <h2 class="anchored" data-anchor-id="joining-the-datasets-and-calculating-the-trait-values">Joining the datasets and calculating the trait values</h2>
-<p>Create the file <em>raw.tsv</em> with all raw measurements and the manual checks.</p>
+<p>In these files, the botanical identification made after the field campaign are added, using the inventory data of the 22/09/2026.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">join_all</span>(</span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(tlp, hydrated, la, dry, check), </span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"full"</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> raw <span class="sc">%&gt;%</span> </span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb34-11"><a href="#cb34-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in the joined data."</span>) </span>
-<span id="cb34-12"><a href="#cb34-12" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
-<span id="cb34-13"><a href="#cb34-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in joined data."</span>)</span>
-<span id="cb34-14"><a href="#cb34-14" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
-<span id="cb34-15"><a href="#cb34-15" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>inventory <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/inventory/inventory_Belterra_20260922.csv"</span>,</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"latin1"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(PLACA, NOME_COMUM, NOME_CIENTIFICO, FAMILIA) <span class="sc">%&gt;%</span> </span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">tree =</span> PLACA,</span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">vernacular_full =</span> NOME_COMUM,</span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">genus_sp =</span> NOME_CIENTIFICO,</span>
+<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">family =</span> FAMILIA)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>Create the file <em>raw.tsv</em> with all raw measurements, botanical identification and the manual checks.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">join_all</span>(</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(tlp, hydrated, la, dry, check), </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"full"</span></span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> raw <span class="sc">%&gt;%</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
+<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
+<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in the joined data."</span>) </span>
+<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
+<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in joined data."</span>)</span>
+<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
+<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "The following leaves are duplicated in joined data."</code></pre>
@@ -965,12 +1008,16 @@ Caused by warning:
 </tbody>
 </table>
 </div>
+</div>
+<div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_tsv</span>(raw, <span class="st">"outputs/raw.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>raw <span class="sc">%&gt;%</span> </span>
+<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(inventory) <span class="sc">%&gt;%</span> </span>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/raw.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Create the file <em>traits_comments.tsv</em> with trait values and the manual checks. <strong>NB</strong> The leaves 1 and 2 of COPAI 6910 have been removed.</p>
+<p>Create the file <em>traits_comments.tsv</em> with trait values, the manual checks and botanical identification. <strong>NB</strong> The leaves 1 and 2 of COPAI 6910 have been removed.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -981,16 +1028,19 @@ Caused by warning:
 <span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ldmc =</span> dw<span class="sc">/</span>sw,</span>
 <span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sla =</span> area_excluded<span class="sc">/</span>dw</span>
 <span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(vernacular, tree, leaf, la, ldmc, lt, sla, tlp, missing_part, anomaly, touching, raw_scan) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/traits_comments.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(tree, vernacular, vernacular_full, genus_sp, family, leaf, la, ldmc, lt, sla, tlp, missing_part, anomaly, touching, raw_scan) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(inventory) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/traits_comments.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <blockquote class="blockquote">
-<p>Sylvain, please check. In your code, you took area_excluded for la, but included to calculate sla. But I think it is the opposite (as area_excluded &lt;= included, so area excluded is before filling the holes).</p>
+<p>Sylvain, please check. The difference between the two is weither the hole correcponding to the punch is counted in the leaf area or not, right? In your code, you took area_excluded for la, but included to calculate sla. But I think it is the opposite (as area_excluded &lt;= included, so area excluded is before filling the holes): we should fill the hole for LA, but not for SLA (as the leaves have been measured after the punch has been made).</p>
 </blockquote>
 </section>
 <section id="exploring-the-effects-of-leaf-quality" class="level2">
 <h2 class="anchored" data-anchor-id="exploring-the-effects-of-leaf-quality">Exploring the effects of leaf quality</h2>
+<section id="incomplete-leaves" class="level3">
+<h3 class="anchored" data-anchor-id="incomplete-leaves">Incomplete leaves</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1004,7 +1054,7 @@ Caused by warning:
 <span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"sla"</span> <span class="ot">=</span> <span class="st">"SLA [ cm2 / g ]"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>We first explored the effect the fact that the leaf is incomplete, which affects la and indirectly sla. <strong>NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.</strong></p>
+<p>We first explore the effect of having an incomplete leaf, which affects la and indirectly sla. <strong>NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.</strong></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1037,7 +1087,7 @@ Caused by warning:
 </div>
 </div>
 <p>Surprisingly, the incomplete leaves are not necessarily the smallest ones.</p>
-<p>Let’s now check the distribution of these two traits if the leaves with a big missing part are removed (in blue) compared to keeping the whole dataset. <strong>NB I also removed the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.</strong></p>
+<p>Let’s now check the distribution of these two traits if the leaves with a big missing part (i.e.&nbsp;missing_part = 2, see the scan page) are removed (in blue) compared to keeping the whole dataset. <strong>NB I also removed the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.</strong></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1076,8 +1126,11 @@ Caused by warning:
 <li><p>CASTA: only two leaves removed, but they were missing a very big part</p></li>
 </ul>
 <blockquote class="blockquote">
-<p>I propose to remove the leaves with a big missing part for LA and SLA. TO DO: exclude them from the rest if you agree.</p>
+<p>DECISSION 3: I propose to remove the leaves with a big missing part (i.e.&nbsp;missing_part = 2, see the scan page) for LA and SLA. TO DO: exclude them from the rest if you agree.</p>
 </blockquote>
+</section>
+<section id="anomalies-seen-on-the-masks" class="level3">
+<h3 class="anchored" data-anchor-id="anomalies-seen-on-the-masks">Anomalies seen on the masks</h3>
 <p>Now, let’s look at the effect of anomalies seen on the masks (including the species with a big missing part for now) <strong>NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.</strong></p>
 <div class="cell">
 <details class="code-fold">
@@ -1114,13 +1167,16 @@ Caused by warning:
 </div>
 </div>
 </div>
-<p><em>abs_area</em> and <em>fol_touch</em> should be solved by taking the unfilled mask (see scans section).</p>
+<p><em>abs_area</em> and <em>fol_touch</em> should be solved by taking the unfilled mask (see scans section). &gt; TO DO: check once it is done if it is better.</p>
 <blockquote class="blockquote">
-<p>The other abnormality doesn’t seem to affect the values, I suggest to keep these leaves.</p>
+<p>DECISION 4: The other abnormality doesn’t seem to affect the values, I suggest to keep these leaves.</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>BUT we may want to resample the PIQUI in the future…</p>
+<p>DECISION 5: BUT we may want to resample the PIQUI in the future… =&gt; redo all the measurments on PEQUI in the 2026 campaign?</p>
 </blockquote>
+</section>
+<section id="danmaged-and-young-leaves" class="level3">
+<h3 class="anchored" data-anchor-id="danmaged-and-young-leaves">Danmaged and young leaves</h3>
 <p>Now, let’s look at the effect of anomalies seen on the raw scans (including the species with a big missing part for now) <strong>NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.</strong></p>
 <div class="cell">
 <details class="code-fold">
@@ -1158,14 +1214,18 @@ Caused by warning:
 </div>
 </div>
 <blockquote class="blockquote">
-<p>The young leaves are clearly outliers. I propose to remove them. TO DO: exclude them from the rest if you agree.</p>
+<p>DECISION 6: The young leaves are clearly outliers. I propose to remove them. TO DO: exclude them from the rest if you agree.</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>The effect of damaged leaves is much less clear (remember that here damaged refer doens’t refer to the fact that part of the leaf is missing, but rather to the quality of the leaf). I propose to keep them.</p>
+<p>DECISION 7: The effect of damaged leaves is much less clear (remember that here damaged refer doens’t refer to the fact that part of the leaf is missing, but rather to the quality of the leaf). I propose to keep them.</p>
 </blockquote>
+</section>
 </section>
 <section id="filtering-and-exploring" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-and-exploring">Filtering and exploring</h2>
+<blockquote class="blockquote">
+<p>TO DO: update depending on the decissions made</p>
+</blockquote>
 <p>Based on the exploration above, the data are filtered as follow:</p>
 <ul>
 <li><p><strong>the scans of leaves touching the page need to be redone, I remove them for the moment</strong></p></li>
@@ -1173,7 +1233,7 @@ Caused by warning:
 <li><p>all the leaves with a big missing part are excluded</p></li>
 <li><p>all the young leaves are excluded</p></li>
 <li><p>for all the leaves with a problem with the mask (abn_area and fol_touch), we take the area measured with a mask for which the holes have not been filled (area_excluded). This represent all the FAVA, FAVO abd ANGEL, plus one leaf of PARAP</p></li>
-<li><p>for tlp of COPAI 6896 leaf 1 and 2, we take the mean value between the duplicated measurement</p></li>
+<li><p>for tlp of COPAI 6896 duplicated leaves, we take the mean value between the duplicated measurement of leaf 1</p></li>
 </ul>
 <div class="cell">
 <details class="code-fold">
@@ -1189,137 +1249,52 @@ Caused by warning:
 <span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">ldmc =</span> dw<span class="sc">/</span>sw,</span>
 <span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sla =</span> area_excluded<span class="sc">/</span>dw</span>
 <span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(vernacular, tree, leaf, la, ldmc, lt, sla, tlp) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(la<span class="sc">:</span>tlp, mean)) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/traits.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(tree, vernacular, vernacular_full, genus_sp, family, leaf, </span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>         la, ldmc, lt, sla, tlp) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tree, vernacular, vernacular_full, genus_sp, family, leaf) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(la<span class="sc">:</span>tlp, mean)) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/traits.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>The table below gives the number of tree per species and the mean number of leaves per tree.</p>
+<p>We look at the correspondence between the vernacular names we used during field collection and the botanical identification. The table below shows the vernacular names that correspond to more than one species:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_leaf =</span> <span class="fu">n_distinct</span>(leaf)) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_tree =</span> <span class="fu">n_distinct</span>(tree),</span>
-<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_n_leaf_per_ind =</span> <span class="fu">mean</span>(n_leaf)) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">group_by</span>(vernacular) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">nb_sp =</span> <span class="fu">n_distinct</span>(genus_sp)) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(nb_sp <span class="sc">&gt;</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">vernacular</th>
-<th style="text-align: right;">n_tree</th>
-<th style="text-align: right;">mean_n_leaf_per_ind</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">ANDIR</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">4.40</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ANGEL</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">4.40</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">CASTA</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CEDRU</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">COPAI</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CUPIU</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">FAVA</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">FAVAO</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">FREIJ</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">JARAN</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4.50</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">JUTAI</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">PARAP</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3.25</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">PIQUI</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">QUARU</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">VIROL</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-</tbody>
-</table>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  vernacular nb_sp
+  &lt;chr&gt;      &lt;int&gt;
+1 CUPIU          2</code></pre>
 </div>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(trait, value, <span class="sc">-</span>vernacular, <span class="sc">-</span>tree, <span class="sc">-</span>leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trait =</span> <span class="fu">recode</span>(trait, </span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"la"</span> <span class="ot">=</span> <span class="st">"LA [ cm2 ]"</span>,</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"ldmc"</span> <span class="ot">=</span> <span class="st">"LDMC [ g / g ]"</span>,</span>
-<span id="cb45-6"><a href="#cb45-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"lt"</span> <span class="ot">=</span> <span class="st">"LT [ µm ]"</span>,</span>
-<span id="cb45-7"><a href="#cb45-7" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"tlp"</span> <span class="ot">=</span> <span class="st">"TLP [ MPa ]"</span>,</span>
-<span id="cb45-8"><a href="#cb45-8" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"sla"</span> <span class="ot">=</span> <span class="st">"SLA [ cm2 / g ]"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb45-9"><a href="#cb45-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vernacular,</span>
-<span id="cb45-10"><a href="#cb45-10" aria-hidden="true" tabindex="-1"></a>             value)) <span class="sc">+</span></span>
-<span id="cb45-11"><a href="#cb45-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb45-12"><a href="#cb45-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">col =</span> <span class="fu">as.factor</span>(tree)),</span>
-<span id="cb45-13"><a href="#cb45-13" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb45-14"><a href="#cb45-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb45-15"><a href="#cb45-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb45-16"><a href="#cb45-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">ncol =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb45-17"><a href="#cb45-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb45-18"><a href="#cb45-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb45-19"><a href="#cb45-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(trait, value, <span class="sc">-</span>vernacular, <span class="sc">-</span>tree, <span class="sc">-</span>leaf, </span>
+<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>vernacular_full, <span class="sc">-</span>genus_sp, <span class="sc">-</span>family) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trait =</span> <span class="fu">recode</span>(trait, </span>
+<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"la"</span> <span class="ot">=</span> <span class="st">"LA [ cm2 ]"</span>,</span>
+<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"ldmc"</span> <span class="ot">=</span> <span class="st">"LDMC [ g / g ]"</span>,</span>
+<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"lt"</span> <span class="ot">=</span> <span class="st">"LT [ µm ]"</span>,</span>
+<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"tlp"</span> <span class="ot">=</span> <span class="st">"TLP [ MPa ]"</span>,</span>
+<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"sla"</span> <span class="ot">=</span> <span class="st">"SLA [ cm2 / g ]"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vernacular,</span>
+<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>             value)) <span class="sc">+</span></span>
+<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">col =</span> <span class="fu">as.factor</span>(tree)),</span>
+<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">ncol =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1329,16 +1304,13 @@ Caused by warning:
 </div>
 </div>
 </div>
-<blockquote class="blockquote">
-<p>We have one outlier for LDMC, not sure what the problem is, if there is indeed a problem.</p>
-</blockquote>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>out1 <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ldmc <span class="sc">&gt;</span> <span class="fl">0.8</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(vernacular, tree, leaf)</span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>raw <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> out1<span class="sc">$</span>tree <span class="sc">&amp;</span> leaf <span class="sc">==</span> out1<span class="sc">$</span>leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>out1 <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ldmc <span class="sc">&gt;</span> <span class="fl">0.8</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(vernacular, tree, leaf)</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>raw <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> out1<span class="sc">$</span>tree <span class="sc">&amp;</span> leaf <span class="sc">==</span> out1<span class="sc">$</span>leaf) <span class="sc">%&gt;%</span> </span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
@@ -1394,22 +1366,25 @@ Caused by warning:
 </table>
 </div>
 </div>
+<blockquote class="blockquote">
+<p>DECISION 8: We have one outlier for LDMC, not sure what the problem is, if there is indeed a problem. What do you think?</p>
+</blockquote>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sla <span class="sc">&lt;</span> <span class="dv">400</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sla, tlp, vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sla, tlp, <span class="at">col =</span> <span class="fu">as.character</span>(tree))) <span class="sc">+</span></span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">group =</span> vernacular), <span class="at">method =</span> <span class="st">"lm"</span>, </span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">col =</span> <span class="st">"grey"</span>, <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">expression</span>(<span class="st">"SLA ["</span><span class="sc">~</span>cm<span class="sc">^</span>{<span class="dv">2</span>}<span class="sc">~</span>g<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}<span class="sc">~</span><span class="st">"]"</span>)) <span class="sc">+</span></span>
-<span id="cb47-11"><a href="#cb47-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="st">"TLP ["</span><span class="sc">~</span>MPa<span class="sc">~</span><span class="st">"]"</span>)) <span class="sc">+</span></span>
-<span id="cb47-12"><a href="#cb47-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> vernacular, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb47-13"><a href="#cb47-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">guide =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sla <span class="sc">&lt;</span> <span class="dv">400</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sla, tlp, vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sla, tlp, <span class="at">col =</span> <span class="fu">as.character</span>(tree))) <span class="sc">+</span></span>
+<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">group =</span> vernacular), <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">col =</span> <span class="st">"grey"</span>, <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">expression</span>(<span class="st">"SLA ["</span><span class="sc">~</span>cm<span class="sc">^</span>{<span class="dv">2</span>}<span class="sc">~</span>g<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}<span class="sc">~</span><span class="st">"]"</span>)) <span class="sc">+</span></span>
+<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="st">"TLP ["</span><span class="sc">~</span>MPa<span class="sc">~</span><span class="st">"]"</span>)) <span class="sc">+</span></span>
+<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> vernacular, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">guide =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1420,14 +1395,143 @@ Caused by warning:
 </div>
 </div>
 <blockquote class="blockquote">
-<p>There are still a few negative relationship =&gt; Joannès? See also once the treatment of the scans for the touching leaves have been redone.</p>
+<p>DECISION 9: There are still a few negative relationship =&gt; Joannès, what do you think? See also once the treatment of the scans for the touching leaves have been redone.</p>
 </blockquote>
 <!--
 However, based on that I have made an example of data junction in a consolidated table here: <https://docs.google.com/spreadsheets/d/1SSDmBBYNl_jP3GY5wUGkR-62cNiz63M46Ai6Z0CK1Cw/edit?usp=sharing>.
 -->
-<blockquote class="blockquote">
-<p>Sylvain: I also need the cleaned taxonomy I think.</p>
-</blockquote>
+</section>
+<section id="summary-on-number-of-samples-and-out-put-files" class="level2">
+<h2 class="anchored" data-anchor-id="summary-on-number-of-samples-and-out-put-files">Summary on number of samples and out put files</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, genus_sp, tree) <span class="sc">%&gt;%</span> </span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_leaf =</span> <span class="fu">n_distinct</span>(leaf)) <span class="sc">%&gt;%</span> </span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, genus_sp) <span class="sc">%&gt;%</span> </span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_tree =</span> <span class="fu">n_distinct</span>(tree),</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_n_leaf_per_ind =</span> <span class="fu">mean</span>(n_leaf)) <span class="sc">%&gt;%</span> </span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 11%">
+<col style="width: 58%">
+<col style="width: 7%">
+<col style="width: 21%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">vernacular</th>
+<th style="text-align: left;">genus_sp</th>
+<th style="text-align: right;">n_tree</th>
+<th style="text-align: right;">mean_n_leaf_per_ind</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ANDIR</td>
+<td style="text-align: left;">Carapa guianensis Aubl.</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4.40</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ANGEL</td>
+<td style="text-align: left;">Dinizia excelsa Ducke</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4.40</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CASTA</td>
+<td style="text-align: left;">Bertholletia excelsa H.B.</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CEDRU</td>
+<td style="text-align: left;">Vochysia maxima Ducke</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COPAI</td>
+<td style="text-align: left;">Copaifera reticulata Ducke</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CUPIU</td>
+<td style="text-align: left;">Goupia glabra Aubl.</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CUPIU</td>
+<td style="text-align: left;">Vismia cayennensis (Jacq.) Pers.</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FAVA</td>
+<td style="text-align: left;">Enterolobium schuburkii</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FAVAO</td>
+<td style="text-align: left;">Robrichia schomburgkii (Benth.) A.R.M.Luz &amp; E.R.Souza</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FREIJ</td>
+<td style="text-align: left;">Cordia goeldiana Huber</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">JARAN</td>
+<td style="text-align: left;">Lecythis lurida (Miers) S.A. Mori</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.50</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">JUTAI</td>
+<td style="text-align: left;">Hymenaea parvifolia Huber</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PARAP</td>
+<td style="text-align: left;">Jacaranda copaia (Aubl.) D. Don</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3.25</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PIQUI</td>
+<td style="text-align: left;">Caryocar villosum (Aubl.) Pers.</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3.00</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QUARU</td>
+<td style="text-align: left;">Vochysia maxima Ducke</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VIROL</td>
+<td style="text-align: left;">Virola michelii Heckel</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5.00</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
 </section>
