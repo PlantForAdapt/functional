@@ -2,9 +2,9 @@
   {
     "objectID": "index.html",
     "href": "index.html",
-    "title": "FEFACCION 2025",
+    "title": "functinal",
     "section": "",
-    "text": "Introduction\nfefaccion_2025 is a small project to help organise the FEFACCION 2025: (i) research school on ecophysiological approaches and (ii) workshop on forest data management and methods for modelling growth dynamics using the R programming language. Both hold in or near Santarém / Belterra, Para, Brazil.\nO fefaccion_2025 é um pequeno projeto para ajudar a organizar o FEFACCION 2025: (i) escola de pesquisa sobre abordagens ecofisiológicas e (ii) workshop sobre gerenciamento de dados florestais e métodos para modelar a dinâmica de crescimento usando a linguagem de programação R. Ambos serão realizados em Santarém / Belterra, Pará, Brasil, ou em suas proximidades.",
+    "text": "Introduction\nfunctional is a small project to help organise functional data acquisition in the PlantForAdapt project.",
     "crumbs": [
       "Introduction"
     ]
@@ -12,9 +12,9 @@
   {
     "objectID": "index.html#project",
     "href": "index.html#project",
-    "title": "FEFACCION 2025",
+    "title": "functinal",
     "section": "Project",
-    "text": "Project\nfefaccion_2025 includes:\n\nPresentation of the projects and analyses with associated documentation and figures:\n\nReproductive analyses in files.qmd\nResulting pages in docs/\nDocument structure definition in _quarto.yml\n\nDocuments (protocols, maps, field sheets) in documents/\nThe workshop presentation as a Quarto in workshop/\nData in data/ with:\n\nAll raw data in raw/\nAll derived data in derived/\n\nR environment definition with renv in renv/ and renv/lock\nR files (.Rbuildignore , .Rdata , .Rprofile , .Rhistory)\nGit and GitHub files (.gitignore , .github/)\nProject documentation (README.qmd , README.md , NEWS.md , LICENSE)",
+    "text": "Project\nfunctional includes:\n\nPresentation of the projects and analyses with associated documentation and figures:\n\nReproductive analyses in files.qmd\nResulting pages in docs/\nDocument structure definition in _quarto.yml\n\nDocuments (protocols, maps, field sheets) in documents/\nData in data/ with:\n\nAll raw data in raw/\nAll derived data in derived/\n\nR environment definition with renv in renv/ and renv/lock\nR files (.Rbuildignore , .Rdata , .Rprofile , .Rhistory)\nGit and GitHub files (.gitignore , .github/)\nProject documentation (README.qmd , README.md , NEWS.md , LICENSE)",
     "crumbs": [
       "Introduction"
     ]
@@ -22,7 +22,7 @@
   {
     "objectID": "index.html#people",
     "href": "index.html#people",
-    "title": "FEFACCION 2025",
+    "title": "functinal",
     "section": "People",
     "text": "People\n\nSylvain Schmitt (sylvain.schmitt@cirad.fr)\nGéraldine Derroire (geraldine.derroire@cirad.fr)\nJoannès Guillemot (joannes.guillemot@cirad.fr)\nLucas Mazzei de Freitas (lucas.mazzei@embrapa.br)",
     "crumbs": [
@@ -34,58 +34,95 @@
     "href": "10_preparation.html",
     "title": "Preparation",
     "section": "",
-    "text": "All informations and documents needed for the FEFACCION 2025 preparation.\nThe link toward the workshop for the Friday is available here Forest dynamic with R ."
+    "text": "All informations and documents needed for the functional sampling.",
+    "crumbs": [
+      "Preparation"
+    ]
   },
   {
     "objectID": "11_traits.html",
     "href": "11_traits.html",
     "title": "Traits",
     "section": "",
-    "text": "We will measure the following functional traits.\n\nLA: leaf area \\(cm^{2}\\)\nLDMC: leaf dry matter content \\(g.g^{-1}\\)\nLT: leaf thickness (\\(\\mu m\\))\nSLA: specific leaf area (\\(g.cm^{-2}\\))\nTLP: leaf water potential at which leaf cells lose turgor (\\(MPa\\)), a key drought tolerance trait.\nNmass: leaf nitrogen mass content (\\(mg.g^{-1}\\))\nPmass: leaf phosphorus mass content (\\(mg.g^{-1}\\))\nWD: wood density (\\(g.cm^{-3}\\),)\n\nThey will necessitate the following raw measurements:\n\nLeaf fresh thickness (LT)\nLeaf SPAD measurement (CC)\nLeaf fresh weight (LDMC, SLA, RWC)\nLeaf scan (LA, MajVLA)\nLeaf saturated weight (RWC)\nLeaf saturated water potential (TLP)\nWood dry mass (WDM)\nWood saturated volume (WSV)"
+    "text": "We will measure the following functional traits.\n\nLA: leaf area \\(cm^{2}\\)\nLDMC: leaf dry matter content \\(g.g^{-1}\\)\nLT: leaf thickness (\\(\\mu m\\))\nSLA: specific leaf area (\\(g.cm^{-2}\\))\nTLP: leaf water potential at which leaf cells lose turgor (\\(MPa\\)), a key drought tolerance trait.\nNmass: leaf nitrogen mass content (\\(mg.g^{-1}\\))\nPmass: leaf phosphorus mass content (\\(mg.g^{-1}\\))\nWD: wood density (\\(g.cm^{-3}\\),)\n\nThey will necessitate the following raw measurements:\n\nLeaf fresh thickness (LT)\nLeaf SPAD measurement (CC)\nLeaf fresh weight (LDMC, SLA, RWC)\nLeaf scan (LA, MajVLA)\nLeaf saturated weight (RWC)\nLeaf saturated water potential (TLP)\nWood dry mass (WDM)\nWood saturated volume (WSV)",
+    "crumbs": [
+      "Preparation",
+      "Traits"
+    ]
   },
   {
     "objectID": "12_protocols.html",
     "href": "12_protocols.html",
     "title": "Protocols",
     "section": "",
-    "text": "Links to all English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 and Portuguese 🇧🇷 protocol to print and share:\n\nSampling\n\nSampling protocol\n\nEnglish 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : sampling_en.pdf\nPortuguese 🇧🇷 : sampling_br.pdf\n\nDawkins index: dawkins.pdf\n\nField measurements:\n\nProtocol:\n\nEnglish 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : fresh_measurements_en.pdf\nPortuguese 🇧🇷 : fresh_measurements_br.pdf\n\n\nLab measurements\n\nTLP:\n\nEnglish 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : tlp_en.pdf\nPortuguese 🇧🇷 : tlp_br.pdf\n\nRWC:\n\nEnglish 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : rwc_en.pdf\nPortuguese 🇧🇷 : rwc_br.pdf"
+    "text": "Links to all English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 and Portuguese 🇧🇷 protocol to print and share:\n\nSampling\n\nSampling protocol\n\nEnglish 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : sampling_en.pdf\nPortuguese 🇧🇷 : sampling_br.pdf\n\nDawkins index: dawkins.pdf\n\nField measurements:\n\nProtocol:\n\nEnglish 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : fresh_measurements_en.pdf\nPortuguese 🇧🇷 : fresh_measurements_br.pdf\n\n\nLab measurements\n\nTLP:\n\nEnglish 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : tlp_en.pdf\nPortuguese 🇧🇷 : tlp_br.pdf\n\nRWC:\n\nEnglish 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : rwc_en.pdf\nPortuguese 🇧🇷 : rwc_br.pdf",
+    "crumbs": [
+      "Preparation",
+      "Protocols"
+    ]
+  },
+  {
+    "objectID": "13_material.html",
+    "href": "13_material.html",
+    "title": "Material",
+    "section": "",
+    "text": "Big material\nWe need to gather the following material.",
+    "crumbs": [
+      "Preparation",
+      "Material"
+    ]
   },
   {
     "objectID": "13_material.html#big-material",
     "href": "13_material.html#big-material",
     "title": "Material",
-    "section": "Big material",
-    "text": "Big material\n\nCamera\nBinoculars\nBig Shot\nBig Shot weight\nBig Shot wire\nHelmets (~15)\nMicrometer\nSPAD\nOven\nVapor pressure osmometer (Vapro 5520, Wescor, Logan, UT)\nVapro software (Vapro Lab Report)\nLiquid nitrogen\nFridge\nDistilled water\nPrecision balance\nScanner\nComputer"
+    "section": "",
+    "text": "Camera\nBinoculars\nBig Shot\nBig Shot weight\nBig Shot wire\nHelmets (~15)\nMicrometer\nSPAD\nOven\nVapor pressure osmometer (Vapro 5520, Wescor, Logan, UT)\nVapro software (Vapro Lab Report)\nLiquid nitrogen\nFridge\nDistilled water\nPrecision balance\nScanner\nComputer",
+    "crumbs": [
+      "Preparation",
+      "Material"
+    ]
   },
   {
     "objectID": "13_material.html#small-material",
     "href": "13_material.html#small-material",
     "title": "Material",
     "section": "Small material",
-    "text": "Small material\n\nField support\nAA batteries\nFlat batteries\nCisors\nZiplocks\nLabels\nTissues\nBin bafs\nPlastic box\nMister\nPencil\nMarkers\nMaps\nField notebook\nPruning shears\nEnvelopes\nJournal\nPress\nPaper towel\nMetal tea ball\nTin foil\nNeedle\nLiquid nitrogen gloves\nLiquid nitrogen goggles\nLiquid nitrogen contenant\n2 Tweezers\nCork borer"
+    "text": "Small material\n\nField support\nAA batteries\nFlat batteries\nCisors\nZiplocks\nLabels\nTissues\nBin bafs\nPlastic box\nMister\nPencil\nMarkers\nMaps\nField notebook\nPruning shears\nEnvelopes\nJournal\nPress\nPaper towel\nMetal tea ball\nTin foil\nNeedle\nLiquid nitrogen gloves\nLiquid nitrogen goggles\nLiquid nitrogen contenant\n2 Tweezers\nCork borer",
+    "crumbs": [
+      "Preparation",
+      "Material"
+    ]
   },
   {
-    "objectID": "14_maps.html",
-    "href": "14_maps.html",
-    "title": "Maps",
+    "objectID": "14_belterra_maps.html",
+    "href": "14_belterra_maps.html",
+    "title": "Belterra - Maps",
     "section": "",
-    "text": "We will collect the following species:\n\n\nCode\nforest %&gt;% \n  group_by(name, code) %&gt;% \n  summarise(N = n()) %&gt;% \n  arrange(desc(N)) %&gt;% \n  knitr::kable()\n\n\n\n\n\nname\ncode\nN\n\n\n\n\nCOPAIBA\nCOPAI\n11\n\n\nTATAJUBA\nTATAJ\n11\n\n\nANDIROBA\nANDIR\n10\n\n\nANGELIM VERMELHO\nANGEL\n10\n\n\nARARAQUANGA\nARARA\n10\n\n\nCASTANHA DO PARA\nCASTA\n10\n\n\nCEDRURANA\nCEDRU\n10\n\n\nCUMARU\nCUMAR\n10\n\n\nCUPIUBA\nCUPIU\n10\n\n\nFAVA\nFAVA\n10\n\n\nFAVA AMARGA\nFAVAA\n10\n\n\nFREIJO\nFREIJ\n10\n\n\nJUTAI\nJUTAI\n10\n\n\nMARUPA\nMARUP\n10\n\n\nMELANCIEIRA\nMELAN\n10\n\n\nPARAPARA\nPARAP\n10\n\n\nPIQUIA\nPIQUI\n10\n\n\nQUARUBA\nQUARU\n10\n\n\nTACHI BRANCO\nTACHI\n10\n\n\nJARANA\nJARAN\n9\n\n\nVIROLA CASCA DE VIDRO\nVIROL\n9\n\n\nFAVA ORELHA DE MACACO\nFAVAO\n6\n\n\n\n\n\nWe selected the 10 biggest individuals per species resulting in the following maps of individuals to be collected:\n\n\nCode\nggplot() +\n  geom_sf(data = roads) +\n  geom_sf(data = path) +\n  geom_sf(data = inventory, aes(col = code)) +\n  theme_bw()\n\n\n\n\n\n\n\nCode\ng &lt;- ggplot() +\n  geom_sf(data = path, col = \"darkgrey\") +\n  geom_sf(data = inventory) +\n  ggrepel::geom_text_repel(\n      data = inventory,\n      aes(label = label, geometry = geometry),\n      stat = \"sf_coordinates\",\n      size = 2, max.overlaps = 20) +\n  theme_bw() +\n  theme(axis.title = element_blank(), axis.text = element_blank(),\n        axis.ticks = element_blank(), axis.line = element_blank())\nggsave(g, file = \"documents/map.pdf\",\n       width = 420, height = 297, unit = 'mm', dpi = 300)\nknitr::include_graphics(\"documents/map.pdf\")"
+    "text": "We will collect the following species:\n\n\nCode\nforest %&gt;% \n  group_by(name, code) %&gt;% \n  summarise(N = n()) %&gt;% \n  arrange(desc(N)) %&gt;% \n  knitr::kable()\n\n\n\n\n\nname\ncode\nN\n\n\n\n\nCOPAIBA\nCOPAI\n11\n\n\nTATAJUBA\nTATAJ\n11\n\n\nANDIROBA\nANDIR\n10\n\n\nANGELIM VERMELHO\nANGEL\n10\n\n\nARARAQUANGA\nARARA\n10\n\n\nCASTANHA DO PARA\nCASTA\n10\n\n\nCEDRURANA\nCEDRU\n10\n\n\nCUMARU\nCUMAR\n10\n\n\nCUPIUBA\nCUPIU\n10\n\n\nFAVA\nFAVA\n10\n\n\nFAVA AMARGA\nFAVAA\n10\n\n\nFREIJO\nFREIJ\n10\n\n\nJUTAI\nJUTAI\n10\n\n\nMARUPA\nMARUP\n10\n\n\nMELANCIEIRA\nMELAN\n10\n\n\nPARAPARA\nPARAP\n10\n\n\nPIQUIA\nPIQUI\n10\n\n\nQUARUBA\nQUARU\n10\n\n\nTACHI BRANCO\nTACHI\n10\n\n\nJARANA\nJARAN\n9\n\n\nVIROLA CASCA DE VIDRO\nVIROL\n9\n\n\nFAVA ORELHA DE MACACO\nFAVAO\n6\n\n\n\n\n\nWe selected the 10 biggest individuals per species resulting in the following maps of individuals to be collected:\n\n\nCode\nggplot() +\n  geom_sf(data = roads) +\n  geom_sf(data = path) +\n  geom_sf(data = inventory, aes(col = code)) +\n  theme_bw()\n\n\n\n\n\n\n\n\n\n\n\nCode\ng &lt;- ggplot() +\n  geom_sf(data = path, col = \"darkgrey\") +\n  geom_sf(data = inventory) +\n  ggrepel::geom_text_repel(\n      data = inventory,\n      aes(label = label, geometry = geometry),\n      stat = \"sf_coordinates\",\n      size = 2, max.overlaps = 20) +\n  theme_bw() +\n  theme(axis.title = element_blank(), axis.text = element_blank(),\n        axis.ticks = element_blank(), axis.line = element_blank())\nggsave(g, file = \"documents/map.pdf\",\n       width = 420, height = 297, unit = 'mm', dpi = 300)\nknitr::include_graphics(\"documents/map.pdf\")",
+    "crumbs": [
+      "Preparation",
+      "Belterra - Maps"
+    ]
   },
   {
-    "objectID": "20_cleaning.html",
-    "href": "20_cleaning.html",
-    "title": "Cleaning",
+    "objectID": "20_belterra25_cleaning.html",
+    "href": "20_belterra25_cleaning.html",
+    "title": "Belterra 2025 - Cleaning",
     "section": "",
-    "text": "Cleaning of traits raw measurement and functional traits assembly."
+    "text": "Cleaning of traits raw measurement and functional traits assembly.",
+    "crumbs": [
+      "Belterra 2025 - Cleaning"
+    ]
   },
   {
     "objectID": "21_tlp.html",
     "href": "21_tlp.html",
     "title": "TLP",
     "section": "",
-    "text": "We extract the minimum osmometer measurement across the 10 measurement of one cycle per sample. We then compute \\(\\pi_0=\\frac{-2.5}{100 \\times osmo}\\) using Van’t Hoff equation. Finally we computed TLP as \\(\\pi_{TLP} = 0.0832 \\times \\pi_0 - 0.631\\) following Bartlett et al. (2012).\n\n\nCode\nlapply(1:5, function(i) \n  read_xlsx(\"data/raw/osmo/FEF25_TLP-12072025.xlsx\", sheet = i)) %&gt;% \n  bind_rows() %&gt;% \n  rowwise() %&gt;%\n  mutate(osmo = min(c_across(MES1:MES10), na.rm = TRUE)) %&gt;%\n  ungroup() %&gt;% \n  select (1:3, osmo) %&gt;% \n  mutate(pio = -2.5/1000 * osmo) %&gt;%\n  mutate(tlp = 0.832 * pio - 0.631) %&gt;% \n  rename(vernacular = Especies, tree = Idtree, leaf = Idleaf) %&gt;% \n  select(-osmo, -pio) %&gt;% \n  write_tsv(\"data/derived/tlp_raw.tsv\")\n\n\n\n\nCode\nread_tsv(\"data/derived/tlp_raw.tsv\") %&gt;% \n  group_by(vernacular) %&gt;% \n  mutate(tlp_s = mean(tlp)) %&gt;% \n  ungroup() %&gt;% \n  mutate(vernacular = fct_reorder(vernacular, tlp_s)) %&gt;% \n  ggplot(aes(vernacular,\n             tlp)) +\n  geom_boxplot() +\n  geom_jitter(aes(col = as.factor(tree)),\n              width = 0.2, size = 3) + \n  theme_bw() +\n  labs(x = \"Vernacular name\", y = \"TLP [ MPa ]\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nBartlett, Megan K, Christine Scoffoni, Rico Ardy, Ya Zhang, Shanwen Sun, Kunfang Cao, and Lawren Sack. 2012. “Rapid Determination of Comparative Drought Tolerance Traits: Using an Osmometer to Predict Turgor Loss Point.” Methods in Ecology and Evolution 3 (5): 880–88.",
+    "text": "We extract the minimum osmometer measurement across the 10 measurement of one cycle per sample. We then compute \\(\\pi_0=\\frac{-2.5}{100 \\times osmo}\\) using Van’t Hoff equation. Finally we computed TLP as \\(\\pi_{TLP} = 0.0832 \\times \\pi_0 - 0.631\\) following Bartlett et al. (2012).\n\n\nCode\nlapply(1:5, function(i) \n  read_xlsx(\"data/raw/osmo/FEF25_TLP-12072025.xlsx\", sheet = i)) %&gt;% \n  bind_rows() %&gt;% \n  rowwise() %&gt;%\n  mutate(osmo = min(c_across(MES1:MES10), na.rm = TRUE)) %&gt;%\n  ungroup() %&gt;% \n  select (1:3, osmo) %&gt;% \n  mutate(pio = -2.5/1000 * osmo) %&gt;%\n  mutate(tlp = 0.832 * pio - 0.631) %&gt;% \n  rename(vernacular = Especies, tree = Idtree, leaf = Idleaf) %&gt;% \n  select(-osmo, -pio) %&gt;% \n  write_tsv(\"data/derived/tlp_raw.tsv\")\n\n\n\n\nCode\nread_tsv(\"data/derived/tlp_raw.tsv\") %&gt;% \n  group_by(vernacular) %&gt;% \n  mutate(tlp_s = mean(tlp)) %&gt;% \n  ungroup() %&gt;% \n  mutate(vernacular = fct_reorder(vernacular, tlp_s)) %&gt;% \n  ggplot(aes(vernacular,\n             tlp)) +\n  geom_boxplot() +\n  geom_jitter(aes(col = as.factor(tree)),\n              width = 0.2, size = 3) + \n  theme_bw() +\n  labs(x = \"Vernacular name\", y = \"TLP [ MPa ]\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"none\")\n\n\n\n\n\n\n\n\n\n\n\n\n\nBartlett, Megan K, Christine Scoffoni, Rico Ardy, et al. 2012. “Rapid Determination of Comparative Drought Tolerance Traits: Using an Osmometer to Predict Turgor Loss Point.” Methods in Ecology and Evolution 3 (5): 880–88.",
     "crumbs": [
-      "Cleaning",
+      "Belterra 2025 - Cleaning",
       "TLP"
     ]
   },
@@ -94,9 +131,20 @@
     "href": "22_scans.html",
     "title": "Scans",
     "section": "",
-    "text": "Manual check\nMasks generated with the option allowing holes to be filled were manually inspected for (NA when no existing mask):\nRaw leaf scans are manually checked for the following problems, but this is highly subjective:",
+    "text": "Manual check\nWe first use the following bash code to aggregate images and convert pdf to png.\nWe then use ImageJ (https://imagej.net/ij/download.html) with the following steps:\nThe intermediate threshold images with detected are saved for manual check.\nMasks generated with the option allowing holes to be filled were manually inspected for (NA when no existing mask):\nRaw leaf scans are manually checked for the following problems, but this is highly subjective:",
     "crumbs": [
-      "Cleaning",
+      "Belterra 2025 - Cleaning",
+      "Scans"
+    ]
+  },
+  {
+    "objectID": "22_scans.html#manual-check",
+    "href": "22_scans.html#manual-check",
+    "title": "Scans",
+    "section": "",
+    "text": "missing_part: missing part in the leave due to herbivory or other damage: 0 no missing part, 1 moderate missing part, and 2 big missing part =&gt; code 1 can probably be included, but code 2 should probably be remove for LA\nanomaly: any anomaly in the generated masks:\n\nok: no problem\nabn_area: abnormal area are masked, detected because they don’t have the shape of a leaf. Looking at the corresponding scan, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part. So they are interpreted as holes and filled. =&gt; For these individuals (or maybe species), consider the unfilled area even for the LA. TO DO if you agree\nfol_touch: this is the same problem than abn_area, except for the FAVA for which the foliolules are actually touching and form a compact area on the mask.=&gt; For these individuals (or maybe species), consider the unfilled area even for the LA TO DO if you agree\nmiss_petiolul: for double-compound leaves, the petiolule is not included, when it should have been\npetiol_included: the petiole has been included, when it should not have\none_fol: just one foliole when the species has compound leaves\n\ntouching: 0 no part touching, 1 leaf touching leading to part of the leaf not taken into account, 2 leaf touching leading to all the leaf not taken into account =&gt; TO DO (Sylvain?) to be corrected by adding a black line with a photo editor?\n\n\n\nok: no problem (or very small area concerned)\ndamaged: part of the leaf or the whole leaf appears black/brown or yellowish on the scan or there are any other damages (except missing part of the leaf) suggesting that the leaf is decaying or is attacked by insects\nyoung: the bright green colour of the leave compared to the other leaves from the individual and/or the species suggest non mature leaves",
+    "crumbs": [
+      "Belterra 2025 - Cleaning",
       "Scans"
     ]
   },
@@ -107,7 +155,7 @@
     "section": "",
     "text": "From the data we computed leaves mean thickness (LT, µm) and saturated weight (SW, g).\n\n\nCode\nlist.files(\"data/raw/hydrated/\", full.names = TRUE) %&gt;% \n  lapply(read_xls, col_types = \"text\") %&gt;% \n  bind_rows() %&gt;% \n  rename_all(tolower) %&gt;% \n  rename_all(str_squish) %&gt;% \n  rename(vernacular = especies, tree = idtree, leaf = idleaf, \n         lt1 = esp1, lt2 = esp2, lt3 = esp3, sw = \"peso hydratado\", \n         comment = comentarios) %&gt;% \n  mutate_at(c(\"lt1\", \"lt2\", \"lt3\", \"sw\"), ~gsub(\",\", \".\", .)) %&gt;% \n  mutate_at(c(\"lt1\", \"lt2\", \"lt3\", \"sw\"), as.numeric) %&gt;% \n  rowwise() %&gt;% \n  mutate(lt = mean(c(lt1, lt2, lt3))) %&gt;% \n  ungroup() %&gt;% \n  select(-lt1, -lt2, -lt3) %&gt;% \n  select(vernacular, tree, leaf, lt, sw, comment) %&gt;% \n  write_tsv(\"data/derived/hydrated_raw.tsv\")\n\n\n\n\nCode\nread_tsv(\"data/derived/hydrated_raw.tsv\") %&gt;% \n  gather(trait, value, -vernacular, -tree, -leaf, -comment) %&gt;% \n  mutate(trait = recode(trait, \"lt\" = \"LT [ µm ]\",\n                        \"sw\" = \"SW [ g ]\")) %&gt;% \n  ggplot(aes(vernacular,\n             value)) +\n  geom_boxplot() +\n  geom_jitter(aes(col = as.factor(tree)),\n              width = 0.2, size = 3) + \n  theme_bw() +\n  coord_flip() +\n  facet_wrap(~ trait, scales = \"free_x\") +\n  xlab(\"Vernacular name\") + ylab(\"\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"none\")",
     "crumbs": [
-      "Cleaning",
+      "Belterra 2025 - Cleaning",
       "Hydrated"
     ]
   },
@@ -118,7 +166,7 @@
     "section": "",
     "text": "From the data we computed leaves dry weight (DW, g).\n\n\nCode\nread_xlsx(\"data/raw/dry_weight.xlsx\") %&gt;% \n  rename_all(tolower) %&gt;% \n  rename_all(str_squish) %&gt;% \n  rename(vernacular = especies, tree = idtree, leaf = idleaf, \n         dw = \"peso seco 72h\", comment = comment.) %&gt;% \n  write_tsv(\"data/derived/dry_raw.tsv\")\n\n\n\n\nCode\nread_tsv(\"data/derived/dry_raw.tsv\") %&gt;% \n  ggplot(aes(vernacular,\n             dw)) +\n  geom_boxplot() +\n  geom_jitter(aes(col = as.factor(tree)),\n              width = 0.2, size = 3) + \n  theme_bw() +\n  coord_flip() +\n  xlab(\"Vernacular name\") + ylab(\"DW [ g ]\") +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"none\")",
     "crumbs": [
-      "Cleaning",
+      "Belterra 2025 - Cleaning",
       "Dry"
     ]
   },
@@ -127,56 +175,9 @@
     "href": "25_junction.html",
     "title": "Junction",
     "section": "",
-    "text": "Correcting typos in vernacular codes and tree ID\nSee the issues here and here to understand the rationale for these corrections.\nCode\nload_correct &lt;- function(my_file, type =\"tsv\") {\n  if (type == \"tsv\") {\n    data &lt;- read_tsv(my_file, show_col_types = FALSE)\n  }\n  if (type == \"csv\") {\n    data &lt;- read_csv(my_file, show_col_types = FALSE)\n  }\n  data &lt;- data %&gt;% mutate(\n    vernacular = case_match(vernacular,\n                            \"CUPUI\" ~ \"CUPIU\",\n                            .default = vernacular),\n    vernacular = case_match(vernacular,\n                            \"PEQUI\" ~ \"PIQUI\",\n                            .default = vernacular),\n    tree = case_match(tree,\n                      8833 ~ 8883,\n                      8383 ~ 8883,\n                      6616 ~ 6617,\n                      7734 ~ 7334,\n                      .default = tree),\n    vernacular = if_else(tree %in% c(5685,6513), \"FAVAO\", vernacular)\n  ) \n  if(\"comment\" %in% colnames(data)) {\n    data &lt;-  data %&gt;% select(-comment)\n  }\n  data\n}\n\ntlp &lt;- load_correct(\"data/derived/tlp_raw.tsv\")\nla &lt;- load_correct(\"data/derived/la.tsv\") \nhydrated &lt;- load_correct(\"data/derived/hydrated_raw.tsv\")\ndry &lt;- load_correct(\"data/derived/dry_raw.tsv\")\ncheck &lt;- load_correct(\"data/raw/manual_check.csv\", type = \"csv\")",
+    "text": "Correcting typos in vernacular codes and tree ID\nSee the issues here and here to understand the rationale for these corrections.\nCode\nload_correct &lt;- function(my_file, type =\"tsv\") {\n  if (type == \"tsv\") {\n    data &lt;- read_tsv(my_file, show_col_types = FALSE)\n  }\n  if (type == \"csv\") {\n    data &lt;- read_csv(my_file, show_col_types = FALSE)\n  }\n  data &lt;- data %&gt;% mutate(\n    vernacular = case_match(vernacular,\n                            \"CUPUI\" ~ \"CUPIU\",\n                            .default = vernacular),\n    vernacular = case_match(vernacular,\n                            \"PEQUI\" ~ \"PIQUI\",\n                            .default = vernacular),\n    tree = case_match(tree,\n                      8833 ~ 8883,\n                      8383 ~ 8883,\n                      6616 ~ 6617,\n                      7734 ~ 7334,\n                      .default = tree),\n    vernacular = if_else(tree %in% c(5685,6513), \"FAVAO\", vernacular)\n  ) \n  if(\"comment\" %in% colnames(data)) {\n    data &lt;-  data %&gt;% select(-comment)\n  }\n  data\n}\n\ntlp &lt;- load_correct(\"data/derived/tlp_raw.tsv\")\n\n\nWarning: There was 1 warning in `mutate()`.\nℹ In argument: `vernacular = case_match(vernacular, \"CUPUI\" ~ \"CUPIU\", .default\n  = vernacular)`.\nCaused by warning:\n! `case_match()` was deprecated in dplyr 1.2.0.\nℹ Please use `recode_values()` instead.\n\n\nCode\nla &lt;- load_correct(\"data/derived/la.tsv\") \nhydrated &lt;- load_correct(\"data/derived/hydrated_raw.tsv\")\ndry &lt;- load_correct(\"data/derived/dry_raw.tsv\")\ncheck &lt;- load_correct(\"data/raw/manual_check.csv\", type = \"csv\")",
     "crumbs": [
-      "Cleaning",
-      "Junction"
-    ]
-  },
-  {
-    "objectID": "97_meeting.html#discussion-the-program",
-    "href": "97_meeting.html#discussion-the-program",
-    "title": "Meetings",
-    "section": "25/05/16 - Discussion the program",
-    "text": "25/05/16 - Discussion the program\n\nParticipants: Sylvain + Géraldine\nWorkshop on growth modelling:\n\ncan be done on Friday 11th afternoon (assuming we can keep the Saturday to finish the traits measurements JG, SS and GD)\nintegrated in the field school on traits + open to others people\nsend some resources to get familiar with R before the workshop\nfocus the workshop on\n\ncalculation of growth\nlog-log model with brms\nCanham model with brsm\nlm on relationship growth ~ traits with growth data from Ecology Letters paper\nalternativelly: allometry H-D + link Hlim / traits\n\ndata: Tapajos open data / Beleterra plantation (probably difficult) / P6 Paracou\n\nWorkshop traits\n\ntry to do everything in residencial in Belterra if we can work in Embrapa Belterra + have a “privatised” poussada\ndo some short apero bate-papo:\n\nJoannès: ecophy/traits\nGéraldine: use of traits in correlative growth models\nSylvain: use of traits in process-based models\n\n\nAdditional questions for Lucas\n\ninstall the lab in Empraba Belterra (&lt;10 people)?\naccess to lab on week-ends (first Sunday to prepare + last Saturday to finish up)?\npossible to find a poussada with a shared space?"
-  },
-  {
-    "objectID": "99_references.html",
-    "href": "99_references.html",
-    "title": "References",
-    "section": "",
-    "text": "Bartlett, Megan K, Christine Scoffoni, Rico Ardy, Ya Zhang, Shanwen Sun,\nKunfang Cao, and Lawren Sack. 2012. “Rapid Determination of\nComparative Drought Tolerance Traits: Using an Osmometer to Predict\nTurgor Loss Point.” Methods in Ecology and Evolution 3\n(5): 880–88."
-  },
-  {
-    "objectID": "22_scans.html#manual-check",
-    "href": "22_scans.html#manual-check",
-    "title": "Scans",
-    "section": "",
-    "text": "missing_part: missing part in the leave due to herbivory or other damage: 0 no missing part, 1 moderate missing part, and 2 big missing part =&gt; code 1 can probably be included, but code 2 should probably be remove for LA\nanomaly: any anomaly in the generated masks:\n\nok: no problem\nabn_area: abnormal area are masked, detected because they don’t have the shape of a leaf. Looking at the corresponding scan, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part. So they are interpreted as holes and filled. =&gt; For these individuals (or maybe species), consider the unfilled area even for the LA. TO DO if you agree\nfol_touch: this is the same problem than abn_area, except for the FAVA for which the foliolules are actually touching and form a compact area on the mask.=&gt; For these individuals (or maybe species), consider the unfilled area even for the LA TO DO if you agree\nmiss_petiolul: for double-compound leaves, the petiolule is not included, when it should have been\npetiol_included: the petiole has been included, when it should not have\none_fol: just one foliole when the species has compound leaves\n\ntouching: 0 no part touching, 1 leaf touching leading to part of the leaf not taken into account, 2 leaf touching leading to all the leaf not taken into account =&gt; TO DO (Sylvain?) to be corrected by adding a black line with a photo editor?\n\n\n\nok: no problem (or very small area concerned)\ndamaged: part of the leaf or the whole leaf appears black/brown or yellowish on the scan or there are any other damages (except missing part of the leaf) suggesting that the leaf is decaying or is attacked by insects\nyoung: the bright green colour of the leave compared to the other leaves from the individual and/or the species suggest non mature leaves",
-    "crumbs": [
-      "Cleaning",
-      "Scans"
-    ]
-  },
-  {
-    "objectID": "25_junction.html#check-for-duplicated-leaves-in-each-dataset",
-    "href": "25_junction.html#check-for-duplicated-leaves-in-each-dataset",
-    "title": "Junction",
-    "section": "Check for duplicated leaves in each dataset",
-    "text": "Check for duplicated leaves in each dataset\n\n\nCode\ndupl &lt;- tlp %&gt;% \n  group_by(vernacular, tree, leaf) %&gt;% \n  count() %&gt;% \n  filter(n&gt;1)\nif(nrow(dupl) == 0) {\n  print(\"There are no duplicated leaves in tlp data.\") \n} else { \n  print(\"The following leaves are duplicated in tlp data.\")\n  print(dupl)\n}\n\n\n[1] \"The following leaves are duplicated in tlp data.\"\n# A tibble: 3 × 4\n# Groups:   vernacular, tree, leaf [3]\n  vernacular  tree  leaf     n\n  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1 COPAI       6896     1     2\n2 COPAI       6910     1     2\n3 COPAI       6910     2     2\n\n\n\n\nCode\ndupl &lt;- la %&gt;% \n  group_by(vernacular, tree, leaf) %&gt;% \n  count() %&gt;% \n  filter(n&gt;1)\nif(nrow(dupl) == 0) {\n  print(\"There are no duplicated leaves in la data.\") \n} else { \n  print(\"The following leaves are duplicated in la data.\")\n  print(dupl)\n}\n\n\n[1] \"There are no duplicated leaves in la data.\"\n\n\n\n\nCode\ndupl &lt;- hydrated %&gt;% \n  group_by(vernacular, tree, leaf) %&gt;% \n  count() %&gt;% \n  filter(n&gt;1)\nif(nrow(dupl) == 0) {\n  print(\"There are no duplicated leaves in hydrated data.\") \n} else { \n  print(\"The following leaves are duplicated in hydrated data.\")\n  print(dupl)\n}\n\n\n[1] \"The following leaves are duplicated in hydrated data.\"\n# A tibble: 2 × 4\n# Groups:   vernacular, tree, leaf [2]\n  vernacular  tree  leaf     n\n  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1 COPAI       6910     1     2\n2 COPAI       6910     2     2\n\n\n\n\nCode\ndupl &lt;- dry %&gt;% \n  group_by(vernacular, tree, leaf) %&gt;% \n  count() %&gt;% \n  filter(n&gt;1)\nif(nrow(dupl) == 0) {\n  print(\"There are no duplicated leaves in dry data.\") \n} else { \n  print(\"The following leaves are duplicated in dry data.\")\n  print(dupl)\n}\n\n\n[1] \"The following leaves are duplicated in dry data.\"\n# A tibble: 2 × 4\n# Groups:   vernacular, tree, leaf [2]\n  vernacular  tree  leaf     n\n  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1 COPAI       6910     1     2\n2 COPAI       6910     2     2\n\n\n\nDecide what to do with duplicated leaves and update what’s follow.\n\n\n\nCode\ntlp %&gt;% filter(tree == 6910 & leaf %in% c(1,2)) %&gt;%\n  distinct() %&gt;% \n  count\n\nhydrated %&gt;% filter(tree == 6910 & leaf %in% c(1,2)) %&gt;%\n  distinct() %&gt;% \n  count\n\ndry %&gt;% filter(tree == 6910 & leaf %in% c(1,2)) %&gt;%\n  distinct() %&gt;% \n  count\n\n\nLeaves 1 and 2 of COPAI 6910 are duplicated in tlp, hydrated and dry (each time with different values), but they have just one scan each.\n\n\nCode\ntlp %&gt;% filter(tree == 6896 & leaf %in% c(1,2)) %&gt;%\n  distinct() %&gt;% \n  count\n\n\nLeaf 1 of COPAI 6896 is dupliated in tlp only (each time with different values), but there is no leaf 2.",
-    "crumbs": [
-      "Cleaning",
-      "Junction"
-    ]
-  },
-  {
-    "objectID": "25_junction.html#check-for-missing-measurments-in-some-datasets",
-    "href": "25_junction.html#check-for-missing-measurments-in-some-datasets",
-    "title": "Junction",
-    "section": "Check for missing measurments in some datasets",
-    "text": "Check for missing measurments in some datasets\n\n\nCode\nsymdiff2 &lt;- function(x, y, by) {\n  x_sel &lt;- select(x, all_of(by))\n  y_sel &lt;- select(y, all_of(by))\n  diff &lt;- union(setdiff(x_sel, y_sel), setdiff(y_sel, x_sel))\n  if(nrow(diff) == 0) {\n    print(\"There is a complete overlap between the two datasets\")\n  } else {\n    print(\"The following tree/leaf are present in only one of the two datasets\")\n    diff\n  }\n}\n\n\nBetween tlp and hydrated (checking only differences in individuals, are less leaves have been measured for tlp):\n\n\nCode\nsymdiff2(tlp, hydrated, c(\"vernacular\", \"tree\"))\n\n\n[1] \"The following tree/leaf are present in only one of the two datasets\"\n\n\n# A tibble: 3 × 2\n  vernacular  tree\n  &lt;chr&gt;      &lt;dbl&gt;\n1 FAVA        5455\n2 FAVAO       6513\n3 FAVAO       5685\n\n\nBetween tlp and la (checking only differences in individuals, are less leaves have been measured for tlp):\n\n\nCode\nsymdiff2(tlp, la, c(\"vernacular\", \"tree\"))\n\n\n[1] \"The following tree/leaf are present in only one of the two datasets\"\n\n\n# A tibble: 3 × 2\n  vernacular  tree\n  &lt;chr&gt;      &lt;dbl&gt;\n1 FAVA        5455\n2 FAVAO       6513\n3 FAVAO       5685\n\n\nBetween tlp and dry (checking only differences in individuals, are less leaves have been measured for tlp):\n\n\nCode\nsymdiff2(tlp, dry, c(\"vernacular\", \"tree\"))\n\n\n[1] \"The following tree/leaf are present in only one of the two datasets\"\n\n\n# A tibble: 3 × 2\n  vernacular  tree\n  &lt;chr&gt;      &lt;dbl&gt;\n1 FAVAO       6513\n2 FAVA        5455\n3 FAVAO       5685\n\n\n\nOnly FAVAO and FAVA differs, which is normal as tlp was not possible to measure for these species.\n\nBetween hydrated and dry (checking down to the leaf level):\n\n\nCode\nsymdiff2(hydrated, dry, c(\"vernacular\", \"tree\", \"leaf\"))\n\n\n[1] \"There is a complete overlap between the two datasets\"\n\n\nBetween hydrated and la (checking down to the leaf level):\n\n\nCode\nsymdiff2(hydrated, la, c(\"vernacular\", \"tree\", \"leaf\"))\n\n\n[1] \"There is a complete overlap between the two datasets\"\n\n\nBetween dry and la (checking down to the leaf level):\n\n\nCode\nsymdiff2(dry, la, c(\"vernacular\", \"tree\", \"leaf\"))\n\n\n[1] \"There is a complete overlap between the two datasets\"",
-    "crumbs": [
-      "Cleaning",
+      "Belterra 2025 - Cleaning",
       "Junction"
     ]
   },
@@ -187,7 +188,7 @@
     "section": "Checking for duplicated leaves in each dataset",
     "text": "Checking for duplicated leaves in each dataset\n\n\nCode\ndupl &lt;- tlp %&gt;% \n  group_by(vernacular, tree, leaf) %&gt;% \n  count() %&gt;% \n  filter(n&gt;1)\nif(nrow(dupl) == 0) {\n  print(\"There are no duplicated leaves in tlp data.\") \n} else { \n  print(\"The following leaves are duplicated in tlp data.\")\n  dupl %&gt;% kable()\n}\n\n\n[1] \"The following leaves are duplicated in tlp data.\"\n\n\n\n\n\nvernacular\ntree\nleaf\nn\n\n\n\n\nCOPAI\n6896\n1\n2\n\n\nCOPAI\n6910\n1\n2\n\n\nCOPAI\n6910\n2\n2\n\n\n\n\n\nLook at the values for the duplicated =&gt; nothing special…\n\n\nCode\ntlp %&gt;% filter(tree %in% c(6896, 6910)) %&gt;% kable()\n\n\n\n\n\nvernacular\ntree\nleaf\ntlp\n\n\n\n\nCOPAI\n6910\n1\n-2.33244\n\n\nCOPAI\n6910\n2\n-2.43228\n\n\nCOPAI\n6896\n1\n-2.37820\n\n\nCOPAI\n6896\n1\n-2.45516\n\n\nCOPAI\n6910\n1\n-2.46764\n\n\nCOPAI\n6910\n2\n-2.40940\n\n\n\n\n\n\n\nCode\ndupl &lt;- la %&gt;% \n  group_by(vernacular, tree, leaf) %&gt;% \n  count() %&gt;% \n  filter(n&gt;1)\nif(nrow(dupl) == 0) {\n  print(\"There are no duplicated leaves in la data.\") \n} else { \n  print(\"The following leaves are duplicated in la data.\")\n  dupl %&gt;% kable()\n}\n\n\n[1] \"There are no duplicated leaves in la data.\"\n\n\n\n\nCode\ndupl &lt;- hydrated %&gt;% \n  group_by(vernacular, tree, leaf) %&gt;% \n  count() %&gt;% \n  filter(n&gt;1)\nif(nrow(dupl) == 0) {\n  print(\"There are no duplicated leaves in hydrated data.\") \n} else { \n  print(\"The following leaves are duplicated in hydrated data.\")\n  dupl %&gt;% kable()\n}\n\n\n[1] \"The following leaves are duplicated in hydrated data.\"\n\n\n\n\n\nvernacular\ntree\nleaf\nn\n\n\n\n\nCOPAI\n6910\n1\n2\n\n\nCOPAI\n6910\n2\n2\n\n\n\n\n\nLook at the values for the duplicated =&gt; 2 duplicated leaves have a very high weight\n\n\nCode\nhydrated %&gt;% filter(tree == 6910) %&gt;% kable()\n\n\n\n\n\nvernacular\ntree\nleaf\nlt\nsw\n\n\n\n\nCOPAI\n6910\n1\n0.1690000\n0.95\n\n\nCOPAI\n6910\n2\n0.1813333\n1.21\n\n\nCOPAI\n6910\n1\n0.1493333\n0.18\n\n\nCOPAI\n6910\n2\n0.2000000\n0.19\n\n\nCOPAI\n6910\n3\n0.1580000\n0.16\n\n\nCOPAI\n6910\n4\n0.2170000\n0.14\n\n\nCOPAI\n6910\n5\n0.2073333\n0.25\n\n\n\n\n\n\n\nCode\ndupl &lt;- dry %&gt;% \n  group_by(vernacular, tree, leaf) %&gt;% \n  count() %&gt;% \n  filter(n&gt;1)\nif(nrow(dupl) == 0) {\n  print(\"There are no duplicated leaves in dry data.\") \n} else { \n  print(\"The following leaves are duplicated in dry data.\")\n  dupl %&gt;% kable()\n}\n\n\n[1] \"The following leaves are duplicated in dry data.\"\n\n\n\n\n\nvernacular\ntree\nleaf\nn\n\n\n\n\nCOPAI\n6910\n1\n2\n\n\nCOPAI\n6910\n2\n2\n\n\n\n\n\nLook at the values for the duplicated =&gt; 2 duplicated leaves have a very high weight\n\n\nCode\ndry %&gt;% filter(tree == 6910) %&gt;% kable()\n\n\n\n\n\nvernacular\ntree\nleaf\ndw\n\n\n\n\nCOPAI\n6910\n5\n0.1231\n\n\nCOPAI\n6910\n4\n0.0584\n\n\nCOPAI\n6910\n3\n0.0848\n\n\nCOPAI\n6910\n2\n0.0919\n\n\nCOPAI\n6910\n1\n0.0984\n\n\nCOPAI\n6910\n2\n0.6655\n\n\nCOPAI\n6910\n1\n0.5272\n\n\n\n\n\n\n\nCode\ndupl &lt;- check %&gt;% \n  group_by(vernacular, tree, leaf) %&gt;% \n  count() %&gt;% \n  filter(n&gt;1)\nif(nrow(dupl) == 0) {\n  print(\"There are no duplicated leaves in manual check data.\") \n} else { \n  print(\"The following leaves are duplicated in manual check data.\")\n  dupl %&gt;% kable()\n}\n\n\n[1] \"There are no duplicated leaves in manual check data.\"\n\n\n\n\nCode\ntlp %&gt;% filter(tree == 6910 & leaf %in% c(1,2)) %&gt;%\n  distinct() %&gt;% \n  count\n\nhydrated %&gt;% filter(tree == 6910 & leaf %in% c(1,2)) %&gt;%\n  distinct() %&gt;% \n  count\n\ndry %&gt;% filter(tree == 6910 & leaf %in% c(1,2)) %&gt;%\n  distinct() %&gt;% \n  count\n\n\nLeaves 1 and 2 of COPAI 6910 are duplicated in tlp, hydrated and dry (each time with different values), but they have just one scan each.\n\n\nCode\ntlp %&gt;% filter(tree == 6896 & leaf %in% c(1,2)) %&gt;%\n  distinct() %&gt;% \n  count\n\n\nLeaf 1 of COPAI 6896 is dupliated in tlp only (each time with different values), but there is no leaf 2.\n\nTO DO Decide what to do with duplicated leaves and update what’s follow. I have seen later that these leaves are the ones with massive outliers in LDMC and SLA. So I propose to remove all measurments of the leaves 1 and 2 of COPAI 6910. This is what I do in the trait table generated below. NEED TO CHANGE THIS if you disagree.",
     "crumbs": [
-      "Cleaning",
+      "Belterra 2025 - Cleaning",
       "Junction"
     ]
   },
@@ -198,29 +199,7 @@
     "section": "Checking for missing measurments in some datasets",
     "text": "Checking for missing measurments in some datasets\n\n\nCode\nsymdiff2 &lt;- function(x, y, by) {\n  x_sel &lt;- select(x, all_of(by))\n  y_sel &lt;- select(y, all_of(by))\n  diff &lt;- union(setdiff(x_sel, y_sel), setdiff(y_sel, x_sel))\n  if(nrow(diff) == 0) {\n    print(\"There is a complete overlap between the two datasets\")\n  } else {\n    print(\"The following tree/leaf are present in only one of the two datasets\")\n   diff %&gt;% kable()\n  }\n}\n\n\nBetween tlp and hydrated (checking only differences in individuals, as less leaves have been measured for tlp):\n\n\nCode\nsymdiff2(tlp, hydrated, c(\"vernacular\", \"tree\"))\n\n\n[1] \"The following tree/leaf are present in only one of the two datasets\"\n\n\n\n\n\nvernacular\ntree\n\n\n\n\nFAVA\n5455\n\n\nFAVAO\n6513\n\n\nFAVAO\n5685\n\n\n\n\n\nBetween tlp and la (checking only differences in individuals, are less leaves have been measured for tlp):\n\n\nCode\nsymdiff2(tlp, la, c(\"vernacular\", \"tree\"))\n\n\n[1] \"The following tree/leaf are present in only one of the two datasets\"\n\n\n\n\n\nvernacular\ntree\n\n\n\n\nFAVA\n5455\n\n\nFAVAO\n6513\n\n\nFAVAO\n5685\n\n\n\n\n\nBetween tlp and dry (checking only differences in individuals, are less leaves have been measured for tlp):\n\n\nCode\nsymdiff2(tlp, dry, c(\"vernacular\", \"tree\"))\n\n\n[1] \"The following tree/leaf are present in only one of the two datasets\"\n\n\n\n\n\nvernacular\ntree\n\n\n\n\nFAVAO\n6513\n\n\nFAVA\n5455\n\n\nFAVAO\n5685\n\n\n\n\n\n\nOnly FAVAO and FAVA differs, which is normal as tlp was not possible to measure for these species.\n\nBetween hydrated and dry (checking down to the leaf level):\n\n\nCode\nsymdiff2(hydrated, dry, c(\"vernacular\", \"tree\", \"leaf\"))\n\n\n[1] \"There is a complete overlap between the two datasets\"\n\n\nBetween hydrated and la (checking down to the leaf level):\n\n\nCode\nsymdiff2(hydrated, la, c(\"vernacular\", \"tree\", \"leaf\"))\n\n\n[1] \"There is a complete overlap between the two datasets\"\n\n\nBetween dry and la (checking down to the leaf level):\n\n\nCode\nsymdiff2(dry, la, c(\"vernacular\", \"tree\", \"leaf\"))\n\n\n[1] \"There is a complete overlap between the two datasets\"\n\n\nBetween la and manual check (checking down to the leaf level):\n\n\nCode\nsymdiff2(la, check, c(\"vernacular\", \"tree\", \"leaf\"))\n\n\n[1] \"There is a complete overlap between the two datasets\"",
     "crumbs": [
-      "Cleaning",
-      "Junction"
-    ]
-  },
-  {
-    "objectID": "25_junction.html#joining-the-datasets",
-    "href": "25_junction.html#joining-the-datasets",
-    "title": "Junction",
-    "section": "Joining the datasets",
-    "text": "Joining the datasets\n\n\nCode\nraw &lt;- plyr::join_all(\n  list(tlp, hydrated, la, dry, check), \n  type = \"full\"\n)\n\n\nJoining by: vernacular, tree, leaf\nJoining by: vernacular, tree, leaf\nJoining by: vernacular, tree, leaf\nJoining by: vernacular, tree, leaf\n\n\nCode\ndupl &lt;- raw %&gt;% \n  group_by(vernacular, tree, leaf) %&gt;% \n  count() %&gt;% \n  filter(n&gt;1)\nif(nrow(dupl) == 0) {\n  print(\"There are no duplicated leaves in the joined data.\") \n} else { \n  print(\"The following leaves are duplicated in joined data.\")\n  print(dupl)\n}\n\n\n[1] \"The following leaves are duplicated in joined data.\"\n# A tibble: 3 × 4\n# Groups:   vernacular, tree, leaf [3]\n  vernacular  tree  leaf     n\n  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt; &lt;int&gt;\n1 COPAI       6896     1     2\n2 COPAI       6910     1     8\n3 COPAI       6910     2     8",
-    "crumbs": [
-      "Cleaning",
-      "Junction"
-    ]
-  },
-  {
-    "objectID": "25_junction.html#exploring-effect-of-.",
-    "href": "25_junction.html#exploring-effect-of-.",
-    "title": "Junction",
-    "section": "Exploring effect of ….",
-    "text": "Exploring effect of ….\n\nTO CONTINUE FROM HERE\n\nRaw data junction and cross cleaning.\n\n\nCode\nplyr::join_all(\n  list(\n    read_tsv(\"data/derived/tlp_raw.tsv\"),\n    read_tsv(\"data/derived/la.tsv\"),\n    read_tsv(\"data/derived/hydrated_raw.tsv\"),\n    read_tsv(\"data/derived/dry_raw.tsv\")\n  ),\n  type = \"full\"\n) %&gt;% select(-comment) %&gt;% \n  write_tsv(\"outputs/raw.tsv\")\nread_tsv(\"outputs/raw.tsv\") %&gt;% \n  mutate(\n    la = area_excluded,\n    ldmc = dw/sw,\n    sla = area_included/dw\n  ) %&gt;% \n  select(vernacular, tree, leaf, la, ldmc, lt, lt, sla, tlp) %&gt;% \n  write_tsv(\"outputs/traits.tsv\")\n\n\n\n\nCode\nread_tsv(\"outputs/traits.tsv\") %&gt;% \n  gather(trait, value, -vernacular, -tree, -leaf) %&gt;% \n  mutate(trait = recode(trait, \n                        \"la\" = \"LA [ cm2 ]\",\n                        \"ldmc\" = \"LDMC [ g / g ]\",\n                        \"lt\" = \"LT [ µm ]\",\n                        \"tlp\" = \"TLP [ MPa ]\",\n                        \"sla\" = \"SLA [ cm2 / g ]\")) %&gt;% \n  ggplot(aes(vernacular,\n             value)) +\n  geom_boxplot() +\n  geom_jitter(aes(col = as.factor(tree)),\n              width = 0.2, size = 3) + \n  theme_bw() +\n  coord_flip() +\n  facet_wrap(~ trait, scales = \"free_x\", ncol = 5) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"none\") +\n  xlab(\"\") + ylab(\"\")\n\n\n\nWe have outliers LDMC and SLA probably due to an issue with dry weight DW. Other outliers have to be checked.\n\n\n\nCode\nread_tsv(\"outputs/traits.tsv\") %&gt;% \n  filter(sla &lt; 400) %&gt;% \n  select(sla, tlp, vernacular, tree, leaf) %&gt;% \n  na.omit() %&gt;% \n  ggplot(aes(sla, tlp, col = as.character(tree))) +\n  geom_smooth(aes(group = vernacular), method = \"lm\", \n              col = \"grey\", alpha = .2) +\n  geom_point() +\n  theme_bw() +\n  xlab(expression(\"SLA [\"~cm^{2}~g^{-1}~\"]\")) +\n  ylab(expression(\"TLP [\"~MPa~\"]\")) +\n  facet_wrap(~ vernacular, scales = \"free\") +\n  scale_color_discrete(guide = \"none\")\n\n\n\nAsk back Joannès the link between SLA and TLP to check.\n\nHowever, based on that I have made an example of data junction in a consolidated table here: https://docs.google.com/spreadsheets/d/1SSDmBBYNl_jP3GY5wUGkR-62cNiz63M46Ai6Z0CK1Cw/edit?usp=sharing.\n\nI also need the cleaned taxonomy I think.\n\n–&gt;",
-    "crumbs": [
-      "Cleaning",
+      "Belterra 2025 - Cleaning",
       "Junction"
     ]
   },
@@ -231,18 +210,7 @@
     "section": "Joining the datasets and calculating the trait values",
     "text": "Joining the datasets and calculating the trait values\nCreate the file raw.tsv with all raw measurements and the manual checks.\n\n\nCode\nraw &lt;- plyr::join_all(\n  list(tlp, hydrated, la, dry, check), \n  type = \"full\"\n)\n\ndupl &lt;- raw %&gt;% \n  group_by(vernacular, tree, leaf) %&gt;% \n  count() %&gt;% \n  filter(n&gt;1)\nif(nrow(dupl) == 0) {\n  print(\"There are no duplicated leaves in the joined data.\") \n} else { \n  print(\"The following leaves are duplicated in joined data.\")\n  dupl %&gt;% kable()\n}\n\n\n[1] \"The following leaves are duplicated in joined data.\"\n\n\n\n\n\nvernacular\ntree\nleaf\nn\n\n\n\n\nCOPAI\n6896\n1\n2\n\n\nCOPAI\n6910\n1\n8\n\n\nCOPAI\n6910\n2\n8\n\n\n\n\n\nCode\nwrite_tsv(raw, \"outputs/raw.tsv\")\n\n\nCreate the file traits_comments.tsv with trait values and the manual checks. NB The leaves 1 and 2 of COPAI 6910 have been removed.\n\n\nCode\nread_tsv(\"outputs/raw.tsv\", show_col_types = FALSE) %&gt;% \n  filter(!(tree == 6910 & leaf %in% c(1, 2))) %&gt;% \n  mutate(\n    la = area_included,\n    ldmc = dw/sw,\n    sla = area_excluded/dw\n  ) %&gt;% \n  select(vernacular, tree, leaf, la, ldmc, lt, sla, tlp, missing_part, anomaly, touching, raw_scan) %&gt;% \n  write_tsv(\"outputs/traits_comments.tsv\")\n\n\n\nSylvain, please check. In your code, you took area_excluded for la, but included to calculate sla. But I think it is the opposite (as area_excluded &lt;= included, so area excluded is before filling the holes).",
     "crumbs": [
-      "Cleaning",
-      "Junction"
-    ]
-  },
-  {
-    "objectID": "25_junction.html#exploring-the-effects-of-leaf-andor-scan-quality",
-    "href": "25_junction.html#exploring-the-effects-of-leaf-andor-scan-quality",
-    "title": "Junction",
-    "section": "Exploring the effects of leaf and/or scan quality",
-    "text": "Exploring the effects of leaf and/or scan quality\n\n\nCode\ntraits_comments &lt;- read_tsv(\"outputs/traits_comments.tsv\") %&gt;% \n  gather(trait, value, la, ldmc, lt, tlp, sla) %&gt;% \n  mutate(trait = recode(trait, \n                        \"la\" = \"LA [ cm2 ]\",\n                        \"ldmc\" = \"LDMC [ g / g ]\",\n                        \"lt\" = \"LT [ µm ]\",\n                        \"tlp\" = \"TLP [ MPa ]\",\n                        \"sla\" = \"SLA [ cm2 / g ]\"))\n\n\nWe first explored the effect the fact that the leaf is incomplete, which affects la and indirectly sla. NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected.\n\n\nCode\ntraits_comments %&gt;% \n  filter(trait %in% c(\"LA [ cm2 ]\", \"SLA [ cm2 / g ]\") &\n           touching == 0) %&gt;% \n  ggplot(aes(vernacular, value)) +\n  geom_boxplot() +\n  geom_jitter(aes(col = as.factor(missing_part)),\n              width = 0.4, size = 2, alpha = 0.5) + \n  scale_color_manual(\n    values = c(\"0\" = \"black\", \n               \"1\" = \"orange2\" ,\n               \"2\" = \"red2\"),\n    breaks = c(\"0\", \"1\", \"2\"),\n    name = \"\") + \n  theme_bw() +\n  coord_flip() +\n  facet_wrap(~ trait, scales = \"free_x\", ncol = 2) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"bottom\") +\n  xlab(\"\") + ylab(\"\")\n\n\n\n\n\n\n\n\n\nSurprisingly, the incomplete leaves are not necessarily the smallest ones.\nLet’s know check the distribution of these two traits if the leaves with a big missing part are removed (in blue) compared to keeping the whole dataset. NB I also removed the leaves that are touching the edge of the scan that have not yet been corrected.\n\n\nCode\ntraits_comments %&gt;% \n  filter(trait %in% c(\"LA [ cm2 ]\", \"SLA [ cm2 / g ]\") &\n           touching == 0) %&gt;% \n  ggplot(aes(vernacular, value)) +\n  geom_boxplot(fill = \"darkgrey\") +\n  geom_boxplot(\n    data = subset(traits_comments,\n                  trait %in% c(\"LA [ cm2 ]\", \"SLA [ cm2 / g ]\") &\n                    missing_part !=2 &\n                    touching == 0) ,\n    aes(vernacular, value),\n    color = \"blue\", fill = \"blue\", alpha = 0.1) + \n  theme_bw() +\n  coord_flip() +\n  facet_wrap(~ trait, scales = \"free_x\", ncol = 2) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"bottom\") +\n  xlab(\"\") + ylab(\"\")\n\n\n\n\n\n\n\n\n\nRemoving the very incomplete leaves has a big effect on\nThere are still some outliers in LA and\n\n\nCode\n# traits_comments %&gt;% \n#   mutate(\n#     pb_la = case_when(\n#       missing_part == 1 ~ \"incomplete leaf\",\n#       missing_part == 2 ~ \"very incomplete leaf\",\n#       touching == 1 ~ \"part leaf touching\",\n#       touching == 2 ~ \"all leaf touching\",\n#       .default = \"ok\")\n#     ) %&gt;% \n#   filter(trait %in% c(\"LA [ cm2 ]\", \"SLA [ cm2 / g ]\")) %&gt;% \n#   ggplot(aes(vernacular, value)) +\n#   geom_boxplot() +\n#   geom_jitter(aes(col = as.factor(pb_la)),\n#               width = 0.4, size = 2) + \n#   scale_color_manual(\n#     values = c(\"ok\" = \"black\", \n#                \"incomplete leaf\" = \"mediumpurple1\",\n#                \"very incomplete leaf\" = \"purple4\",\n#                \"part leaf touching\" = \"orange2\" ,\n#                \"all leaf touching\" = \"red2\"),\n#     breaks = c(\"ok\", \"incomplete leaf\", \"very incomplete leaf\",\n#                \"part leaf touching\", \"all leaf touching\"),\n#     name = \"\") + \n#   theme_bw() +\n#   coord_flip() +\n#   facet_wrap(~ trait, scales = \"free_x\", ncol = 2) +\n#   theme(axis.text.x = element_text(angle = 45, hjust = 1),\n#         legend.position = \"bottom\") +\n#   xlab(\"\") + ylab(\"\")\n\n\nLeaf touching the scan that the leaf is touching the edge of the scan,\n\nTO CONTINUE FROM HERE\n\nRaw data junction and cross cleaning.\n\n\nCode\nplyr::join_all(\n  list(\n    read_tsv(\"data/derived/tlp_raw.tsv\"),\n    read_tsv(\"data/derived/la.tsv\"),\n    read_tsv(\"data/derived/hydrated_raw.tsv\"),\n    read_tsv(\"data/derived/dry_raw.tsv\")\n  ),\n  type = \"full\"\n) %&gt;% select(-comment) %&gt;% \n  write_tsv(\"outputs/raw.tsv\")\nread_tsv(\"outputs/raw.tsv\") %&gt;% \n  mutate(\n    la = area_excluded,\n    ldmc = dw/sw,\n    sla = area_included/dw\n  ) %&gt;% \n  select(vernacular, tree, leaf, la, ldmc, lt, lt, sla, tlp) %&gt;% \n  write_tsv(\"outputs/traits.tsv\")\n\n\n\n\nCode\nread_tsv(\"outputs/traits.tsv\") %&gt;% \n  gather(trait, value, -vernacular, -tree, -leaf) %&gt;% \n  mutate(trait = recode(trait, \n                        \"la\" = \"LA [ cm2 ]\",\n                        \"ldmc\" = \"LDMC [ g / g ]\",\n                        \"lt\" = \"LT [ µm ]\",\n                        \"tlp\" = \"TLP [ MPa ]\",\n                        \"sla\" = \"SLA [ cm2 / g ]\")) %&gt;% \n  ggplot(aes(vernacular,\n             value)) +\n  geom_boxplot() +\n  geom_jitter(aes(col = as.factor(tree)),\n              width = 0.2, size = 3) + \n  theme_bw() +\n  coord_flip() +\n  facet_wrap(~ trait, scales = \"free_x\", ncol = 5) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"none\") +\n  xlab(\"\") + ylab(\"\")\n\n\n\nWe have outliers LDMC and SLA probably due to an issue with dry weight DW. Other outliers have to be checked.\n\n\n\nCode\nread_tsv(\"outputs/traits.tsv\") %&gt;% \n  filter(sla &lt; 400) %&gt;% \n  select(sla, tlp, vernacular, tree, leaf) %&gt;% \n  na.omit() %&gt;% \n  ggplot(aes(sla, tlp, col = as.character(tree))) +\n  geom_smooth(aes(group = vernacular), method = \"lm\", \n              col = \"grey\", alpha = .2) +\n  geom_point() +\n  theme_bw() +\n  xlab(expression(\"SLA [\"~cm^{2}~g^{-1}~\"]\")) +\n  ylab(expression(\"TLP [\"~MPa~\"]\")) +\n  facet_wrap(~ vernacular, scales = \"free\") +\n  scale_color_discrete(guide = \"none\")\n\n\n\nAsk back Joannès the link between SLA and TLP to check.\n\nHowever, based on that I have made an example of data junction in a consolidated table here: https://docs.google.com/spreadsheets/d/1SSDmBBYNl_jP3GY5wUGkR-62cNiz63M46Ai6Z0CK1Cw/edit?usp=sharing.\n\nI also need the cleaned taxonomy I think.\n\n–&gt;",
-    "crumbs": [
-      "Cleaning",
+      "Belterra 2025 - Cleaning",
       "Junction"
     ]
   },
@@ -253,7 +221,7 @@
     "section": "Exploring the effects of leaf quality",
     "text": "Exploring the effects of leaf quality\n\n\nCode\ntraits_comments &lt;- read_tsv(\"outputs/traits_comments.tsv\") %&gt;% \n  gather(trait, value, la, ldmc, lt, tlp, sla) %&gt;% \n  mutate(trait = recode(trait, \n                        \"la\" = \"LA [ cm2 ]\",\n                        \"ldmc\" = \"LDMC [ g / g ]\",\n                        \"lt\" = \"LT [ µm ]\",\n                        \"tlp\" = \"TLP [ MPa ]\",\n                        \"sla\" = \"SLA [ cm2 / g ]\"))\n\n\nWe first explored the effect the fact that the leaf is incomplete, which affects la and indirectly sla. NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.\n\n\nCode\ntraits_comments %&gt;% \n  filter(trait %in% c(\"LA [ cm2 ]\", \"SLA [ cm2 / g ]\") &\n           touching == 0) %&gt;% \n  ggplot(aes(vernacular, value)) +\n  geom_boxplot() +\n  geom_jitter(aes(col = as.factor(missing_part)),\n              width = 0.4, size = 2, alpha = 0.5) + \n  scale_color_manual(\n    values = c(\"0\" = \"black\", \n               \"1\" = \"orange2\" ,\n               \"2\" = \"red2\"),\n    breaks = c(\"0\", \"1\", \"2\"),\n    name = \"\") + \n  theme_bw() +\n  coord_flip() +\n  facet_wrap(~ trait, scales = \"free_x\", ncol = 2) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"bottom\") +\n  xlab(\"\") + ylab(\"\")\n\n\n\n\n\n\n\n\n\nSurprisingly, the incomplete leaves are not necessarily the smallest ones.\nLet’s now check the distribution of these two traits if the leaves with a big missing part are removed (in blue) compared to keeping the whole dataset. NB I also removed the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.\n\n\nCode\ntraits_comments %&gt;% \n  filter(trait %in% c(\"LA [ cm2 ]\", \"SLA [ cm2 / g ]\") &\n           touching == 0) %&gt;% \n  ggplot(aes(vernacular, value)) +\n  geom_boxplot(fill = \"darkgrey\") +\n  geom_boxplot(\n    data = subset(traits_comments,\n                  trait %in% c(\"LA [ cm2 ]\", \"SLA [ cm2 / g ]\") &\n                    missing_part !=2 &\n                    touching == 0) ,\n    aes(vernacular, value),\n    color = \"blue\", fill = \"blue\", alpha = 0.1) + \n  theme_bw() +\n  coord_flip() +\n  facet_wrap(~ trait, scales = \"free_x\", ncol = 2) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"bottom\") +\n  xlab(\"\") + ylab(\"\")\n\n\n\n\n\n\n\n\n\nRemoving the very incomplete leaves has a big effect on the following species:\n\nPIQUI: in some cases, 1 or 2 of the folioles were missing\nPARAP: in some cases, several folioles were missing\nCOPAI: moderate change\nCASTA: only two leaves removed, but they were missing a very big part\n\n\nI propose to remove the leaves with a big missing part for LA and SLA. TO DO: exclude them from the rest if you agree.\n\nNow, let’s look at the effect of anomalies seen on the masks (including the species with a big missing part for now) NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.\n\n\nCode\ntraits_comments %&gt;% \n  filter(touching == 0) %&gt;% \n  ggplot(aes(vernacular, value)) +\n  geom_boxplot() +\n  geom_jitter(\n    data = subset(traits_comments,\n                  anomaly ==\"ok\" &\n                    touching == 0), \n    aes(vernacular, value), \n    width = 0.4, size = 2, alpha = 0.5) +\n  geom_jitter(\n    data = subset(traits_comments,\n                  anomaly !=\"ok\" &\n                    touching == 0) ,\n    aes(vernacular, value,\n        col = as.factor(anomaly)) ,\n    width = 0.4, size = 2, alpha = 0.5) + \n  theme_bw() +\n  coord_flip() +\n  facet_wrap(~ trait, scales = \"free_x\", ncol = 5) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"bottom\") +\n  xlab(\"\") + ylab(\"\")\n\n\n\n\n\n\n\n\n\nabs_area and fol_touch should be solved by taking the unfilled mask (see scans section).\n\nThe other abnormality doesn’t seem to affect the values, I suggest to keep these leaves.\n\n\nBUT we may want to resample the PIQUI in the future…\n\nNow, let’s look at the effect of anomalies seen on the raw scans (including the species with a big missing part for now) NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.\n\n\nCode\ntraits_comments %&gt;% \n  filter(touching == 0) %&gt;% \n  ggplot(aes(vernacular, value)) +\n  geom_boxplot() +\n  geom_jitter(\n    data = subset(traits_comments,\n                  raw_scan ==\"ok\" &\n                    touching == 0), \n    aes(vernacular, value), \n    width = 0.4, size = 2, alpha = 0.5) +\n  geom_jitter(\n    data = subset(traits_comments,\n                  raw_scan !=\"ok\" &\n                    touching == 0) ,\n    aes(vernacular, value,\n        col = as.factor(raw_scan)) ,\n    width = 0.4, size = 2, alpha = 0.5) + \n  theme_bw() +\n  coord_flip() +\n  facet_wrap(~ trait, scales = \"free_x\", ncol = 5) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"bottom\") +\n  xlab(\"\") + ylab(\"\")\n\n\n\n\n\n\n\n\n\n\nThe young leaves are clearly outliers. I propose to remove them. TO DO: exclude them from the rest if you agree.\n\n\nThe effect of damaged leaves is much less clear (remember that here damaged refer doens’t refer to the fact that part of the leaf is missing, but rather to the quality of the leaf). I propose to keep them.",
     "crumbs": [
-      "Cleaning",
+      "Belterra 2025 - Cleaning",
       "Junction"
     ]
   },
@@ -264,8 +232,41 @@
     "section": "Filtering and exploring",
     "text": "Filtering and exploring\nBased on the exploration above, the data are filtered as follow:\n\nthe scans of leaves touching the page need to be redone, I remove them for the moment\nthe leaves 1 and 2 of COPAI 6910 are removed\nall the leaves with a big missing part are excluded\nall the young leaves are excluded\nfor all the leaves with a problem with the mask (abn_area and fol_touch), we take the area measured with a mask for which the holes have not been filled (area_excluded). This represent all the FAVA, FAVO abd ANGEL, plus one leaf of PARAP\nfor tlp of COPAI 6896 leaf 1 and 2, we take the mean value between the duplicated measurement\n\n\n\nCode\nread_tsv(\"outputs/raw.tsv\", show_col_types = FALSE) %&gt;% \n  filter(touching == 0 & # to be removed once the scanned have been redone\n           !(tree == 6910 & leaf %in% c(1, 2)) &\n           missing_part != 2 &\n           raw_scan != \"young\") %&gt;% \n  mutate(\n    la = case_when(anomaly %in% c(\"abn_area\" , \"fol_touch\") ~ area_excluded, \n                   .default = area_included),\n    ldmc = dw/sw,\n    sla = area_excluded/dw\n  ) %&gt;% \n  select(vernacular, tree, leaf, la, ldmc, lt, sla, tlp) %&gt;% \n  group_by(vernacular, tree, leaf) %&gt;% \n  mutate(across(la:tlp, mean)) %&gt;% \n  distinct() %&gt;% \n  write_tsv(\"outputs/traits.tsv\")\n\n\nThe table below gives the number of tree per species and the mean number of leaves per tree.\n\n\nCode\nread_tsv(\"outputs/traits.tsv\") %&gt;% \n  group_by(vernacular, tree) %&gt;% \n  summarise(n_leaf = n_distinct(leaf)) %&gt;% \n  group_by(vernacular) %&gt;% \n  summarise(\n    n_tree = n_distinct(tree),\n    mean_n_leaf_per_ind = mean(n_leaf)) %&gt;% \n  kable()\n\n\n\n\n\nvernacular\nn_tree\nmean_n_leaf_per_ind\n\n\n\n\nANDIR\n5\n4.40\n\n\nANGEL\n5\n4.40\n\n\nCASTA\n3\n4.00\n\n\nCEDRU\n5\n5.00\n\n\nCOPAI\n4\n2.00\n\n\nCUPIU\n5\n5.00\n\n\nFAVA\n1\n1.00\n\n\nFAVAO\n2\n5.00\n\n\nFREIJ\n4\n4.00\n\n\nJARAN\n4\n4.50\n\n\nJUTAI\n1\n5.00\n\n\nPARAP\n4\n3.25\n\n\nPIQUI\n4\n3.00\n\n\nQUARU\n5\n5.00\n\n\nVIROL\n4\n5.00\n\n\n\n\n\n\n\nCode\nread_tsv(\"outputs/traits.tsv\") %&gt;% \n  gather(trait, value, -vernacular, -tree, -leaf) %&gt;% \n  mutate(trait = recode(trait, \n                        \"la\" = \"LA [ cm2 ]\",\n                        \"ldmc\" = \"LDMC [ g / g ]\",\n                        \"lt\" = \"LT [ µm ]\",\n                        \"tlp\" = \"TLP [ MPa ]\",\n                        \"sla\" = \"SLA [ cm2 / g ]\")) %&gt;% \n  ggplot(aes(vernacular,\n             value)) +\n  geom_boxplot() +\n  geom_jitter(aes(col = as.factor(tree)),\n              width = 0.2, size = 3) + \n  theme_bw() +\n  coord_flip() +\n  facet_wrap(~ trait, scales = \"free_x\", ncol = 5) +\n  theme(axis.text.x = element_text(angle = 45, hjust = 1),\n        legend.position = \"none\") +\n  xlab(\"\") + ylab(\"\")\n\n\n\n\n\n\n\n\n\n\nWe have one outlier for LDMC, not sure what the problem is, if there is indeed a problem.\n\n\n\nCode\nout1 &lt;- read_tsv(\"outputs/traits.tsv\") %&gt;% \n  filter(ldmc &gt; 0.8) %&gt;% select(vernacular, tree, leaf)\nraw %&gt;% filter(tree == out1$tree & leaf == out1$leaf) %&gt;% \n  kable()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvernacular\ntree\nleaf\ntlp\nlt\nsw\narea_excluded\narea_included\ndw\nmissing_part\nanomaly\ntouching\nraw_scan\n\n\n\n\nCASTA\n6568\n1\n-1.89148\n0.2073333\n4.89\n309.3937\n309.4622\n4.5855\n0\nok\n0\nok\n\n\n\n\n\n\n\nCode\nread_tsv(\"outputs/traits.tsv\") %&gt;% \n  filter(sla &lt; 400) %&gt;% \n  select(sla, tlp, vernacular, tree, leaf) %&gt;% \n  na.omit() %&gt;% \n  ggplot(aes(sla, tlp, col = as.character(tree))) +\n  geom_smooth(aes(group = vernacular), method = \"lm\", \n              col = \"grey\", alpha = .2) +\n  geom_point() +\n  theme_bw() +\n  xlab(expression(\"SLA [\"~cm^{2}~g^{-1}~\"]\")) +\n  ylab(expression(\"TLP [\"~MPa~\"]\")) +\n  facet_wrap(~ vernacular, scales = \"free\") +\n  scale_color_discrete(guide = \"none\")\n\n\n\n\n\n\n\n\n\n\nThere are still a few negative relationship =&gt; Joannès? See also once the treatment of the scans for the touching leaves have been redone.\n\n\n\nSylvain: I also need the cleaned taxonomy I think.",
     "crumbs": [
-      "Cleaning",
+      "Belterra 2025 - Cleaning",
       "Junction"
+    ]
+  },
+  {
+    "objectID": "97_meeting.html",
+    "href": "97_meeting.html",
+    "title": "Meetings",
+    "section": "",
+    "text": "25/05/16 - Discussion the program\nThis appendix can be used to take notes from meetings.",
+    "crumbs": [
+      "Appendices",
+      "Meetings"
+    ]
+  },
+  {
+    "objectID": "97_meeting.html#discussion-the-program",
+    "href": "97_meeting.html#discussion-the-program",
+    "title": "Meetings",
+    "section": "",
+    "text": "Participants: Sylvain + Géraldine\nWorkshop on growth modelling:\n\ncan be done on Friday 11th afternoon (assuming we can keep the Saturday to finish the traits measurements JG, SS and GD)\nintegrated in the field school on traits + open to others people\nsend some resources to get familiar with R before the workshop\nfocus the workshop on\n\ncalculation of growth\nlog-log model with brms\nCanham model with brsm\nlm on relationship growth ~ traits with growth data from Ecology Letters paper\nalternativelly: allometry H-D + link Hlim / traits\n\ndata: Tapajos open data / Beleterra plantation (probably difficult) / P6 Paracou\n\nWorkshop traits\n\ntry to do everything in residencial in Belterra if we can work in Embrapa Belterra + have a “privatised” poussada\ndo some short apero bate-papo:\n\nJoannès: ecophy/traits\nGéraldine: use of traits in correlative growth models\nSylvain: use of traits in process-based models\n\n\nAdditional questions for Lucas\n\ninstall the lab in Empraba Belterra (&lt;10 people)?\naccess to lab on week-ends (first Sunday to prepare + last Saturday to finish up)?\npossible to find a poussada with a shared space?",
+    "crumbs": [
+      "Appendices",
+      "Meetings"
+    ]
+  },
+  {
+    "objectID": "99_references.html",
+    "href": "99_references.html",
+    "title": "References",
+    "section": "",
+    "text": "Bartlett, Megan K, Christine Scoffoni, Rico Ardy, et al. 2012.\n“Rapid Determination of Comparative Drought Tolerance Traits:\nUsing an Osmometer to Predict Turgor Loss Point.” Methods in\nEcology and Evolution 3 (5): 880–88.",
+    "crumbs": [
+      "Appendices",
+      "References"
     ]
   }
 ]

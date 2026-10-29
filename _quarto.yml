@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "FEFACCION 2025"
+  title: "functinal"
   date: last-modified
   chapters:
     - index.qmd
@@ -12,8 +12,8 @@ book:
         - 11_traits.qmd
         - 12_protocols.qmd
         - 13_material.qmd
-        - 14_maps.qmd
-    - part: 20_cleaning.qmd
+        - 14_belterra_maps.qmd
+    - part: 20_belterra25_cleaning.qmd
       chapters: 
         - 21_tlp.qmd
         - 22_scans.qmd
