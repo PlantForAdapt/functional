@@ -327,11 +327,6 @@ read_tsv("outputs/Belterra_2025_raw.tsv", show_col_types = FALSE) %>%
   write_tsv("outputs/Belterra_2025_traits_comments.tsv")
 ```
 
-> Sylvain, please check. 
-The difference between the two is weither the hole correcponding to the punch is counted in the leaf area or not, right?
-In your code, you took area_excluded for la, but included to calculate sla.
-But I think it is the opposite (as area_excluded <= included, so area excluded is before filling the holes): we should fill the hole for LA, but not for SLA (as the leaves have been measured after the punch has been made).
-
 ## Exploring the effects of leaf quality
 
 ### Incomplete leaves
