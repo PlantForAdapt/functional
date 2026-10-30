@@ -1033,9 +1033,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/Belterra_2025_traits_comments.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<blockquote class="blockquote">
-<p>Sylvain, please check. The difference between the two is weither the hole correcponding to the punch is counted in the leaf area or not, right? In your code, you took area_excluded for la, but included to calculate sla. But I think it is the opposite (as area_excluded &lt;= included, so area excluded is before filling the holes): we should fill the hole for LA, but not for SLA (as the leaves have been measured after the punch has been made).</p>
-</blockquote>
 </section>
 <section id="exploring-the-effects-of-leaf-quality" class="level2">
 <h2 class="anchored" data-anchor-id="exploring-the-effects-of-leaf-quality">Exploring the effects of leaf quality</h2>
@@ -1169,10 +1166,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 <p><em>abs_area</em> and <em>fol_touch</em> should be solved by taking the unfilled mask (see scans section). &gt; TO DO: check once it is done if it is better.</p>
 <blockquote class="blockquote">
-<p>DECISION 4: The other abnormality doesn’t seem to affect the values, I suggest to keep these leaves.</p>
+<p>DECISION 4: The other abnormality doesn’t seem to affect the values, I suggest to keep these leaves. Sylvain think we should remove all the leaves with miss_petiolul, miss_petiolul, one_fol.&nbsp;We can remove them for LA, LDMC and SLA and keep them for LT and tlp.</p>
 </blockquote>
 <blockquote class="blockquote">
-<p>DECISION 5: BUT we may want to resample the PIQUI in the future… =&gt; redo all the measurments on PEQUI in the 2026 campaign?</p>
+<p>DECISION 5: BUT we may want to resample the PIQUI in the future… =&gt; redo all the measurments on PEQUI in the 2026 campaign? We just have 2 leaves that are not problematic…</p>
 </blockquote>
 </section>
 <section id="danmaged-and-young-leaves" class="level3">
