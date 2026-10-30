@@ -10,7 +10,7 @@ library(readxl)
 
 ```{r data}
 #| eval: false
-list.files("data/raw/hydrated/", full.names = TRUE) %>% 
+list.files("data/raw/Belterra_2025/hydrated/", full.names = TRUE) %>% 
   lapply(read_xls, col_types = "text") %>% 
   bind_rows() %>% 
   rename_all(tolower) %>% 
@@ -25,13 +25,13 @@ list.files("data/raw/hydrated/", full.names = TRUE) %>%
   ungroup() %>% 
   select(-lt1, -lt2, -lt3) %>% 
   select(vernacular, tree, leaf, lt, sw, comment) %>% 
-  write_tsv("data/derived/hydrated_raw.tsv")
+  write_tsv("data/derived/Belterra_2025/hydrated_raw.tsv")
 ```
 
 ```{r figure}
 #| message: false
 #| warning: false
-read_tsv("data/derived/hydrated_raw.tsv") %>% 
+read_tsv("data/derived/Belterra_2025/hydrated_raw.tsv") %>% 
   gather(trait, value, -vernacular, -tree, -leaf, -comment) %>% 
   mutate(trait = recode(trait, "lt" = "LT [ µm ]",
                         "sw" = "SW [ g ]")) %>% 

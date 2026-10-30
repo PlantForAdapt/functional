@@ -11,7 +11,7 @@ We extract the minimum osmometer measurement across the 10 measurement of one cy
 ```{r data}
 #| eval: false
 lapply(1:5, function(i) 
-  read_xlsx("data/raw/osmo/FEF25_TLP-12072025.xlsx", sheet = i)) %>% 
+  read_xlsx("data/raw/Belterra_2025/osmo/FEF25_TLP-12072025.xlsx", sheet = i)) %>% 
   bind_rows() %>% 
   rowwise() %>%
   mutate(osmo = min(c_across(MES1:MES10), na.rm = TRUE)) %>%
@@ -21,13 +21,13 @@ lapply(1:5, function(i)
   mutate(tlp = 0.832 * pio - 0.631) %>% 
   rename(vernacular = Especies, tree = Idtree, leaf = Idleaf) %>% 
   select(-osmo, -pio) %>% 
-  write_tsv("data/derived/tlp_raw.tsv")
+  write_tsv("data/derived/Belterra_2025/tlp_raw.tsv")
 ```
 
 ```{r figure}
 #| message: false
 #| warning: false
-read_tsv("data/derived/tlp_raw.tsv") %>% 
+read_tsv("data/derived/Belterra_2025/tlp_raw.tsv") %>% 
   group_by(vernacular) %>% 
   mutate(tlp_s = mean(tlp)) %>% 
   ungroup() %>% 

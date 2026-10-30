@@ -339,11 +339,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-26"><a href="#cb1-26" aria-hidden="true" tabindex="-1"></a>  data</span>
 <span id="cb1-27"><a href="#cb1-27" aria-hidden="true" tabindex="-1"></a>}</span>
 <span id="cb1-28"><a href="#cb1-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>tlp <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/tlp_raw.tsv"</span>)</span>
-<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>la <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/la.tsv"</span>) </span>
-<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>hydrated <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/hydrated_raw.tsv"</span>)</span>
-<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>dry <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/dry_raw.tsv"</span>)</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>check <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/raw/manual_check.csv"</span>, <span class="at">type =</span> <span class="st">"csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-29"><a href="#cb1-29" aria-hidden="true" tabindex="-1"></a>tlp <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/Belterra_2025/tlp_raw.tsv"</span>)</span>
+<span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>la <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/Belterra_2025/la.tsv"</span>) </span>
+<span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>hydrated <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/Belterra_2025/hydrated_raw.tsv"</span>)</span>
+<span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>dry <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/Belterra_2025/dry_raw.tsv"</span>)</span>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>check <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/raw/Belterra_2025/manual_check.csv"</span>, <span class="at">type =</span> <span class="st">"csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -1014,14 +1014,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <summary>Code</summary>
 <div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>raw <span class="sc">%&gt;%</span> </span>
 <span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(inventory) <span class="sc">%&gt;%</span> </span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/raw.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/Belterra_2025_raw.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>Create the file <em>traits_comments.tsv</em> with trait values, the manual checks and botanical identification. <strong>NB</strong> The leaves 1 and 2 of COPAI 6910 have been removed.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/raw.tsv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_raw.tsv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(tree <span class="sc">==</span> <span class="dv">6910</span> <span class="sc">&amp;</span> leaf <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))) <span class="sc">%&gt;%</span> </span>
 <span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
 <span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">la =</span> area_included,</span>
@@ -1030,7 +1030,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
 <span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(tree, vernacular, vernacular_full, genus_sp, family, leaf, la, ldmc, lt, sla, tlp, missing_part, anomaly, touching, raw_scan) <span class="sc">%&gt;%</span> </span>
 <span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(inventory) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/traits_comments.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/Belterra_2025_traits_comments.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <blockquote class="blockquote">
@@ -1044,7 +1044,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>traits_comments <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"outputs/traits_comments.tsv"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>traits_comments <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_traits_comments.tsv"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(trait, value, la, ldmc, lt, tlp, sla) <span class="sc">%&gt;%</span> </span>
 <span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trait =</span> <span class="fu">recode</span>(trait, </span>
 <span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"la"</span> <span class="ot">=</span> <span class="st">"LA [ cm2 ]"</span>,</span>
@@ -1238,7 +1238,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/raw.tsv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_raw.tsv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(touching <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="co"># to be removed once the scanned have been redone</span></span>
 <span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>           <span class="sc">!</span>(tree <span class="sc">==</span> <span class="dv">6910</span> <span class="sc">&amp;</span> leaf <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)) <span class="sc">&amp;</span></span>
 <span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>           missing_part <span class="sc">!=</span> <span class="dv">2</span> <span class="sc">&amp;</span></span>
@@ -1254,14 +1254,14 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tree, vernacular, vernacular_full, genus_sp, family, leaf) <span class="sc">%&gt;%</span> </span>
 <span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(la<span class="sc">:</span>tlp, mean)) <span class="sc">%&gt;%</span> </span>
 <span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/traits.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/Belterra_2025_traits.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>We look at the correspondence between the vernacular names we used during field collection and the botanical identification. The table below shows the vernacular names that correspond to more than one species:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">group_by</span>(vernacular) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">nb_sp =</span> <span class="fu">n_distinct</span>(genus_sp)) <span class="sc">%&gt;%</span> </span>
 <span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(nb_sp <span class="sc">&gt;</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -1275,7 +1275,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(trait, value, <span class="sc">-</span>vernacular, <span class="sc">-</span>tree, <span class="sc">-</span>leaf, </span>
 <span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>vernacular_full, <span class="sc">-</span>genus_sp, <span class="sc">-</span>family) <span class="sc">%&gt;%</span> </span>
 <span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trait =</span> <span class="fu">recode</span>(trait, </span>
@@ -1307,7 +1307,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>out1 <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>out1 <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ldmc <span class="sc">&gt;</span> <span class="fl">0.8</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(vernacular, tree, leaf)</span>
 <span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>raw <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> out1<span class="sc">$</span>tree <span class="sc">&amp;</span> leaf <span class="sc">==</span> out1<span class="sc">$</span>leaf) <span class="sc">%&gt;%</span> </span>
 <span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
@@ -1372,7 +1372,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sla <span class="sc">&lt;</span> <span class="dv">400</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sla, tlp, vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
 <span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
@@ -1406,7 +1406,7 @@ However, based on that I have made an example of data junction in a consolidated
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, genus_sp, tree) <span class="sc">%&gt;%</span> </span>
 <span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_leaf =</span> <span class="fu">n_distinct</span>(leaf)) <span class="sc">%&gt;%</span> </span>
 <span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, genus_sp) <span class="sc">%&gt;%</span> </span>

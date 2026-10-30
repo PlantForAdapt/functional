@@ -39,11 +39,11 @@ load_correct <- function(my_file, type ="tsv") {
   data
 }
 
-tlp <- load_correct("data/derived/tlp_raw.tsv")
-la <- load_correct("data/derived/la.tsv") 
-hydrated <- load_correct("data/derived/hydrated_raw.tsv")
-dry <- load_correct("data/derived/dry_raw.tsv")
-check <- load_correct("data/raw/manual_check.csv", type = "csv")
+tlp <- load_correct("data/derived/Belterra_2025/tlp_raw.tsv")
+la <- load_correct("data/derived/Belterra_2025/la.tsv") 
+hydrated <- load_correct("data/derived/Belterra_2025/hydrated_raw.tsv")
+dry <- load_correct("data/derived/Belterra_2025/dry_raw.tsv")
+check <- load_correct("data/raw/Belterra_2025/manual_check.csv", type = "csv")
 ```
 
 
@@ -306,7 +306,7 @@ if(nrow(dupl) == 0) {
 #| message: false
 raw %>% 
   left_join(inventory) %>% 
-  write_tsv("outputs/raw.tsv")
+  write_tsv("outputs/Belterra_2025_raw.tsv")
 ```
 
 Create the file *traits_comments.tsv* with trait values, the manual checks and botanical identification. 
@@ -315,7 +315,7 @@ Create the file *traits_comments.tsv* with trait values, the manual checks and b
 ```{r}
 #| warning: false
 #| message: false
-read_tsv("outputs/raw.tsv", show_col_types = FALSE) %>% 
+read_tsv("outputs/Belterra_2025_raw.tsv", show_col_types = FALSE) %>% 
   filter(!(tree == 6910 & leaf %in% c(1, 2))) %>% 
   mutate(
     la = area_included,
@@ -324,7 +324,7 @@ read_tsv("outputs/raw.tsv", show_col_types = FALSE) %>%
   ) %>% 
   select(tree, vernacular, vernacular_full, genus_sp, family, leaf, la, ldmc, lt, sla, tlp, missing_part, anomaly, touching, raw_scan) %>% 
   left_join(inventory) %>% 
-  write_tsv("outputs/traits_comments.tsv")
+  write_tsv("outputs/Belterra_2025_traits_comments.tsv")
 ```
 
 > Sylvain, please check. 
@@ -339,7 +339,7 @@ But I think it is the opposite (as area_excluded <= included, so area excluded i
 ```{r}
 #| message: false
 #| warning: false
-traits_comments <- read_tsv("outputs/traits_comments.tsv") %>% 
+traits_comments <- read_tsv("outputs/Belterra_2025_traits_comments.tsv") %>% 
   gather(trait, value, la, ldmc, lt, tlp, sla) %>% 
   mutate(trait = recode(trait, 
                         "la" = "LA [ cm2 ]",
@@ -515,7 +515,7 @@ Based on the exploration above, the data are filtered as follow:
 ```{r}
 #| message: false
 #| warning: false
-read_tsv("outputs/raw.tsv", show_col_types = FALSE) %>% 
+read_tsv("outputs/Belterra_2025_raw.tsv", show_col_types = FALSE) %>% 
   filter(touching == 0 & # to be removed once the scanned have been redone
            !(tree == 6910 & leaf %in% c(1, 2)) &
            missing_part != 2 &
@@ -531,7 +531,7 @@ read_tsv("outputs/raw.tsv", show_col_types = FALSE) %>%
   group_by(tree, vernacular, vernacular_full, genus_sp, family, leaf) %>% 
   mutate(across(la:tlp, mean)) %>% 
   distinct() %>% 
-  write_tsv("outputs/traits.tsv")
+  write_tsv("outputs/Belterra_2025_traits.tsv")
 ```
 
 We look at the correspondence between the vernacular names we used during field collection and the botanical identification. 
@@ -539,7 +539,7 @@ The table below shows the vernacular names that correspond to more than one spec
 
 ```{r}
 #| message: false
-read_tsv("outputs/traits.tsv") %>% 
+read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
      group_by(vernacular) %>% summarise(nb_sp = n_distinct(genus_sp)) %>% 
   filter(nb_sp >1)
 ```
@@ -550,7 +550,7 @@ read_tsv("outputs/traits.tsv") %>%
 ```{r figure}
 #| message: false
 #| warning: false
-read_tsv("outputs/traits.tsv") %>% 
+read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
   gather(trait, value, -vernacular, -tree, -leaf, 
          -vernacular_full, -genus_sp, -family) %>% 
   mutate(trait = recode(trait, 
@@ -576,7 +576,7 @@ read_tsv("outputs/traits.tsv") %>%
 ```{r}
 #| message: false
 #| warning: false
-out1 <- read_tsv("outputs/traits.tsv") %>% 
+out1 <- read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
   filter(ldmc > 0.8) %>% select(vernacular, tree, leaf)
 raw %>% filter(tree == out1$tree & leaf == out1$leaf) %>% 
   kable()
@@ -589,7 +589,7 @@ raw %>% filter(tree == out1$tree & leaf == out1$leaf) %>%
 #| warning: false
 #| fig-width: 10
 #| fig-height: 10
-read_tsv("outputs/traits.tsv") %>% 
+read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
   filter(sla < 400) %>% 
   select(sla, tlp, vernacular, tree, leaf) %>% 
   na.omit() %>% 
@@ -615,7 +615,7 @@ However, based on that I have made an example of data junction in a consolidated
 
 ```{r}
 #| message: false
-read_tsv("outputs/traits.tsv") %>% 
+read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
   group_by(vernacular, genus_sp, tree) %>% 
   summarise(n_leaf = n_distinct(leaf)) %>% 
   group_by(vernacular, genus_sp) %>% 

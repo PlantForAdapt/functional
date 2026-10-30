@@ -10,18 +10,18 @@ library(readxl)
 
 ```{r data}
 #| eval: false
-read_xlsx("data/raw/dry_weight.xlsx") %>% 
+read_xlsx("data/raw/Belterra_2025/dry_weight.xlsx") %>% 
   rename_all(tolower) %>% 
   rename_all(str_squish) %>% 
   rename(vernacular = especies, tree = idtree, leaf = idleaf, 
          dw = "peso seco 72h", comment = comment.) %>% 
-  write_tsv("data/derived/dry_raw.tsv")
+  write_tsv("data/derived/Belterra_2025/dry_raw.tsv")
 ```
 
 ```{r figure}
 #| message: false
 #| warning: false
-read_tsv("data/derived/dry_raw.tsv") %>% 
+read_tsv("data/derived/Belterra_2025/dry_raw.tsv") %>% 
   ggplot(aes(vernacular,
              dw)) +
   geom_boxplot() +
