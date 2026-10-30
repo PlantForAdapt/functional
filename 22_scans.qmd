@@ -21,14 +21,14 @@ done
 
 We then use ImageJ (<https://imagej.net/ij/download.html>) with the following steps:
 
--   Open virtual stack
--   Type \> 8-Bit
--   Adjust \> Threshold \> Automatic
--   Analyze Particles
-    -   Size: 1000-Infinity
-    -   Circularity: 0-1
-    -   Display results, clear results, exclude on edges, summarize, composite ROIs
-    -   with or without include holes depending on the question
+- Open virtual stack
+- Type \> 8-Bit
+- Adjust \> Threshold \> Automatic
+- Analyze Particles
+  - Size: 1000-Infinity
+  - Circularity: 0-1
+  - Display results, clear results, exclude on edges, summarize, composite ROIs
+  - with or without include holes depending on the question
 
 The intermediate threshold images with detected are saved for manual check.
 
@@ -81,30 +81,144 @@ read_tsv("data/derived/Belterra_2025/la.tsv") %>%
 
 ## Manual check
 
+```{r}
+#| message: false
+check <- read_csv("data/raw/Belterra_2025/manual_check.csv")
+```
+
 Masks generated with the option allowing holes to be filled were manually inspected for (*NA* when no existing mask):
 
--   *missing_part*: missing part in the leave due to herbivory or other damage: *0* no missing part, *1* moderate missing part, and *2* big missing part **=\> code 1 can probably be included, but code 2 should probably be remove for LA**
+### Missing parts
 
--   *anomaly*: any anomaly in the generated masks:
+- *missing_part*: missing part in the leave due to herbivory or other damage: *0* no missing part, *1* moderate missing part, and *2* big missing part **=\> code 1 can probably be included, but code 2 should probably be remove for LA**
 
-    -   *ok*: no problem
+Number of leaves concerned by missing parts (per class):
 
-    -   *abn_area*: abnormal area are masked, detected because they don't have the shape of a leaf. Looking at the corresponding scan, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part. So they are interpreted as holes and filled. **=\> For these individuals (or maybe species), consider the unfilled area even for the LA**. TO DO if you agree
+```{r}
+check %>% 
+  count(vernacular, missing_part) %>% 
+  pivot_wider(
+    names_from = missing_part,
+    values_from = n,
+    values_fill = 0
+  )
+```
 
-    -   *fol_touch*: this is the same problem than *abn_area*, except for the FAVA for which the foliolules are actually touching and form a compact area on the mask.**=\> For these individuals (or maybe species), consider the unfilled area even for the LA** TO DO if you agree
+### Anomalies
 
-    -   *miss_petiolul*: for double-compound leaves, the petiolule is not included, when it should have been
-    
-    -   *petiol_included*: the petiole has been included, when it should not have
+- *anomaly*: any anomaly in the generated masks:
 
-    -   *one_fol*: just one foliole when the species has compound leaves
+  - *ok*: no problem
 
--   *touching*: *0* no part touching, *1* leaf touching leading to part of the leaf not taken into account, *2* leaf touching leading to all the leaf not taken into account **=\> TO DO (Sylvain?) to be corrected by adding a black line with a photo editor?**
+  - *abn_area*: abnormal area are masked, detected because they don't have the shape of a leaf. Looking at the corresponding scan, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part. So they are interpreted as holes and filled. **=\> For these individuals (or maybe species), consider the unfilled area even for the LA. Another suggestion is simply to draw a small white line between the folioles to avoid getting them merged.**. TO DO if you agree
+
+  - *fol_touch*: this is the same problem than *abn_area*, except for the FAVA for which the foliolules are actually touching and form a compact area on the mask.**=\> For these individuals (or maybe species), consider the unfilled area even for the LA. Another suggestion is simply to draw a small white line between the folioles to avoid getting them merged.**\*\* TO DO if you agree
+
+  - *miss_petiolul*: for double-compound leaves, the petiolule is not included, when it should have been
+
+  - *petiol_included*: the petiole has been included, when it should not have
+
+  - *one_fol*: just one foliole when the species has compound leaves
+
+Number of leaves concerned by anomaly:
+
+```{r}
+check %>% 
+  count(vernacular, anomaly) %>% 
+  pivot_wider(
+    names_from = anomaly,
+    values_from = n,
+    values_fill = 0
+  )
+```
+
+Example of leaves with abn_area (one per species concerned):
+
+::: {layout-ncol=3}
+![ANGEL](documents/Belterra_2025/ANGEL_5677_5_mask.png)
+
+![FAVAO](documents/Belterra_2025/FAVAO_5685_2_mask.png)
+
+![PARAP](documents/Belterra_2025/PARAP_5375_4_mask.png)
+:::
+
+and these are their raw scans:
+
+::: {layout-ncol=3}
+![ANGEL](documents/Belterra_2025/ANGEL_5677_5.pdf-1.png)
+
+![FAVAO](documents/Belterra_2025/FAVAO_5685_2.pdf-1.png)
+
+![PARAP](documents/Belterra_2025/PARAP_5375_4.pdf-1.png)
+:::
+
+
+Example of leaves with fol_touching (one per species concerned):
+
+::: {layout-ncol=3}
+![ANGEL](documents/Belterra_2025/ANGEL_5663_1_mask.png)
+
+![FAVA](documents/Belterra_2025/FAVA_6513_5_mask.png)
+
+![COPAI](documents/Belterra_2025/COPAI_6897_4._mask.png)
+:::
+
+> I realise that the problem of abn_area and fol_touch is the same problem (do change for the next campaigns).
+Drawing a small line on the scan to avoid the petiole merging is possible for PARAP and COPAI (but that is not the one for which it matters the more),
+but not for FAVAO, FAVA and ANGEL.
+
+### Leaf touching the side of the scan
+
+- *touching*: *0* no part touching, *1* leaf touching leading to part of the leaf not taken into account, *2* leaf touching leading to all the leaf not taken into account **=\> TO DO (Sylvain?) to be corrected by adding a black line with a photo editor?**
+
+Number of leaves touching leaves:
+
+```{r}
+check %>% 
+  count(vernacular, touching) %>% 
+  pivot_wider(
+    names_from = touching,
+    values_from = n,
+    values_fill = 0
+  )
+```
+
+Here are the touching leaves:
+
+```{r}
+check %>% filter(touching %in% c(1,2))
+```
+
+Here is an example for each species and category:
+
+::: {layout-ncol=4}
+![ANGEL, 1](documents/Belterra_2025/ANGEL_5677_1_mask.png)
+
+![ANGEL, 2](documents/Belterra_2025/ANGEL_5677_2_mask.png)
+
+![CASTA, 1](documents/Belterra_2025/CASTA_6568_2_mask.png)
+
+![PEQUI, 1](documents/Belterra_2025/PEQUI_5953_1_mask.png) 
+:::
+
+### Damaged and young leaves
 
 Raw leaf scans are manually checked for the following problems, but this is highly subjective:
 
--   *ok*: no problem (or very small area concerned)
+- *ok*: no problem (or very small area concerned)
 
--   *damaged*: part of the leaf or the whole leaf appears black/brown or yellowish on the scan or there are any other damages (except missing part of the leaf) suggesting that the leaf is decaying or is attacked by insects
+- *damaged*: part of the leaf or the whole leaf appears black/brown or yellowish on the scan or there are any other damages (except missing part of the leaf) suggesting that the leaf is decaying or is attacked by insects
 
--   *young*: the bright green colour of the leave compared to the other leaves from the individual and/or the species suggest non mature leaves
+- *young*: the bright green colour of the leave compared to the other leaves from the individual and/or the species suggest non mature leaves
+
+Number of damaged or young leaves:
+
+```{r}
+check %>% 
+  count(vernacular, raw_scan) %>% 
+  pivot_wider(
+    names_from = raw_scan,
+    values_from = n,
+    values_fill = 0
+  )
+```

@@ -260,7 +260,13 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#manual-check" id="toc-manual-check" class="nav-link active" data-scroll-target="#manual-check">Manual check</a></li>
+  <li><a href="#manual-check" id="toc-manual-check" class="nav-link active" data-scroll-target="#manual-check">Manual check</a>
+  <ul class="collapse">
+  <li><a href="#missing-parts" id="toc-missing-parts" class="nav-link" data-scroll-target="#missing-parts">Missing parts</a></li>
+  <li><a href="#anomalies" id="toc-anomalies" class="nav-link" data-scroll-target="#anomalies">Anomalies</a></li>
+  <li><a href="#leaf-touching-the-side-of-the-scan" id="toc-leaf-touching-the-side-of-the-scan" class="nav-link" data-scroll-target="#leaf-touching-the-side-of-the-scan">Leaf touching the side of the scan</a></li>
+  <li><a href="#damaged-and-young-leaves" id="toc-damaged-and-young-leaves" class="nav-link" data-scroll-target="#damaged-and-young-leaves">Damaged and young leaves</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -287,10 +293,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <p>We first use the following bash code to aggregate images and convert pdf to png.</p>
-<pre><code>cd data/derived/
+<pre><code>cd data/derived/Belterra_2025/
 mkdir pdfs
-ls ../raw/scans/*/*
-cp ../raw/scans/*/* pdfs
+ls ../raw/Belterra_2025/scans/*/*
+cp ../raw/Belterra_2025/scans/*/* pdfs
 mkdirs pngs
 for file in $(ls pdfs/)
 do
@@ -313,25 +319,25 @@ done</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>la_ex <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/derived/area_excluded_summary.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>la_ex <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/derived/Belterra_2025/area_excluded_summary.csv"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Slice, <span class="st">`</span><span class="at">Total Area</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">slice =</span> Slice, <span class="at">area_excluded =</span> <span class="st">`</span><span class="at">Total Area</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(slice, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area_excluded =</span> area_excluded <span class="sc">/</span> (<span class="dv">1275</span><span class="sc">*</span><span class="dv">1755</span>) <span class="sc">*</span> (<span class="dv">21</span><span class="sc">*</span><span class="fl">29.7</span>))</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>la_in <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/derived/area_included_summary.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>la_in <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/derived/Belterra_2025/area_included_summary.csv"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Slice, <span class="st">`</span><span class="at">Total Area</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">slice =</span> Slice, <span class="at">area_included =</span> <span class="st">`</span><span class="at">Total Area</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(slice, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>)) <span class="sc">%&gt;%</span> </span>
 <span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area_included =</span> area_included <span class="sc">/</span> (<span class="dv">1275</span><span class="sc">*</span><span class="dv">1755</span>) <span class="sc">*</span> (<span class="dv">21</span><span class="sc">*</span><span class="fl">29.7</span>))</span>
 <span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>la_ex <span class="sc">%&gt;%</span> </span>
 <span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(la_in) <span class="sc">%&gt;%</span> </span>
-<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"data/derived/la.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"data/derived/Belterra_2025/la.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"data/derived/la.tsv"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"data/derived/Belterra_2025/la.tsv"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">la_s =</span> <span class="fu">mean</span>(area_included)) <span class="sc">%&gt;%</span> </span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ungroup</span>() <span class="sc">%&gt;%</span> </span>
@@ -358,7 +364,7 @@ done</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"data/derived/la.tsv"</span>) <span class="sc">%&gt;%</span> </span>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"data/derived/Belterra_2025/la.tsv"</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(area_included <span class="sc">&lt;</span> <span class="dv">1</span>) <span class="sc">%&gt;%</span> </span>
 <span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
@@ -397,28 +403,330 @@ done</code></pre>
 </blockquote>
 <section id="manual-check" class="level2">
 <h2 class="anchored" data-anchor-id="manual-check">Manual check</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>check <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/Belterra_2025/manual_check.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 <p>Masks generated with the option allowing holes to be filled were manually inspected for (<em>NA</em> when no existing mask):</p>
+<section id="missing-parts" class="level3">
+<h3 class="anchored" data-anchor-id="missing-parts">Missing parts</h3>
 <ul>
-<li><p><em>missing_part</em>: missing part in the leave due to herbivory or other damage: <em>0</em> no missing part, <em>1</em> moderate missing part, and <em>2</em> big missing part <strong>=&gt; code 1 can probably be included, but code 2 should probably be remove for LA</strong></p></li>
+<li><em>missing_part</em>: missing part in the leave due to herbivory or other damage: <em>0</em> no missing part, <em>1</em> moderate missing part, and <em>2</em> big missing part <strong>=&gt; code 1 can probably be included, but code 2 should probably be remove for LA</strong></li>
+</ul>
+<p>Number of leaves concerned by missing parts (per class):</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>check <span class="sc">%&gt;%</span> </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(vernacular, missing_part) <span class="sc">%&gt;%</span> </span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> missing_part,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> n,</span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_fill =</span> <span class="dv">0</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16 × 4
+   vernacular   `0`   `1`   `2`
+   &lt;chr&gt;      &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1 ANDIR         19     4     2
+ 2 ANGEL          1    24     0
+ 3 CASTA         13     0     2
+ 4 CEDRU         24     1     0
+ 5 COPAI          3     7    10
+ 6 CUPIU         24     1     0
+ 7 FAVA           4     2     0
+ 8 FAVAO          0     5     0
+ 9 FREIJ         14     6     0
+10 JARAN         19     4     2
+11 JUTAI          5     0     0
+12 PARAP          5     8     8
+13 PEQUI          7     1     2
+14 PIQUI          3     2    10
+15 QUARU         21     4     0
+16 VIROL         20     4     0</code></pre>
+</div>
+</div>
+</section>
+<section id="anomalies" class="level3">
+<h3 class="anchored" data-anchor-id="anomalies">Anomalies</h3>
+<ul>
 <li><p><em>anomaly</em>: any anomaly in the generated masks:</p>
 <ul>
 <li><p><em>ok</em>: no problem</p></li>
-<li><p><em>abn_area</em>: abnormal area are masked, detected because they don’t have the shape of a leaf. Looking at the corresponding scan, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part. So they are interpreted as holes and filled. <strong>=&gt; For these individuals (or maybe species), consider the unfilled area even for the LA</strong>. TO DO if you agree</p></li>
-<li><p><em>fol_touch</em>: this is the same problem than <em>abn_area</em>, except for the FAVA for which the foliolules are actually touching and form a compact area on the mask.<strong>=&gt; For these individuals (or maybe species), consider the unfilled area even for the LA</strong> TO DO if you agree</p></li>
+<li><p><em>abn_area</em>: abnormal area are masked, detected because they don’t have the shape of a leaf. Looking at the corresponding scan, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part. So they are interpreted as holes and filled. <strong>=&gt; For these individuals (or maybe species), consider the unfilled area even for the LA. Another suggestion is simply to draw a small white line between the folioles to avoid getting them merged.</strong>. TO DO if you agree</p></li>
+<li><p><em>fol_touch</em>: this is the same problem than <em>abn_area</em>, except for the FAVA for which the foliolules are actually touching and form a compact area on the mask.<strong>=&gt; For these individuals (or maybe species), consider the unfilled area even for the LA. Another suggestion is simply to draw a small white line between the folioles to avoid getting them merged.</strong>** TO DO if you agree</p></li>
 <li><p><em>miss_petiolul</em>: for double-compound leaves, the petiolule is not included, when it should have been</p></li>
 <li><p><em>petiol_included</em>: the petiole has been included, when it should not have</p></li>
 <li><p><em>one_fol</em>: just one foliole when the species has compound leaves</p></li>
 </ul></li>
-<li><p><em>touching</em>: <em>0</em> no part touching, <em>1</em> leaf touching leading to part of the leaf not taken into account, <em>2</em> leaf touching leading to all the leaf not taken into account <strong>=&gt; TO DO (Sylvain?) to be corrected by adding a black line with a photo editor?</strong></p></li>
 </ul>
+<p>Number of leaves concerned by anomaly:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>check <span class="sc">%&gt;%</span> </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(vernacular, anomaly) <span class="sc">%&gt;%</span> </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> anomaly,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> n,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_fill =</span> <span class="dv">0</span></span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16 × 7
+   vernacular    ok abn_area fol_touch one_fol petiol_included miss_petiolul
+   &lt;chr&gt;      &lt;int&gt;    &lt;int&gt;     &lt;int&gt;   &lt;int&gt;           &lt;int&gt;         &lt;int&gt;
+ 1 ANDIR         25        0         0       0               0             0
+ 2 ANGEL          0        2        23       0               0             0
+ 3 CASTA         15        0         0       0               0             0
+ 4 CEDRU         25        0         0       0               0             0
+ 5 COPAI         16        0         1       3               0             0
+ 6 CUPIU         25        0         0       0               0             0
+ 7 FAVA           0        0         6       0               0             0
+ 8 FAVAO          0        5         0       0               0             0
+ 9 FREIJ         20        0         0       0               0             0
+10 JARAN         25        0         0       0               0             0
+11 JUTAI          5        0         0       0               0             0
+12 PARAP         20        1         0       0               0             0
+13 PEQUI          1        0         0       0               9             0
+14 PIQUI          1        0         0       6               0             8
+15 QUARU         25        0         0       0               0             0
+16 VIROL         24        0         0       0               0             0</code></pre>
+</div>
+</div>
+<p>Example of leaves with abn_area (one per species concerned):</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/ANGEL_5677_5_mask.png" class="img-fluid figure-img"></p>
+<figcaption>ANGEL</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/FAVAO_5685_2_mask.png" class="img-fluid figure-img"></p>
+<figcaption>FAVAO</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/PARAP_5375_4_mask.png" class="img-fluid figure-img"></p>
+<figcaption>PARAP</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>and these are their raw scans:</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/ANGEL_5677_5.pdf-1.png" class="img-fluid figure-img"></p>
+<figcaption>ANGEL</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/FAVAO_5685_2.pdf-1.png" class="img-fluid figure-img"></p>
+<figcaption>FAVAO</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/PARAP_5375_4.pdf-1.png" class="img-fluid figure-img"></p>
+<figcaption>PARAP</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<p>Example of leaves with fol_touching (one per species concerned):</p>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/ANGEL_5663_1_mask.png" class="img-fluid figure-img"></p>
+<figcaption>ANGEL</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/FAVA_6513_5_mask.png" class="img-fluid figure-img"></p>
+<figcaption>FAVA</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/COPAI_6897_4._mask.png" class="img-fluid figure-img"></p>
+<figcaption>COPAI</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>I realise that the problem of abn_area and fol_touch is the same problem (do change for the next campaigns). Drawing a small line on the scan to avoid the petiole merging is possible for PARAP and COPAI (but that is not the one for which it matters the more), but not for FAVAO, FAVA and ANGEL.</p>
+</blockquote>
+</section>
+<section id="leaf-touching-the-side-of-the-scan" class="level3">
+<h3 class="anchored" data-anchor-id="leaf-touching-the-side-of-the-scan">Leaf touching the side of the scan</h3>
+<ul>
+<li><em>touching</em>: <em>0</em> no part touching, <em>1</em> leaf touching leading to part of the leaf not taken into account, <em>2</em> leaf touching leading to all the leaf not taken into account <strong>=&gt; TO DO (Sylvain?) to be corrected by adding a black line with a photo editor?</strong></li>
+</ul>
+<p>Number of leaves touching leaves:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>check <span class="sc">%&gt;%</span> </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(vernacular, touching) <span class="sc">%&gt;%</span> </span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> touching,</span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> n,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_fill =</span> <span class="dv">0</span></span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16 × 4
+   vernacular   `0`   `1`   `2`
+   &lt;chr&gt;      &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1 ANDIR         25     0     0
+ 2 ANGEL         22     1     2
+ 3 CASTA         14     1     0
+ 4 CEDRU         25     0     0
+ 5 COPAI         20     0     0
+ 6 CUPIU         25     0     0
+ 7 FAVA           6     0     0
+ 8 FAVAO          5     0     0
+ 9 FREIJ         20     0     0
+10 JARAN         25     0     0
+11 JUTAI          5     0     0
+12 PARAP         21     0     0
+13 PEQUI          9     1     0
+14 PIQUI         15     0     0
+15 QUARU         25     0     0
+16 VIROL         24     0     0</code></pre>
+</div>
+</div>
+<p>Here are the touching leaves:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>check <span class="sc">%&gt;%</span> <span class="fu">filter</span>(touching <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 7
+  vernacular  tree  leaf missing_part anomaly         touching raw_scan
+  &lt;chr&gt;      &lt;dbl&gt; &lt;dbl&gt;        &lt;dbl&gt; &lt;chr&gt;              &lt;dbl&gt; &lt;chr&gt;   
+1 ANGEL       5677     1            1 fol_touch              1 ok      
+2 ANGEL       5677     2            0 fol_touch              2 ok      
+3 ANGEL       5677     4            1 fol_touch              2 ok      
+4 CASTA       6568     2            0 ok                     1 ok      
+5 PEQUI       5953     1            0 petiol_included        1 ok      </code></pre>
+</div>
+</div>
+<p>Here is an example for each species and category:</p>
+<div class="quarto-layout-panel" data-layout-ncol="4">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/ANGEL_5677_1_mask.png" class="img-fluid figure-img"></p>
+<figcaption>ANGEL, 1</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/ANGEL_5677_2_mask.png" class="img-fluid figure-img"></p>
+<figcaption>ANGEL, 2</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/CASTA_6568_2_mask.png" class="img-fluid figure-img"></p>
+<figcaption>CASTA, 1</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 25.0%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/PEQUI_5953_1_mask.png" class="img-fluid figure-img"></p>
+<figcaption>PEQUI, 1</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="damaged-and-young-leaves" class="level3">
+<h3 class="anchored" data-anchor-id="damaged-and-young-leaves">Damaged and young leaves</h3>
 <p>Raw leaf scans are manually checked for the following problems, but this is highly subjective:</p>
 <ul>
 <li><p><em>ok</em>: no problem (or very small area concerned)</p></li>
 <li><p><em>damaged</em>: part of the leaf or the whole leaf appears black/brown or yellowish on the scan or there are any other damages (except missing part of the leaf) suggesting that the leaf is decaying or is attacked by insects</p></li>
 <li><p><em>young</em>: the bright green colour of the leave compared to the other leaves from the individual and/or the species suggest non mature leaves</p></li>
 </ul>
+<p>Number of damaged or young leaves:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>check <span class="sc">%&gt;%</span> </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>(vernacular, raw_scan) <span class="sc">%&gt;%</span> </span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">names_from =</span> raw_scan,</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_from =</span> n,</span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">values_fill =</span> <span class="dv">0</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>  )</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 16 × 4
+   vernacular damaged    ok young
+   &lt;chr&gt;        &lt;int&gt; &lt;int&gt; &lt;int&gt;
+ 1 ANDIR            4    20     1
+ 2 ANGEL            0    25     0
+ 3 CASTA            7     8     0
+ 4 CEDRU            2    23     0
+ 5 COPAI            4    16     0
+ 6 CUPIU           10    15     0
+ 7 FAVA             0     6     0
+ 8 FAVAO            0     5     0
+ 9 FREIJ            5    11     4
+10 JARAN           12     8     5
+11 JUTAI            0     5     0
+12 PARAP            7    14     0
+13 PEQUI            2     8     0
+14 PIQUI            2    13     0
+15 QUARU            2    23     0
+16 VIROL            4    16     4</code></pre>
+</div>
+</div>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

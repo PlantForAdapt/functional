@@ -450,9 +450,9 @@ traits_comments %>%
 *abs_area* and *fol_touch* should be solved by taking the unfilled mask (see scans section).
 > TO DO: check once it is done if it is better.
 
-> DECISION 4: The other abnormality doesn't seem to affect the values, I suggest to keep these leaves.
+> DECISION 4: The other abnormality doesn't seem to affect the values, I suggest to keep these leaves. Sylvain think we should remove all the leaves with miss_petiolul, miss_petiolul, one_fol. We can remove them for LA, LDMC and SLA and keep them for LT and tlp.
 
-> DECISION 5: BUT we may want to resample the PIQUI in the future... => redo all the measurments on PEQUI in the 2026 campaign?
+> DECISION 5: BUT we may want to resample the PIQUI in the future... => redo all the measurments on PEQUI in the 2026 campaign? We just have 2 leaves that are not problematic...
 
 
 ### Danmaged and young leaves
