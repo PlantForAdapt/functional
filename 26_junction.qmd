@@ -368,7 +368,7 @@ if(nrow(dupl) == 0) {
 
 ## Exploring and correcting the effects of leaf quality
 
-> TO DO GD: implement the decission made together in each stem and add in the columns comments when relevant.
+> In progress GD: implement the decission made together in each stem and add in the columns comments when relevant.
 trait_corr is to do the correction (wide table),
 traits_long is for the exploration (long table).
 
@@ -472,7 +472,13 @@ traits_cor <- traits_cor %>%
   mutate(la = 
            if_else(anomaly %in% c("abn_area", "fol_touch"),
                    area_excluded,
-                   la))
+                   la),
+         comments = replace_when(
+           comments,
+           (anomaly %in% c("abn_area", "fol_touch") & comments !="") ~
+              paste(comments, "unfilled area taken for la", sep=" ; "),
+            (anomaly %in% c("abn_area", "fol_touch") & comments =="") ~
+              paste(comments, "unfilled area taken for la", sep="")))         
 ```
 
 
@@ -515,7 +521,7 @@ traits_long %>%
   xlab("") + ylab("")
 ```
 
-Although the cases of missing petiolule, petiole included or only one foliole considered doesn't seem to affect the value, we remove them for LA, LDMC and SLA, as they are not following the protocole.
+Although the cases of missing petiolule, petiole included or only one foliole considered doesn't seem to affect the value, we remove them for LA, LDMC and SLA, as they are not following the protocol.
 Values for LT and tlp can be kept.
 See this [issue](https://github.com/PlantForAdapt/functional/issues/30).
 
