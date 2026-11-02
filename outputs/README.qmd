@@ -16,4 +16,4 @@ All outputs of the analyses:
 
 - metadata in `trait_PlantForAdapt_Site_year_``README`
 
-- version description in NEWS
+- version description in `NEWS`

@@ -3,7 +3,7 @@ project:
   output-dir: docs
 
 book:
-  title: "functinal"
+  title: "functional"
   date: last-modified
   chapters:
     - index.qmd

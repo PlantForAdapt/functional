@@ -24,3 +24,7 @@ This folder will contains the data for all analyses.
 - All derived data in `derived/`
 
   - Subfolder for campaign specific data : `Site_year/` containing all the files created by the data cleaning workflow
+
+- All data used for correction in `corrections/`
+
+  - Subfolder for campaign specific data : `Site_year/`

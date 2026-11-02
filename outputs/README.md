@@ -1,17 +1,14 @@
 # Outputs
-Sep 23, 2025
+
+Nov 2, 2026
 
 All outputs of the analyses:
 
-- `...`:
+- Overall trait database : `trait_PlantForAdapt_vX.csv`
 
-``` r
-fs::dir_tree()
-```
+- Campaign specific trait database :
+  `trait_PlantForAdapt_Site_year_vX.csv`
 
-    .
-    ├── README.md
-    ├── README.qmd
-    ├── README.rmarkdown
-    ├── raw.tsv
-    └── traits.tsv
+- metadata in ``` trait_PlantForAdapt_Site_year_``README ```
+
+- version description in `NEWS`
