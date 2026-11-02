@@ -85,14 +85,14 @@ read_tsv("data/derived/Belterra_2025/la.tsv") %>%
 
 ```{r}
 #| message: false
-check <- read_csv("data/raw/Belterra_2025/manual_check.csv")
+check <- read_csv("data/corrections/Belterra_2025/manual_check.csv")
 ```
 
 Masks generated with the option allowing holes to be filled were manually inspected for (*NA* when no existing mask):
 
 ### Missing parts
 
-- *missing_part*: missing part in the leave due to herbivory or other damage: *0* no missing part, *1* moderate missing part, and *2* big missing part **=\> code 1 can probably be included, but code 2 should probably be remove for LA**
+- *missing_part*: missing part in the leave due to herbivory or other damage: *0* no missing part, *1* moderate missing part, and *2* big missing part (see [page junction](#incomplete_belt_2025) for the filtering out of leaves with a big missing part).
 
 Number of leaves concerned by missing parts (per class):
 
@@ -112,9 +112,9 @@ check %>%
 
   - *ok*: no problem
 
-  - *abn_area*: abnormal area are masked, detected because they don't have the shape of a leaf. Looking at the corresponding scan, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part. So they are interpreted as holes and filled. **=\> For these individuals (or maybe species), consider the unfilled area even for the LA. Another suggestion is simply to draw a small white line between the folioles to avoid getting them merged.**. TO DO if you agree
+  - *abn_area*: abnormal area are masked, detected because they don't have the shape of a leaf. Looking at the corresponding scan, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part. So they are interpreted as holes and filled.
 
-  - *fol_touch*: this is the same problem than *abn_area*, except for the FAVA for which the foliolules are actually touching and form a compact area on the mask.**=\> For these individuals (or maybe species), consider the unfilled area even for the LA. Another suggestion is simply to draw a small white line between the folioles to avoid getting them merged.**\*\* TO DO if you agree
+  - *fol_touch*: this is the same problem than *abn_area*, except for the FAVA for which the foliolules are actually touching and form a compact area on the mask.
 
   - *miss_petiolul*: for double-compound leaves, the petiolule is not included, when it should have been
 
@@ -164,7 +164,9 @@ Example of leaves with fol_touching (one per species concerned):
 ![COPAI](documents/Belterra_2025/COPAI_6897_4._mask.png)
 :::
 
-> I realise that the problem of abn_area and fol_touch is the same problem (do change for the next campaigns). Drawing a small line on the scan to avoid the petiole merging is possible for PARAP and COPAI (but that is not the one for which it matters the more), but not for FAVAO, FAVA and ANGEL.
+> abn_area and fol_touch are actually the same problem (to do for the next campaign: change the manual check classification. To solve this problem, drawing a small line on the scan to avoid the petiole merging is possible for PARAP and COPAI (but that is not the one for which it matters the more), but not for FAVAO, FAVA and ANGEL. The decission is made to use the unfilled area even for LA. this will be implemented in the [page junction](#anomalie_belt_2025)
+
+> Our protocol states that the petiole should be removed, and the petiolule should be included. In the cases when this is not respected (*petiol_included* or *miss_petiolul*),a nd in the base when just one foliole has been considered, we will remove the values of LA, LDMC and SLA, but LT and tlp. This will be done in the [page junction](#anomalie_belt_2025).
 
 ### Leaf touching the side of the scan
 
