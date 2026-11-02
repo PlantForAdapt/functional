@@ -10,8 +10,10 @@ format:
 
 All outputs of the analyses:
 
--   `...`:
+- Overall trait database : `trait_PlantForAdapt_vX.csv`
 
-```{r, comment=""}
-fs::dir_tree()
-```
+- Campaign specific trait database : `trait_PlantForAdapt_Site_year_vX.csv`
+
+- metadata in `trait_PlantForAdapt_Site_year_``README`
+
+- version description in NEWS
