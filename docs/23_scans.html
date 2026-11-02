@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -68,18 +71,18 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./23_hydrated.html" rel="next">
-<link href="./21_tlp.html" rel="prev">
+<link href="./24_hydrated.html" rel="next">
+<link href="./22_tlp.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js" type="module"></script>
 <script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f2e609f69be186d5c4c9edbe573f62a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -120,7 +123,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./20_belterra25_cleaning.html">Belterra 2025 - Cleaning</a></li><li class="breadcrumb-item"><a href="./22_scans.html">Scans</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./20_belterra25.html">Belterra 2025</a></li><li class="breadcrumb-item"><a href="./23_scans.html">Scans</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -178,18 +181,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
  <span class="menu-text">Material</span></a>
   </div>
 </li>
-          <li class="sidebar-item">
-  <div class="sidebar-item-container"> 
-  <a href="./14_belterra_maps.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Belterra - Maps</span></a>
-  </div>
-</li>
       </ul>
   </li>
         <li class="sidebar-item sidebar-item-section">
       <div class="sidebar-item-container"> 
-            <a href="./20_belterra25_cleaning.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Belterra 2025 - Cleaning</span></a>
+            <a href="./20_belterra25.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Belterra 2025</span></a>
           <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" role="navigation" aria-expanded="true" aria-label="Toggle section">
             <i class="bi bi-chevron-right ms-2"></i>
           </a> 
@@ -197,31 +194,37 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
       <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth1 show">  
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./21_tlp.html" class="sidebar-item-text sidebar-link">
+  <a href="./21_maps.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Maps</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./22_tlp.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">TLP</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./22_scans.html" class="sidebar-item-text sidebar-link active">
+  <a href="./23_scans.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text">Scans</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./23_hydrated.html" class="sidebar-item-text sidebar-link">
+  <a href="./24_hydrated.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Hydrated</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./24_dry.html" class="sidebar-item-text sidebar-link">
+  <a href="./25_dry.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Dry</span></a>
   </div>
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./25_junction.html" class="sidebar-item-text sidebar-link">
+  <a href="./26_junction.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Junction</span></a>
   </div>
 </li>
@@ -260,20 +263,22 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#manual-check" id="toc-manual-check" class="nav-link active" data-scroll-target="#manual-check">Manual check</a>
+  <li><a href="#raw" id="toc-raw" class="nav-link active" data-scroll-target="#raw">Raw</a></li>
+  <li><a href="#manual-check" id="toc-manual-check" class="nav-link" data-scroll-target="#manual-check">Manual check</a>
   <ul class="collapse">
   <li><a href="#missing-parts" id="toc-missing-parts" class="nav-link" data-scroll-target="#missing-parts">Missing parts</a></li>
   <li><a href="#anomalies" id="toc-anomalies" class="nav-link" data-scroll-target="#anomalies">Anomalies</a></li>
   <li><a href="#leaf-touching-the-side-of-the-scan" id="toc-leaf-touching-the-side-of-the-scan" class="nav-link" data-scroll-target="#leaf-touching-the-side-of-the-scan">Leaf touching the side of the scan</a></li>
   <li><a href="#damaged-and-young-leaves" id="toc-damaged-and-young-leaves" class="nav-link" data-scroll-target="#damaged-and-young-leaves">Damaged and young leaves</a></li>
   </ul></li>
+  <li><a href="#corrections" id="toc-corrections" class="nav-link" data-scroll-target="#corrections">Corrections</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./20_belterra25_cleaning.html">Belterra 2025 - Cleaning</a></li><li class="breadcrumb-item"><a href="./22_scans.html">Scans</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./20_belterra25.html">Belterra 2025</a></li><li class="breadcrumb-item"><a href="./23_scans.html">Scans</a></li></ol></nav>
 <div class="quarto-title">
 <h1 class="title">Scans</h1>
 </div>
@@ -292,6 +297,8 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </header>
 
 
+<section id="raw" class="level2">
+<h2 class="anchored" data-anchor-id="raw">Raw</h2>
 <p>We first use the following bash code to aggregate images and convert pdf to png.</p>
 <pre><code>cd data/derived/Belterra_2025/
 mkdir pdfs
@@ -356,7 +363,7 @@ done</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="22_scans_files/figure-html/figure-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="23_scans_files/figure-html/figure-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -401,6 +408,7 @@ done</code></pre>
 <blockquote class="blockquote">
 <p>We have issues with ANGEL 5677 leaves 2 and 4 because scans are touching the border. I have no better solution than manually adding a black line in a photo editor to treat them beforehand.</p>
 </blockquote>
+</section>
 <section id="manual-check" class="level2">
 <h2 class="anchored" data-anchor-id="manual-check">Manual check</h2>
 <div class="cell">
@@ -724,9 +732,45 @@ done</code></pre>
 16 VIROL            4    16     4</code></pre>
 </div>
 </div>
-
-
 </section>
+</section>
+<section id="corrections" class="level2">
+<h2 class="anchored" data-anchor-id="corrections">Corrections</h2>
+<p>Here is an automatic bash command to copy problematic files:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>command <span class="ot">&lt;-</span> check <span class="sc">%&gt;%</span> <span class="fu">filter</span>(touching <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>,<span class="dv">2</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">file =</span> <span class="fu">paste0</span>(vernacular, <span class="st">"_"</span>, tree, <span class="st">"_"</span>, leaf, <span class="st">".pdf-1.png"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">file =</span> <span class="fu">paste0</span>(<span class="st">"data/derived/Belterra_2025/pngs/"</span>, file)) <span class="sc">|&gt;</span> </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">command =</span> <span class="fu">paste0</span>(<span class="st">"cp "</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>                             <span class="fu">paste</span>(file, <span class="at">collapse =</span> <span class="st">" "</span>),</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>                             <span class="st">" data/corrections/Belterra_2025/pngs"</span>))</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(command<span class="sc">$</span>command)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>cp data/derived/Belterra_2025/pngs/ANGEL_5677_1.pdf-1.png data/derived/Belterra_2025/pngs/ANGEL_5677_2.pdf-1.png data/derived/Belterra_2025/pngs/ANGEL_5677_4.pdf-1.png data/derived/Belterra_2025/pngs/CASTA_6568_2.pdf-1.png data/derived/Belterra_2025/pngs/PEQUI_5953_1.pdf-1.png data/corrections/Belterra_2025/pngs</code></pre>
+</div>
+</div>
+<p>We then use ImageJ (<a href="https://imagej.net/ij/download.html" class="uri">https://imagej.net/ij/download.html</a>) with the following steps:</p>
+<ul>
+<li>Open virtual stack</li>
+<li>Type &gt; 8-Bit</li>
+<li>Adjust &gt; Threshold &gt; Automatic</li>
+<li>Analyze Particles
+<ul>
+<li>Size: 1000-Infinity</li>
+<li>Circularity: 0-1</li>
+<li>Show: Overlay Masks</li>
+<li>Display results, clear results, <strong>do not exclude on edges</strong>, summarize, composite ROIs</li>
+<li>with or without include holes depending on the question</li>
+</ul></li>
+<li>Export Image sequence to save the masks</li>
+</ul>
+<p>The intermediate threshold images with detected are saved for manual check.</p>
+<p><code>CASTA_6568_2.pdf-1.png</code> still had an issue because extra objects appeared on the edge due to shadows and needed to be manually modified.</p>
+
+
 </section>
 
 </main> <!-- /main -->
@@ -1132,12 +1176,12 @@ done</code></pre>
   </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./21_tlp.html" class="pagination-link" aria-label="TLP">
+      <a href="./22_tlp.html" class="pagination-link" aria-label="TLP">
         <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text">TLP</span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./23_hydrated.html" class="pagination-link" aria-label="Hydrated">
+      <a href="./24_hydrated.html" class="pagination-link" aria-label="Hydrated">
         <span class="nav-page-text">Hydrated</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
