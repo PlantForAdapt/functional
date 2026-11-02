@@ -12,14 +12,14 @@ book:
         - 11_traits.qmd
         - 12_protocols.qmd
         - 13_material.qmd
-        - 14_belterra_maps.qmd
-    - part: 20_belterra25_cleaning.qmd
+    - part: 20_belterra25.qmd
       chapters: 
-        - 21_tlp.qmd
-        - 22_scans.qmd
-        - 23_hydrated.qmd
-        - 24_dry.qmd
-        - 25_junction.qmd
+        - 21_maps.qmd
+        - 22_tlp.qmd
+        - 23_scans.qmd
+        - 24_hydrated.qmd
+        - 25_dry.qmd
+        - 26_junction.qmd
   appendices:
     - 97_meeting.qmd
     - 99_references.qmd

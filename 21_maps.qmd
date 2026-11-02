@@ -2,6 +2,8 @@
 #| include: false
 library(tidyverse)
 library(sf)
+table_file <- "data/raw/inventory/inventory_Belterra_20260922.xlsx"
+spat_file <- "data/raw/inventory/inventory_Belterra_20260922.gpkg"
 species <- c(
  "ANDIROBA",
  "ANGELIM VERMELHO",
@@ -26,7 +28,7 @@ species <- c(
  "CEDRURANA",
  "QUARUBA"
  )
-forest <- readxl::read_excel("data/raw/plantation/Dados brutos do inventário da estrada 5.xlsx") %>% 
+forest <- readxl::read_excel(table_file) %>% 
   rename(plate = Placa, name = `Nome vernacular`,
          x = `Easting (UTM)`, y =  `Northing (UTM)`) %>% 
   mutate(dbh = as.numeric(CAP1)/pi) %>% 
@@ -37,16 +39,16 @@ forest <- readxl::read_excel("data/raw/plantation/Dados brutos do inventário da
   top_n(10, dbh) %>% 
   mutate(code = str_sub(gsub(" ", "", name), 1, 5)) %>% 
   mutate(label = paste0(code, "\n", plate))
-roads <- read_sf("data/raw/plantation/BosquePesquisaEmbrapa.gpkg", "EstradasdoPPesquisa")
-inventory <- read_sf("data/raw/plantation/BosquePesquisaEmbrapa.gpkg", "Inventario")
-mother <- read_sf("data/raw/plantation/BosquePesquisaEmbrapa.gpkg", "MATRIZES")
-limits <- read_sf("data/raw/plantation/BosquePesquisaEmbrapa.gpkg", "PerimetroEstrada5")
-path <- read_sf("data/raw/plantation/BosquePesquisaEmbrapa.gpkg", "TrilhaParqPesq")
+roads <- read_sf(spat_file, "EstradasdoPPesquisa")
+inventory <- read_sf(spat_file, "Inventario")
+mother <- read_sf(spat_file, "MATRIZES")
+limits <- read_sf(spat_file, "PerimetroEstrada5")
+path <- read_sf(spat_file, "TrilhaParqPesq")
 inventory <- forest %>% 
   st_as_sf(coords = c("x", "y"), crs = 31981)
 ```
 
-# Belterra - Maps {.unnumbered}
+# Maps {.unnumbered}
 
 We will collect the following species:
 
