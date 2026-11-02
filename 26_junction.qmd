@@ -583,6 +583,7 @@ read_tsv("outputs/Belterra_2025_traits.tsv") %>%
 ```{r}
 #| message: false
 #| warning: false
+#| eval: false
 out1 <- read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
   filter(ldmc > 0.8) %>% select(vernacular, tree, leaf)
 raw %>% filter(tree == out1$tree & leaf == out1$leaf) %>% 

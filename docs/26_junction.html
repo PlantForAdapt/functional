@@ -2,23 +2,20 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Junction – functinal</title>
+<title>Junction – functional</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -79,10 +76,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f2e609f69be186d5c4c9edbe573f62a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -138,7 +135,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
     <div class="pt-lg-2 mt-2 text-left sidebar-header">
     <div class="sidebar-title mb-0 py-0">
-      <a href="./">functinal</a> 
+      <a href="./">functional</a> 
     </div>
       </div>
         <div class="mt-2 flex-shrink-0 align-items-center">
@@ -275,14 +272,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   </ul></li>
   <li><a href="#checking-for-missing-measurements-in-some-datasets" id="toc-checking-for-missing-measurements-in-some-datasets" class="nav-link" data-scroll-target="#checking-for-missing-measurements-in-some-datasets">Checking for missing measurements in some datasets</a></li>
   <li><a href="#joining-the-datasets-and-calculating-the-trait-values" id="toc-joining-the-datasets-and-calculating-the-trait-values" class="nav-link" data-scroll-target="#joining-the-datasets-and-calculating-the-trait-values">Joining the datasets and calculating the trait values</a></li>
-  <li><a href="#exploring-the-effects-of-leaf-quality" id="toc-exploring-the-effects-of-leaf-quality" class="nav-link" data-scroll-target="#exploring-the-effects-of-leaf-quality">Exploring the effects of leaf quality</a>
+  <li><a href="#correcting-for-scan-problems" id="toc-correcting-for-scan-problems" class="nav-link" data-scroll-target="#correcting-for-scan-problems">Correcting for scan problems</a></li>
+  <li><a href="#correcting-for-duplicated-leaves" id="toc-correcting-for-duplicated-leaves" class="nav-link" data-scroll-target="#correcting-for-duplicated-leaves">Correcting for duplicated leaves</a></li>
+  <li><a href="#exploring-and-correcting-the-effects-of-leaf-quality" id="toc-exploring-and-correcting-the-effects-of-leaf-quality" class="nav-link" data-scroll-target="#exploring-and-correcting-the-effects-of-leaf-quality">Exploring and correcting the effects of leaf quality</a>
   <ul class="collapse">
   <li><a href="#incomplete-leaves" id="toc-incomplete-leaves" class="nav-link" data-scroll-target="#incomplete-leaves">Incomplete leaves</a></li>
   <li><a href="#anomalies-seen-on-the-masks" id="toc-anomalies-seen-on-the-masks" class="nav-link" data-scroll-target="#anomalies-seen-on-the-masks">Anomalies seen on the masks</a></li>
-  <li><a href="#danmaged-and-young-leaves" id="toc-danmaged-and-young-leaves" class="nav-link" data-scroll-target="#danmaged-and-young-leaves">Danmaged and young leaves</a></li>
+  <li><a href="#damaged-and-young-leaves" id="toc-damaged-and-young-leaves" class="nav-link" data-scroll-target="#damaged-and-young-leaves">Damaged and young leaves</a></li>
   </ul></li>
   <li><a href="#filtering-and-exploring" id="toc-filtering-and-exploring" class="nav-link" data-scroll-target="#filtering-and-exploring">Filtering and exploring</a></li>
-  <li><a href="#summary-on-number-of-samples-and-out-put-files" id="toc-summary-on-number-of-samples-and-out-put-files" class="nav-link" data-scroll-target="#summary-on-number-of-samples-and-out-put-files">Summary on number of samples and out put files</a></li>
+  <li><a href="#summary-on-number-of-samples-and-output-files" id="toc-summary-on-number-of-samples-and-output-files" class="nav-link" data-scroll-target="#summary-on-number-of-samples-and-output-files">Summary on number of samples and output files</a></li>
   </ul>
 </nav>
     </div>
@@ -346,7 +345,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <span id="cb1-30"><a href="#cb1-30" aria-hidden="true" tabindex="-1"></a>la <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/Belterra_2025/la.tsv"</span>) </span>
 <span id="cb1-31"><a href="#cb1-31" aria-hidden="true" tabindex="-1"></a>hydrated <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/Belterra_2025/hydrated_raw.tsv"</span>)</span>
 <span id="cb1-32"><a href="#cb1-32" aria-hidden="true" tabindex="-1"></a>dry <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/derived/Belterra_2025/dry_raw.tsv"</span>)</span>
-<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>check <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/raw/Belterra_2025/manual_check.csv"</span>, <span class="at">type =</span> <span class="st">"csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<span id="cb1-33"><a href="#cb1-33" aria-hidden="true" tabindex="-1"></a>check <span class="ot">&lt;-</span> <span class="fu">load_correct</span>(<span class="st">"data/corrections/Belterra_2025/manual_check.csv"</span>, <span class="at">type =</span> <span class="st">"csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
@@ -939,144 +938,146 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="joining-the-datasets-and-calculating-the-trait-values" class="level2">
 <h2 class="anchored" data-anchor-id="joining-the-datasets-and-calculating-the-trait-values">Joining the datasets and calculating the trait values</h2>
-<p>In these files, the botanical identification made after the field campaign are added, using the inventory data of the 22/09/2026.</p>
+<p>We join all the all raw measurements, botanical identification and the manual checks:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>inventory <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/inventory/inventory_Belterra_20260922.csv"</span>,</span>
-<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"latin1"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(PLACA, NOME_COMUM, NOME_CIENTIFICO, FAMILIA) <span class="sc">%&gt;%</span> </span>
-<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">tree =</span> PLACA,</span>
-<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">vernacular_full =</span> NOME_COMUM,</span>
-<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">genus_sp =</span> NOME_CIENTIFICO,</span>
-<span id="cb32-7"><a href="#cb32-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">family =</span> FAMILIA)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>traits_all <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">join_all</span>(</span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(tlp, hydrated, la, dry, check), </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"full"</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Create the file <em>raw.tsv</em> with all raw measurements, botanical identification and the manual checks.</p>
+<p>We add the botanical identifications made after the field campaign, using the inventory data of the 22/09/2026.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>raw <span class="ot">&lt;-</span> plyr<span class="sc">::</span><span class="fu">join_all</span>(</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(tlp, hydrated, la, dry, check), </span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">type =</span> <span class="st">"full"</span></span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>inventory <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/raw/inventory/inventory_Belterra_20260922.csv"</span>,</span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">locale =</span> <span class="fu">locale</span>(<span class="at">encoding =</span> <span class="st">"latin1"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(PLACA, NOME_COMUM, NOME_CIENTIFICO, FAMILIA) <span class="sc">%&gt;%</span> </span>
+<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">tree =</span> PLACA,</span>
+<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">vernacular_full =</span> NOME_COMUM,</span>
+<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">genus_sp =</span> NOME_CIENTIFICO,</span>
+<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>         <span class="at">family =</span> FAMILIA)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> raw <span class="sc">%&gt;%</span> </span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
-<span id="cb34-6"><a href="#cb34-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in the joined data."</span>) </span>
-<span id="cb34-7"><a href="#cb34-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
-<span id="cb34-8"><a href="#cb34-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in joined data."</span>)</span>
-<span id="cb34-9"><a href="#cb34-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
-<span id="cb34-10"><a href="#cb34-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>traits_all <span class="ot">&lt;-</span> traits_all <span class="sc">%&gt;%</span> </span>
+<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(inventory)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "The following leaves are duplicated in joined data."</code></pre>
 </div>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<thead>
-<tr class="header">
-<th style="text-align: left;">vernacular</th>
-<th style="text-align: right;">tree</th>
-<th style="text-align: right;">leaf</th>
-<th style="text-align: right;">n</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">COPAI</td>
-<td style="text-align: right;">6896</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">2</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">COPAI</td>
-<td style="text-align: right;">6910</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">8</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">COPAI</td>
-<td style="text-align: right;">6910</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">8</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<p>We calculate the trait values.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>raw <span class="sc">%&gt;%</span> </span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(inventory) <span class="sc">%&gt;%</span> </span>
-<span id="cb36-3"><a href="#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/Belterra_2025_raw.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>traits_all <span class="ot">&lt;-</span> traits_all <span class="sc">%&gt;%</span> </span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">la =</span> area_included,</span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ldmc =</span> dw<span class="sc">/</span>sw,</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">sla =</span> area_excluded<span class="sc">/</span>dw</span>
+<span id="cb35-6"><a href="#cb35-6" aria-hidden="true" tabindex="-1"></a>  ) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Create the file <em>traits_comments.tsv</em> with trait values, the manual checks and botanical identification. <strong>NB</strong> The leaves 1 and 2 of COPAI 6910 have been removed.</p>
+<p>We create the file <em>traits_all_raw.csv</em> with all raw measurements, botanical identification and the manual checks, saved in derived data. No data have been corrected or excluded at this stage.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_raw.tsv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span>(tree <span class="sc">==</span> <span class="dv">6910</span> <span class="sc">&amp;</span> leaf <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>))) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">la =</span> area_included,</span>
-<span id="cb37-5"><a href="#cb37-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">ldmc =</span> dw<span class="sc">/</span>sw,</span>
-<span id="cb37-6"><a href="#cb37-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">sla =</span> area_excluded<span class="sc">/</span>dw</span>
-<span id="cb37-7"><a href="#cb37-7" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-8"><a href="#cb37-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(tree, vernacular, vernacular_full, genus_sp, family, leaf, la, ldmc, lt, sla, tlp, missing_part, anomaly, touching, raw_scan) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-9"><a href="#cb37-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(inventory) <span class="sc">%&gt;%</span> </span>
-<span id="cb37-10"><a href="#cb37-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/Belterra_2025_traits_comments.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>traits_all <span class="sc">%&gt;%</span> <span class="fu">write_csv</span>(<span class="st">"data/derived/Belterra_2025/traits_all_raw.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 </section>
-<section id="exploring-the-effects-of-leaf-quality" class="level2">
-<h2 class="anchored" data-anchor-id="exploring-the-effects-of-leaf-quality">Exploring the effects of leaf quality</h2>
+<section id="correcting-for-scan-problems" class="level2">
+<h2 class="anchored" data-anchor-id="correcting-for-scan-problems">Correcting for scan problems</h2>
+<blockquote class="blockquote">
+<p>SYLVAIN: I propose that you do this here, because we can then check for the rest with the corrected scan. I propose that you do everything in a tibble called traits_corrected, that I will then also correct according to the decissions we made, and ultimatly save as traits.</p>
+</blockquote>
+<blockquote class="blockquote">
+<p>You can create a column comment, in which you can store the information taht you corrected the scans and how. I will then add to this column as I do other corrections.</p>
+</blockquote>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>traits_cor <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/derived/Belterra_2025/traits_all_raw.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">comments =</span> <span class="fu">as.character</span>(<span class="cn">NA</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stderr">
+<pre><code>Rows: 306 Columns: 19
+── Column specification ────────────────────────────────────────────────────────
+Delimiter: ","
+chr  (6): vernacular, anomaly, raw_scan, vernacular_full, genus_sp, family
+dbl (13): tree, leaf, tlp, lt, sw, area_excluded, area_included, dw, missing...
+
+ℹ Use `spec()` to retrieve the full column specification for this data.
+ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
+</div>
+</div>
+</section>
+<section id="correcting-for-duplicated-leaves" class="level2">
+<h2 class="anchored" data-anchor-id="correcting-for-duplicated-leaves">Correcting for duplicated leaves</h2>
+<blockquote class="blockquote">
+<p>TO DO With decission 1</p>
+</blockquote>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>dupl <span class="ot">&lt;-</span> traits_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">count</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(n<span class="sc">&gt;</span><span class="dv">1</span>)</span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(dupl) <span class="sc">==</span> <span class="dv">0</span>) {</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"There are no duplicated leaves in the joined data."</span>) </span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> { </span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(<span class="st">"The following leaves are duplicated in the joined data."</span>)</span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  dupl <span class="sc">%&gt;%</span> <span class="fu">kable</span>()</span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+</section>
+<section id="exploring-and-correcting-the-effects-of-leaf-quality" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-and-correcting-the-effects-of-leaf-quality">Exploring and correcting the effects of leaf quality</h2>
+<blockquote class="blockquote">
+<p>TO DO GD: implement the decission made together in each stem and add in the columns comments when relevant. trait_corr is to do the correction (wide table), traits_long is for the exploration (long table).</p>
+</blockquote>
 <section id="incomplete-leaves" class="level3">
 <h3 class="anchored" data-anchor-id="incomplete-leaves">Incomplete leaves</h3>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>traits_comments <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_traits_comments.tsv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(trait, value, la, ldmc, lt, tlp, sla) <span class="sc">%&gt;%</span> </span>
-<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trait =</span> <span class="fu">recode</span>(trait, </span>
-<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"la"</span> <span class="ot">=</span> <span class="st">"LA [ cm2 ]"</span>,</span>
-<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"ldmc"</span> <span class="ot">=</span> <span class="st">"LDMC [ g / g ]"</span>,</span>
-<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"lt"</span> <span class="ot">=</span> <span class="st">"LT [ µm ]"</span>,</span>
-<span id="cb38-7"><a href="#cb38-7" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"tlp"</span> <span class="ot">=</span> <span class="st">"TLP [ MPa ]"</span>,</span>
-<span id="cb38-8"><a href="#cb38-8" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"sla"</span> <span class="ot">=</span> <span class="st">"SLA [ cm2 / g ]"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>traits_long <span class="ot">&lt;-</span> traits_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(trait, value, la, ldmc, lt, tlp, sla) <span class="sc">%&gt;%</span> </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trait =</span> <span class="fu">recode</span>(trait, </span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"la"</span> <span class="ot">=</span> <span class="st">"LA [ cm2 ]"</span>,</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"ldmc"</span> <span class="ot">=</span> <span class="st">"LDMC [ g / g ]"</span>,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"lt"</span> <span class="ot">=</span> <span class="st">"LT [ µm ]"</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"tlp"</span> <span class="ot">=</span> <span class="st">"TLP [ MPa ]"</span>,</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"sla"</span> <span class="ot">=</span> <span class="st">"SLA [ cm2 / g ]"</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
 <p>We first explore the effect of having an incomplete leaf, which affects la and indirectly sla. <strong>NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.</strong></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>traits_comments <span class="sc">%&gt;%</span> </span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(trait <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"LA [ cm2 ]"</span>, <span class="st">"SLA [ cm2 / g ]"</span>) <span class="sc">&amp;</span></span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>           touching <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vernacular, value)) <span class="sc">+</span></span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">col =</span> <span class="fu">as.factor</span>(missing_part)),</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"black"</span>, </span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"orange2"</span> ,</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"red2"</span>),</span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>),</span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>) <span class="sc">+</span> </span>
-<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
-<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>traits_long <span class="sc">%&gt;%</span> </span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(trait <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"LA [ cm2 ]"</span>, <span class="st">"SLA [ cm2 / g ]"</span>) <span class="sc">&amp;</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>           touching <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vernacular, value)) <span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">col =</span> <span class="fu">as.factor</span>(missing_part)),</span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_manual</span>(</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">values =</span> <span class="fu">c</span>(<span class="st">"0"</span> <span class="ot">=</span> <span class="st">"black"</span>, </span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>               <span class="st">"1"</span> <span class="ot">=</span> <span class="st">"orange2"</span> ,</span>
+<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>               <span class="st">"2"</span> <span class="ot">=</span> <span class="st">"red2"</span>),</span>
+<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">breaks =</span> <span class="fu">c</span>(<span class="st">"0"</span>, <span class="st">"1"</span>, <span class="st">"2"</span>),</span>
+<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>    <span class="at">name =</span> <span class="st">""</span>) <span class="sc">+</span> </span>
+<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1091,24 +1092,24 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>traits_comments <span class="sc">%&gt;%</span> </span>
-<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(trait <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"LA [ cm2 ]"</span>, <span class="st">"SLA [ cm2 / g ]"</span>) <span class="sc">&amp;</span></span>
-<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>           touching <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vernacular, value)) <span class="sc">+</span></span>
-<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"darkgrey"</span>) <span class="sc">+</span></span>
-<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(</span>
-<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">subset</span>(traits_comments,</span>
-<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>                  trait <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"LA [ cm2 ]"</span>, <span class="st">"SLA [ cm2 / g ]"</span>) <span class="sc">&amp;</span></span>
-<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>                    missing_part <span class="sc">!=</span><span class="dv">2</span> <span class="sc">&amp;</span></span>
-<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>                    touching <span class="sc">==</span> <span class="dv">0</span>) ,</span>
-<span id="cb40-11"><a href="#cb40-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(vernacular, value),</span>
-<span id="cb40-12"><a href="#cb40-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
-<span id="cb40-13"><a href="#cb40-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb40-14"><a href="#cb40-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb40-15"><a href="#cb40-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb40-16"><a href="#cb40-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb40-17"><a href="#cb40-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
-<span id="cb40-18"><a href="#cb40-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>traits_long <span class="sc">%&gt;%</span> </span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(trait <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"LA [ cm2 ]"</span>, <span class="st">"SLA [ cm2 / g ]"</span>) <span class="sc">&amp;</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>           touching <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vernacular, value)) <span class="sc">+</span></span>
+<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">fill =</span> <span class="st">"darkgrey"</span>) <span class="sc">+</span></span>
+<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(</span>
+<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">subset</span>(traits_long,</span>
+<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>                  trait <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"LA [ cm2 ]"</span>, <span class="st">"SLA [ cm2 / g ]"</span>) <span class="sc">&amp;</span></span>
+<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>                    missing_part <span class="sc">!=</span><span class="dv">2</span> <span class="sc">&amp;</span></span>
+<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>                    touching <span class="sc">==</span> <span class="dv">0</span>) ,</span>
+<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(vernacular, value),</span>
+<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">color =</span> <span class="st">"blue"</span>, <span class="at">fill =</span> <span class="st">"blue"</span>, <span class="at">alpha =</span> <span class="fl">0.1</span>) <span class="sc">+</span> </span>
+<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">ncol =</span> <span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1135,29 +1136,29 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>traits_comments <span class="sc">%&gt;%</span> </span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(touching <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vernacular, value)) <span class="sc">+</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
-<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">subset</span>(traits_comments,</span>
-<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>                  anomaly <span class="sc">==</span><span class="st">"ok"</span> <span class="sc">&amp;</span></span>
-<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>                    touching <span class="sc">==</span> <span class="dv">0</span>), </span>
-<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(vernacular, value), </span>
-<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb41-11"><a href="#cb41-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
-<span id="cb41-12"><a href="#cb41-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">subset</span>(traits_comments,</span>
-<span id="cb41-13"><a href="#cb41-13" aria-hidden="true" tabindex="-1"></a>                  anomaly <span class="sc">!=</span><span class="st">"ok"</span> <span class="sc">&amp;</span></span>
-<span id="cb41-14"><a href="#cb41-14" aria-hidden="true" tabindex="-1"></a>                    touching <span class="sc">==</span> <span class="dv">0</span>) ,</span>
-<span id="cb41-15"><a href="#cb41-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(vernacular, value,</span>
-<span id="cb41-16"><a href="#cb41-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">as.factor</span>(anomaly)) ,</span>
-<span id="cb41-17"><a href="#cb41-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb41-18"><a href="#cb41-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb41-19"><a href="#cb41-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb41-20"><a href="#cb41-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">ncol =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb41-21"><a href="#cb41-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb41-22"><a href="#cb41-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
-<span id="cb41-23"><a href="#cb41-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>traits_long <span class="sc">%&gt;%</span> </span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(touching <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vernacular, value)) <span class="sc">+</span></span>
+<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
+<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">subset</span>(traits_long,</span>
+<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>                  anomaly <span class="sc">==</span><span class="st">"ok"</span> <span class="sc">&amp;</span></span>
+<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>                    touching <span class="sc">==</span> <span class="dv">0</span>), </span>
+<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(vernacular, value), </span>
+<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
+<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">subset</span>(traits_long,</span>
+<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>                  anomaly <span class="sc">!=</span><span class="st">"ok"</span> <span class="sc">&amp;</span></span>
+<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>                    touching <span class="sc">==</span> <span class="dv">0</span>) ,</span>
+<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(vernacular, value,</span>
+<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">as.factor</span>(anomaly)) ,</span>
+<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb43-18"><a href="#cb43-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb43-19"><a href="#cb43-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb43-20"><a href="#cb43-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">ncol =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb43-21"><a href="#cb43-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb43-22"><a href="#cb43-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb43-23"><a href="#cb43-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1175,35 +1176,35 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>DECISION 5: BUT we may want to resample the PIQUI in the future… =&gt; redo all the measurments on PEQUI in the 2026 campaign? We just have 2 leaves that are not problematic…</p>
 </blockquote>
 </section>
-<section id="danmaged-and-young-leaves" class="level3">
-<h3 class="anchored" data-anchor-id="danmaged-and-young-leaves">Danmaged and young leaves</h3>
+<section id="damaged-and-young-leaves" class="level3">
+<h3 class="anchored" data-anchor-id="damaged-and-young-leaves">Damaged and young leaves</h3>
 <p>Now, let’s look at the effect of anomalies seen on the raw scans (including the species with a big missing part for now) <strong>NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.</strong></p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>traits_comments <span class="sc">%&gt;%</span> </span>
-<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(touching <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vernacular, value)) <span class="sc">+</span></span>
-<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb42-5"><a href="#cb42-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
-<span id="cb42-6"><a href="#cb42-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">subset</span>(traits_comments,</span>
-<span id="cb42-7"><a href="#cb42-7" aria-hidden="true" tabindex="-1"></a>                  raw_scan <span class="sc">==</span><span class="st">"ok"</span> <span class="sc">&amp;</span></span>
-<span id="cb42-8"><a href="#cb42-8" aria-hidden="true" tabindex="-1"></a>                    touching <span class="sc">==</span> <span class="dv">0</span>), </span>
-<span id="cb42-9"><a href="#cb42-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(vernacular, value), </span>
-<span id="cb42-10"><a href="#cb42-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
-<span id="cb42-11"><a href="#cb42-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
-<span id="cb42-12"><a href="#cb42-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">subset</span>(traits_comments,</span>
-<span id="cb42-13"><a href="#cb42-13" aria-hidden="true" tabindex="-1"></a>                  raw_scan <span class="sc">!=</span><span class="st">"ok"</span> <span class="sc">&amp;</span></span>
-<span id="cb42-14"><a href="#cb42-14" aria-hidden="true" tabindex="-1"></a>                    touching <span class="sc">==</span> <span class="dv">0</span>) ,</span>
-<span id="cb42-15"><a href="#cb42-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(vernacular, value,</span>
-<span id="cb42-16"><a href="#cb42-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">as.factor</span>(raw_scan)) ,</span>
-<span id="cb42-17"><a href="#cb42-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
-<span id="cb42-18"><a href="#cb42-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb42-19"><a href="#cb42-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb42-20"><a href="#cb42-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">ncol =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb42-21"><a href="#cb42-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb42-22"><a href="#cb42-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
-<span id="cb42-23"><a href="#cb42-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a>traits_long <span class="sc">%&gt;%</span> </span>
+<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(touching <span class="sc">==</span> <span class="dv">0</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vernacular, value)) <span class="sc">+</span></span>
+<span id="cb44-4"><a href="#cb44-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb44-5"><a href="#cb44-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
+<span id="cb44-6"><a href="#cb44-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">subset</span>(traits_long,</span>
+<span id="cb44-7"><a href="#cb44-7" aria-hidden="true" tabindex="-1"></a>                  raw_scan <span class="sc">==</span><span class="st">"ok"</span> <span class="sc">&amp;</span></span>
+<span id="cb44-8"><a href="#cb44-8" aria-hidden="true" tabindex="-1"></a>                    touching <span class="sc">==</span> <span class="dv">0</span>), </span>
+<span id="cb44-9"><a href="#cb44-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(vernacular, value), </span>
+<span id="cb44-10"><a href="#cb44-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span></span>
+<span id="cb44-11"><a href="#cb44-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(</span>
+<span id="cb44-12"><a href="#cb44-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> <span class="fu">subset</span>(traits_long,</span>
+<span id="cb44-13"><a href="#cb44-13" aria-hidden="true" tabindex="-1"></a>                  raw_scan <span class="sc">!=</span><span class="st">"ok"</span> <span class="sc">&amp;</span></span>
+<span id="cb44-14"><a href="#cb44-14" aria-hidden="true" tabindex="-1"></a>                    touching <span class="sc">==</span> <span class="dv">0</span>) ,</span>
+<span id="cb44-15"><a href="#cb44-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(vernacular, value,</span>
+<span id="cb44-16"><a href="#cb44-16" aria-hidden="true" tabindex="-1"></a>        <span class="at">col =</span> <span class="fu">as.factor</span>(raw_scan)) ,</span>
+<span id="cb44-17"><a href="#cb44-17" aria-hidden="true" tabindex="-1"></a>    <span class="at">width =</span> <span class="fl">0.4</span>, <span class="at">size =</span> <span class="dv">2</span>, <span class="at">alpha =</span> <span class="fl">0.5</span>) <span class="sc">+</span> </span>
+<span id="cb44-18"><a href="#cb44-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb44-19"><a href="#cb44-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb44-20"><a href="#cb44-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">ncol =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb44-21"><a href="#cb44-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb44-22"><a href="#cb44-22" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"bottom"</span>) <span class="sc">+</span></span>
+<span id="cb44-23"><a href="#cb44-23" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 <div class="cell-output-display">
 <div>
@@ -1224,314 +1225,203 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="filtering-and-exploring" class="level2">
 <h2 class="anchored" data-anchor-id="filtering-and-exploring">Filtering and exploring</h2>
 <blockquote class="blockquote">
-<p>TO DO: update depending on the decissions made</p>
-</blockquote>
-<p>Based on the exploration above, the data are filtered as follow:</p>
-<ul>
-<li><p><strong>the scans of leaves touching the page need to be redone, I remove them for the moment</strong></p></li>
-<li><p>the leaves 1 and 2 of COPAI 6910 are removed</p></li>
-<li><p>all the leaves with a big missing part are excluded</p></li>
-<li><p>all the young leaves are excluded</p></li>
-<li><p>for all the leaves with a problem with the mask (abn_area and fol_touch), we take the area measured with a mask for which the holes have not been filled (area_excluded). This represent all the FAVA, FAVO abd ANGEL, plus one leaf of PARAP</p></li>
-<li><p>for tlp of COPAI 6896 duplicated leaves, we take the mean value between the duplicated measurement of leaf 1</p></li>
-</ul>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_raw.tsv"</span>, <span class="at">show_col_types =</span> <span class="cn">FALSE</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(touching <span class="sc">==</span> <span class="dv">0</span> <span class="sc">&amp;</span> <span class="co"># to be removed once the scanned have been redone</span></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a>           <span class="sc">!</span>(tree <span class="sc">==</span> <span class="dv">6910</span> <span class="sc">&amp;</span> leaf <span class="sc">%in%</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>)) <span class="sc">&amp;</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>           missing_part <span class="sc">!=</span> <span class="dv">2</span> <span class="sc">&amp;</span></span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>           raw_scan <span class="sc">!=</span> <span class="st">"young"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-6"><a href="#cb43-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
-<span id="cb43-7"><a href="#cb43-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">la =</span> <span class="fu">case_when</span>(anomaly <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"abn_area"</span> , <span class="st">"fol_touch"</span>) <span class="sc">~</span> area_excluded, </span>
-<span id="cb43-8"><a href="#cb43-8" aria-hidden="true" tabindex="-1"></a>                   <span class="at">.default =</span> area_included),</span>
-<span id="cb43-9"><a href="#cb43-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">ldmc =</span> dw<span class="sc">/</span>sw,</span>
-<span id="cb43-10"><a href="#cb43-10" aria-hidden="true" tabindex="-1"></a>    <span class="at">sla =</span> area_excluded<span class="sc">/</span>dw</span>
-<span id="cb43-11"><a href="#cb43-11" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-12"><a href="#cb43-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(tree, vernacular, vernacular_full, genus_sp, family, leaf, </span>
-<span id="cb43-13"><a href="#cb43-13" aria-hidden="true" tabindex="-1"></a>         la, ldmc, lt, sla, tlp) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-14"><a href="#cb43-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(tree, vernacular, vernacular_full, genus_sp, family, leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-15"><a href="#cb43-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="fu">across</span>(la<span class="sc">:</span>tlp, mean)) <span class="sc">%&gt;%</span> </span>
-<span id="cb43-16"><a href="#cb43-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb43-17"><a href="#cb43-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">write_tsv</span>(<span class="st">"outputs/Belterra_2025_traits.tsv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-</div>
-<p>We look at the correspondence between the vernacular names we used during field collection and the botanical identification. The table below shows the vernacular names that correspond to more than one species:</p>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-2"><a href="#cb44-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">group_by</span>(vernacular) <span class="sc">%&gt;%</span> <span class="fu">summarise</span>(<span class="at">nb_sp =</span> <span class="fu">n_distinct</span>(genus_sp)) <span class="sc">%&gt;%</span> </span>
-<span id="cb44-3"><a href="#cb44-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(nb_sp <span class="sc">&gt;</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 1 × 2
-  vernacular nb_sp
-  &lt;chr&gt;      &lt;int&gt;
-1 CUPIU          2</code></pre>
-</div>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-2"><a href="#cb46-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(trait, value, <span class="sc">-</span>vernacular, <span class="sc">-</span>tree, <span class="sc">-</span>leaf, </span>
-<span id="cb46-3"><a href="#cb46-3" aria-hidden="true" tabindex="-1"></a>         <span class="sc">-</span>vernacular_full, <span class="sc">-</span>genus_sp, <span class="sc">-</span>family) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-4"><a href="#cb46-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trait =</span> <span class="fu">recode</span>(trait, </span>
-<span id="cb46-5"><a href="#cb46-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"la"</span> <span class="ot">=</span> <span class="st">"LA [ cm2 ]"</span>,</span>
-<span id="cb46-6"><a href="#cb46-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"ldmc"</span> <span class="ot">=</span> <span class="st">"LDMC [ g / g ]"</span>,</span>
-<span id="cb46-7"><a href="#cb46-7" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"lt"</span> <span class="ot">=</span> <span class="st">"LT [ µm ]"</span>,</span>
-<span id="cb46-8"><a href="#cb46-8" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"tlp"</span> <span class="ot">=</span> <span class="st">"TLP [ MPa ]"</span>,</span>
-<span id="cb46-9"><a href="#cb46-9" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"sla"</span> <span class="ot">=</span> <span class="st">"SLA [ cm2 / g ]"</span>)) <span class="sc">%&gt;%</span> </span>
-<span id="cb46-10"><a href="#cb46-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vernacular,</span>
-<span id="cb46-11"><a href="#cb46-11" aria-hidden="true" tabindex="-1"></a>             value)) <span class="sc">+</span></span>
-<span id="cb46-12"><a href="#cb46-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
-<span id="cb46-13"><a href="#cb46-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">col =</span> <span class="fu">as.factor</span>(tree)),</span>
-<span id="cb46-14"><a href="#cb46-14" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
-<span id="cb46-15"><a href="#cb46-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb46-16"><a href="#cb46-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
-<span id="cb46-17"><a href="#cb46-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">ncol =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
-<span id="cb46-18"><a href="#cb46-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
-<span id="cb46-19"><a href="#cb46-19" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
-<span id="cb46-20"><a href="#cb46-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="26_junction_files/figure-html/figure-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>out1 <span class="ot">&lt;-</span> <span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ldmc <span class="sc">&gt;</span> <span class="fl">0.8</span>) <span class="sc">%&gt;%</span> <span class="fu">select</span>(vernacular, tree, leaf)</span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>raw <span class="sc">%&gt;%</span> <span class="fu">filter</span>(tree <span class="sc">==</span> out1<span class="sc">$</span>tree <span class="sc">&amp;</span> leaf <span class="sc">==</span> out1<span class="sc">$</span>leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 9%">
-<col style="width: 4%">
-<col style="width: 4%">
-<col style="width: 7%">
-<col style="width: 8%">
-<col style="width: 4%">
-<col style="width: 11%">
-<col style="width: 11%">
-<col style="width: 5%">
-<col style="width: 10%">
-<col style="width: 6%">
-<col style="width: 7%">
-<col style="width: 7%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">vernacular</th>
-<th style="text-align: right;">tree</th>
-<th style="text-align: right;">leaf</th>
-<th style="text-align: right;">tlp</th>
-<th style="text-align: right;">lt</th>
-<th style="text-align: right;">sw</th>
-<th style="text-align: right;">area_excluded</th>
-<th style="text-align: right;">area_included</th>
-<th style="text-align: right;">dw</th>
-<th style="text-align: right;">missing_part</th>
-<th style="text-align: left;">anomaly</th>
-<th style="text-align: right;">touching</th>
-<th style="text-align: left;">raw_scan</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">CASTA</td>
-<td style="text-align: right;">6568</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">-1.89148</td>
-<td style="text-align: right;">0.2073333</td>
-<td style="text-align: right;">4.89</td>
-<td style="text-align: right;">309.3937</td>
-<td style="text-align: right;">309.4622</td>
-<td style="text-align: right;">4.5855</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">ok</td>
-<td style="text-align: right;">0</td>
-<td style="text-align: left;">ok</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
-<blockquote class="blockquote">
-<p>DECISION 8: We have one outlier for LDMC, not sure what the problem is, if there is indeed a problem. What do you think?</p>
-</blockquote>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(sla <span class="sc">&lt;</span> <span class="dv">400</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sla, tlp, vernacular, tree, leaf) <span class="sc">%&gt;%</span> </span>
-<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
-<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sla, tlp, <span class="at">col =</span> <span class="fu">as.character</span>(tree))) <span class="sc">+</span></span>
-<span id="cb48-6"><a href="#cb48-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">group =</span> vernacular), <span class="at">method =</span> <span class="st">"lm"</span>, </span>
-<span id="cb48-7"><a href="#cb48-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">col =</span> <span class="st">"grey"</span>, <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
-<span id="cb48-8"><a href="#cb48-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
-<span id="cb48-9"><a href="#cb48-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
-<span id="cb48-10"><a href="#cb48-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">expression</span>(<span class="st">"SLA ["</span><span class="sc">~</span>cm<span class="sc">^</span>{<span class="dv">2</span>}<span class="sc">~</span>g<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}<span class="sc">~</span><span class="st">"]"</span>)) <span class="sc">+</span></span>
-<span id="cb48-11"><a href="#cb48-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="st">"TLP ["</span><span class="sc">~</span>MPa<span class="sc">~</span><span class="st">"]"</span>)) <span class="sc">+</span></span>
-<span id="cb48-12"><a href="#cb48-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> vernacular, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
-<span id="cb48-13"><a href="#cb48-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">guide =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="26_junction_files/figure-html/figure 2-1.png" class="img-fluid figure-img" width="960"></p>
-</figure>
-</div>
-</div>
-</div>
-<blockquote class="blockquote">
-<p>DECISION 9: There are still a few negative relationship =&gt; Joannès, what do you think? See also once the treatment of the scans for the touching leaves have been redone.</p>
+<p>TO DO: update depending on the decissions made. The filtering should have been done before, so no need to do it here. Remove all the columns of comments except the one called comments that should contain all the correction made.</p>
 </blockquote>
 <!--
+
+Based on the exploration above, the data are filtered as follow:
+
+- **the scans of leaves touching the page need to be redone, I remove them for the moment**
+
+- the leaves 1 and 2 of COPAI 6910 are removed
+
+- all the leaves with a big missing part are excluded
+
+- all the young leaves are excluded
+
+- for all the leaves with a problem with the mask (abn_area and fol_touch), we take the area measured with a mask for which the holes have not been filled (area_excluded). This represent all the FAVA, FAVO abd ANGEL, plus one leaf of PARAP
+
+- for tlp of COPAI 6896 duplicated leaves, we take the mean value between the duplicated measurement of leaf 1
+
+-->
+<p>Don’t forget to add a version name and update the NEWS. Update the metadata in Readme if needed.</p>
+<!--
+
+
+::: {.cell}
+
+```{.r .cell-code}
+read_tsv("outputs/Belterra_2025_raw.tsv", show_col_types = FALSE) %>% 
+  filter(touching == 0 & # to be removed once the scanned have been redone
+           !(tree == 6910 & leaf %in% c(1, 2)) &
+           missing_part != 2 &
+           raw_scan != "young") %>% 
+  mutate(
+    la = case_when(anomaly %in% c("abn_area" , "fol_touch") ~ area_excluded, 
+                   .default = area_included),
+    ldmc = dw/sw,
+    sla = area_excluded/dw
+  ) %>% 
+  select(tree, vernacular, vernacular_full, genus_sp, family, leaf, 
+         la, ldmc, lt, sla, tlp) %>% 
+  group_by(tree, vernacular, vernacular_full, genus_sp, family, leaf) %>% 
+  mutate(across(la:tlp, mean)) %>% 
+  distinct() %>% 
+  write_csv("outputs/trait_PlantForAdapt_Belterra_2025_vX.csv")
+```
+:::
+
+
+We look at the correspondence between the vernacular names we used during field collection and the botanical identification. The table below shows the vernacular names that correspond to more than one species:
+
+
+::: {.cell}
+
+```{.r .cell-code}
+read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
+     group_by(vernacular) %>% summarise(nb_sp = n_distinct(genus_sp)) %>% 
+  filter(nb_sp >1)
+```
+
+::: {.cell-output .cell-output-stdout}
+
+```
+# A tibble: 1 × 2
+  vernacular nb_sp
+  <chr>      <int>
+1 CUPIU          2
+```
+
+
+:::
+:::
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
+  gather(trait, value, -vernacular, -tree, -leaf, 
+         -vernacular_full, -genus_sp, -family) %>% 
+  mutate(trait = recode(trait, 
+                        "la" = "LA [ cm2 ]",
+                        "ldmc" = "LDMC [ g / g ]",
+                        "lt" = "LT [ µm ]",
+                        "tlp" = "TLP [ MPa ]",
+                        "sla" = "SLA [ cm2 / g ]")) %>% 
+  ggplot(aes(vernacular,
+             value)) +
+  geom_boxplot() +
+  geom_jitter(aes(col = as.factor(tree)),
+              width = 0.2, size = 3) + 
+  theme_bw() +
+  coord_flip() +
+  facet_wrap(~ trait, scales = "free_x", ncol = 5) +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),
+        legend.position = "none") +
+  xlab("") + ylab("")
+```
+
+::: {.cell-output-display}
+![](26_junction_files/figure-html/figure-1.png){width=672}
+:::
+:::
+
+
+
+::: {.cell}
+
+```{.r .cell-code}
+out1 <- read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
+  filter(ldmc > 0.8) %>% select(vernacular, tree, leaf)
+raw %>% filter(tree == out1$tree & leaf == out1$leaf) %>% 
+  kable()
+```
+:::
+
+
+> DECISION 8: We have one outlier for LDMC, not sure what the problem is, if there is indeed a problem. What do you think?
+
+
+::: {.cell}
+
+```{.r .cell-code}
+read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
+  filter(sla < 400) %>% 
+  select(sla, tlp, vernacular, tree, leaf) %>% 
+  na.omit() %>% 
+  ggplot(aes(sla, tlp, col = as.character(tree))) +
+  geom_smooth(aes(group = vernacular), method = "lm", 
+              col = "grey", alpha = .2) +
+  geom_point() +
+  theme_bw() +
+  xlab(expression("SLA ["~cm^{2}~g^{-1}~"]")) +
+  ylab(expression("TLP ["~MPa~"]")) +
+  facet_wrap(~ vernacular, scales = "free") +
+  scale_color_discrete(guide = "none")
+```
+
+::: {.cell-output-display}
+![](26_junction_files/figure-html/figure 2-1.png){width=960}
+:::
+:::
+
+
+> DECISION 9: There are still a few negative relationship =\> Joannès, what do you think? See also once the treatment of the scans for the touching leaves have been redone.
+
+
 However, based on that I have made an example of data junction in a consolidated table here: <https://docs.google.com/spreadsheets/d/1SSDmBBYNl_jP3GY5wUGkR-62cNiz63M46Ai6Z0CK1Cw/edit?usp=sharing>.
+
+
 -->
 </section>
-<section id="summary-on-number-of-samples-and-out-put-files" class="level2">
-<h2 class="anchored" data-anchor-id="summary-on-number-of-samples-and-out-put-files">Summary on number of samples and out put files</h2>
-<div class="cell">
-<details class="code-fold">
-<summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">read_tsv</span>(<span class="st">"outputs/Belterra_2025_traits.tsv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, genus_sp, tree) <span class="sc">%&gt;%</span> </span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_leaf =</span> <span class="fu">n_distinct</span>(leaf)) <span class="sc">%&gt;%</span> </span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(vernacular, genus_sp) <span class="sc">%&gt;%</span> </span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_tree =</span> <span class="fu">n_distinct</span>(tree),</span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_n_leaf_per_ind =</span> <span class="fu">mean</span>(n_leaf)) <span class="sc">%&gt;%</span> </span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
-</details>
-<div class="cell-output-display">
-<table class="caption-top table table-sm table-striped small">
-<colgroup>
-<col style="width: 11%">
-<col style="width: 58%">
-<col style="width: 7%">
-<col style="width: 21%">
-</colgroup>
-<thead>
-<tr class="header">
-<th style="text-align: left;">vernacular</th>
-<th style="text-align: left;">genus_sp</th>
-<th style="text-align: right;">n_tree</th>
-<th style="text-align: right;">mean_n_leaf_per_ind</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: left;">ANDIR</td>
-<td style="text-align: left;">Carapa guianensis Aubl.</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">4.40</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">ANGEL</td>
-<td style="text-align: left;">Dinizia excelsa Ducke</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">4.40</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">CASTA</td>
-<td style="text-align: left;">Bertholletia excelsa H.B.</td>
-<td style="text-align: right;">3</td>
-<td style="text-align: right;">4.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CEDRU</td>
-<td style="text-align: left;">Vochysia maxima Ducke</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">COPAI</td>
-<td style="text-align: left;">Copaifera reticulata Ducke</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">2.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">CUPIU</td>
-<td style="text-align: left;">Goupia glabra Aubl.</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">CUPIU</td>
-<td style="text-align: left;">Vismia cayennensis (Jacq.) Pers.</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">FAVA</td>
-<td style="text-align: left;">Enterolobium schuburkii</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">1.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">FAVAO</td>
-<td style="text-align: left;">Robrichia schomburgkii (Benth.) A.R.M.Luz &amp; E.R.Souza</td>
-<td style="text-align: right;">2</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">FREIJ</td>
-<td style="text-align: left;">Cordia goeldiana Huber</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">JARAN</td>
-<td style="text-align: left;">Lecythis lurida (Miers) S.A. Mori</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">4.50</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">JUTAI</td>
-<td style="text-align: left;">Hymenaea parvifolia Huber</td>
-<td style="text-align: right;">1</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">PARAP</td>
-<td style="text-align: left;">Jacaranda copaia (Aubl.) D. Don</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3.25</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">PIQUI</td>
-<td style="text-align: left;">Caryocar villosum (Aubl.) Pers.</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">3.00</td>
-</tr>
-<tr class="odd">
-<td style="text-align: left;">QUARU</td>
-<td style="text-align: left;">Vochysia maxima Ducke</td>
-<td style="text-align: right;">5</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-<tr class="even">
-<td style="text-align: left;">VIROL</td>
-<td style="text-align: left;">Virola michelii Heckel</td>
-<td style="text-align: right;">4</td>
-<td style="text-align: right;">5.00</td>
-</tr>
-</tbody>
-</table>
-</div>
-</div>
+<section id="summary-on-number-of-samples-and-output-files" class="level2">
+<h2 class="anchored" data-anchor-id="summary-on-number-of-samples-and-output-files">Summary on number of samples and output files</h2>
+<!--
+
+
+::: {.cell}
+
+```{.r .cell-code}
+read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
+  group_by(vernacular, genus_sp, tree) %>% 
+  summarise(n_leaf = n_distinct(leaf)) %>% 
+  group_by(vernacular, genus_sp) %>% 
+  summarise(
+    n_tree = n_distinct(tree),
+    mean_n_leaf_per_ind = mean(n_leaf)) %>% 
+  kable()
+```
+
+::: {.cell-output-display}
+
+
+|vernacular |genus_sp                                              | n_tree| mean_n_leaf_per_ind|
+|:----------|:-----------------------------------------------------|------:|-------------------:|
+|ANDIR      |Carapa guianensis Aubl.                               |      5|                4.40|
+|ANGEL      |Dinizia excelsa Ducke                                 |      5|                4.40|
+|CASTA      |Bertholletia excelsa H.B.                             |      3|                4.00|
+|CEDRU      |Vochysia maxima Ducke                                 |      5|                5.00|
+|COPAI      |Copaifera reticulata Ducke                            |      4|                2.00|
+|CUPIU      |Goupia glabra Aubl.                                   |      4|                5.00|
+|CUPIU      |Vismia cayennensis (Jacq.) Pers.                      |      1|                5.00|
+|FAVA       |Enterolobium schuburkii                               |      1|                1.00|
+|FAVAO      |Robrichia schomburgkii (Benth.) A.R.M.Luz & E.R.Souza |      2|                5.00|
+|FREIJ      |Cordia goeldiana Huber                                |      4|                4.00|
+|JARAN      |Lecythis lurida (Miers) S.A. Mori                     |      4|                4.50|
+|JUTAI      |Hymenaea parvifolia Huber                             |      1|                5.00|
+|PARAP      |Jacaranda copaia (Aubl.) D. Don                       |      4|                3.25|
+|PIQUI      |Caryocar villosum (Aubl.) Pers.                       |      4|                3.00|
+|QUARU      |Vochysia maxima Ducke                                 |      5|                5.00|
+|VIROL      |Virola michelii Heckel                                |      4|                5.00|
+
+
+:::
+:::
+
+
+-->
 
 
 </section>
