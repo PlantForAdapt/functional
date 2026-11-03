@@ -1,3 +1,4 @@
+- functional 0.1.0.9012: scan correction junction #36
 - functional 0.1.0.9011: implement correction of Beterra 2025 data #30
 - functional 0.1.0.9011: structure clear #36
 - functional 0.1.0.9010: reviewing Géraldine's changes #36

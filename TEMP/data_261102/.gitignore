@@ -1,8 +1,0 @@
-*
-!.gitignore
-!README.md
-!README.qmd
-!derived
-!raw
-
-raw/inventory/inventory_Belterra_20260922.csv

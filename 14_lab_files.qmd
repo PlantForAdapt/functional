@@ -1,4 +1,4 @@
-# Material {.unnumbered}
+# Laboratory files {.unnumbered}
 
 *To be written (and prepare template)*
 

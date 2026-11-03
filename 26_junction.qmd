@@ -307,13 +307,49 @@ traits_all %>% write_csv("data/derived/Belterra_2025/traits_all_raw.csv")
 
 ## Correcting for scan problems
 
-> SYLVAIN: I propose that you do this here, because we can then check for the rest with the corrected scan. I propose that you do everything in a tibble called traits_corrected, that I will then also correct according to the decissions we made, and ultimatly save as traits.
+```{r la_corrections}
+#| message: false
+#| warning: false
+la_ex_1 <- read_csv("data/corrections/Belterra_2025/area_excluded_corrections.csv") %>% 
+  select(Slice, `Total Area`) %>% 
+  rename(slice = Slice, area_excluded_corr = `Total Area`) %>% 
+  separate(slice, c("vernacular", "tree", "leaf")) %>% 
+  mutate(area_excluded_corr = area_excluded_corr / (1275*1755) * (21*29.7))
+la_in_1 <- read_csv("data/corrections/Belterra_2025/area_excluded_corrections.csv") %>% 
+  select(Slice, `Total Area`) %>% 
+  rename(slice = Slice, area_included_corr = `Total Area`) %>% 
+  separate(slice, c("vernacular", "tree", "leaf")) %>% 
+  mutate(area_included_corr = area_included_corr / (1275*1755) * (21*29.7))
+la_ex_2 <- read_csv("data/corrections/Belterra_2025/area_excluded_corrections2.csv") %>% 
+  select(Slice, `Total Area`) %>% 
+  rename(slice = Slice, area_excluded_corr = `Total Area`) %>% 
+  separate(slice, c("vernacular", "tree", "leaf")) %>% 
+  mutate(area_excluded_corr = area_excluded_corr / (1275*1755) * (21*29.7))
+la_in_2 <- read_csv("data/corrections/Belterra_2025/area_excluded_corrections2.csv") %>% 
+  select(Slice, `Total Area`) %>% 
+  rename(slice = Slice, area_included_corr = `Total Area`) %>% 
+  separate(slice, c("vernacular", "tree", "leaf")) %>% 
+  mutate(area_included_corr = area_included_corr / (1275*1755) * (21*29.7))
+la_ex <- bind_rows(anti_join(la_ex_1, la_ex_2, by = join_by(vernacular, tree, leaf)),
+          la_ex_2)
+la_in <- bind_rows(anti_join(la_in_1, la_in_2, by = join_by(vernacular, tree, leaf)),
+                   la_in_2)
+corrections <- la_ex |> 
+  left_join(la_in) |> 
+  mutate(comments = "scanner correction") |> 
+  mutate(tree = as.numeric(tree), leaf = as.numeric(leaf))
+```
 
-> You can create a column comment, in which you can store the information taht you corrected the scans and how. I will then add to this column as I do other corrections (see below for correcting for dulplacted leaves for instance).
-
-```{r}
-traits_cor <- read_csv("data/derived/Belterra_2025/traits_all_raw.csv") %>% 
-  mutate(comments = as.character(""))
+```{r traits_cor}
+#| message: false
+#| warning: false
+traits_cor <- read_csv("data/derived/Belterra_2025/traits_all_raw.csv") |> 
+  left_join(corrections, by = c("vernacular", "tree", "leaf")) |> 
+  mutate(
+    area_excluded = coalesce(area_excluded_corr, area_excluded),
+    area_included = coalesce(area_included_corr, area_included)
+  ) |> 
+  select(-area_excluded_corr, -area_included_corr)
 ```
 
 ## Correcting for duplicated leaves {#duplicated_belt_2025}
@@ -594,9 +630,7 @@ traits_long %>%
   xlab("") + ylab("")
 ```
 
-The young leaves show clearly different values. 
-According to our protocol stating that we sample on mature leaves, they should not have been included.
-We remove them. 
+The young leaves show clearly different values. According to our protocol stating that we sample on mature leaves, they should not have been included. We remove them.
 
 ```{r}
 traits_cor <- traits_cor %>% 
@@ -642,6 +676,7 @@ traits_long %>%
         legend.position = "none") +
   xlab("") + ylab("")
 ```
+
 There is a big outlier for LDMC:
 
 ```{r}
@@ -656,8 +691,7 @@ traits_all %>%
   select(vernacular, tree, leaf, ldmc, sw, dw) 
 ```
 
-The saturated and dry weight are very similar, there must be a typing error.
-We remove the ldmc value for this tree.
+The saturated and dry weight are very similar, there must be a typing error. We remove the ldmc value for this tree.
 
 ```{r}
 traits_cor <- traits_cor %>% 
@@ -667,11 +701,9 @@ traits_cor <- traits_cor %>%
                    ldmc))
 ```
 
-
 ## Save and explore the final trait data for the campaign
 
-The filtered and corrected trait dataset is save in the file `trait_PlantForAdapt_Belterra_2025_vX.csv` stored in `output`.
-See the README in output for the metadata.
+The filtered and corrected trait dataset is save in the file `trait_PlantForAdapt_Belterra_2025_vX.csv` stored in `output`. See the README in output for the metadata.
 
 **Don't forget to add a version name and update the NEWS. Update the metadata in Readme if needed.**
 
@@ -691,11 +723,10 @@ traits_cor <- traits_cor %>%
          species = word(botanical, 2)) %>% 
   relocate(site, tree, leaf, genus, species)
 ```
-  
-```{r}  
+
+```{r}
 write_csv(traits_cor, "outputs/trait_PlantForAdapt_Belterra_2025_vX.csv")
 ```
-
 
 We look at the correspondence between the vernacular names we used during field collection and the botanical identification. The table below shows the vernacular names that correspond to more than one species:
 
@@ -715,7 +746,6 @@ traits_cor %>%
   filter(verna_code =="CUPIU") %>% 
   distinct()
 ```
-
 
 ```{r figure 2}
 #| message: false
@@ -737,13 +767,9 @@ traits_cor %>%
   scale_color_discrete(guide = "none")
 ```
 
-This figure is just made for exploration purposes, but we don't expect the SLA-TLP relationship is not necessarly expected to hold intra-species.
-The higher LMA lower TLP relation holds good in inter-species relationships most of the time (it is often expected because high LMA is often linked to drought resistance strategies, and low TLP too, which is debatable). 
-But this is not always the case (e.g. Isa's work in Guyana). 
+This figure is just made for exploration purposes, but we don't expect the SLA-TLP relationship is not necessarly expected to hold intra-species. The higher LMA lower TLP relation holds good in inter-species relationships most of the time (it is often expected because high LMA is often linked to drought resistance strategies, and low TLP too, which is debatable). But this is not always the case (e.g. Isa's work in Guyana).
 
-
-
-## Summary on number of samples 
+## Summary on number of samples
 
 ```{r}
 #| message: false
@@ -757,6 +783,3 @@ traits_cor %>%
     mean_n_leaf_per_ind = mean(n_leaf)) %>% 
   kable()
 ```
-
-
-

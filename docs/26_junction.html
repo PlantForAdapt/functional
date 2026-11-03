@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.9.38">
+<meta name="generator" content="quarto-1.10.18">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,10 +12,13 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
-code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: min(4vw, 1.5em);}
-div.column{flex: auto; overflow-x: auto;}
+div.columns{display: flex; gap: 1.5em;}
+div.column{flex: auto;}
+@media screen {
+div.columns{gap: min(4vw, 1.5em);}
+div.column{overflow-x: auto;}
+}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -76,10 +79,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-f2e609f69be186d5c4c9edbe573f62a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -181,7 +184,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./14_lab_files.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Material</span></a>
+ <span class="menu-text">Laboratory files</span></a>
   </div>
 </li>
       </ul>
@@ -1001,28 +1004,50 @@ See this <a href="https://github.com/PlantForAdapt/functional/issues/30">issue</
 </section>
 <section id="correcting-for-scan-problems" class="level2">
 <h2 class="anchored" data-anchor-id="correcting-for-scan-problems">Correcting for scan problems</h2>
-<blockquote class="blockquote">
-<p>SYLVAIN: I propose that you do this here, because we can then check for the rest with the corrected scan. I propose that you do everything in a tibble called traits_corrected, that I will then also correct according to the decissions we made, and ultimatly save as traits.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>You can create a column comment, in which you can store the information taht you corrected the scans and how. I will then add to this column as I do other corrections (see below for correcting for dulplacted leaves for instance).</p>
-</blockquote>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>traits_cor <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/derived/Belterra_2025/traits_all_raw.csv"</span>) <span class="sc">%&gt;%</span> </span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">comments =</span> <span class="fu">as.character</span>(<span class="st">""</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>la_ex_1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/corrections/Belterra_2025/area_excluded_corrections.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Slice, <span class="st">`</span><span class="at">Total Area</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">slice =</span> Slice, <span class="at">area_excluded_corr =</span> <span class="st">`</span><span class="at">Total Area</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(slice, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area_excluded_corr =</span> area_excluded_corr <span class="sc">/</span> (<span class="dv">1275</span><span class="sc">*</span><span class="dv">1755</span>) <span class="sc">*</span> (<span class="dv">21</span><span class="sc">*</span><span class="fl">29.7</span>))</span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>la_in_1 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/corrections/Belterra_2025/area_excluded_corrections.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Slice, <span class="st">`</span><span class="at">Total Area</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">slice =</span> Slice, <span class="at">area_included_corr =</span> <span class="st">`</span><span class="at">Total Area</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(slice, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area_included_corr =</span> area_included_corr <span class="sc">/</span> (<span class="dv">1275</span><span class="sc">*</span><span class="dv">1755</span>) <span class="sc">*</span> (<span class="dv">21</span><span class="sc">*</span><span class="fl">29.7</span>))</span>
+<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>la_ex_2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/corrections/Belterra_2025/area_excluded_corrections2.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Slice, <span class="st">`</span><span class="at">Total Area</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">slice =</span> Slice, <span class="at">area_excluded_corr =</span> <span class="st">`</span><span class="at">Total Area</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-14"><a href="#cb39-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(slice, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-15"><a href="#cb39-15" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area_excluded_corr =</span> area_excluded_corr <span class="sc">/</span> (<span class="dv">1275</span><span class="sc">*</span><span class="dv">1755</span>) <span class="sc">*</span> (<span class="dv">21</span><span class="sc">*</span><span class="fl">29.7</span>))</span>
+<span id="cb39-16"><a href="#cb39-16" aria-hidden="true" tabindex="-1"></a>la_in_2 <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/corrections/Belterra_2025/area_excluded_corrections2.csv"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-17"><a href="#cb39-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(Slice, <span class="st">`</span><span class="at">Total Area</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-18"><a href="#cb39-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">slice =</span> Slice, <span class="at">area_included_corr =</span> <span class="st">`</span><span class="at">Total Area</span><span class="st">`</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-19"><a href="#cb39-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">separate</span>(slice, <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb39-20"><a href="#cb39-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">area_included_corr =</span> area_included_corr <span class="sc">/</span> (<span class="dv">1275</span><span class="sc">*</span><span class="dv">1755</span>) <span class="sc">*</span> (<span class="dv">21</span><span class="sc">*</span><span class="fl">29.7</span>))</span>
+<span id="cb39-21"><a href="#cb39-21" aria-hidden="true" tabindex="-1"></a>la_ex <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(<span class="fu">anti_join</span>(la_ex_1, la_ex_2, <span class="at">by =</span> <span class="fu">join_by</span>(vernacular, tree, leaf)),</span>
+<span id="cb39-22"><a href="#cb39-22" aria-hidden="true" tabindex="-1"></a>          la_ex_2)</span>
+<span id="cb39-23"><a href="#cb39-23" aria-hidden="true" tabindex="-1"></a>la_in <span class="ot">&lt;-</span> <span class="fu">bind_rows</span>(<span class="fu">anti_join</span>(la_in_1, la_in_2, <span class="at">by =</span> <span class="fu">join_by</span>(vernacular, tree, leaf)),</span>
+<span id="cb39-24"><a href="#cb39-24" aria-hidden="true" tabindex="-1"></a>                   la_in_2)</span>
+<span id="cb39-25"><a href="#cb39-25" aria-hidden="true" tabindex="-1"></a>corrections <span class="ot">&lt;-</span> la_ex <span class="sc">|&gt;</span> </span>
+<span id="cb39-26"><a href="#cb39-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(la_in) <span class="sc">|&gt;</span> </span>
+<span id="cb39-27"><a href="#cb39-27" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">comments =</span> <span class="st">"scanner correction"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb39-28"><a href="#cb39-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">tree =</span> <span class="fu">as.numeric</span>(tree), <span class="at">leaf =</span> <span class="fu">as.numeric</span>(leaf))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
-<div class="cell-output cell-output-stderr">
-<pre><code>Rows: 306 Columns: 19
-── Column specification ────────────────────────────────────────────────────────
-Delimiter: ","
-chr  (6): vernacular, anomaly, raw_scan, vernacular_full, genus_sp, family
-dbl (13): tree, leaf, tlp, lt, sw, area_excluded, area_included, dw, missing...
-
-ℹ Use `spec()` to retrieve the full column specification for this data.
-ℹ Specify the column types or set `show_col_types = FALSE` to quiet this message.</code></pre>
 </div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>traits_cor <span class="ot">&lt;-</span> <span class="fu">read_csv</span>(<span class="st">"data/derived/Belterra_2025/traits_all_raw.csv"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">left_join</span>(corrections, <span class="at">by =</span> <span class="fu">c</span>(<span class="st">"vernacular"</span>, <span class="st">"tree"</span>, <span class="st">"leaf"</span>)) <span class="sc">|&gt;</span> </span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">area_excluded =</span> <span class="fu">coalesce</span>(area_excluded_corr, area_excluded),</span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">area_included =</span> <span class="fu">coalesce</span>(area_included_corr, area_included)</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">|&gt;</span> </span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>area_excluded_corr, <span class="sc">-</span>area_included_corr)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
 </div>
 </section>
 <section id="duplicated_belt_2025" class="level2">
@@ -1295,7 +1320,7 @@ See <a href="#decission_dupl_belt_2025">here</a>).</p>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="26_junction_files/figure-html/unnamed-chunk-31-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="26_junction_files/figure-html/unnamed-chunk-30-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
