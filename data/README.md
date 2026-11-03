@@ -1,6 +1,4 @@
 # All data
-Sylvain Schmitt -
-Nov 2, 2026
 
 This folder will contains the data for all analyses.
 
@@ -10,15 +8,13 @@ This folder will contains the data for all analyses.
     - `osmo/` data from osmometer reading
     - `hydrated/` all fresh samples measurments (one file per date)
     - `dry_weight.csv`
-    - imageJ processing `area_included_all.csv` and
-      `area_excluded_all.csv`
+    - imageJ processing `area_included_all.csv` and `area_excluded_all.csv`
   - `inventory/` for site inventory datasets
   - `geographic/` for GIS layers
 
 - All derived data in `derived/`
 
-  - Subfolder for campaign specific data : `Site_year/` containing all
-    the files created by the data cleaning workflow
+  - Subfolder for campaign specific data : `Site_year/` containing all the files created by the data cleaning workflow
 
 - All data used for correction in `corrections/`
 

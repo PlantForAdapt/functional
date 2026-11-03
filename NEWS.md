@@ -1,3 +1,4 @@
+- functional 0.1.0.9010: reviewing Géraldine's changes #36
 - functional 0.1.0.9009: renaming & moving to PlantForAdapt
 - fefaccion_2025 0.1.0.9008: quick data prep end
 - fefaccion_2025 0.1.0.9007: quick data prep

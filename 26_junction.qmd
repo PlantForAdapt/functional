@@ -113,8 +113,7 @@ hydrated %>% filter(tree == 6910) %>% kable()
 sw_COPAI <- hydrated %>% filter(vernacular == "COPAI" & !(tree ==6910)) %>% summarize(round(mean(sw),2)) 
 ```
 
-Two of the duplicated leaves have a high value of sw compared to leaves of the same tree, but this value is normal compared to all other COPAI individuals (mean = `r sw_COPAI`).
-So we cannot know which one is correct.
+Two of the duplicated leaves have a high value of sw compared to leaves of the same tree, but this value is normal compared to all other COPAI individuals (mean = `r sw_COPAI`). So we cannot know which one is correct.
 
 ### dry
 
@@ -140,8 +139,7 @@ dry %>% filter(tree == 6910) %>% kable()
 dw_COPAI <- dry %>% filter(vernacular == "COPAI" & !(tree ==6910)) %>% summarize(round(mean(dw),2))
 ```
 
-Two duplicated leaves have a very high weight compared to leaves of the same tree, but this value is normal compared to all other COPAI individuals (mean = `r dw_COPAI`).
-So we cannot know which one is correct.
+Two duplicated leaves have a very high weight compared to leaves of the same tree, but this value is normal compared to all other COPAI individuals (mean = `r dw_COPAI`). So we cannot know which one is correct.
 
 ### manual check
 
@@ -158,7 +156,7 @@ if(nrow(dupl) == 0) {
   dupl %>% kable()
 }
 ```
- 
+
 ### Decisions for duplicated leaves {#decission_dupl_belt_2025}
 
 ```{r}
@@ -176,9 +174,7 @@ dry %>% filter(tree == 6910 & leaf %in% c(1,2)) %>%
   count
 ```
 
-Leaves 1 and 2 of COPAI 6910 are duplicated in tlp, hydrated and dry (each time with different values), but they have just one scan each. It is hard to know which leaves are the right ones, so we remove all instances of these two leaves, for all traits. See this [issue](https://github.com/PlantForAdapt/functional/issues/30) for the discussion.
-This is done in section [here](#duplicated_belt_2025).
-
+Leaves 1 and 2 of COPAI 6910 are duplicated in tlp, hydrated and dry (each time with different values), but they have just one scan each. It is hard to know which leaves are the right ones, so we remove all instances of these two leaves, for all traits. See this [issue](https://github.com/PlantForAdapt/functional/issues/30) for the discussion. This is done in section [here](#duplicated_belt_2025).
 
 ```{r}
 #| eval: false
@@ -187,9 +183,8 @@ tlp %>% filter(tree == 6896 & leaf %in% c(1,2)) %>%
   count
 ```
 
-Leaf 1 of COPAI 6896 is duplicated in tlp only (each time with different values), but there is no leaf 2. We take the mean of the tlp values for the two measurment of this leaf and attribute it to leave 1.  
-See this [issue](https://github.com/PlantForAdapt/functional/issues/30) for the discussion.
-This is done in section [here](#duplicated_belt_2025).
+Leaf 1 of COPAI 6896 is duplicated in tlp only (each time with different values), but there is no leaf 2. We take the mean of the tlp values for the two measurment of this leaf and attribute it to leave 1.\
+See this [issue](https://github.com/PlantForAdapt/functional/issues/30) for the discussion. This is done in section [here](#duplicated_belt_2025).
 
 ## Checking for missing measurements in some datasets
 
@@ -272,7 +267,6 @@ traits_all <- plyr::join_all(
 )
 ```
 
-
 We add the botanical identifications made after the field campaign, using the inventory data of the 22/09/2026.
 
 ```{r}
@@ -286,13 +280,11 @@ inventory <- read_csv("data/raw/inventory/inventory_Belterra_20260922.csv",
          family = FAMILIA)
 ```
 
-
 ```{r}
 #| message: false
 traits_all <- traits_all %>% 
   left_join(inventory)
 ```
-
 
 We calculate the trait values.
 
@@ -307,21 +299,17 @@ traits_all <- traits_all %>%
   ) 
 ```
 
-
-We create the file *traits_all_raw.csv* with all raw measurements, botanical identification and the manual checks, saved in derived data. 
-No data have been corrected or excluded at this stage.
+We create the file *traits_all_raw.csv* with all raw measurements, botanical identification and the manual checks, saved in derived data. No data have been corrected or excluded at this stage.
 
 ```{r}
 traits_all %>% write_csv("data/derived/Belterra_2025/traits_all_raw.csv")
 ```
 
-
 ## Correcting for scan problems
 
-> SYLVAIN: I propose that you do this here, because we can then check for the rest with the corrected scan.
-I propose that you do everything in a tibble called traits_corrected, that I will then also correct according to the decissions we made, and ultimatly save as traits.
+> SYLVAIN: I propose that you do this here, because we can then check for the rest with the corrected scan. I propose that you do everything in a tibble called traits_corrected, that I will then also correct according to the decissions we made, and ultimatly save as traits.
 
-> You can create a column comment, in which you can store the information taht you corrected the scans and how. I will then add to this column as I do other corrections (see below for correcting for dulplacted leaves for instance). 
+> You can create a column comment, in which you can store the information taht you corrected the scans and how. I will then add to this column as I do other corrections (see below for correcting for dulplacted leaves for instance).
 
 ```{r}
 traits_cor <- read_csv("data/derived/Belterra_2025/traits_all_raw.csv") %>% 
@@ -330,8 +318,7 @@ traits_cor <- read_csv("data/derived/Belterra_2025/traits_all_raw.csv") %>%
 
 ## Correcting for duplicated leaves {#duplicated_belt_2025}
 
-We remove all instances of the two duplicated COPAI 6910 leaves (leaves 1 and 2), for all traits.
-For leaf 1 of COPAI 6896, we take the mean of the tlp values for the two measurements of this leaf and attribute it to leave 1.  
+We remove all instances of the two duplicated COPAI 6910 leaves (leaves 1 and 2), for all traits. For leaf 1 of COPAI 6896, we take the mean of the tlp values for the two measurements of this leaf and attribute it to leave 1.\
 See [here](#decission_dupl_belt_2025)).
 
 ```{r}
@@ -350,7 +337,7 @@ traits_cor <- traits_cor %>%
       paste(comments, "tlp mean of 2 measurment", sep="")))
 ```
 
-We recheck for duplicated leaves:  
+We recheck for duplicated leaves:
 
 ```{r}
 #| eval: FALSE
@@ -368,9 +355,7 @@ if(nrow(dupl) == 0) {
 
 ## Exploring and correcting the effects of leaf quality
 
-> In progress GD: implement the decission made together in each stem and add in the columns comments when relevant.
-trait_corr is to do the correction (wide table),
-traits_long is for the exploration (long table).
+> In progress GD: implement the decission made together in each stem and add in the columns comments when relevant. trait_corr is to do the correction (wide table), traits_long is for the exploration (long table).
 
 ### Incomplete leaves {#incomplete_belt_2025}
 
@@ -454,18 +439,16 @@ Removing the very incomplete leaves has a big effect on the following species:
 
 - CASTA: only two leaves removed, but they were missing a very big part
 
-We remove the leaves with a big missing part (i.e. missing_part = 2, see the scan page) for LA and SLA. 
-See this [issue](https://github.com/PlantForAdapt/functional/issues/30) for the discussion.
+We remove the leaves with a big missing part (i.e. missing_part = 2, see the scan page) for LA and SLA. See this [issue](https://github.com/PlantForAdapt/functional/issues/30) for the discussion.
 
 ```{r}
 traits_cor <- traits_cor %>% 
   filter(missing_part !=2)
 ```
 
-
 ### Anomalies seen on the masks {#anomalie_belt_2025}
 
-As agreed in this [issue](https://github.com/PlantForAdapt/functional/issues/30) and based on the scans examination (see scan page), we use unfilled area (area_excluded) even for LA, when anomaly is abn_area or fol_touch. 
+As agreed in this [issue](https://github.com/PlantForAdapt/functional/issues/30) and based on the scans examination (see scan page), we use unfilled area (area_excluded) even for LA, when anomaly is abn_area or fol_touch.
 
 ```{r}
 traits_cor <- traits_cor %>% 
@@ -480,7 +463,6 @@ traits_cor <- traits_cor %>%
             (anomaly %in% c("abn_area", "fol_touch") & comments =="") ~
               paste(comments, "unfilled area taken for la", sep="")))         
 ```
-
 
 Now, let's look at the effect of other anomalies seen on the masks **NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.**
 
@@ -521,9 +503,7 @@ traits_long %>%
   xlab("") + ylab("")
 ```
 
-Although the cases of missing petiolule, petiole included or only one foliole considered doesn't seem to affect the value, we remove them for LA, LDMC and SLA, as they are not following the protocol.
-Values for LT and tlp can be kept.
-See this [issue](https://github.com/PlantForAdapt/functional/issues/30).
+Although the cases of missing petiolule, petiole included or only one foliole considered doesn't seem to affect the value, we remove them for LA, LDMC and SLA, as they are not following the protocol. Values for LT and tlp can be kept. See this [issue](https://github.com/PlantForAdapt/functional/issues/30).
 
 ```{r}
 traits_cor <- traits_cor %>% 
@@ -579,6 +559,7 @@ traits_long %>%
         legend.position = "bottom") +
   xlab("") + ylab("")
 ```
+
 > NB: we will have to resample the PIQUI
 
 ### Damaged and young leaves
@@ -619,9 +600,9 @@ traits_long %>%
 
 ## Filtering and exploring
 
-> TO DO: update depending on the decissions made. The filtering should have been done before, so no need to do it here.
-Remove all the columns of comments except the one called comments that should contain all the correction made.
+> TO DO: update depending on the decissions made. The filtering should have been done before, so no need to do it here. Remove all the columns of comments except the one called comments that should contain all the correction made.
 
+```{=html}
 <!--
 
 Based on the exploration above, the data are filtered as follow:
@@ -639,10 +620,11 @@ Based on the exploration above, the data are filtered as follow:
 - for tlp of COPAI 6896 duplicated leaves, we take the mean value between the duplicated measurement of leaf 1
 
 -->
+```
 
-Don't forget to add a version name and update the NEWS. 
-Update the metadata in Readme if needed.
+Don't forget to add a version name and update the NEWS. Update the metadata in Readme if needed.
 
+````{=html}
 <!--
 
 ```{r}
@@ -741,9 +723,11 @@ However, based on that I have made an example of data junction in a consolidated
 
 
 -->
+````
 
 ## Summary on number of samples and output files
 
+````{=html}
 <!--
 
 ```{r}
@@ -758,4 +742,5 @@ read_tsv("outputs/Belterra_2025_traits.tsv") %>%
   kable()
 ```
 
---> 
+-->
+````
