@@ -1,5 +1,6 @@
 *
 !.gitignore
 !README.md
-!derived
-!raw
+!file_structure.R
+!file_structure.txt
+!NEWS.md

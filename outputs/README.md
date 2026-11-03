@@ -6,6 +6,8 @@ All outputs of the analyses:
 
 - Campaign specific trait database : `trait_PlantForAdapt_Site_year_vX.csv`
 
-- metadata in ``` trait_PlantForAdapt_Site_year_``README ```
-
 - version description in `NEWS`
+
+## Metadata
+
+...
