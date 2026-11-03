@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,13 +12,10 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -44,10 +41,10 @@ ul.task-list li input[type="checkbox"] {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f2e609f69be186d5c4c9edbe573f62a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -229,8 +226,23 @@ ul.task-list li input[type="checkbox"] {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#before-fieldwork" id="toc-before-fieldwork" class="nav-link active" data-scroll-target="#before-fieldwork">Before fieldwork:</a></li>
+  <li><a href="#before-starting-a-lab-work-day" id="toc-before-starting-a-lab-work-day" class="nav-link" data-scroll-target="#before-starting-a-lab-work-day">Before starting a lab work day:</a></li>
+  <li><a href="#during-field-and-lab-work-every-evening" id="toc-during-field-and-lab-work-every-evening" class="nav-link" data-scroll-target="#during-field-and-lab-work-every-evening">During field and lab work (every evening)</a>
+  <ul class="collapse">
+  <li><a href="#list-and-check-the-samples" id="toc-list-and-check-the-samples" class="nav-link" data-scroll-target="#list-and-check-the-samples">List and check the samples</a></li>
+  <li><a href="#scan-the-field-sheets" id="toc-scan-the-field-sheets" class="nav-link" data-scroll-target="#scan-the-field-sheets">Scan the field sheets</a></li>
+  <li><a href="#save-the-files-on-the-nas" id="toc-save-the-files-on-the-nas" class="nav-link" data-scroll-target="#save-the-files-on-the-nas">Save the files on the NAS</a></li>
+  <li><a href="#inspect-the-scans" id="toc-inspect-the-scans" class="nav-link" data-scroll-target="#inspect-the-scans">Inspect the scans</a></li>
+  </ul></li>
+  <li><a href="#after-field-and-lab-work" id="toc-after-field-and-lab-work" class="nav-link" data-scroll-target="#after-field-and-lab-work">After field and lab work</a></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
@@ -254,20 +266,99 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><em>To be written (and prepare template)</em></p>
-<p>prepare the following files / folders:</p>
+<p><strong>to do : rename this page as the title is not suitable</strong></p>
+<section id="before-fieldwork" class="level2">
+<h2 class="anchored" data-anchor-id="before-fieldwork">Before fieldwork:</h2>
+<p>Print enough field sheets for wood core sample collection and leaf sample collection. The template of thes files can be found here (<strong>TO DO we had some last year, need to find them</strong>)</p>
+</section>
+<section id="before-starting-a-lab-work-day" class="level2">
+<h2 class="anchored" data-anchor-id="before-starting-a-lab-work-day">Before starting a lab work day:</h2>
+<p>Prepare the following files:</p>
 <ul>
-<li><code>dry_weight.xlsx</code> the leaf dry weights</li>
-<li><code>hydrated/</code> the leaf hydrated measurements</li>
-<li><code>leaves/</code> the sampling field sheets</li>
-<li><code>osmo/</code> the leaf hydrated measurements with osmometer</li>
-<li><code>plantation/</code> the inventories and GIS data of the plantation</li>
-<li><code>sample_taken.xlsx</code> the list of sampled individuals for leaf or wood</li>
-<li><code>scans/</code> the leaf hydrated scans</li>
-<li><code>teamplates/</code> template files for data acquisition</li>
+<li><p><code>yearmoday_osmo.xlsx</code> : an excel file per day to record the osmometer measurements. The template of this file can be found here (<strong>TO DO =&gt; see my comment on this issue, with a metadata tab</strong>). Make one file per day so it can be saved every evening, with the date format as follow <code>yearmoday_osmo.xlsx</code> (ex <code>20270120_osmo.xlsx</code>).</p></li>
+<li><p><code>yearmoday_hydrated.xlsx</code> : an excel file per day to record the fresh leaf measurements (thickness, weight and scan done). The template of this file can be found here (<strong>TO DO =&gt; see my comment on this issue, with a metadata tab</strong>). Make one file per day so it can be saved every evening, with the date format as follow <code>yearmoday_hydrated.xlsx</code> (ex <code>20270120_hydrated.xlsx</code>).</p></li>
+<li><p><code>yearmoday_dry_weight.xlsx</code> : an excel file per day to record the dry leaf weight. The template of this file can be found here (<strong>TO DO =&gt; see my comment on this issue, with a metadata tab</strong>). Make one file per day so it can be saved every evening (although the weighting will be done after oven drying), with the date format as follow <code>yearmoday_dry.xlsx</code> (ex <code>20270120_dry.xlsx</code>).</p></li>
 </ul>
+</section>
+<section id="during-field-and-lab-work-every-evening" class="level2">
+<h2 class="anchored" data-anchor-id="during-field-and-lab-work-every-evening">During field and lab work (every evening)</h2>
+<section id="list-and-check-the-samples" class="level3">
+<h3 class="anchored" data-anchor-id="list-and-check-the-samples">List and check the samples</h3>
+<p>Record the individuals on which samples have been taken in <code>yearmoday_sample_taken.xlsx</code> before putting them in the oven. The template of this file can be found here (<strong>TO DO =&gt; see my comment on this issue, with a metadata tab</strong>). Make one file per day so it can be saved every evening, with the date format as follow <code>yearmoday_sample_taken.xlsx</code> (ex <code>20270120_sample_taken.xlsx</code>).</p>
+</section>
+<section id="scan-the-field-sheets" class="level3">
+<h3 class="anchored" data-anchor-id="scan-the-field-sheets">Scan the field sheets</h3>
+<p><strong>to do decide naming</strong></p>
+</section>
+<section id="save-the-files-on-the-nas" class="level3">
+<h3 class="anchored" data-anchor-id="save-the-files-on-the-nas">Save the files on the NAS</h3>
+<p>Data files, field sheets and scans needs to be stored <strong>every evening</strong> on the NAS (<strong>TO DO: add the link to the NAS</strong>), following this file structure:</p>
+<ul>
+<li><code>dry_weight/</code> the leaf dry weights</li>
+<li><code>hydrated/</code> the leaf hydrated measurements</li>
+<li><code>field_sheets/</code> the sampling field sheets in pdf names with the day and the type of</li>
+<li><code>osmo/</code> the leaf hydrated measurements with osmometer</li>
+<li><code>scans/</code> the leaf hydrated scans</li>
+<li><code>sample_taken/</code>the list of wood and leaf samples taken</li>
+</ul>
+<p>All raw files stored on the NAS need to be lock (so put in read only mode) to avoid deleting or modifying it.</p>
+</section>
+<section id="inspect-the-scans" class="level3">
+<h3 class="anchored" data-anchor-id="inspect-the-scans">Inspect the scans</h3>
+<p>If time allow, process the scan (following this procedure <strong>to add: template files, and tell where to put it on the NAS</strong>) and inspect them manually to detect scan problems. If this is done on the day, a new scan can be redone if relevant. Here is the list of problems that should be looked for, and how to code them (<strong>to do, add pictures to illustrate</strong>)</p>
+<ul>
+<li><p><em>missing_part</em>: missing part in the leave due to herbivory or other damage. This can be seen on the <strong>mask or the raw scan</strong>:</p>
+<ul>
+<li><p><em>0</em>: no missing part</p></li>
+<li><p><em>1</em>: moderate missing part</p></li>
+<li><p><em>2</em>: big missing part</p></li>
+</ul></li>
+<li><p><em>anomaly</em>: any anomaly in the generated <strong>masks</strong>:</p>
+<ul>
+<li><p><em>ok</em>: no problem</p></li>
+<li><p><em>miss_petiolul</em>: for compound leaves, the petiolule is not included, while it should have been according to the protocol</p></li>
+<li><p><em>petiol_included</em>: the petiole has been included, while it should have been according to the protocol</p></li>
+<li><p><em>one_fol</em>: just one foliole when the species has compound leaves</p></li>
+<li><p><em>abn_area</em>: abnormal area, detected because they don’t have the shape of a leaf. Generally, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part, which are interpreted as holes and filled.</p></li>
+</ul></li>
+</ul>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="documents/Belterra_2025/ANGEL_5677_5_mask.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="documents/Belterra_2025/FAVAO_5685_2_mask.png" class="img-fluid"></p>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: center;">
+<p><img src="documents/Belterra_2025/COPAI_6897_4._mask.png" class="img-fluid"></p>
+</div>
+</div>
+</div>
+<ul>
+<li><p><em>touching</em>(<strong>to do, add pictures to illustrate</strong>):</p>
+<ul>
+<li><p><em>0</em> no part touching</p></li>
+<li><p><em>1</em> leaf touching leading to part of the leaf not taken into account,</p></li>
+<li><p><em>2</em> leaf touching leading to all the leaf not taken into account</p></li>
+</ul></li>
+<li><p><em>raw scan</em> (<strong>to do, add pictures to illustrate</strong>): problem seen on the <strong>raw scans</strong></p>
+<ul>
+<li><p><em>ok</em>: no problem (or very small area concerned)</p></li>
+<li><p><em>damaged</em>: part of the leaf or the whole leaf appears black/brown or yellowish on the scan or there are any other damages (except missing part of the leaf) suggesting that the leaf is decaying or is attacked by insects</p></li>
+<li><p><em>young</em>: the bright green colour of the leave compared to the other leaves from the individual and/or the species suggest non mature leaves</p></li>
+</ul></li>
+</ul>
+</section>
+</section>
+<section id="after-field-and-lab-work" class="level2">
+<h2 class="anchored" data-anchor-id="after-field-and-lab-work">After field and lab work</h2>
+<p>Do the data cleaning in the <a href="https://github.com/PlantForAdapt/functional">functional repository</a></p>
+<p>do the manual inspection if not done before…</p>
+<p><strong>TO DO carry on writing from here</strong></p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
