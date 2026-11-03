@@ -1,4 +1,3 @@
-data/README.md
 data/corrections
 data/corrections/Belterra_2025
 data/corrections/Belterra_2025/area_excluded_corrections.csv
@@ -1197,8 +1196,11 @@ data/derived/Belterra_2025/pngs/VIROL_6637_2.pdf-1.png
 data/derived/Belterra_2025/pngs/VIROL_6637_3.pdf-1.png
 data/derived/Belterra_2025/pngs/VIROL_6637_4.pdf-1.png
 data/derived/Belterra_2025/pngs/VIROL_6637_5.pdf-1.png
+data/derived/Belterra_2025/README.md
+data/derived/Belterra_2025/README.qmd
 data/derived/Belterra_2025/tlp_raw.tsv
 data/derived/Belterra_2025/traits.csv
+data/derived/Belterra_2025/traits_all.csv
 data/derived/Belterra_2025/traits_all_raw.csv
 data/derived/derived0
 data/derived/derived0/area_excluded_all.csv
@@ -2381,8 +2383,6 @@ data/file_structure.R
 data/file_structure.txt
 data/raw
 data/raw/Belterra_2025
-data/raw/Belterra_2025/README.md
-data/raw/Belterra_2025/README.qmd
 data/raw/Belterra_2025/dry_weight.xlsx
 data/raw/Belterra_2025/hydrated
 data/raw/Belterra_2025/hydrated/HYD_20250708.xls
@@ -2401,6 +2401,8 @@ data/raw/Belterra_2025/leaves/20250711_leaf.pdf
 data/raw/Belterra_2025/leaves/20250711_wood.pdf
 data/raw/Belterra_2025/osmo
 data/raw/Belterra_2025/osmo/FEF25_TLP-12072025.xlsx
+data/raw/Belterra_2025/README.md
+data/raw/Belterra_2025/README.qmd
 data/raw/Belterra_2025/sample_taken.xlsx
 data/raw/Belterra_2025/scans
 data/raw/Belterra_2025/scans/SCAN08072025
@@ -2703,10 +2705,12 @@ data/raw/Belterra_2025/scans/SCAN12072025/QUARU_8499_4.pdf
 data/raw/Belterra_2025/scans/SCAN12072025/QUARU_8499_5.pdf
 data/raw/Belterra_2025/table.tsv
 data/raw/Belterra_2025/templates
-data/raw/Belterra_2025/templates/TLP_template.xlsx
 data/raw/Belterra_2025/templates/template_HYD.ods
 data/raw/Belterra_2025/templates/template_TLP.ods
+data/raw/Belterra_2025/templates/TLP_template.xlsx
+data/raw/geographic
+data/raw/geographic/inventory_Belterra_20260922.gpkg
 data/raw/inventory
 data/raw/inventory/inventory_Belterra_20260922.csv
-data/raw/inventory/inventory_Belterra_20260922.gpkg
 data/raw/inventory/inventory_Belterra_20260922.xlsx
+data/README.md

@@ -14,6 +14,7 @@
 - Data in `data/` with:
   - All raw data in `raw/`
   - All derived data in `derived/`
+  - All corrections on scans in `corrections/`
 - R environment definition with [renv](https://rstudio.github.io/renv/articles/renv.html) in `renv/` and `renv/lock`
 - R files (`.Rbuildignore` , `.Rdata` , `.Rprofile` , `.Rhistory`)
 - Git and GitHub files (`.gitignore` , `.github/`)
