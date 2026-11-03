@@ -1196,11 +1196,8 @@ data/derived/Belterra_2025/pngs/VIROL_6637_2.pdf-1.png
 data/derived/Belterra_2025/pngs/VIROL_6637_3.pdf-1.png
 data/derived/Belterra_2025/pngs/VIROL_6637_4.pdf-1.png
 data/derived/Belterra_2025/pngs/VIROL_6637_5.pdf-1.png
-data/derived/Belterra_2025/README.md
-data/derived/Belterra_2025/README.qmd
 data/derived/Belterra_2025/tlp_raw.tsv
 data/derived/Belterra_2025/traits.csv
-data/derived/Belterra_2025/traits_all.csv
 data/derived/Belterra_2025/traits_all_raw.csv
 data/derived/derived0
 data/derived/derived0/area_excluded_all.csv
@@ -2401,8 +2398,6 @@ data/raw/Belterra_2025/leaves/20250711_leaf.pdf
 data/raw/Belterra_2025/leaves/20250711_wood.pdf
 data/raw/Belterra_2025/osmo
 data/raw/Belterra_2025/osmo/FEF25_TLP-12072025.xlsx
-data/raw/Belterra_2025/README.md
-data/raw/Belterra_2025/README.qmd
 data/raw/Belterra_2025/sample_taken.xlsx
 data/raw/Belterra_2025/scans
 data/raw/Belterra_2025/scans/SCAN08072025

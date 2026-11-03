@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.10.18">
+<meta name="generator" content="quarto-1.9.38">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -12,13 +12,10 @@
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
 */
+code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
-div.columns{display: flex; gap: 1.5em;}
-div.column{flex: auto;}
-@media screen {
-div.columns{gap: min(4vw, 1.5em);}
-div.column{overflow-x: auto;}
-}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
 div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
 ul.task-list{list-style: none;}
 ul.task-list li input[type="checkbox"] {
@@ -79,10 +76,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-64a204ab8560d761af7679ceaba22944.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-15634bcf2e68342d4ad2dfa704d543f6.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-f2e609f69be186d5c4c9edbe573f62a8.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-9e3e5b9121e68b3f077afb32f2c64d95.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -178,6 +175,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./13_material.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Material</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14_lab_files.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Material</span></a>
   </div>
 </li>
@@ -283,8 +286,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <li><a href="#anomalie_belt_2025" id="toc-anomalie_belt_2025" class="nav-link" data-scroll-target="#anomalie_belt_2025">Anomalies seen on the masks</a></li>
   <li><a href="#damaged-and-young-leaves" id="toc-damaged-and-young-leaves" class="nav-link" data-scroll-target="#damaged-and-young-leaves">Damaged and young leaves</a></li>
   </ul></li>
-  <li><a href="#filtering-and-exploring" id="toc-filtering-and-exploring" class="nav-link" data-scroll-target="#filtering-and-exploring">Filtering and exploring</a></li>
-  <li><a href="#summary-on-number-of-samples-and-output-files" id="toc-summary-on-number-of-samples-and-output-files" class="nav-link" data-scroll-target="#summary-on-number-of-samples-and-output-files">Summary on number of samples and output files</a></li>
+  <li><a href="#exploring-and-correcting-outliers" id="toc-exploring-and-correcting-outliers" class="nav-link" data-scroll-target="#exploring-and-correcting-outliers">Exploring and correcting outliers</a></li>
+  <li><a href="#save-and-explore-the-final-trait-data-for-the-campaign" id="toc-save-and-explore-the-final-trait-data-for-the-campaign" class="nav-link" data-scroll-target="#save-and-explore-the-final-trait-data-for-the-campaign">Save and explore the final trait data for the campaign</a></li>
+  <li><a href="#summary-on-number-of-samples" id="toc-summary-on-number-of-samples" class="nav-link" data-scroll-target="#summary-on-number-of-samples">Summary on number of samples</a></li>
   </ul>
 </nav>
     </div>
@@ -1251,7 +1255,7 @@ See <a href="#decission_dupl_belt_2025">here</a>).</p>
 <span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>                   sla))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 </details>
 </div>
-<p>Let’s check after excludig these values:</p>
+<p>Let’s check after excluding these values:</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
@@ -1338,214 +1342,303 @@ See <a href="#decission_dupl_belt_2025">here</a>).</p>
 </div>
 </div>
 </div>
-<blockquote class="blockquote">
-<p>DECISION 6: The young leaves are clearly outliers. I propose to remove them. TO DO: exclude them from the rest if you agree.</p>
-</blockquote>
-<blockquote class="blockquote">
-<p>DECISION 7: The effect of damaged leaves is much less clear (remember that here damaged refer doens’t refer to the fact that part of the leaf is missing, but rather to the quality of the leaf). I propose to keep them.</p>
-</blockquote>
+<p>The young leaves show clearly different values. According to our protocol stating that we sample on mature leaves, they should not have been included. We remove them.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>traits_cor <span class="ot">&lt;-</span> traits_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb52-2"><a href="#cb52-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(raw_scan <span class="sc">!=</span><span class="st">"young"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>The effect of damaged leaves is much less clear (remember that here damaged refer doens’t refer to the fact that part of the leaf is missing, but rather to the quality of the leaf). We keep them and add a comment.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>traits_cor <span class="ot">&lt;-</span> traits_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">comments =</span> <span class="fu">replace_when</span>(</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>           comments,</span>
+<span id="cb53-4"><a href="#cb53-4" aria-hidden="true" tabindex="-1"></a>           (raw_scan <span class="sc">==</span> <span class="st">"damaged"</span> <span class="sc">&amp;</span> comments <span class="sc">!=</span><span class="st">""</span>) <span class="sc">~</span></span>
+<span id="cb53-5"><a href="#cb53-5" aria-hidden="true" tabindex="-1"></a>              <span class="fu">paste</span>(comments, <span class="st">"damaged leave"</span>, <span class="at">sep=</span><span class="st">" ; "</span>),</span>
+<span id="cb53-6"><a href="#cb53-6" aria-hidden="true" tabindex="-1"></a>            (raw_scan <span class="sc">==</span> <span class="st">"damaged"</span> <span class="sc">&amp;</span> comments <span class="sc">==</span><span class="st">""</span>) <span class="sc">~</span></span>
+<span id="cb53-7"><a href="#cb53-7" aria-hidden="true" tabindex="-1"></a>              <span class="fu">paste</span>(comments, <span class="st">"damaged leave"</span>, <span class="at">sep=</span><span class="st">""</span>)))         </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 </section>
 </section>
-<section id="filtering-and-exploring" class="level2">
-<h2 class="anchored" data-anchor-id="filtering-and-exploring">Filtering and exploring</h2>
-<blockquote class="blockquote">
-<p>TO DO: update depending on the decissions made. The filtering should have been done before, so no need to do it here. Remove all the columns of comments except the one called comments that should contain all the correction made.</p>
-</blockquote>
-<!--
-
-Based on the exploration above, the data are filtered as follow:
-
-- **the scans of leaves touching the page need to be redone, I remove them for the moment**
-
-- the leaves 1 and 2 of COPAI 6910 are removed
-
-- all the leaves with a big missing part are excluded
-
-- all the young leaves are excluded
-
-- for all the leaves with a problem with the mask (abn_area and fol_touch), we take the area measured with a mask for which the holes have not been filled (area_excluded). This represent all the FAVA, FAVO abd ANGEL, plus one leaf of PARAP
-
-- for tlp of COPAI 6896 duplicated leaves, we take the mean value between the duplicated measurement of leaf 1
-
--->
-<p>Don’t forget to add a version name and update the NEWS. Update the metadata in Readme if needed.</p>
-<!--
-
-
-::: {.cell}
-
-```{.r .cell-code}
-read_tsv("outputs/Belterra_2025_raw.tsv", show_col_types = FALSE) %>% 
-  filter(touching == 0 & # to be removed once the scanned have been redone
-           !(tree == 6910 & leaf %in% c(1, 2)) &
-           missing_part != 2 &
-           raw_scan != "young") %>% 
-  mutate(
-    la = case_when(anomaly %in% c("abn_area" , "fol_touch") ~ area_excluded, 
-                   .default = area_included),
-    ldmc = dw/sw,
-    sla = area_excluded/dw
-  ) %>% 
-  select(tree, vernacular, vernacular_full, genus_sp, family, leaf, 
-         la, ldmc, lt, sla, tlp) %>% 
-  group_by(tree, vernacular, vernacular_full, genus_sp, family, leaf) %>% 
-  mutate(across(la:tlp, mean)) %>% 
-  distinct() %>% 
-  write_csv("outputs/trait_PlantForAdapt_Belterra_2025_vX.csv")
-```
-:::
-
-
-We look at the correspondence between the vernacular names we used during field collection and the botanical identification. The table below shows the vernacular names that correspond to more than one species:
-
-
-::: {.cell}
-
-```{.r .cell-code}
-read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
-     group_by(vernacular) %>% summarise(nb_sp = n_distinct(genus_sp)) %>% 
-  filter(nb_sp >1)
-```
-
-::: {.cell-output .cell-output-stdout}
-
-```
-# A tibble: 1 × 2
-  vernacular nb_sp
-  <chr>      <int>
-1 CUPIU          2
-```
-
-
-:::
-:::
-
-
-
-::: {.cell}
-
-```{.r .cell-code}
-read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
-  gather(trait, value, -vernacular, -tree, -leaf, 
-         -vernacular_full, -genus_sp, -family) %>% 
-  mutate(trait = recode(trait, 
-                        "la" = "LA [ cm2 ]",
-                        "ldmc" = "LDMC [ g / g ]",
-                        "lt" = "LT [ µm ]",
-                        "tlp" = "TLP [ MPa ]",
-                        "sla" = "SLA [ cm2 / g ]")) %>% 
-  ggplot(aes(vernacular,
-             value)) +
-  geom_boxplot() +
-  geom_jitter(aes(col = as.factor(tree)),
-              width = 0.2, size = 3) + 
-  theme_bw() +
-  coord_flip() +
-  facet_wrap(~ trait, scales = "free_x", ncol = 5) +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1),
-        legend.position = "none") +
-  xlab("") + ylab("")
-```
-
-::: {.cell-output-display}
-![](26_junction_files/figure-html/figure-1.png){width=672}
-:::
-:::
-
-
-
-::: {.cell}
-
-```{.r .cell-code}
-out1 <- read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
-  filter(ldmc > 0.8) %>% select(vernacular, tree, leaf)
-raw %>% filter(tree == out1$tree & leaf == out1$leaf) %>% 
-  kable()
-```
-:::
-
-
-> DECISION 8: We have one outlier for LDMC, not sure what the problem is, if there is indeed a problem. What do you think?
-
-
-::: {.cell}
-
-```{.r .cell-code}
-read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
-  filter(sla < 400) %>% 
-  select(sla, tlp, vernacular, tree, leaf) %>% 
-  na.omit() %>% 
-  ggplot(aes(sla, tlp, col = as.character(tree))) +
-  geom_smooth(aes(group = vernacular), method = "lm", 
-              col = "grey", alpha = .2) +
-  geom_point() +
-  theme_bw() +
-  xlab(expression("SLA ["~cm^{2}~g^{-1}~"]")) +
-  ylab(expression("TLP ["~MPa~"]")) +
-  facet_wrap(~ vernacular, scales = "free") +
-  scale_color_discrete(guide = "none")
-```
-
-::: {.cell-output-display}
-![](26_junction_files/figure-html/figure 2-1.png){width=960}
-:::
-:::
-
-
-> DECISION 9: There are still a few negative relationship =\> Joannès, what do you think? See also once the treatment of the scans for the touching leaves have been redone.
-
-
-However, based on that I have made an example of data junction in a consolidated table here: <https://docs.google.com/spreadsheets/d/1SSDmBBYNl_jP3GY5wUGkR-62cNiz63M46Ai6Z0CK1Cw/edit?usp=sharing>.
-
-
--->
+<section id="exploring-and-correcting-outliers" class="level2">
+<h2 class="anchored" data-anchor-id="exploring-and-correcting-outliers">Exploring and correcting outliers</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>traits_long <span class="ot">&lt;-</span> traits_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gather</span>(trait, value, la, ldmc, lt, tlp, sla) <span class="sc">%&gt;%</span> </span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">trait =</span> <span class="fu">recode</span>(trait, </span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"la"</span> <span class="ot">=</span> <span class="st">"LA [ cm2 ]"</span>,</span>
+<span id="cb54-5"><a href="#cb54-5" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"ldmc"</span> <span class="ot">=</span> <span class="st">"LDMC [ g / g ]"</span>,</span>
+<span id="cb54-6"><a href="#cb54-6" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"lt"</span> <span class="ot">=</span> <span class="st">"LT [ µm ]"</span>,</span>
+<span id="cb54-7"><a href="#cb54-7" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"tlp"</span> <span class="ot">=</span> <span class="st">"TLP [ MPa ]"</span>,</span>
+<span id="cb54-8"><a href="#cb54-8" aria-hidden="true" tabindex="-1"></a>                        <span class="st">"sla"</span> <span class="ot">=</span> <span class="st">"SLA [ cm2 / g ]"</span>))</span>
+<span id="cb54-9"><a href="#cb54-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-10"><a href="#cb54-10" aria-hidden="true" tabindex="-1"></a>traits_long <span class="sc">%&gt;%</span> </span>
+<span id="cb54-11"><a href="#cb54-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(vernacular,</span>
+<span id="cb54-12"><a href="#cb54-12" aria-hidden="true" tabindex="-1"></a>             value)) <span class="sc">+</span></span>
+<span id="cb54-13"><a href="#cb54-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>() <span class="sc">+</span></span>
+<span id="cb54-14"><a href="#cb54-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">col =</span> <span class="fu">as.factor</span>(tree)),</span>
+<span id="cb54-15"><a href="#cb54-15" aria-hidden="true" tabindex="-1"></a>              <span class="at">width =</span> <span class="fl">0.2</span>, <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span> </span>
+<span id="cb54-16"><a href="#cb54-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb54-17"><a href="#cb54-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>() <span class="sc">+</span></span>
+<span id="cb54-18"><a href="#cb54-18" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> trait, <span class="at">scales =</span> <span class="st">"free_x"</span>, <span class="at">ncol =</span> <span class="dv">5</span>) <span class="sc">+</span></span>
+<span id="cb54-19"><a href="#cb54-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.text.x =</span> <span class="fu">element_text</span>(<span class="at">angle =</span> <span class="dv">45</span>, <span class="at">hjust =</span> <span class="dv">1</span>),</span>
+<span id="cb54-20"><a href="#cb54-20" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"none"</span>) <span class="sc">+</span></span>
+<span id="cb54-21"><a href="#cb54-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="st">""</span>) <span class="sc">+</span> <span class="fu">ylab</span>(<span class="st">""</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="26_junction_files/figure-html/figure-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>There is a big outlier for LDMC:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>out1 <span class="ot">&lt;-</span> traits_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(ldmc <span class="sc">&gt;</span> <span class="fl">0.8</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(genus_sp, tree, leaf)</span>
+<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>traits_all <span class="sc">%&gt;%</span> </span>
+<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(tree <span class="sc">==</span> out1<span class="sc">$</span>tree <span class="sc">&amp;</span> leaf <span class="sc">==</span> out1<span class="sc">$</span>leaf) <span class="sc">%&gt;%</span> </span>
+<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(vernacular, tree, leaf, ldmc, sw, dw) </span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>The saturated and dry weight are very similar, there must be a typing error. We remove the ldmc value for this tree.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a>traits_cor <span class="ot">&lt;-</span> traits_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb56-2"><a href="#cb56-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ldmc =</span> </span>
+<span id="cb56-3"><a href="#cb56-3" aria-hidden="true" tabindex="-1"></a>           <span class="fu">if_else</span>(tree <span class="sc">==</span> <span class="dv">6568</span> <span class="sc">&amp;</span> leaf <span class="sc">==</span> <span class="dv">1</span>,</span>
+<span id="cb56-4"><a href="#cb56-4" aria-hidden="true" tabindex="-1"></a>                   <span class="cn">NA</span>,</span>
+<span id="cb56-5"><a href="#cb56-5" aria-hidden="true" tabindex="-1"></a>                   ldmc))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
 </section>
-<section id="summary-on-number-of-samples-and-output-files" class="level2">
-<h2 class="anchored" data-anchor-id="summary-on-number-of-samples-and-output-files">Summary on number of samples and output files</h2>
-<!--
-
-
-::: {.cell}
-
-```{.r .cell-code}
-read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
-  group_by(vernacular, genus_sp, tree) %>% 
-  summarise(n_leaf = n_distinct(leaf)) %>% 
-  group_by(vernacular, genus_sp) %>% 
-  summarise(
-    n_tree = n_distinct(tree),
-    mean_n_leaf_per_ind = mean(n_leaf)) %>% 
-  kable()
-```
-
-::: {.cell-output-display}
-
-
-|vernacular |genus_sp                                              | n_tree| mean_n_leaf_per_ind|
-|:----------|:-----------------------------------------------------|------:|-------------------:|
-|ANDIR      |Carapa guianensis Aubl.                               |      5|                4.40|
-|ANGEL      |Dinizia excelsa Ducke                                 |      5|                4.40|
-|CASTA      |Bertholletia excelsa H.B.                             |      3|                4.00|
-|CEDRU      |Vochysia maxima Ducke                                 |      5|                5.00|
-|COPAI      |Copaifera reticulata Ducke                            |      4|                2.00|
-|CUPIU      |Goupia glabra Aubl.                                   |      4|                5.00|
-|CUPIU      |Vismia cayennensis (Jacq.) Pers.                      |      1|                5.00|
-|FAVA       |Enterolobium schuburkii                               |      1|                1.00|
-|FAVAO      |Robrichia schomburgkii (Benth.) A.R.M.Luz & E.R.Souza |      2|                5.00|
-|FREIJ      |Cordia goeldiana Huber                                |      4|                4.00|
-|JARAN      |Lecythis lurida (Miers) S.A. Mori                     |      4|                4.50|
-|JUTAI      |Hymenaea parvifolia Huber                             |      1|                5.00|
-|PARAP      |Jacaranda copaia (Aubl.) D. Don                       |      4|                3.25|
-|PIQUI      |Caryocar villosum (Aubl.) Pers.                       |      4|                3.00|
-|QUARU      |Vochysia maxima Ducke                                 |      5|                5.00|
-|VIROL      |Virola michelii Heckel                                |      4|                5.00|
-
-
-:::
-:::
-
-
--->
+<section id="save-and-explore-the-final-trait-data-for-the-campaign" class="level2">
+<h2 class="anchored" data-anchor-id="save-and-explore-the-final-trait-data-for-the-campaign">Save and explore the final trait data for the campaign</h2>
+<p>The filtered and corrected trait dataset is save in the file <code>trait_PlantForAdapt_Belterra_2025_vX.csv</code> stored in <code>output</code>. See the README in output for the metadata.</p>
+<p><strong>Don’t forget to add a version name and update the NEWS. Update the metadata in Readme if needed.</strong></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>traits_cor <span class="ot">&lt;-</span> traits_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">site =</span> <span class="st">"Belterra"</span>,</span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">campaign =</span> <span class="st">"2025"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(site, </span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>         tree, leaf, vernacular, vernacular_full, genus_sp, family,</span>
+<span id="cb57-6"><a href="#cb57-6" aria-hidden="true" tabindex="-1"></a>         campaign,</span>
+<span id="cb57-7"><a href="#cb57-7" aria-hidden="true" tabindex="-1"></a>         la, ldmc, lt, sla, tlp, comments) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-8"><a href="#cb57-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">rename</span>(<span class="at">verna_code =</span> vernacular,</span>
+<span id="cb57-9"><a href="#cb57-9" aria-hidden="true" tabindex="-1"></a>         <span class="at">vernacular =</span> vernacular_full,</span>
+<span id="cb57-10"><a href="#cb57-10" aria-hidden="true" tabindex="-1"></a>         <span class="at">botanical =</span> genus_sp) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-11"><a href="#cb57-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">botanical =</span> <span class="fu">str_squish</span>(botanical), <span class="co"># remove multiple spaces if any</span></span>
+<span id="cb57-12"><a href="#cb57-12" aria-hidden="true" tabindex="-1"></a>         <span class="at">genus =</span> <span class="fu">word</span>(botanical, <span class="dv">1</span>),</span>
+<span id="cb57-13"><a href="#cb57-13" aria-hidden="true" tabindex="-1"></a>         <span class="at">species =</span> <span class="fu">word</span>(botanical, <span class="dv">2</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-14"><a href="#cb57-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">relocate</span>(site, tree, leaf, genus, species)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(traits_cor, <span class="st">"outputs/trait_PlantForAdapt_Belterra_2025_vX.csv"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+</div>
+<p>We look at the correspondence between the vernacular names we used during field collection and the botanical identification. The table below shows the vernacular names that correspond to more than one species:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>traits_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>     <span class="fu">group_by</span>(verna_code) <span class="sc">%&gt;%</span> </span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">nb_sp =</span> <span class="fu">n_distinct</span>(botanical)) <span class="sc">%&gt;%</span> </span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(nb_sp <span class="sc">&gt;</span><span class="dv">1</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 2
+  verna_code nb_sp
+  &lt;chr&gt;      &lt;int&gt;
+1 CUPIU          2</code></pre>
+</div>
+</div>
+<p>Here are the two botanical names of CUPIU:</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>traits_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(verna_code, vernacular, botanical) <span class="sc">%&gt;%</span> </span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(verna_code <span class="sc">==</span><span class="st">"CUPIU"</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">distinct</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 3
+  verna_code vernacular botanical                       
+  &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;                           
+1 CUPIU      cupi£ba    Goupia glabra Aubl.             
+2 CUPIU      lacre      Vismia cayennensis (Jacq.) Pers.</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a>traits_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(sla, tlp, , tree, leaf, genus, species) <span class="sc">%&gt;%</span> </span>
+<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">genus_sp =</span> <span class="fu">paste</span>(genus, species, <span class="at">sep=</span><span class="st">"_"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(sla, tlp, <span class="at">col =</span> <span class="fu">as.character</span>(tree))) <span class="sc">+</span></span>
+<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="fu">aes</span>(<span class="at">group =</span> genus_sp), <span class="at">method =</span> <span class="st">"lm"</span>, </span>
+<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>              <span class="at">col =</span> <span class="st">"grey"</span>, <span class="at">alpha =</span> .<span class="dv">2</span>) <span class="sc">+</span></span>
+<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>() <span class="sc">+</span></span>
+<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>() <span class="sc">+</span></span>
+<span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="fu">expression</span>(<span class="st">"SLA ["</span><span class="sc">~</span>cm<span class="sc">^</span>{<span class="dv">2</span>}<span class="sc">~</span>g<span class="sc">^</span>{<span class="sc">-</span><span class="dv">1</span>}<span class="sc">~</span><span class="st">"]"</span>)) <span class="sc">+</span></span>
+<span id="cb63-11"><a href="#cb63-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="fu">expression</span>(<span class="st">"TLP ["</span><span class="sc">~</span>MPa<span class="sc">~</span><span class="st">"]"</span>)) <span class="sc">+</span></span>
+<span id="cb63-12"><a href="#cb63-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span> genus_sp, <span class="at">scales =</span> <span class="st">"free"</span>) <span class="sc">+</span></span>
+<span id="cb63-13"><a href="#cb63-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">guide =</span> <span class="st">"none"</span>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="26_junction_files/figure-html/figure 2-1.png" class="img-fluid figure-img" width="960"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>This figure is just made for exploration purposes, but we don’t expect the SLA-TLP relationship is not necessarly expected to hold intra-species. The higher LMA lower TLP relation holds good in inter-species relationships most of the time (it is often expected because high LMA is often linked to drought resistance strategies, and low TLP too, which is debatable). But this is not always the case (e.g.&nbsp;Isa’s work in Guyana).</p>
+</section>
+<section id="summary-on-number-of-samples" class="level2">
+<h2 class="anchored" data-anchor-id="summary-on-number-of-samples">Summary on number of samples</h2>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a>traits_cor <span class="sc">%&gt;%</span> </span>
+<span id="cb64-2"><a href="#cb64-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">genus_sp =</span> <span class="fu">paste</span>(genus, species, <span class="at">sep=</span><span class="st">"_"</span>)) <span class="sc">%&gt;%</span> </span>
+<span id="cb64-3"><a href="#cb64-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(verna_code, genus_sp, tree) <span class="sc">%&gt;%</span> </span>
+<span id="cb64-4"><a href="#cb64-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n_leaf =</span> <span class="fu">n_distinct</span>(leaf)) <span class="sc">%&gt;%</span> </span>
+<span id="cb64-5"><a href="#cb64-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(verna_code, genus_sp) <span class="sc">%&gt;%</span> </span>
+<span id="cb64-6"><a href="#cb64-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(</span>
+<span id="cb64-7"><a href="#cb64-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">n_tree =</span> <span class="fu">n_distinct</span>(tree),</span>
+<span id="cb64-8"><a href="#cb64-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">mean_n_leaf_per_ind =</span> <span class="fu">mean</span>(n_leaf)) <span class="sc">%&gt;%</span> </span>
+<span id="cb64-9"><a href="#cb64-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">verna_code</th>
+<th style="text-align: left;">genus_sp</th>
+<th style="text-align: right;">n_tree</th>
+<th style="text-align: right;">mean_n_leaf_per_ind</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ANDIR</td>
+<td style="text-align: left;">Carapa_guianensis</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">4.400000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ANGEL</td>
+<td style="text-align: left;">Dinizia_excelsa</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5.000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CASTA</td>
+<td style="text-align: left;">Bertholletia_excelsa</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">4.333333</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CEDRU</td>
+<td style="text-align: left;">Vochysia_maxima</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5.000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">COPAI</td>
+<td style="text-align: left;">Copaifera_reticulata</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">2.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CUPIU</td>
+<td style="text-align: left;">Goupia_glabra</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5.000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">CUPIU</td>
+<td style="text-align: left;">Vismia_cayennensis</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FAVA</td>
+<td style="text-align: left;">Enterolobium_schuburkii</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1.000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">FAVAO</td>
+<td style="text-align: left;">Robrichia_schomburgkii</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">FREIJ</td>
+<td style="text-align: left;">Cordia_goeldiana</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">JARAN</td>
+<td style="text-align: left;">Lecythis_lurida</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">4.500000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">JUTAI</td>
+<td style="text-align: left;">Hymenaea_parvifolia</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">5.000000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">PARAP</td>
+<td style="text-align: left;">Jacaranda_copaia</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3.250000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">PIQUI</td>
+<td style="text-align: left;">Caryocar_villosum</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">3.250000</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">QUARU</td>
+<td style="text-align: left;">Vochysia_maxima</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">5.000000</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">VIROL</td>
+<td style="text-align: left;">Virola_michelii</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">5.000000</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 
 
 </section>

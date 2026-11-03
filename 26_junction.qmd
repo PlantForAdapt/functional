@@ -521,7 +521,7 @@ traits_cor <- traits_cor %>%
                    sla))
 ```
 
-Let's check after excludig these values:
+Let's check after excluding these values:
 
 ```{r}
 #| message: false
@@ -594,83 +594,42 @@ traits_long %>%
   xlab("") + ylab("")
 ```
 
-> DECISION 6: The young leaves are clearly outliers. I propose to remove them. TO DO: exclude them from the rest if you agree.
-
-> DECISION 7: The effect of damaged leaves is much less clear (remember that here damaged refer doens't refer to the fact that part of the leaf is missing, but rather to the quality of the leaf). I propose to keep them.
-
-## Filtering and exploring
-
-> TO DO: update depending on the decissions made. The filtering should have been done before, so no need to do it here. Remove all the columns of comments except the one called comments that should contain all the correction made.
-
-```{=html}
-<!--
-
-Based on the exploration above, the data are filtered as follow:
-
-- **the scans of leaves touching the page need to be redone, I remove them for the moment**
-
-- the leaves 1 and 2 of COPAI 6910 are removed
-
-- all the leaves with a big missing part are excluded
-
-- all the young leaves are excluded
-
-- for all the leaves with a problem with the mask (abn_area and fol_touch), we take the area measured with a mask for which the holes have not been filled (area_excluded). This represent all the FAVA, FAVO abd ANGEL, plus one leaf of PARAP
-
-- for tlp of COPAI 6896 duplicated leaves, we take the mean value between the duplicated measurement of leaf 1
-
--->
-```
-
-Don't forget to add a version name and update the NEWS. Update the metadata in Readme if needed.
-
-````{=html}
-<!--
+The young leaves show clearly different values. 
+According to our protocol stating that we sample on mature leaves, they should not have been included.
+We remove them. 
 
 ```{r}
-#| message: false
-#| warning: false
-#| eval: false
-read_tsv("outputs/Belterra_2025_raw.tsv", show_col_types = FALSE) %>% 
-  filter(touching == 0 & # to be removed once the scanned have been redone
-           !(tree == 6910 & leaf %in% c(1, 2)) &
-           missing_part != 2 &
-           raw_scan != "young") %>% 
-  mutate(
-    la = case_when(anomaly %in% c("abn_area" , "fol_touch") ~ area_excluded, 
-                   .default = area_included),
-    ldmc = dw/sw,
-    sla = area_excluded/dw
-  ) %>% 
-  select(tree, vernacular, vernacular_full, genus_sp, family, leaf, 
-         la, ldmc, lt, sla, tlp) %>% 
-  group_by(tree, vernacular, vernacular_full, genus_sp, family, leaf) %>% 
-  mutate(across(la:tlp, mean)) %>% 
-  distinct() %>% 
-  write_csv("outputs/trait_PlantForAdapt_Belterra_2025_vX.csv")
+traits_cor <- traits_cor %>% 
+  filter(raw_scan !="young")
 ```
 
-We look at the correspondence between the vernacular names we used during field collection and the botanical identification. The table below shows the vernacular names that correspond to more than one species:
+The effect of damaged leaves is much less clear (remember that here damaged refer doens't refer to the fact that part of the leaf is missing, but rather to the quality of the leaf). We keep them and add a comment.
 
 ```{r}
-#| message: false
-read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
-     group_by(vernacular) %>% summarise(nb_sp = n_distinct(genus_sp)) %>% 
-  filter(nb_sp >1)
+traits_cor <- traits_cor %>% 
+  mutate(comments = replace_when(
+           comments,
+           (raw_scan == "damaged" & comments !="") ~
+              paste(comments, "damaged leave", sep=" ; "),
+            (raw_scan == "damaged" & comments =="") ~
+              paste(comments, "damaged leave", sep="")))         
 ```
+
+## Exploring and correcting outliers
 
 ```{r figure}
 #| message: false
 #| warning: false
-read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
-  gather(trait, value, -vernacular, -tree, -leaf, 
-         -vernacular_full, -genus_sp, -family) %>% 
+traits_long <- traits_cor %>% 
+  gather(trait, value, la, ldmc, lt, tlp, sla) %>% 
   mutate(trait = recode(trait, 
                         "la" = "LA [ cm2 ]",
                         "ldmc" = "LDMC [ g / g ]",
                         "lt" = "LT [ µm ]",
                         "tlp" = "TLP [ MPa ]",
-                        "sla" = "SLA [ cm2 / g ]")) %>% 
+                        "sla" = "SLA [ cm2 / g ]"))
+
+traits_long %>% 
   ggplot(aes(vernacular,
              value)) +
   geom_boxplot() +
@@ -683,64 +642,121 @@ read_tsv("outputs/Belterra_2025_traits.tsv") %>%
         legend.position = "none") +
   xlab("") + ylab("")
 ```
+There is a big outlier for LDMC:
 
 ```{r}
 #| message: false
 #| warning: false
 #| eval: false
-out1 <- read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
-  filter(ldmc > 0.8) %>% select(vernacular, tree, leaf)
-raw %>% filter(tree == out1$tree & leaf == out1$leaf) %>% 
-  kable()
+out1 <- traits_cor %>% 
+  filter(ldmc > 0.8) %>% 
+  select(genus_sp, tree, leaf)
+traits_all %>% 
+  filter(tree == out1$tree & leaf == out1$leaf) %>% 
+  select(vernacular, tree, leaf, ldmc, sw, dw) 
 ```
 
-> DECISION 8: We have one outlier for LDMC, not sure what the problem is, if there is indeed a problem. What do you think?
+The saturated and dry weight are very similar, there must be a typing error.
+We remove the ldmc value for this tree.
+
+```{r}
+traits_cor <- traits_cor %>% 
+  mutate(ldmc = 
+           if_else(tree == 6568 & leaf == 1,
+                   NA,
+                   ldmc))
+```
+
+
+## Save and explore the final trait data for the campaign
+
+The filtered and corrected trait dataset is save in the file `trait_PlantForAdapt_Belterra_2025_vX.csv` stored in `output`.
+See the README in output for the metadata.
+
+**Don't forget to add a version name and update the NEWS. Update the metadata in Readme if needed.**
+
+```{r}
+traits_cor <- traits_cor %>% 
+  mutate(site = "Belterra",
+         campaign = "2025") %>% 
+  select(site, 
+         tree, leaf, vernacular, vernacular_full, genus_sp, family,
+         campaign,
+         la, ldmc, lt, sla, tlp, comments) %>% 
+  rename(verna_code = vernacular,
+         vernacular = vernacular_full,
+         botanical = genus_sp) %>% 
+  mutate(botanical = str_squish(botanical), # remove multiple spaces if any
+         genus = word(botanical, 1),
+         species = word(botanical, 2)) %>% 
+  relocate(site, tree, leaf, genus, species)
+```
+  
+```{r}  
+write_csv(traits_cor, "outputs/trait_PlantForAdapt_Belterra_2025_vX.csv")
+```
+
+
+We look at the correspondence between the vernacular names we used during field collection and the botanical identification. The table below shows the vernacular names that correspond to more than one species:
+
+```{r}
+#| message: false
+traits_cor %>% 
+     group_by(verna_code) %>% 
+  summarise(nb_sp = n_distinct(botanical)) %>% 
+  filter(nb_sp >1)
+```
+
+Here are the two botanical names of CUPIU:
+
+```{r}
+traits_cor %>% 
+  select(verna_code, vernacular, botanical) %>% 
+  filter(verna_code =="CUPIU") %>% 
+  distinct()
+```
+
 
 ```{r figure 2}
 #| message: false
 #| warning: false
 #| fig-width: 10
 #| fig-height: 10
-read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
-  filter(sla < 400) %>% 
-  select(sla, tlp, vernacular, tree, leaf) %>% 
+traits_cor %>% 
+  select(sla, tlp, , tree, leaf, genus, species) %>% 
+  mutate(genus_sp = paste(genus, species, sep="_")) %>% 
   na.omit() %>% 
   ggplot(aes(sla, tlp, col = as.character(tree))) +
-  geom_smooth(aes(group = vernacular), method = "lm", 
+  geom_smooth(aes(group = genus_sp), method = "lm", 
               col = "grey", alpha = .2) +
   geom_point() +
   theme_bw() +
   xlab(expression("SLA ["~cm^{2}~g^{-1}~"]")) +
   ylab(expression("TLP ["~MPa~"]")) +
-  facet_wrap(~ vernacular, scales = "free") +
+  facet_wrap(~ genus_sp, scales = "free") +
   scale_color_discrete(guide = "none")
 ```
 
-> DECISION 9: There are still a few negative relationship =\> Joannès, what do you think? See also once the treatment of the scans for the touching leaves have been redone.
+This figure is just made for exploration purposes, but we don't expect the SLA-TLP relationship is not necessarly expected to hold intra-species.
+The higher LMA lower TLP relation holds good in inter-species relationships most of the time (it is often expected because high LMA is often linked to drought resistance strategies, and low TLP too, which is debatable). 
+But this is not always the case (e.g. Isa's work in Guyana). 
 
 
-However, based on that I have made an example of data junction in a consolidated table here: <https://docs.google.com/spreadsheets/d/1SSDmBBYNl_jP3GY5wUGkR-62cNiz63M46Ai6Z0CK1Cw/edit?usp=sharing>.
 
-
--->
-````
-
-## Summary on number of samples and output files
-
-````{=html}
-<!--
+## Summary on number of samples 
 
 ```{r}
 #| message: false
-read_tsv("outputs/Belterra_2025_traits.tsv") %>% 
-  group_by(vernacular, genus_sp, tree) %>% 
+traits_cor %>% 
+  mutate(genus_sp = paste(genus, species, sep="_")) %>% 
+  group_by(verna_code, genus_sp, tree) %>% 
   summarise(n_leaf = n_distinct(leaf)) %>% 
-  group_by(vernacular, genus_sp) %>% 
+  group_by(verna_code, genus_sp) %>% 
   summarise(
     n_tree = n_distinct(tree),
     mean_n_leaf_per_ind = mean(n_leaf)) %>% 
   kable()
 ```
 
--->
-````
+
+
