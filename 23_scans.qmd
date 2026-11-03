@@ -224,7 +224,7 @@ check %>%
   )
 ```
 
-## Corrections
+## Corrections {#scan_cor_belt_2025}
 
 Here is an automatic bash command to copy problematic files:
 

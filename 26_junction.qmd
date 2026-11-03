@@ -160,7 +160,6 @@ if(nrow(dupl) == 0) {
 ### Decisions for duplicated leaves {#decission_dupl_belt_2025}
 
 ```{r}
-#| eval: false
 tlp %>% filter(tree == 6910 & leaf %in% c(1,2)) %>%
   distinct() %>% 
   count
@@ -177,7 +176,6 @@ dry %>% filter(tree == 6910 & leaf %in% c(1,2)) %>%
 Leaves 1 and 2 of COPAI 6910 are duplicated in tlp, hydrated and dry (each time with different values), but they have just one scan each. It is hard to know which leaves are the right ones, so we remove all instances of these two leaves, for all traits. See this [issue](https://github.com/PlantForAdapt/functional/issues/30) for the discussion. This is done in section [here](#duplicated_belt_2025).
 
 ```{r}
-#| eval: false
 tlp %>% filter(tree == 6896 & leaf %in% c(1,2)) %>%
   distinct() %>% 
   count
@@ -307,6 +305,8 @@ traits_all %>% write_csv("data/derived/Belterra_2025/traits_all_raw.csv")
 
 ## Correcting for scan problems
 
+The scans of the leaves that were touching the edge of the scanner have been manually corrected (see [here](#scan_cor_belt_2025) and this [issue](https://github.com/PlantForAdapt/functional/issues/28)).
+
 ```{r la_corrections}
 #| message: false
 #| warning: false
@@ -336,8 +336,11 @@ la_in <- bind_rows(anti_join(la_in_1, la_in_2, by = join_by(vernacular, tree, le
                    la_in_2)
 corrections <- la_ex |> 
   left_join(la_in) |> 
-  mutate(comments = "scanner correction") |> 
-  mutate(tree = as.numeric(tree), leaf = as.numeric(leaf))
+  mutate(comments = "scan correction") |> 
+  mutate(tree = as.numeric(tree), leaf = as.numeric(leaf)) |>
+  mutate(vernacular = recode_values(vernacular,
+                                    "PEQUI" ~ "PIQUI",
+                                    default = vernacular))
 ```
 
 ```{r traits_cor}
@@ -376,7 +379,6 @@ traits_cor <- traits_cor %>%
 We recheck for duplicated leaves:
 
 ```{r}
-#| eval: FALSE
 dupl <- traits_cor %>% 
   group_by(vernacular, tree, leaf) %>% 
   count() %>% 
@@ -391,7 +393,6 @@ if(nrow(dupl) == 0) {
 
 ## Exploring and correcting the effects of leaf quality
 
-> In progress GD: implement the decission made together in each stem and add in the columns comments when relevant. trait_corr is to do the correction (wide table), traits_long is for the exploration (long table).
 
 ### Incomplete leaves {#incomplete_belt_2025}
 
@@ -408,12 +409,11 @@ traits_long <- traits_cor %>%
                         "sla" = "SLA [ cm2 / g ]"))
 ```
 
-We first explore the effect of having an incomplete leaf, which affects la and indirectly sla. **NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.**
+We first explore the effect of having an incomplete leaf, which affects la and indirectly sla.
 
 ```{r figure1}
 traits_long %>% 
-  filter(trait %in% c("LA [ cm2 ]", "SLA [ cm2 / g ]") &
-           touching == 0) %>% 
+  filter(trait %in% c("LA [ cm2 ]", "SLA [ cm2 / g ]")) %>% 
   ggplot(aes(vernacular, value)) +
   geom_boxplot() +
   geom_jitter(aes(col = as.factor(missing_part)),
@@ -434,7 +434,7 @@ traits_long %>%
 
 Surprisingly, the incomplete leaves are not necessarily the smallest ones.
 
-Let's now check the distribution of these two traits if the leaves with a big missing part (i.e. missing_part = 2, see the scan page) are removed (in blue) compared to keeping the whole dataset. **NB I also removed the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.**
+Let's now check the distribution of these two traits if the leaves with a big missing part (i.e. missing_part = 2, see the scan page) are removed (in blue) compared to keeping the whole dataset. 
 
 ```{r figure2}
 traits_long <- traits_cor %>% 
@@ -446,15 +446,13 @@ traits_long <- traits_cor %>%
                         "tlp" = "TLP [ MPa ]",
                         "sla" = "SLA [ cm2 / g ]"))
 traits_long %>% 
-  filter(trait %in% c("LA [ cm2 ]", "SLA [ cm2 / g ]") &
-           touching == 0) %>% 
+  filter(trait %in% c("LA [ cm2 ]", "SLA [ cm2 / g ]")) %>% 
   ggplot(aes(vernacular, value)) +
   geom_boxplot(fill = "darkgrey") +
   geom_boxplot(
     data = subset(traits_long,
                   trait %in% c("LA [ cm2 ]", "SLA [ cm2 / g ]") &
-                    missing_part !=2 &
-                    touching == 0) ,
+                    missing_part !=2) ,
     aes(vernacular, value),
     color = "blue", fill = "blue", alpha = 0.1) + 
   theme_bw() +
@@ -500,7 +498,7 @@ traits_cor <- traits_cor %>%
               paste(comments, "unfilled area taken for la", sep="")))         
 ```
 
-Now, let's look at the effect of other anomalies seen on the masks **NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.**
+Now, let's look at the effect of other anomalies seen on the masks 
 
 ```{r figure3}
 #| message: false
@@ -515,19 +513,16 @@ traits_long <- traits_cor %>%
                         "sla" = "SLA [ cm2 / g ]"))
 
 traits_long %>% 
-  filter(touching == 0) %>% 
   ggplot(aes(vernacular, value)) +
   geom_boxplot() +
   geom_jitter(
     data = subset(traits_long,
-                  anomaly =="ok" &
-                    touching == 0), 
+                  anomaly =="ok"), 
     aes(vernacular, value), 
     width = 0.4, size = 2, alpha = 0.5) +
   geom_jitter(
     data = subset(traits_long,
-                  anomaly !="ok" &
-                    touching == 0) ,
+                  anomaly !="ok") ,
     aes(vernacular, value,
         col = as.factor(anomaly)) ,
     width = 0.4, size = 2, alpha = 0.5) + 
@@ -572,19 +567,16 @@ traits_long <- traits_cor %>%
                         "sla" = "SLA [ cm2 / g ]"))
 
 traits_long %>% 
-  filter(touching == 0) %>% 
   ggplot(aes(vernacular, value)) +
   geom_boxplot() +
   geom_jitter(
     data = subset(traits_long,
-                  anomaly =="ok" &
-                    touching == 0), 
+                  anomaly =="ok"), 
     aes(vernacular, value), 
     width = 0.4, size = 2, alpha = 0.5) +
   geom_jitter(
     data = subset(traits_long,
-                  anomaly !="ok" &
-                    touching == 0) ,
+                  anomaly !="ok" ) ,
     aes(vernacular, value,
         col = as.factor(anomaly)) ,
     width = 0.4, size = 2, alpha = 0.5) + 
@@ -600,25 +592,22 @@ traits_long %>%
 
 ### Damaged and young leaves
 
-Now, let's look at the effect of anomalies seen on the raw scans (including the species with a big missing part for now) **NB I removed here the leaves that are touching the edge of the scan that have not yet been corrected. This should not be done once the scans have been corrected.**
+Now, let's look at the effect of anomalies seen on the raw scans:
 
 ```{r figure4}
 #| message: false
 #| warning: false
 traits_long %>% 
-  filter(touching == 0) %>% 
   ggplot(aes(vernacular, value)) +
   geom_boxplot() +
   geom_jitter(
     data = subset(traits_long,
-                  raw_scan =="ok" &
-                    touching == 0), 
+                  raw_scan =="ok"), 
     aes(vernacular, value), 
     width = 0.4, size = 2, alpha = 0.5) +
   geom_jitter(
     data = subset(traits_long,
-                  raw_scan !="ok" &
-                    touching == 0) ,
+                  raw_scan !="ok") ,
     aes(vernacular, value,
         col = as.factor(raw_scan)) ,
     width = 0.4, size = 2, alpha = 0.5) + 
@@ -682,7 +671,6 @@ There is a big outlier for LDMC:
 ```{r}
 #| message: false
 #| warning: false
-#| eval: false
 out1 <- traits_cor %>% 
   filter(ldmc > 0.8) %>% 
   select(genus_sp, tree, leaf)
