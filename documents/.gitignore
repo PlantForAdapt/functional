@@ -11,3 +11,5 @@
 !template_HYD_YYYYMMDD.xls
 !template_TLP_YYYYMMDD.xlsx
 !template_DRY_YYYYMMDD.xlsx
+!field_code_Belterra.*
+!field_sheet.*

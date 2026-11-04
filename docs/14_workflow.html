@@ -307,6 +307,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="before-fieldwork" class="level2">
 <h2 class="anchored" data-anchor-id="before-fieldwork">Before fieldwork:</h2>
 <p>Print enough field sheets for wood core sample collection and leaf sample collection. The template of these files can be found here:</p>
+<p><strong>Field sheets</strong></p>
+<p>XLSX: <a href="https://github.com/PlantForAdapt/functional/tree/main/documents/field_sheet.xlsx">field_sheet.xlsx</a></p>
+<p>PDF: <a href="https://github.com/PlantForAdapt/functional/tree/main/documents/field_sheet.pdf">field_sheet.pdf</a></p>
+<p><strong>Species codes</strong></p>
+<p>Belterra XLSX: <a href="https://github.com/PlantForAdapt/functional/tree/main/documents/field_code_Belterra.xlsx">field_code_Belterra.xlsx</a></p>
+<p>Belterra PDF: <a href="https://github.com/PlantForAdapt/functional/tree/main/documents/field_code_Belterra.pdf">field_code_Belterra.pdf</a></p>
 </section>
 <section id="before-starting-a-lab-work-day" class="level2">
 <h2 class="anchored" data-anchor-id="before-starting-a-lab-work-day">Before starting a lab work day:</h2>
@@ -530,13 +536,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="list-and-check-the-samples" class="level3">
 <h3 class="anchored" data-anchor-id="list-and-check-the-samples">List and check the samples</h3>
 <p>Record the individuals on which samples have been taken in <code>yearmoday_sample_taken.xlsx</code> before putting them in the oven. The template of this file can be found here (<strong>TO DO =&gt; see my comment on this issue, with a metadata tab</strong>). Make one file per day so it can be saved every evening, with the date format as follow <code>yearmoday_sample_taken.xlsx</code> (ex <code>20270120_sample_taken.xlsx</code>).</p>
+<blockquote class="blockquote">
+<p>Are you sure about that? This should correspond to field sampling sheets.</p>
+</blockquote>
 </section>
 <section id="scan-the-field-sheets" class="level3">
 <h3 class="anchored" data-anchor-id="scan-the-field-sheets">Scan the field sheets</h3>
-<p><strong>to do decide naming</strong></p>
+<p>At the start of the day create a folder named <code>SCANYYYYMMDD</code> such as <code>SCAN20270120</code> to save all scans. Then inside, save each scan as <code>CODE_TREE_LEAF.pdf</code> such as <code>ANGEL_5663_1.pdf</code>.</p>
 </section>
 <section id="save-the-files-on-the-nas" class="level3">
 <h3 class="anchored" data-anchor-id="save-the-files-on-the-nas">Save the files on the NAS</h3>
+<blockquote class="blockquote">
+<p>I would suggest saving locally and on one or several hard drive / usb stick and only on the NAS by us at the end of the campaign.</p>
+</blockquote>
 <p>Data files, field sheets and scans needs to be stored <strong>every evening</strong> on the NAS (<strong>TO DO: add the link to the NAS</strong>), following this file structure:</p>
 <ul>
 <li><code>dry_weight/</code> the leaf dry weights</li>
@@ -550,6 +562,9 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </section>
 <section id="inspect-the-scans" class="level3">
 <h3 class="anchored" data-anchor-id="inspect-the-scans">Inspect the scans</h3>
+<blockquote class="blockquote">
+<p>I’ll let you write a template following above examples.</p>
+</blockquote>
 <p>If time allow, process the scan (following this procedure <strong>to add: template files, and tell where to put it on the NAS</strong>) and inspect them manually to detect scan problems. If this is done on the day, a new scan can be redone if relevant. Here is the list of problems that should be looked for, and how to code them (<strong>to do, add pictures to illustrate</strong>)</p>
 <ul>
 <li><p><em>missing_part</em>: missing part in the leave due to herbivory or other damage. This can be seen on the <strong>mask or the raw scan</strong>:</p>
