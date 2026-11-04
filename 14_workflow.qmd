@@ -6,15 +6,15 @@ Print enough field sheets for wood core sample collection and leaf sample collec
 
 **Field sheets**
 
-XLSX: [field_sheet.xlsx](https://github.com/PlantForAdapt/functional/raw/main/documents/field_sheet.xlsx)
+XLSX: [field_sheet.xlsx](documents/field_sheet.xlsx)
 
 PDF: [field_sheet.pdf](documents/field_sheet.pdf)
 
 **Species codes**
 
-Belterra XLSX: [field_code_Belterra.xlsx](https://github.com/PlantForAdapt/functional/tree/main/documents/field_code_Belterra.xlsx)
+Belterra XLSX: [field_code_Belterra.xlsx](documents/field_code_Belterra.xlsx)
 
-Belterra PDF: [field_code_Belterra.pdf](https://github.com/PlantForAdapt/functional/tree/main/documents/field_code_Belterra.pdf)
+Belterra PDF: [field_code_Belterra.pdf](documents/field_code_Belterra.pdf)
 
 ## Before starting a lab work day:
 
@@ -24,7 +24,7 @@ Prepare the following files:
 
 `TLP_YYYYMMDD.xlsx` : an excel file per day to record the osmometer measurements. Make one file per day so it can be saved every evening, with the date format as follow: ex `TLP_20270120.xlsx`. The template of this file can be found here :
 
-Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [template_TLP_YYYYMMDD.xlsx](https://github.com/PlantForAdapt/functional/tree/main/documents/template_TLP_YYYYMMDD.xlsx)
+Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [template_TLP_YYYYMMDD.xlsx](documents/template_TLP_YYYYMMDD.xlsx)
 
 ```{r}
 readxl::read_xlsx("documents/template_TLP_YYYYMMDD.xlsx") |> 
@@ -35,7 +35,7 @@ readxl::read_xlsx("documents/template_TLP_YYYYMMDD.xlsx") |>
 
 `HYD_YYYYMMDD.xls` : an excel file per day to record the fresh leaf measurements (thickness, weight and scan done). Make one file per day so it can be saved every evening, with the date format as follow: ex `HYD_20270120.xls`. The template of this file can be found here :
 
-Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [template_HYD_YYYYMMDD.xls](https://github.com/PlantForAdapt/functional/tree/main/documents/template_HYD_YYYYMMDD.xls)
+Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [template_HYD_YYYYMMDD.xls](documents/template_HYD_YYYYMMDD.xls)
 
 ```{r}
 readxl::read_xls("documents/template_HYD_YYYYMMDD.xls") |> 
@@ -46,7 +46,7 @@ readxl::read_xls("documents/template_HYD_YYYYMMDD.xls") |>
 
 `DRY_YYYYMMDD.xlsx` : an excel file per day to record the dry leaf weight. Make one file per day so it can be saved every evening (although the weighting will be done after oven drying), with the date format as follow: ex `DRY_10270120_dry.xlsx`). The template of this file can be found here :
 
-Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [template_DRY_YYYYMMDD.xlsx](https://github.com/PlantForAdapt/functional/tree/main/documents/template_DRY_YYYYMMDD.xlsx)
+Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [template_DRY_YYYYMMDD.xlsx](documents/template_DRY_YYYYMMDD.xlsx)
 
 ```{r}
 readxl::read_xlsx("documents/template_DRY_YYYYMMDD.xlsx") |> 
