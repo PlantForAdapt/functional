@@ -170,7 +170,7 @@ Example of leaves with fol_touching (one per species concerned):
 
 ### Leaf touching the side of the scan
 
-- *touching*: *0* no part touching, *1* leaf touching leading to part of the leaf not taken into account, *2* leaf touching leading to all the leaf not taken into account 
+- *touching*: *0* no part touching, *1* leaf touching leading to part of the leaf not taken into account, *2* leaf touching leading to all the leaf not taken into account
 
 Number of leaves touching leaves:
 

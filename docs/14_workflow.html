@@ -268,14 +268,19 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
   <ul>
   <li><a href="#before-fieldwork" id="toc-before-fieldwork" class="nav-link active" data-scroll-target="#before-fieldwork">Before fieldwork:</a></li>
   <li><a href="#before-starting-a-lab-work-day" id="toc-before-starting-a-lab-work-day" class="nav-link" data-scroll-target="#before-starting-a-lab-work-day">Before starting a lab work day:</a></li>
-  <li><a href="#during-field-and-lab-work-every-evening" id="toc-during-field-and-lab-work-every-evening" class="nav-link" data-scroll-target="#during-field-and-lab-work-every-evening">During field and lab work (every evening)</a>
+  <li><a href="#every-evening-during-field-and-lab-work" id="toc-every-evening-during-field-and-lab-work" class="nav-link" data-scroll-target="#every-evening-during-field-and-lab-work">Every evening during field and lab work</a>
   <ul class="collapse">
   <li><a href="#list-and-check-the-samples" id="toc-list-and-check-the-samples" class="nav-link" data-scroll-target="#list-and-check-the-samples">List and check the samples</a></li>
   <li><a href="#scan-the-field-sheets" id="toc-scan-the-field-sheets" class="nav-link" data-scroll-target="#scan-the-field-sheets">Scan the field sheets</a></li>
-  <li><a href="#save-the-files-on-the-nas" id="toc-save-the-files-on-the-nas" class="nav-link" data-scroll-target="#save-the-files-on-the-nas">Save the files on the NAS</a></li>
-  <li><a href="#inspect-the-scans" id="toc-inspect-the-scans" class="nav-link" data-scroll-target="#inspect-the-scans">Inspect the scans</a></li>
+  <li><a href="#inspect_scan" id="toc-inspect_scan" class="nav-link" data-scroll-target="#inspect_scan">Inspect the scans</a></li>
+  <li><a href="#saving_files" id="toc-saving_files" class="nav-link" data-scroll-target="#saving_files">Save the files</a></li>
+  <li><a href="#prepare-the-next-field-day" id="toc-prepare-the-next-field-day" class="nav-link" data-scroll-target="#prepare-the-next-field-day">Prepare the next field day</a></li>
   </ul></li>
-  <li><a href="#after-field-and-lab-work" id="toc-after-field-and-lab-work" class="nav-link" data-scroll-target="#after-field-and-lab-work">After field and lab work</a></li>
+  <li><a href="#after-field-and-lab-work" id="toc-after-field-and-lab-work" class="nav-link" data-scroll-target="#after-field-and-lab-work">After field and lab work</a>
+  <ul class="collapse">
+  <li><a href="#save-the-raw-data-files-on-the-nas" id="toc-save-the-raw-data-files-on-the-nas" class="nav-link" data-scroll-target="#save-the-raw-data-files-on-the-nas">Save the raw data files on the NAS</a></li>
+  <li><a href="#clean-and-save-the-cleaned-data" id="toc-clean-and-save-the-cleaned-data" class="nav-link" data-scroll-target="#clean-and-save-the-cleaned-data">Clean and save the cleaned data</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -306,10 +311,11 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Print enough field sheets for wood core sample collection and leaf sample collection. The template of these files can be found here:</p>
 <p><strong>Field sheets</strong></p>
 <p>XLSX: <a href="documents/field_sheet.xlsx">field_sheet.xlsx</a></p>
-<p>PDF: <a href="documents/field_sheet.pdf">field_sheet.pdf</a></p>
+<p>PDF: <a href="documents/field_sheet.pdf">field_sheet.pdf</a> <span style="color: red;">TO DO: update if agreement on the xlsx</span></p>
 <p><strong>Species codes</strong></p>
 <p>Belterra XLSX: <a href="documents/field_code_Belterra.xlsx">field_code_Belterra.xlsx</a></p>
 <p>Belterra PDF: <a href="documents/field_code_Belterra.pdf">field_code_Belterra.pdf</a></p>
+<p>Print several maps of the trees.</p>
 </section>
 <section id="before-starting-a-lab-work-day" class="level2">
 <h2 class="anchored" data-anchor-id="before-starting-a-lab-work-day">Before starting a lab work day:</h2>
@@ -326,25 +332,25 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 12%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
-<col style="width: 5%">
 <col style="width: 7%">
-<col style="width: 9%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 6%">
+<col style="width: 7%">
+<col style="width: 10%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">vernacular</th>
+<th style="text-align: left;">taxon</th>
 <th style="text-align: right;">tree</th>
 <th style="text-align: right;">leaf</th>
 <th style="text-align: right;">osmo</th>
@@ -412,26 +418,26 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <div class="cell-output-display">
 <table class="caption-top table table-sm table-striped small">
 <colgroup>
-<col style="width: 9%">
+<col style="width: 5%">
 <col style="width: 4%">
 <col style="width: 4%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 15%">
-<col style="width: 15%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
+<col style="width: 16%">
 <col style="width: 9%">
-<col style="width: 9%">
+<col style="width: 10%">
 </colgroup>
 <thead>
 <tr class="header">
-<th style="text-align: left;">vernacular</th>
+<th style="text-align: left;">taxon</th>
 <th style="text-align: right;">tree</th>
 <th style="text-align: right;">leaf</th>
 <th style="text-align: right;">leaf_thickness_1</th>
 <th style="text-align: right;">leaf_thickness_2</th>
 <th style="text-align: right;">leaf_thickness_3</th>
 <th style="text-align: right;">saturated_weight</th>
-<th style="text-align: left;">scand_done</th>
+<th style="text-align: left;">scan_done</th>
 <th style="text-align: left;">comment</th>
 </tr>
 </thead>
@@ -496,7 +502,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <p><strong>Dry leaves measurements</strong></p>
-<p><code>DRY_YYYYMMDD.xlsx</code> : an excel file per day to record the dry leaf weight. Make one file per day so it can be saved every evening (although the weighting will be done after oven drying), with the date format as follow: ex <code>DRY_10270120_dry.xlsx</code>). The template of this file can be found here :</p>
+<p><code>DRY_YYYYMMDD.xlsx</code> : an excel file per day to record the dry leaf weight. Make one file per day so it can be saved every evening (although the weighting will be done after oven drying), with the date format as follow: ex <code>DRY_20270120_dry.xlsx</code>). The template of this file can be found here :</p>
 <p>Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : <a href="documents/template_DRY_YYYYMMDD.xlsx">template_DRY_YYYYMMDD.xlsx</a></p>
 <div class="cell">
 <details class="code-fold">
@@ -508,7 +514,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <table class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th style="text-align: left;">vernacular</th>
+<th style="text-align: left;">taxon</th>
 <th style="text-align: right;">tree</th>
 <th style="text-align: right;">leaf</th>
 <th style="text-align: right;">dry_weight_72h</th>
@@ -527,42 +533,140 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </table>
 </div>
 </div>
+<p><strong>Leaf scans</strong></p>
+<p>At the start of the day create a folder named <code>SCANYYYYMMDD</code> (ex: <code>SCAN20270120</code>) to save all leaf scans. Then inside, save each scan as <code>CODE_TREE_LEAF.pdf</code> such as <code>ANGEL_5663_1.pdf</code>.</p>
 </section>
-<section id="during-field-and-lab-work-every-evening" class="level2">
-<h2 class="anchored" data-anchor-id="during-field-and-lab-work-every-evening">During field and lab work (every evening)</h2>
+<section id="every-evening-during-field-and-lab-work" class="level2">
+<h2 class="anchored" data-anchor-id="every-evening-during-field-and-lab-work">Every evening during field and lab work</h2>
 <section id="list-and-check-the-samples" class="level3">
 <h3 class="anchored" data-anchor-id="list-and-check-the-samples">List and check the samples</h3>
-<p>Record the individuals on which samples have been taken in <code>yearmoday_sample_taken.xlsx</code> before putting them in the oven. The template of this file can be found here (<strong>TO DO =&gt; see my comment on this issue, with a metadata tab</strong>). Make one file per day so it can be saved every evening, with the date format as follow <code>yearmoday_sample_taken.xlsx</code> (ex <code>20270120_sample_taken.xlsx</code>).</p>
-<blockquote class="blockquote">
-<p>Are you sure about that? This should correspond to field sampling sheets.</p>
-</blockquote>
+<p>Record the individuals on which samples (leaf and wood) have been taken in <code>sample_taken.xlsx</code> before putting them in the oven (which allows checking that all the samples are put in the oven). Make one single file per day so it can be saved every evening, with the date format as follow <code>sample_taken_YYYYMMDD.xlsx</code> (ex <code>sample_taken_20270120.xlsx</code>), but increment the file of the previous day so that a single file contains all the samples taken since the beginning of the campaign. This file will be useful to prepare the next field day. The template of this file can be found here:</p>
+<p>Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : <a href="documents/template_sample_taken.xlsx">template_sample_taken.xlsx</a></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"documents/template_sample_taken.xlsx"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">taxon</th>
+<th style="text-align: right;">tree</th>
+<th style="text-align: right;">nb_wood</th>
+<th style="text-align: right;">nb_leaves</th>
+<th style="text-align: left;">comment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ANDIR</td>
+<td style="text-align: right;">266</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ANDIR</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
 <section id="scan-the-field-sheets" class="level3">
 <h3 class="anchored" data-anchor-id="scan-the-field-sheets">Scan the field sheets</h3>
-<p>At the start of the day create a folder named <code>SCANYYYYMMDD</code> such as <code>SCAN20270120</code> to save all scans. Then inside, save each scan as <code>CODE_TREE_LEAF.pdf</code> such as <code>ANGEL_5663_1.pdf</code>.</p>
+<p>At the end of each day, scan the field sheets of the day and save them as a file named <code>wood_field_sheet_YYYYMMDD.pdf</code> (for wood samples) or <code>leaf_field_sheet_YYYYMMDD.pdf</code> (for leaf samples).</p>
 </section>
-<section id="save-the-files-on-the-nas" class="level3">
-<h3 class="anchored" data-anchor-id="save-the-files-on-the-nas">Save the files on the NAS</h3>
-<blockquote class="blockquote">
-<p>I would suggest saving locally and on one or several hard drive / usb stick and only on the NAS by us at the end of the campaign.</p>
-</blockquote>
-<p>Data files, field sheets and scans needs to be stored <strong>every evening</strong> on the NAS (<strong>TO DO: add the link to the NAS</strong>), following this file structure:</p>
-<ul>
-<li><code>dry_weight/</code> the leaf dry weights</li>
-<li><code>hydrated/</code> the leaf hydrated measurements</li>
-<li><code>field_sheets/</code> the sampling field sheets in pdf names with the day and the type of</li>
-<li><code>osmo/</code> the leaf hydrated measurements with osmometer</li>
-<li><code>scans/</code> the leaf hydrated scans</li>
-<li><code>sample_taken/</code>the list of wood and leaf samples taken</li>
-</ul>
-<p>All raw files stored on the NAS need to be lock (so put in read only mode) to avoid deleting or modifying it.</p>
-</section>
-<section id="inspect-the-scans" class="level3">
-<h3 class="anchored" data-anchor-id="inspect-the-scans">Inspect the scans</h3>
-<blockquote class="blockquote">
-<p>I’ll let you write a template following above examples.</p>
-</blockquote>
-<p>If time allow, process the scan (following this procedure <strong>to add: template files, and tell where to put it on the NAS</strong>) and inspect them manually to detect scan problems. If this is done on the day, a new scan can be redone if relevant. Here is the list of problems that should be looked for, and how to code them (<strong>to do, add pictures to illustrate</strong>)</p>
+<section id="inspect_scan" class="level3">
+<h3 class="anchored" data-anchor-id="inspect_scan">Inspect the scans</h3>
+<p>If time allow, process the leaf scans (following this <a href="./12_protocols.html#scan_processing">procedure</a> and inspect them manually to detect scan problems. If this is done on the day, a new scan can be redone if relevant.</p>
+<p>Record the manual inspection of the leaf scan in a file called <code>scan_inspection_YYYYMMDD.xlsx</code> (ex: <code>scan_inspection_20270120.xlsx</code>), following the procedure detailled below. The template of this file can be found here:</p>
+<p>Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : <a href="documents/template_scan_inspection.xlsx">template_scan_inspection.xlsx</a></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"documents/template_scan_inspection.xlsx"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">taxon</th>
+<th style="text-align: right;">tree</th>
+<th style="text-align: right;">leaf</th>
+<th style="text-align: right;">missing_part</th>
+<th style="text-align: left;">anomaly</th>
+<th style="text-align: right;">touching</th>
+<th style="text-align: left;">raw_scan</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ANDIR</td>
+<td style="text-align: right;">266</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">ok</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">damaged</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ANDIR</td>
+<td style="text-align: right;">266</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">ok</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">young</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ANDIR</td>
+<td style="text-align: right;">266</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">ok</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">damaged</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ANDIR</td>
+<td style="text-align: right;">266</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">ok</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">ok</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ANDIR</td>
+<td style="text-align: right;">266</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">ok</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">ok</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ANDIR</td>
+<td style="text-align: right;">270</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">ok</td>
+<td style="text-align: right;">0</td>
+<td style="text-align: left;">ok</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p>Here is the list of problems that should be looked for, and how to code them:</p>
 <ul>
 <li><p><em>missing_part</em>: missing part in the leave due to herbivory or other damage. This can be seen on the <strong>mask or the raw scan</strong>:</p>
 <ul>
@@ -593,28 +697,115 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </div>
 </div>
 <ul>
-<li><p><em>touching</em>(<strong>to do, add pictures to illustrate</strong>):</p>
+<li><p><em>touching</em>: leaf touching the edges of the scan, observed on the <strong>mask</strong>:</p>
 <ul>
-<li><p><em>0</em> no part touching</p></li>
-<li><p><em>1</em> leaf touching leading to part of the leaf not taken into account,</p></li>
-<li><p><em>2</em> leaf touching leading to all the leaf not taken into account</p></li>
+<li><p><em>0</em> no part touching (all the leaf is coloured)</p></li>
+<li><p><em>1</em> leaf touching leading to part of the leaf not taken into account (only a part of the leaf is coloured),</p></li>
+<li><p><em>2</em> leaf touching leading to all the leaf not taken into account (the whole leaf is white)</p></li>
 </ul></li>
-<li><p><em>raw scan</em> (<strong>to do, add pictures to illustrate</strong>): problem seen on the <strong>raw scans</strong></p>
+</ul>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/PEQUI_5953_3_mask.png" class="img-fluid figure-img"></p>
+<figcaption>touching = 0</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/ANGEL_5677_1_mask.png" class="img-fluid figure-img"></p>
+<figcaption>touching = 1</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/ANGEL_5677_2_mask.png" class="img-fluid figure-img"></p>
+<figcaption>touching = 2</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
 <ul>
-<li><p><em>ok</em>: no problem (or very small area concerned)</p></li>
+<li><p><em>raw scan</em>: problem seen on the <strong>raw scans</strong></p>
+<ul>
+<li><p><em>ok</em>: no problem (or very small area concerns)</p></li>
 <li><p><em>damaged</em>: part of the leaf or the whole leaf appears black/brown or yellowish on the scan or there are any other damages (except missing part of the leaf) suggesting that the leaf is decaying or is attacked by insects</p></li>
 <li><p><em>young</em>: the bright green colour of the leave compared to the other leaves from the individual and/or the species suggest non mature leaves</p></li>
 </ul></li>
 </ul>
+<div class="quarto-layout-panel" data-layout-ncol="3">
+<div class="quarto-layout-row">
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/CASTA_6568_4.png" class="img-fluid figure-img"></p>
+<figcaption>ok</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/CASTA_6617_4.png" class="img-fluid figure-img"></p>
+<figcaption>damaged</figcaption>
+</figure>
+</div>
+</div>
+<div class="quarto-layout-cell" style="flex-basis: 33.3%;justify-content: flex-start;">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="documents/Belterra_2025/VIROL_6404_3.png" class="img-fluid figure-img"></p>
+<figcaption>young</figcaption>
+</figure>
+</div>
+</div>
+</div>
+</div>
+</section>
+<section id="saving_files" class="level3">
+<h3 class="anchored" data-anchor-id="saving_files">Save the files</h3>
+<p>At the end of <strong>every day</strong>, data files, field sheets and scans should be saved locally in multiple places: on the computer that was used for recording, on a computer that will stored all data files, and on a USB stick/hard drive. In addition, if the access to the cloud allows, data files, field sheets and scans can be stored every evening on the NAS (<span style="color: red;">TO DO: add link to the NAS when ok with Romain</span>).</p>
+<p>The following file structure should be used for the “central computer” and the USB stick/hard drive:</p>
+<ul>
+<li><code>dry_weight/</code> the leaf dry weights</li>
+<li><code>hydrated/</code> the leaf hydrated measurements</li>
+<li><code>field_sheets/</code> the sampling field sheets in pdf names with the day and the type of</li>
+<li><code>osmo/</code> the leaf hydrated measurements with osmometer</li>
+<li><code>scans/</code> the leaf hydrated scans</li>
+<li><code>sample_taken/</code>the list of wood and leaf samples taken</li>
+</ul>
+</section>
+<section id="prepare-the-next-field-day" class="level3">
+<h3 class="anchored" data-anchor-id="prepare-the-next-field-day">Prepare the next field day</h3>
+<p>Based on the planned sampling, the samples already done and the map, decide which tree should be collected the next day, for leaf and wood.</p>
 </section>
 </section>
 <section id="after-field-and-lab-work" class="level2">
 <h2 class="anchored" data-anchor-id="after-field-and-lab-work">After field and lab work</h2>
+<section id="save-the-raw-data-files-on-the-nas" class="level3">
+<h3 class="anchored" data-anchor-id="save-the-raw-data-files-on-the-nas">Save the raw data files on the NAS</h3>
+<p>If this was not done at the end of each day, save all the files on the NAS (<span style="color: red;">TO DO: add link to the NAS when ok with Romain</span>), following the <a href="#saving_files">structure described above</a>. Once all the raw data files of a campaign have been saved on the NAS; lock the folder in <em>read only</em> mode (in Properties).</p>
+<p>If this was not done at the end of each day, manually inspect the leaf scans, following the <a href="#inspect_scan">procedure described above</a>.</p>
+</section>
+<section id="clean-and-save-the-cleaned-data" class="level3">
+<h3 class="anchored" data-anchor-id="clean-and-save-the-cleaned-data">Clean and save the cleaned data</h3>
 <p>Do the data cleaning in the <a href="https://github.com/PlantForAdapt/functional">functional repository</a></p>
-<p>do the manual inspection if not done before…</p>
-<p><strong>TO DO carry on writing from here</strong></p>
+<ul>
+<li><p>Data should be stored on the repository following the structure described <a href="data/README.md">here</a></p></li>
+<li><p>Data cleaning should be done in different group of pages for each field campaign (the Belterra 2025 campaign, or another campaign can be used as a basis for cleaning).</p></li>
+<li><p>A cleaned data file per campaign should be created in the folder output, and named as trait_PlantForAdapt_Site_year_vX.csv (single level versioning). Versioning of the data files is documented in the NEWS file <a href="outputs/NEWS.md">here</a>. Metadata are described in the README file <a href="outputs/README.md">here</a>. Column naming should be coherent between field campaign. If needed, the metadata file can be incremented.</p></li>
+<li><p>Output files (the clean data file and the updated <code>NEWS.md</code> and <code>README.md</code> files) should be saved on the NAS, in <code>/functional/output/</code> and put in <em>read only</em> mode.</p></li>
+</ul>
 
 
+</section>
 </section>
 
 </main> <!-- /main -->

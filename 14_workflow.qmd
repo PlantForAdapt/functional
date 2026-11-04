@@ -8,13 +8,15 @@ Print enough field sheets for wood core sample collection and leaf sample collec
 
 XLSX: [field_sheet.xlsx](documents/field_sheet.xlsx)
 
-PDF: [field_sheet.pdf](documents/field_sheet.pdf)
+PDF: [field_sheet.pdf](documents/field_sheet.pdf) [TO DO: update if agreement on the xlsx]{style="color: red;"}
 
 **Species codes**
 
 Belterra XLSX: [field_code_Belterra.xlsx](documents/field_code_Belterra.xlsx)
 
 Belterra PDF: [field_code_Belterra.pdf](documents/field_code_Belterra.pdf)
+
+Print several maps of the trees.
 
 ## Before starting a lab work day:
 
@@ -44,7 +46,7 @@ readxl::read_xls("documents/template_HYD_YYYYMMDD.xls") |>
 
 **Dry leaves measurements**
 
-`DRY_YYYYMMDD.xlsx` : an excel file per day to record the dry leaf weight. Make one file per day so it can be saved every evening (although the weighting will be done after oven drying), with the date format as follow: ex `DRY_10270120_dry.xlsx`). The template of this file can be found here :
+`DRY_YYYYMMDD.xlsx` : an excel file per day to record the dry leaf weight. Make one file per day so it can be saved every evening (although the weighting will be done after oven drying), with the date format as follow: ex `DRY_20270120_dry.xlsx`). The template of this file can be found here :
 
 Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [template_DRY_YYYYMMDD.xlsx](documents/template_DRY_YYYYMMDD.xlsx)
 
@@ -53,38 +55,43 @@ readxl::read_xlsx("documents/template_DRY_YYYYMMDD.xlsx") |>
   knitr::kable()
 ```
 
-## During field and lab work (every evening)
+**Leaf scans**
+
+At the start of the day create a folder named `SCANYYYYMMDD` (ex: `SCAN20270120`) to save all leaf scans. Then inside, save each scan as `CODE_TREE_LEAF.pdf` such as `ANGEL_5663_1.pdf`.
+
+## Every evening during field and lab work 
 
 ### List and check the samples
 
-Record the individuals on which samples have been taken in `yearmoday_sample_taken.xlsx` before putting them in the oven. The template of this file can be found here (**TO DO =\> see my comment on this issue, with a metadata tab**). Make one file per day so it can be saved every evening, with the date format as follow `yearmoday_sample_taken.xlsx` (ex `20270120_sample_taken.xlsx`).
+Record the individuals on which samples (leaf and wood) have been taken in `sample_taken.xlsx` before putting them in the oven (which allows checking that all the samples are put in the oven). Make one single file per day so it can be saved every evening, with the date format as follow `sample_taken_YYYYMMDD.xlsx` (ex `sample_taken_20270120.xlsx`), but increment the file of the previous day so that a single file contains all the samples taken since the beginning of the campaign. This file will be useful to prepare the next field day.
+The template of this file can be found here:
 
-> Are you sure about that? This should correspond to field sampling sheets.
+Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [template_sample_taken.xlsx](documents/template_sample_taken.xlsx)
+
+```{r}
+readxl::read_xlsx("documents/template_sample_taken.xlsx") |> 
+  knitr::kable()
+```
 
 ### Scan the field sheets
 
-At the start of the day create a folder named `SCANYYYYMMDD` such as `SCAN20270120` to save all scans. Then inside, save each scan as `CODE_TREE_LEAF.pdf` such as `ANGEL_5663_1.pdf`.
+At the end of each day, scan the field sheets of the day and save them as a file named `wood_field_sheet_YYYYMMDD.pdf` (for wood samples) or `leaf_field_sheet_YYYYMMDD.pdf` (for leaf samples).
 
-### Save the files on the NAS
+### Inspect the scans {#inspect_scan}
 
-> I would suggest saving locally and on one or several hard drive / usb stick and only on the NAS by us at the end of the campaign.
+If time allow, process the leaf scans (following this [procedure](12_protocols.qmd#scan_processing) and inspect them manually to detect scan problems. If this is done on the day, a new scan can be redone if relevant. 
 
-Data files, field sheets and scans needs to be stored **every evening** on the NAS (**TO DO: add the link to the NAS**), following this file structure:
+Record the manual inspection of the leaf scan in a file called  `scan_inspection_YYYYMMDD.xlsx` (ex: `scan_inspection_20270120.xlsx`), following the procedure detailled below.
+The template of this file can be found here:
 
-- `dry_weight/` the leaf dry weights
-- `hydrated/` the leaf hydrated measurements
-- `field_sheets/` the sampling field sheets in pdf names with the day and the type of
-- `osmo/` the leaf hydrated measurements with osmometer
-- `scans/` the leaf hydrated scans
-- `sample_taken/`the list of wood and leaf samples taken
+Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [template_scan_inspection.xlsx](documents/template_scan_inspection.xlsx)
 
-All raw files stored on the NAS need to be lock (so put in read only mode) to avoid deleting or modifying it.
+```{r}
+readxl::read_xlsx("documents/template_scan_inspection.xlsx") |> 
+  knitr::kable()
+```
 
-### Inspect the scans
-
-> I'll let you write a template following above examples.
-
-If time allow, process the scan (following this procedure **to add: template files, and tell where to put it on the NAS**) and inspect them manually to detect scan problems. If this is done on the day, a new scan can be redone if relevant. Here is the list of problems that should be looked for, and how to code them (**to do, add pictures to illustrate**)
+Here is the list of problems that should be looked for, and how to code them:
 
 - *missing_part*: missing part in the leave due to herbivory or other damage. This can be seen on the **mask or the raw scan**:
 
@@ -114,26 +121,76 @@ If time allow, process the scan (following this procedure **to add: template fil
 ![](documents/Belterra_2025/COPAI_6897_4._mask.png)
 :::
 
-- *touching*(**to do, add pictures to illustrate**):
+- *touching*: leaf touching the edges of the scan, observed on the **mask**:
 
-  - *0* no part touching
+  - *0* no part touching (all the leaf is coloured)
 
-  - *1* leaf touching leading to part of the leaf not taken into account,
+  - *1* leaf touching leading to part of the leaf not taken into account (only a part of the leaf is coloured),
 
-  - *2* leaf touching leading to all the leaf not taken into account
+  - *2* leaf touching leading to all the leaf not taken into account (the whole leaf is white)
+  
+::: {layout-ncol="3"}
+![touching = 0](documents/Belterra_2025/PEQUI_5953_3_mask.png)
 
-- *raw scan* (**to do, add pictures to illustrate**): problem seen on the **raw scans**
+![touching = 1](documents/Belterra_2025/ANGEL_5677_1_mask.png)
 
-  - *ok*: no problem (or very small area concerned)
+![touching = 2](documents/Belterra_2025/ANGEL_5677_2_mask.png)
+:::
+
+- *raw scan*: problem seen on the **raw scans**
+
+  - *ok*: no problem (or very small area concerns)
 
   - *damaged*: part of the leaf or the whole leaf appears black/brown or yellowish on the scan or there are any other damages (except missing part of the leaf) suggesting that the leaf is decaying or is attacked by insects
 
   - *young*: the bright green colour of the leave compared to the other leaves from the individual and/or the species suggest non mature leaves
+  
+::: {layout-ncol="3"}
+![ok](documents/Belterra_2025/CASTA_6568_4.png)
+
+![damaged](documents/Belterra_2025/CASTA_6617_4.png)
+
+![young](documents/Belterra_2025/VIROL_6404_3.png)
+:::
+  
+
+### Save the files {#saving_files}
+
+At the end of **every day**, data files, field sheets and scans should be saved locally in multiple places: on the computer that was used for recording, on a computer that will stored all data files, and on a USB stick/hard drive.
+In addition, if the access to the cloud allows, data files, field sheets and scans can be stored every evening on the NAS ([TO DO: add link to the NAS when ok with Romain]{style="color: red;"}).
+
+The following file structure should be used for the "central computer" and the USB stick/hard drive:
+
+- `dry_weight/` the leaf dry weights
+- `hydrated/` the leaf hydrated measurements
+- `field_sheets/` the sampling field sheets in pdf names with the day and the type of
+- `osmo/` the leaf hydrated measurements with osmometer
+- `scans/` the leaf hydrated scans
+- `sample_taken/`the list of wood and leaf samples taken
+
+
+### Prepare the next field day
+
+Based on the planned sampling, the samples already done and the map, decide which tree should be collected the next day, for leaf and wood.
 
 ## After field and lab work
 
+### Save the raw data files on the NAS
+
+If this was not done at the end of each day, save all the files on the NAS ([TO DO: add link to the NAS when ok with Romain]{style="color: red;"}), following the [structure described above](#saving_files).
+Once all the raw data files of a campaign have been saved on the NAS; lock the folder in *read only* mode (in Properties).
+
+If this was not done at the end of each day, manually inspect the leaf scans, following the [procedure described above](#inspect_scan).
+
+### Clean and save the cleaned data
+
 Do the data cleaning in the [functional repository](https://github.com/PlantForAdapt/functional)
 
-do the manual inspection if not done before...
+* Data should be stored on the repository following the structure described [here](data/README.md)
 
-**TO DO carry on writing from here**
+* Data cleaning should be done in different group of pages for each field campaign (the Belterra 2025 campaign, or another campaign can be used as a basis for cleaning).
+
+* A cleaned data file per campaign should be created in the folder output, and named as trait_PlantForAdapt_Site_year_vX.csv (single level versioning). Versioning of the data files is documented in the NEWS file [here](outputs/NEWS.md). Metadata are described in the README file [here](outputs/README.md). Column naming should be coherent between field campaign. If needed, the metadata file can be incremented.
+
+* Output files (the clean data file and the updated `NEWS.md` and `README.md` files) should be saved on the NAS, in `/functional/output/` and put in *read only* mode.
+
