@@ -692,7 +692,7 @@ traits_cor <- traits_cor %>%
 
 The filtered and corrected trait dataset is save in the file `trait_PlantForAdapt_Belterra_2025_vX.csv` stored in `output`. See the README in output for the metadata.
 
-**Don't forget to add a version name and update the NEWS. Update the metadata in Readme if needed.**
+**Don't forget to add a version number and update the NEWS. Update the metadata in Readme if needed.**
 
 ```{r}
 traits_cor <- traits_cor %>% 
@@ -712,7 +712,7 @@ traits_cor <- traits_cor %>%
 ```
 
 ```{r}
-write_csv(traits_cor, "outputs/trait_PlantForAdapt_Belterra_2025_vX.csv")
+write_csv(traits_cor, "outputs/trait_PlantForAdapt_Belterra_2025_v1.csv")
 ```
 
 We look at the correspondence between the vernacular names we used during field collection and the botanical identification. The table below shows the vernacular names that correspond to more than one species:
