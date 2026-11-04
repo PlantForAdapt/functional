@@ -1,3 +1,4 @@
+- functional 0.1.0.9013: Closes #29
 - functional 0.1.0.9012: reviewing Sylvain's changes #29 and implement correction of Beterra 2025 data #30
 - functional 0.1.0.9011: implement correction of Beterra 2025 data #30
 - functional 0.1.0.9011: structure clear #36

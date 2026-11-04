@@ -315,7 +315,7 @@ la_ex_1 <- read_csv("data/corrections/Belterra_2025/area_excluded_corrections.cs
   rename(slice = Slice, area_excluded_corr = `Total Area`) %>% 
   separate(slice, c("vernacular", "tree", "leaf")) %>% 
   mutate(area_excluded_corr = area_excluded_corr / (1275*1755) * (21*29.7))
-la_in_1 <- read_csv("data/corrections/Belterra_2025/area_excluded_corrections.csv") %>% 
+la_in_1 <- read_csv("data/corrections/Belterra_2025/area_included_corrections.csv") %>% 
   select(Slice, `Total Area`) %>% 
   rename(slice = Slice, area_included_corr = `Total Area`) %>% 
   separate(slice, c("vernacular", "tree", "leaf")) %>% 
@@ -325,7 +325,7 @@ la_ex_2 <- read_csv("data/corrections/Belterra_2025/area_excluded_corrections2.c
   rename(slice = Slice, area_excluded_corr = `Total Area`) %>% 
   separate(slice, c("vernacular", "tree", "leaf")) %>% 
   mutate(area_excluded_corr = area_excluded_corr / (1275*1755) * (21*29.7))
-la_in_2 <- read_csv("data/corrections/Belterra_2025/area_excluded_corrections2.csv") %>% 
+la_in_2 <- read_csv("data/corrections/Belterra_2025/area_included_corrections2.csv") %>% 
   select(Slice, `Total Area`) %>% 
   rename(slice = Slice, area_included_corr = `Total Area`) %>% 
   separate(slice, c("vernacular", "tree", "leaf")) %>% 
@@ -393,7 +393,6 @@ if(nrow(dupl) == 0) {
 
 ## Exploring and correcting the effects of leaf quality
 
-
 ### Incomplete leaves {#incomplete_belt_2025}
 
 ```{r}
@@ -434,7 +433,7 @@ traits_long %>%
 
 Surprisingly, the incomplete leaves are not necessarily the smallest ones.
 
-Let's now check the distribution of these two traits if the leaves with a big missing part (i.e. missing_part = 2, see the scan page) are removed (in blue) compared to keeping the whole dataset. 
+Let's now check the distribution of these two traits if the leaves with a big missing part (i.e. missing_part = 2, see the scan page) are removed (in blue) compared to keeping the whole dataset.
 
 ```{r figure2}
 traits_long <- traits_cor %>% 
@@ -498,7 +497,7 @@ traits_cor <- traits_cor %>%
               paste(comments, "unfilled area taken for la", sep="")))         
 ```
 
-Now, let's look at the effect of other anomalies seen on the masks 
+Now, let's look at the effect of other anomalies seen on the masks
 
 ```{r figure3}
 #| message: false
