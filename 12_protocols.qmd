@@ -2,19 +2,19 @@
 
 Links to all English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 and Portuguese 🇧🇷 protocol to print and share:
 
--   Sampling
-    -   Sampling protocol
-        -   English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [sampling_en.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/sampling_en.pdf)
-        -   Portuguese 🇧🇷 : [sampling_br.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/sampling_br.pdf)
-    -   Dawkins index: [dawkins.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/dawkins.pdf)
--   Field measurements:
-    -   Protocol:
-        -   English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [fresh_measurements_en.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/fresh_measurements_en.pdf)
-        -   Portuguese 🇧🇷 : [fresh_measurements_br.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/fresh_measurements_br.pdf)
--   Lab measurements
-    -   TLP:
-        -   English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [tlp_en.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/tlp_en.pdf)
-        -   Portuguese 🇧🇷 : [tlp_br.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/tlp_br.pdf)
-    -   RWC:
-        -   English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [rwc_en.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/rwc_en.pdf)
-        -   Portuguese 🇧🇷 : [rwc_br.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/rwc_br.pdf)
+- Sampling
+  - Sampling protocol
+    - English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [sampling_en.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/sampling_en.pdf)
+    - Portuguese 🇧🇷 : [sampling_br.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/sampling_br.pdf)
+  - Dawkins index: [dawkins.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/dawkins.pdf)
+- Field measurements:
+  - Protocol:
+    - English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [fresh_measurements_en.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/fresh_measurements_en.pdf)
+    - Portuguese 🇧🇷 : [fresh_measurements_br.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/fresh_measurements_br.pdf)
+- Lab measurements
+  - TLP:
+    - English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [tlp_en.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/tlp_en.pdf)
+    - Portuguese 🇧🇷 : [tlp_br.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/tlp_br.pdf)
+  - RWC:
+    - English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : [rwc_en.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/rwc_en.pdf)
+    - Portuguese 🇧🇷 : [rwc_br.pdf](https://github.com/sylvainschmitt/fefaccion_2025/tree/main/documents/rwc_br.pdf)

@@ -12,7 +12,7 @@ book:
         - 11_traits.qmd
         - 12_protocols.qmd
         - 13_material.qmd
-        - 14_lab_files.qmd
+        - 14_workflow.qmd
     - part: 20_belterra25.qmd
       chapters: 
         - 21_maps.qmd

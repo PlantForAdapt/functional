@@ -85,47 +85,47 @@
     ]
   },
   {
-    "objectID": "14_lab_files.html",
-    "href": "14_lab_files.html",
-    "title": "Laboratory files",
+    "objectID": "14_workflow.html",
+    "href": "14_workflow.html",
+    "title": "Workflow",
     "section": "",
-    "text": "Before fieldwork:\nto do : rename this page as the title is not suitable\nPrint enough field sheets for wood core sample collection and leaf sample collection. The template of thes files can be found here (TO DO we had some last year, need to find them)",
+    "text": "Before fieldwork:\nPrint enough field sheets for wood core sample collection and leaf sample collection. The template of these files can be found here:",
     "crumbs": [
       "Preparation",
-      "Laboratory files"
+      "Workflow"
     ]
   },
   {
-    "objectID": "14_lab_files.html#before-starting-a-lab-work-day",
-    "href": "14_lab_files.html#before-starting-a-lab-work-day",
-    "title": "Laboratory files",
+    "objectID": "14_workflow.html#before-starting-a-lab-work-day",
+    "href": "14_workflow.html#before-starting-a-lab-work-day",
+    "title": "Workflow",
     "section": "Before starting a lab work day:",
-    "text": "Before starting a lab work day:\nPrepare the following files:\n\nyearmoday_osmo.xlsx : an excel file per day to record the osmometer measurements. The template of this file can be found here (TO DO =&gt; see my comment on this issue, with a metadata tab). Make one file per day so it can be saved every evening, with the date format as follow yearmoday_osmo.xlsx (ex 20270120_osmo.xlsx).\nyearmoday_hydrated.xlsx : an excel file per day to record the fresh leaf measurements (thickness, weight and scan done). The template of this file can be found here (TO DO =&gt; see my comment on this issue, with a metadata tab). Make one file per day so it can be saved every evening, with the date format as follow yearmoday_hydrated.xlsx (ex 20270120_hydrated.xlsx).\nyearmoday_dry_weight.xlsx : an excel file per day to record the dry leaf weight. The template of this file can be found here (TO DO =&gt; see my comment on this issue, with a metadata tab). Make one file per day so it can be saved every evening (although the weighting will be done after oven drying), with the date format as follow yearmoday_dry.xlsx (ex 20270120_dry.xlsx).",
+    "text": "Before starting a lab work day:\nPrepare the following files:\nOsmometer measurements\nTLP_YYYYMMDD.xlsx : an excel file per day to record the osmometer measurements. Make one file per day so it can be saved every evening, with the date format as follow: ex TLP_20270120.xlsx. The template of this file can be found here :\nLink English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : template_TLP_YYYYMMDD.xlsx\n\n\nCode\nreadxl::read_xlsx(\"documents/template_TLP_YYYYMMDD.xlsx\") |&gt; \n  knitr::kable()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvernacular\ntree\nleaf\nosmo\nMES1\nMES2\nMES3\nMES4\nMES5\nMES6\nMES7\nMES8\nMES9\nMES10\ncomment\n\n\n\n\nCASTA\n5744\n1\n1\n800\n631\n575\n545\n530\n522\n517\nNA\nNA\nNA\nNA\n\n\nCASTA\n5744\n2\n2\n1003\n843\n768\n724\n696\n676\n663\n653\n643\n636\nNA\n\n\n\n\n\nHydrated leaves measurements\nHYD_YYYYMMDD.xls : an excel file per day to record the fresh leaf measurements (thickness, weight and scan done). Make one file per day so it can be saved every evening, with the date format as follow: ex HYD_20270120.xls. The template of this file can be found here :\nLink English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : template_HYD_YYYYMMDD.xls\n\n\nCode\nreadxl::read_xls(\"documents/template_HYD_YYYYMMDD.xls\") |&gt; \n  knitr::kable()\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nvernacular\ntree\nleaf\nleaf_thickness_1\nleaf_thickness_2\nleaf_thickness_3\nsaturated_weight\nscand_done\ncomment\n\n\n\n\nANGEL\n5993\n1\n0.270\n0.273\n0.258\n3.17\nX\nleaf alone\n\n\nANGEL\n5993\n2\n0.280\n0.261\n0.279\n1.90\nX\nNA\n\n\nANGEL\n5993\n3\n0.222\n0.209\n0.230\n2.46\nX\nNA\n\n\nANGEL\n5993\n4\n0.225\n0.217\n0.246\n2.35\nX\nNA\n\n\nANGEL\n5993\n5\n0.205\n0.207\n0.189\n2.58\nX\nNA\n\n\n\n\n\nDry leaves measurements\nDRY_YYYYMMDD.xlsx : an excel file per day to record the dry leaf weight. Make one file per day so it can be saved every evening (although the weighting will be done after oven drying), with the date format as follow: ex DRY_10270120_dry.xlsx). The template of this file can be found here :\nLink English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : template_DRY_YYYYMMDD.xlsx\n\n\nCode\nreadxl::read_xlsx(\"documents/template_DRY_YYYYMMDD.xlsx\") |&gt; \n  knitr::kable()\n\n\n\n\n\nvernacular\ntree\nleaf\ndry_weight_72h\ncomment\n\n\n\n\nVIROL\n6637\n1\n0.4287\nNA",
     "crumbs": [
       "Preparation",
-      "Laboratory files"
+      "Workflow"
     ]
   },
   {
-    "objectID": "14_lab_files.html#during-field-and-lab-work-every-evening",
-    "href": "14_lab_files.html#during-field-and-lab-work-every-evening",
-    "title": "Laboratory files",
+    "objectID": "14_workflow.html#during-field-and-lab-work-every-evening",
+    "href": "14_workflow.html#during-field-and-lab-work-every-evening",
+    "title": "Workflow",
     "section": "During field and lab work (every evening)",
     "text": "During field and lab work (every evening)\n\nList and check the samples\nRecord the individuals on which samples have been taken in yearmoday_sample_taken.xlsx before putting them in the oven. The template of this file can be found here (TO DO =&gt; see my comment on this issue, with a metadata tab). Make one file per day so it can be saved every evening, with the date format as follow yearmoday_sample_taken.xlsx (ex 20270120_sample_taken.xlsx).\n\n\nScan the field sheets\nto do decide naming\n\n\nSave the files on the NAS\nData files, field sheets and scans needs to be stored every evening on the NAS (TO DO: add the link to the NAS), following this file structure:\n\ndry_weight/ the leaf dry weights\nhydrated/ the leaf hydrated measurements\nfield_sheets/ the sampling field sheets in pdf names with the day and the type of\nosmo/ the leaf hydrated measurements with osmometer\nscans/ the leaf hydrated scans\nsample_taken/the list of wood and leaf samples taken\n\nAll raw files stored on the NAS need to be lock (so put in read only mode) to avoid deleting or modifying it.\n\n\nInspect the scans\nIf time allow, process the scan (following this procedure to add: template files, and tell where to put it on the NAS) and inspect them manually to detect scan problems. If this is done on the day, a new scan can be redone if relevant. Here is the list of problems that should be looked for, and how to code them (to do, add pictures to illustrate)\n\nmissing_part: missing part in the leave due to herbivory or other damage. This can be seen on the mask or the raw scan:\n\n0: no missing part\n1: moderate missing part\n2: big missing part\n\nanomaly: any anomaly in the generated masks:\n\nok: no problem\nmiss_petiolul: for compound leaves, the petiolule is not included, while it should have been according to the protocol\npetiol_included: the petiole has been included, while it should have been according to the protocol\none_fol: just one foliole when the species has compound leaves\nabn_area: abnormal area, detected because they don’t have the shape of a leaf. Generally, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part, which are interpreted as holes and filled.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntouching(to do, add pictures to illustrate):\n\n0 no part touching\n1 leaf touching leading to part of the leaf not taken into account,\n2 leaf touching leading to all the leaf not taken into account\n\nraw scan (to do, add pictures to illustrate): problem seen on the raw scans\n\nok: no problem (or very small area concerned)\ndamaged: part of the leaf or the whole leaf appears black/brown or yellowish on the scan or there are any other damages (except missing part of the leaf) suggesting that the leaf is decaying or is attacked by insects\nyoung: the bright green colour of the leave compared to the other leaves from the individual and/or the species suggest non mature leaves",
     "crumbs": [
       "Preparation",
-      "Laboratory files"
+      "Workflow"
     ]
   },
   {
-    "objectID": "14_lab_files.html#after-field-and-lab-work",
-    "href": "14_lab_files.html#after-field-and-lab-work",
-    "title": "Laboratory files",
+    "objectID": "14_workflow.html#after-field-and-lab-work",
+    "href": "14_workflow.html#after-field-and-lab-work",
+    "title": "Workflow",
     "section": "After field and lab work",
     "text": "After field and lab work\nDo the data cleaning in the functional repository\ndo the manual inspection if not done before…\nTO DO carry on writing from here",
     "crumbs": [
       "Preparation",
-      "Laboratory files"
+      "Workflow"
     ]
   },
   {

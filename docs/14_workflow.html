@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Laboratory files – functional</title>
+<title>Workflow – functional</title>
 <style>
 /* Default styles provided by pandoc.
 ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
@@ -25,6 +25,41 @@ ul.task-list li input[type="checkbox"] {
   width: 0.8em;
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
 }
 </style>
 
@@ -88,7 +123,7 @@ ul.task-list li input[type="checkbox"] {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_preparation.html">Preparation</a></li><li class="breadcrumb-item"><a href="./14_lab_files.html">Laboratory files</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_preparation.html">Preparation</a></li><li class="breadcrumb-item"><a href="./14_workflow.html">Workflow</a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -148,8 +183,8 @@ ul.task-list li input[type="checkbox"] {
 </li>
           <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14_lab_files.html" class="sidebar-item-text sidebar-link active">
- <span class="menu-text">Laboratory files</span></a>
+  <a href="./14_workflow.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Workflow</span></a>
   </div>
 </li>
       </ul>
@@ -250,9 +285,9 @@ ul.task-list li input[type="checkbox"] {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_preparation.html">Preparation</a></li><li class="breadcrumb-item"><a href="./14_lab_files.html">Laboratory files</a></li></ol></nav>
+<header id="title-block-header" class="quarto-title-block default"><nav class="quarto-page-breadcrumbs quarto-title-breadcrumbs d-none d-lg-block" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10_preparation.html">Preparation</a></li><li class="breadcrumb-item"><a href="./14_workflow.html">Workflow</a></li></ol></nav>
 <div class="quarto-title">
-<h1 class="title">Laboratory files</h1>
+<h1 class="title">Workflow</h1>
 </div>
 
 
@@ -269,19 +304,226 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p><strong>to do : rename this page as the title is not suitable</strong></p>
 <section id="before-fieldwork" class="level2">
 <h2 class="anchored" data-anchor-id="before-fieldwork">Before fieldwork:</h2>
-<p>Print enough field sheets for wood core sample collection and leaf sample collection. The template of thes files can be found here (<strong>TO DO we had some last year, need to find them</strong>)</p>
+<p>Print enough field sheets for wood core sample collection and leaf sample collection. The template of these files can be found here:</p>
 </section>
 <section id="before-starting-a-lab-work-day" class="level2">
 <h2 class="anchored" data-anchor-id="before-starting-a-lab-work-day">Before starting a lab work day:</h2>
 <p>Prepare the following files:</p>
-<ul>
-<li><p><code>yearmoday_osmo.xlsx</code> : an excel file per day to record the osmometer measurements. The template of this file can be found here (<strong>TO DO =&gt; see my comment on this issue, with a metadata tab</strong>). Make one file per day so it can be saved every evening, with the date format as follow <code>yearmoday_osmo.xlsx</code> (ex <code>20270120_osmo.xlsx</code>).</p></li>
-<li><p><code>yearmoday_hydrated.xlsx</code> : an excel file per day to record the fresh leaf measurements (thickness, weight and scan done). The template of this file can be found here (<strong>TO DO =&gt; see my comment on this issue, with a metadata tab</strong>). Make one file per day so it can be saved every evening, with the date format as follow <code>yearmoday_hydrated.xlsx</code> (ex <code>20270120_hydrated.xlsx</code>).</p></li>
-<li><p><code>yearmoday_dry_weight.xlsx</code> : an excel file per day to record the dry leaf weight. The template of this file can be found here (<strong>TO DO =&gt; see my comment on this issue, with a metadata tab</strong>). Make one file per day so it can be saved every evening (although the weighting will be done after oven drying), with the date format as follow <code>yearmoday_dry.xlsx</code> (ex <code>20270120_dry.xlsx</code>).</p></li>
-</ul>
+<p><strong>Osmometer measurements</strong></p>
+<p><code>TLP_YYYYMMDD.xlsx</code> : an excel file per day to record the osmometer measurements. Make one file per day so it can be saved every evening, with the date format as follow: ex <code>TLP_20270120.xlsx</code>. The template of this file can be found here :</p>
+<p>Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : <a href="https://github.com/PlantForAdapt/functional/tree/main/documents/template_TLP_YYYYMMDD.xlsx">template_TLP_YYYYMMDD.xlsx</a></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"documents/template_TLP_YYYYMMDD.xlsx"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 12%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 5%">
+<col style="width: 7%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">vernacular</th>
+<th style="text-align: right;">tree</th>
+<th style="text-align: right;">leaf</th>
+<th style="text-align: right;">osmo</th>
+<th style="text-align: right;">MES1</th>
+<th style="text-align: right;">MES2</th>
+<th style="text-align: right;">MES3</th>
+<th style="text-align: right;">MES4</th>
+<th style="text-align: right;">MES5</th>
+<th style="text-align: right;">MES6</th>
+<th style="text-align: right;">MES7</th>
+<th style="text-align: right;">MES8</th>
+<th style="text-align: right;">MES9</th>
+<th style="text-align: right;">MES10</th>
+<th style="text-align: left;">comment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">CASTA</td>
+<td style="text-align: right;">5744</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">800</td>
+<td style="text-align: right;">631</td>
+<td style="text-align: right;">575</td>
+<td style="text-align: right;">545</td>
+<td style="text-align: right;">530</td>
+<td style="text-align: right;">522</td>
+<td style="text-align: right;">517</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: right;">NA</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">CASTA</td>
+<td style="text-align: right;">5744</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">1003</td>
+<td style="text-align: right;">843</td>
+<td style="text-align: right;">768</td>
+<td style="text-align: right;">724</td>
+<td style="text-align: right;">696</td>
+<td style="text-align: right;">676</td>
+<td style="text-align: right;">663</td>
+<td style="text-align: right;">653</td>
+<td style="text-align: right;">643</td>
+<td style="text-align: right;">636</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Hydrated leaves measurements</strong></p>
+<p><code>HYD_YYYYMMDD.xls</code> : an excel file per day to record the fresh leaf measurements (thickness, weight and scan done). Make one file per day so it can be saved every evening, with the date format as follow: ex <code>HYD_20270120.xls</code>. The template of this file can be found here :</p>
+<p>Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : <a href="https://github.com/PlantForAdapt/functional/tree/main/documents/template_HYD_YYYYMMDD.xls">template_HYD_YYYYMMDD.xls</a></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>readxl<span class="sc">::</span><span class="fu">read_xls</span>(<span class="st">"documents/template_HYD_YYYYMMDD.xls"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<colgroup>
+<col style="width: 9%">
+<col style="width: 4%">
+<col style="width: 4%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 9%">
+<col style="width: 9%">
+</colgroup>
+<thead>
+<tr class="header">
+<th style="text-align: left;">vernacular</th>
+<th style="text-align: right;">tree</th>
+<th style="text-align: right;">leaf</th>
+<th style="text-align: right;">leaf_thickness_1</th>
+<th style="text-align: right;">leaf_thickness_2</th>
+<th style="text-align: right;">leaf_thickness_3</th>
+<th style="text-align: right;">saturated_weight</th>
+<th style="text-align: left;">scand_done</th>
+<th style="text-align: left;">comment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">ANGEL</td>
+<td style="text-align: right;">5993</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.270</td>
+<td style="text-align: right;">0.273</td>
+<td style="text-align: right;">0.258</td>
+<td style="text-align: right;">3.17</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">leaf alone</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ANGEL</td>
+<td style="text-align: right;">5993</td>
+<td style="text-align: right;">2</td>
+<td style="text-align: right;">0.280</td>
+<td style="text-align: right;">0.261</td>
+<td style="text-align: right;">0.279</td>
+<td style="text-align: right;">1.90</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ANGEL</td>
+<td style="text-align: right;">5993</td>
+<td style="text-align: right;">3</td>
+<td style="text-align: right;">0.222</td>
+<td style="text-align: right;">0.209</td>
+<td style="text-align: right;">0.230</td>
+<td style="text-align: right;">2.46</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">ANGEL</td>
+<td style="text-align: right;">5993</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">0.225</td>
+<td style="text-align: right;">0.217</td>
+<td style="text-align: right;">0.246</td>
+<td style="text-align: right;">2.35</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">NA</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">ANGEL</td>
+<td style="text-align: right;">5993</td>
+<td style="text-align: right;">5</td>
+<td style="text-align: right;">0.205</td>
+<td style="text-align: right;">0.207</td>
+<td style="text-align: right;">0.189</td>
+<td style="text-align: right;">2.58</td>
+<td style="text-align: left;">X</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<p><strong>Dry leaves measurements</strong></p>
+<p><code>DRY_YYYYMMDD.xlsx</code> : an excel file per day to record the dry leaf weight. Make one file per day so it can be saved every evening (although the weighting will be done after oven drying), with the date format as follow: ex <code>DRY_10270120_dry.xlsx</code>). The template of this file can be found here :</p>
+<p>Link English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : <a href="https://github.com/PlantForAdapt/functional/tree/main/documents/template_DRY_YYYYMMDD.xlsx">template_DRY_YYYYMMDD.xlsx</a></p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="code-copy-outer-scaffold"><div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>readxl<span class="sc">::</span><span class="fu">read_xlsx</span>(<span class="st">"documents/template_DRY_YYYYMMDD.xlsx"</span>) <span class="sc">|&gt;</span> </span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  knitr<span class="sc">::</span><span class="fu">kable</span>()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+</details>
+<div class="cell-output-display">
+<table class="caption-top table table-sm table-striped small">
+<thead>
+<tr class="header">
+<th style="text-align: left;">vernacular</th>
+<th style="text-align: right;">tree</th>
+<th style="text-align: right;">leaf</th>
+<th style="text-align: right;">dry_weight_72h</th>
+<th style="text-align: left;">comment</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">VIROL</td>
+<td style="text-align: right;">6637</td>
+<td style="text-align: right;">1</td>
+<td style="text-align: right;">0.4287</td>
+<td style="text-align: left;">NA</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </section>
 <section id="during-field-and-lab-work-every-evening" class="level2">
 <h2 class="anchored" data-anchor-id="during-field-and-lab-work-every-evening">During field and lab work (every evening)</h2>
