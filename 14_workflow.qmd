@@ -91,7 +91,7 @@ readxl::read_xlsx("documents/template_scan_inspection.xlsx") |>
   knitr::kable()
 ```
 
-Here is the list of problems that should be looked for, and how to code them:
+Here is the list of problems that should be looked for, and how to code them: 
 
 - *missing_part*: missing part in the leave due to herbivory or other damage. This can be seen on the **mask or the raw scan**:
 
