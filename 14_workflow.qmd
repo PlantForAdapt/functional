@@ -95,7 +95,7 @@ Here is the list of problems that should be looked for, and how to code them:
 
 - *missing_part*: missing part in the leave due to herbivory or other damage. This can be seen on the **mask or the raw scan**:
 
-  - *0*: no missing part
+  - *0*: no missing part 
 
   - *1*: moderate missing part
 
