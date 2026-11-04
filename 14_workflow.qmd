@@ -6,9 +6,9 @@ Print enough field sheets for wood core sample collection and leaf sample collec
 
 **Field sheets**
 
-XLSX: [field_sheet.xlsx](https://github.com/PlantForAdapt/functional/tree/main/documents/field_sheet.xlsx)
+XLSX: [field_sheet.xlsx](https://github.com/PlantForAdapt/functional/raw/main/documents/field_sheet.xlsx)
 
-PDF: [field_sheet.pdf](https://github.com/PlantForAdapt/functional/tree/main/documents/field_sheet.pdf)
+PDF: [field_sheet.pdf](documents/field_sheet.pdf)
 
 **Species codes**
 
