@@ -21,7 +21,7 @@ book:
         - 24_hydrated.qmd
         - 25_dry.qmd
         - 26_junction.qmd
-    - part: 30_beterra27.qmd
+    - part: 30_belterra27.qmd
       chapters:
         - 31_sampling.qmd
   appendices:

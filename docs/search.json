@@ -394,12 +394,12 @@
   {
     "objectID": "31_sampling.html",
     "href": "31_sampling.html",
-    "title": "1  Sampling for Belterra 2027 campaign",
+    "title": "Sampling for Belterra 2027 campaign",
     "section": "",
     "text": "Objective\nThese sampling choices are made considering the inventory data of the 22/09/2026. This inventory contains 10386 individuals  . For multistemed trees, we consider only the DBH of the bigger stem.\nUnlike in 2025, the sampling is decided based on the botanical names (as identification as occurred since). There are 82 different species, with 141 unidentified tree. We add a botanical code using the two first letters of the genus and species.\nWe also use the version 1 of cleaned data from field campaign of 2025 and the list of planted species TO ADD, and add the infor if they are exotic ou native.\nThe functional traits will be used to:\nFor the first objectives, we can focus in the planted species, but for the second, covering as much as possible the diversity of all species (planted or naturally regenerating) is important. We will therefore aim to sample all the planted species, and non-planted species representing the highest proportion of the stem number that we can achieve.\nWe will sample on minimum of 5 trees per species and per sites to account for intraspecific variability. However, to minimise the effect of ontogentic trait variations, we will standardise this by sampling on the biggest individuals (as a proxy for the tallest). TO DO: check for non-planted species that we are not sampling on too yound individuals.\nWe traits to measure are listed on this page, on 5 leaves per individual, except for TLP for which we take only two leaves and Gmin. For wood density, we take two wood cores per individual.\nThis second field campaig in Belterra aims at complementing the field campaign of 2025.",
     "crumbs": [
-      "30_beterra27.qmd",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sampling for Belterra 2027 campaign</span>"
+      "Belterra 2027",
+      "Sampling for Belterra 2027 campaign"
     ]
   },
   {
@@ -427,12 +427,12 @@
   {
     "objectID": "31_sampling.html#objective",
     "href": "31_sampling.html#objective",
-    "title": "1  Sampling for Belterra 2027 campaign",
+    "title": "Sampling for Belterra 2027 campaign",
     "section": "",
     "text": "characterize the ecological strategies of tree species in order to explain species demography and response to climate (T1.1)\npredict the outcome of species interactions on tree performances under drough (T2.1)",
     "crumbs": [
-      "30_beterra27.qmd",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sampling for Belterra 2027 campaign</span>"
+      "Belterra 2027",
+      "Sampling for Belterra 2027 campaign"
     ]
   },
   {
@@ -449,45 +449,45 @@
   {
     "objectID": "31_sampling.html#species-choice",
     "href": "31_sampling.html#species-choice",
-    "title": "1  Sampling for Belterra 2027 campaign",
+    "title": "Sampling for Belterra 2027 campaign",
     "section": "Species choice",
     "text": "Species choice\nTO DO: don’t put an overall graph, but make one for planted (all species, distinguishing native and exotic) and one for non-planted keeping 80% of indiv\n\n\nCode\nabd &lt;- inventory %&gt;% \n  st_drop_geometry() %&gt;% \n  filter(!is.na(botanical)) %&gt;% \n  count(botanical, bota_code) %&gt;% # TO DO: rajouter planted or not here\n  arrange(desc(n)) %&gt;% \n  mutate(prop = n/n_tree_tot,\n         cum_prop = cumsum(prop))\n\n\n\n\nSpecies with not enough individuals or leaves in 2025 campaign\nafter curation, think about resampling the cupui\n\n\nPlanted\ndo not select the exotic ones, select all the target species of the PP&D-SEN\n\n\nNon-planted",
     "crumbs": [
-      "30_beterra27.qmd",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sampling for Belterra 2027 campaign</span>"
+      "Belterra 2027",
+      "Sampling for Belterra 2027 campaign"
     ]
   },
   {
     "objectID": "31_sampling.html#wood-cores-for-wood-density",
     "href": "31_sampling.html#wood-cores-for-wood-density",
-    "title": "1  Sampling for Belterra 2027 campaign",
+    "title": "Sampling for Belterra 2027 campaign",
     "section": "Wood cores for wood density",
     "text": "Wood cores for wood density\nprobably not sampled at the same time, and 2025 smapling not similar",
     "crumbs": [
-      "30_beterra27.qmd",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sampling for Belterra 2027 campaign</span>"
+      "Belterra 2027",
+      "Sampling for Belterra 2027 campaign"
     ]
   },
   {
     "objectID": "31_sampling.html#choice-of-individuals",
     "href": "31_sampling.html#choice-of-individuals",
-    "title": "1  Sampling for Belterra 2027 campaign",
+    "title": "Sampling for Belterra 2027 campaign",
     "section": "Choice of individuals",
     "text": "Choice of individuals\n\n\nFor leaf samples\n\n\nFor wood samples",
     "crumbs": [
-      "30_beterra27.qmd",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sampling for Belterra 2027 campaign</span>"
+      "Belterra 2027",
+      "Sampling for Belterra 2027 campaign"
     ]
   },
   {
     "objectID": "31_sampling.html#maps-of-all-species",
     "href": "31_sampling.html#maps-of-all-species",
-    "title": "1  Sampling for Belterra 2027 campaign",
+    "title": "Sampling for Belterra 2027 campaign",
     "section": "Maps of all species",
     "text": "Maps of all species\nMaps of species distribution to get a visual impression of the mixture, including planted and non-planted species.\n\n\nCode\nggplot() +\n  geom_sf(data = roads) +\n  geom_sf(data = path) +\n  geom_sf(data = inventory, aes(col = bota_code), size = 0.5) +\n  theme_bw() + \n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\nTO DO: add a map of the planted vs non planted",
     "crumbs": [
-      "30_beterra27.qmd",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sampling for Belterra 2027 campaign</span>"
+      "Belterra 2027",
+      "Sampling for Belterra 2027 campaign"
     ]
   }
 ]
