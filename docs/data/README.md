@@ -19,5 +19,7 @@ This folder will contains the data for all analyses.
 - All data used for correction in `corrections/`
 
   - Subfolder for campaign specific data : `Site_year/`
+    - `scan_inspection/` for manual checking of the leaf scan
+    - ...
 
 - The listing of all data in `file_structure.txt` generated thanks to `file_structure.R`

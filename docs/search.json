@@ -52,6 +52,17 @@
     ]
   },
   {
+    "objectID": "12_protocols.html#scan_processing",
+    "href": "12_protocols.html#scan_processing",
+    "title": "Protocols",
+    "section": "",
+    "text": "cd data/derived/Belterra_2025/\nmkdir pdfs\nls ../raw/Belterra_2025/scans/*/*\ncp ../raw/Belterra_2025/scans/*/* pdfs\nmkdirs pngs\nfor file in $(ls pdfs/)\ndo\n  pdftoppm pdfs/$file pngs/$file -png\ndone\n\n\nOpen virtual stack\nType &gt; 8-Bit\nAdjust &gt; Threshold &gt; Automatic\nAnalyze Particles\n\nSize: 1000-Infinity\nCircularity: 0-1\nDisplay results, clear results, exclude on edges, summarize, composite ROIs\nwith or without include holes depending on the question",
+    "crumbs": [
+      "Preparation",
+      "Protocols"
+    ]
+  },
+  {
     "objectID": "13_material.html",
     "href": "13_material.html",
     "title": "Material",
@@ -107,11 +118,11 @@
     ]
   },
   {
-    "objectID": "14_workflow.html#during-field-and-lab-work-every-evening",
-    "href": "14_workflow.html#during-field-and-lab-work-every-evening",
+    "objectID": "14_workflow.html#every-evening-during-field-and-lab-work",
+    "href": "14_workflow.html#every-evening-during-field-and-lab-work",
     "title": "Workflow",
-    "section": "During field and lab work (every evening)",
-    "text": "During field and lab work (every evening)\n\nList and check the samples\nRecord the individuals on which samples have been taken in yearmoday_sample_taken.xlsx before putting them in the oven. The template of this file can be found here (TO DO =&gt; see my comment on this issue, with a metadata tab). Make one file per day so it can be saved every evening, with the date format as follow yearmoday_sample_taken.xlsx (ex 20270120_sample_taken.xlsx).\n\nAre you sure about that? This should correspond to field sampling sheets.\n\n\n\nScan the field sheets\nAt the start of the day create a folder named SCANYYYYMMDD such as SCAN20270120 to save all scans. Then inside, save each scan as CODE_TREE_LEAF.pdf such as ANGEL_5663_1.pdf.\n\n\nSave the files on the NAS\n\nI would suggest saving locally and on one or several hard drive / usb stick and only on the NAS by us at the end of the campaign.\n\nData files, field sheets and scans needs to be stored every evening on the NAS (TO DO: add the link to the NAS), following this file structure:\n\ndry_weight/ the leaf dry weights\nhydrated/ the leaf hydrated measurements\nfield_sheets/ the sampling field sheets in pdf names with the day and the type of\nosmo/ the leaf hydrated measurements with osmometer\nscans/ the leaf hydrated scans\nsample_taken/the list of wood and leaf samples taken\n\nAll raw files stored on the NAS need to be lock (so put in read only mode) to avoid deleting or modifying it.\n\n\nInspect the scans\n\nI’ll let you write a template following above examples.\n\nIf time allow, process the scan (following this procedure to add: template files, and tell where to put it on the NAS) and inspect them manually to detect scan problems. If this is done on the day, a new scan can be redone if relevant. Here is the list of problems that should be looked for, and how to code them (to do, add pictures to illustrate)\n\nmissing_part: missing part in the leave due to herbivory or other damage. This can be seen on the mask or the raw scan:\n\n0: no missing part\n1: moderate missing part\n2: big missing part\n\nanomaly: any anomaly in the generated masks:\n\nok: no problem\nmiss_petiolul: for compound leaves, the petiolule is not included, while it should have been according to the protocol\npetiol_included: the petiole has been included, while it should have been according to the protocol\none_fol: just one foliole when the species has compound leaves\nabn_area: abnormal area, detected because they don’t have the shape of a leaf. Generally, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part, which are interpreted as holes and filled.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntouching(to do, add pictures to illustrate):\n\n0 no part touching\n1 leaf touching leading to part of the leaf not taken into account,\n2 leaf touching leading to all the leaf not taken into account\n\nraw scan (to do, add pictures to illustrate): problem seen on the raw scans\n\nok: no problem (or very small area concerned)\ndamaged: part of the leaf or the whole leaf appears black/brown or yellowish on the scan or there are any other damages (except missing part of the leaf) suggesting that the leaf is decaying or is attacked by insects\nyoung: the bright green colour of the leave compared to the other leaves from the individual and/or the species suggest non mature leaves",
+    "section": "Every evening during field and lab work",
+    "text": "Every evening during field and lab work\n\nList and check the samples\nRecord the individuals on which samples (leaf and wood) have been taken in sample_taken.xlsx before putting them in the oven (which allows checking that all the samples are put in the oven). Make one single file per day so it can be saved every evening, with the date format as follow sample_taken_YYYYMMDD.xlsx (ex sample_taken_20270120.xlsx), but increment the file of the previous day so that a single file contains all the samples taken since the beginning of the campaign. This file will be useful to prepare the next field day. The template of this file can be found here:\nLink English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : template_sample_taken.xlsx\n\n\nCode\nreadxl::read_xlsx(\"documents/template_sample_taken.xlsx\") |&gt; \n  knitr::kable()\n\n\n\n\n\ntaxon\ntree\nnb_wood\nnb_leaves\ncomment\n\n\n\n\nANDIR\n266\n2\n5\nNA\n\n\nANDIR\n270\n2\n5\nNA\n\n\n\n\n\n\n\nScan the field sheets\nAt the end of each day, scan the field sheets of the day and save them as a file named wood_field_sheet_YYYYMMDD.pdf (for wood samples) or leaf_field_sheet_YYYYMMDD.pdf (for leaf samples).\n\n\nInspect the scans\nIf time allow, process the leaf scans (following this procedure and inspect them manually to detect scan problems. If this is done on the day, a new scan can be redone if relevant.\nRecord the manual inspection of the leaf scan in a file called scan_inspection_YYYYMMDD.xlsx (ex: scan_inspection_20270120.xlsx), following the procedure detailled below. The template of this file can be found here:\nLink English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : template_scan_inspection.xlsx\n\n\nCode\nreadxl::read_xlsx(\"documents/template_scan_inspection.xlsx\") |&gt; \n  knitr::kable()\n\n\n\n\n\ntaxon\ntree\nleaf\nmissing_part\nanomaly\ntouching\nraw_scan\n\n\n\n\nANDIR\n266\n1\n0\nok\n0\ndamaged\n\n\nANDIR\n266\n2\n1\nok\n0\nyoung\n\n\nANDIR\n266\n3\n2\nok\n0\ndamaged\n\n\nANDIR\n266\n4\n0\nok\n0\nok\n\n\nANDIR\n266\n5\n1\nok\n0\nok\n\n\nANDIR\n270\n1\n0\nok\n0\nok\n\n\n\n\n\nHere is the list of problems that should be looked for, and how to code them:\n\nmissing_part: missing part in the leave due to herbivory or other damage. This can be seen on the mask or the raw scan:\n\n0: no missing part\n1: moderate missing part\n2: big missing part\n\nanomaly: any anomaly in the generated masks:\n\nok: no problem\nmiss_petiolul: for compound leaves, the petiolule is not included, while it should have been according to the protocol\npetiol_included: the petiole has been included, while it should have been according to the protocol\none_fol: just one foliole when the species has compound leaves\nabn_area: abnormal area, detected because they don’t have the shape of a leaf. Generally, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part, which are interpreted as holes and filled.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntouching: leaf touching the edges of the scan, observed on the mask:\n\n0 no part touching (all the leaf is coloured)\n1 leaf touching leading to part of the leaf not taken into account (only a part of the leaf is coloured),\n2 leaf touching leading to all the leaf not taken into account (the whole leaf is white)\n\n\n\n\n\n\n\n\ntouching = 0\n\n\n\n\n\n\n\ntouching = 1\n\n\n\n\n\n\n\ntouching = 2\n\n\n\n\n\n\nraw scan: problem seen on the raw scans\n\nok: no problem (or very small area concerns)\ndamaged: part of the leaf or the whole leaf appears black/brown or yellowish on the scan or there are any other damages (except missing part of the leaf) suggesting that the leaf is decaying or is attacked by insects\nyoung: the bright green colour of the leave compared to the other leaves from the individual and/or the species suggest non mature leaves\n\n\n\n\n\n\n\n\nok\n\n\n\n\n\n\n\ndamaged\n\n\n\n\n\n\n\nyoung\n\n\n\n\n\n\n\nSave the files\nAt the end of every day, data files, field sheets and scans should be saved locally in multiple places: on the computer that was used for recording, on a computer that will stored all data files, and on a USB stick/hard drive. In addition, if the access to the cloud allows, data files, field sheets and scans can be stored every evening on the NAS (TO DO: add link to the NAS when ok with Romain).\nThe following file structure should be used for the “central computer” and the USB stick/hard drive:\n\ndry_weight/ the leaf dry weights\nhydrated/ the leaf hydrated measurements\nfield_sheets/ the sampling field sheets in pdf names with the day and the type of\nosmo/ the leaf hydrated measurements with osmometer\nscans/ the leaf hydrated scans\nsample_taken/the list of wood and leaf samples taken\n\n\n\nPrepare the next field day\nBased on the planned sampling, the samples already done and the map, decide which tree should be collected the next day, for leaf and wood.",
     "crumbs": [
       "Preparation",
       "Workflow"
@@ -337,6 +348,82 @@
     ]
   },
   {
+    "objectID": "30_belterra27.html",
+    "href": "30_belterra27.html",
+    "title": "Belterra 2027",
+    "section": "",
+    "text": "Preparation and cleaning of traits raw measurement and functional traits assembly for Belterra 2027campaign.",
+    "crumbs": [
+      "Belterra 2027"
+    ]
+  },
+  {
+    "objectID": "31_sampling.html",
+    "href": "31_sampling.html",
+    "title": "Sampling",
+    "section": "",
+    "text": "Objective\nThese sampling choices are made considering the inventory data of the 22/09/2026. This inventory contains 10386 individuals  . For multistemed trees, we consider only the DBH of the bigger stem.\nUnlike in 2025, the sampling is decided based on the botanical names (as identification as occurred since). There are 82 different species, with 141 unidentified tree. We add a botanical code using the two first letters of the genus and species.\nWe also use the version 1 of cleaned data from field campaign of 2025 and the list of planted species TO ADD, and add the infor if they are exotic ou native.\nThe functional traits will be used to:\nFor the first objectives, we can focus in the planted species, but for the second, covering as much as possible the diversity of all species (planted or naturally regenerating) is important. We will therefore aim to sample all the planted species, and non-planted species representing the highest proportion of the stem number that we can achieve.\nWe will sample on minimum of 5 trees per species and per sites to account for intraspecific variability. However, to minimise the effect of ontogentic trait variations, we will standardise this by sampling on the biggest individuals (as a proxy for the tallest). TO DO: check for non-planted species that we are not sampling on too yound individuals.\nWe traits to measure are listed on this page, on 5 leaves per individual, except for TLP for which we take only two leaves and Gmin. For wood density, we take two wood cores per individual.\nThis second field campaig in Belterra aims at complementing the field campaign of 2025.",
+    "crumbs": [
+      "Belterra 2027",
+      "Sampling"
+    ]
+  },
+  {
+    "objectID": "31_sampling.html#objective",
+    "href": "31_sampling.html#objective",
+    "title": "Sampling",
+    "section": "",
+    "text": "characterize the ecological strategies of tree species in order to explain species demography and response to climate (T1.1)\npredict the outcome of species interactions on tree performances under drough (T2.1)",
+    "crumbs": [
+      "Belterra 2027",
+      "Sampling"
+    ]
+  },
+  {
+    "objectID": "31_sampling.html#maps-of-all-species",
+    "href": "31_sampling.html#maps-of-all-species",
+    "title": "Sampling",
+    "section": "Maps of all species",
+    "text": "Maps of all species\nMaps of species distribution to get a visual impression of the mixture, including planted and non-planted species.\n\n\nCode\nggplot() +\n  geom_sf(data = roads) +\n  geom_sf(data = path) +\n  geom_sf(data = inventory, aes(col = bota_code), size = 0.5) +\n  theme_bw() + \n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\nTO DO: add a map of the planted vs non planted",
+    "crumbs": [
+      "Belterra 2027",
+      "Sampling"
+    ]
+  },
+  {
+    "objectID": "31_sampling.html#species-choice",
+    "href": "31_sampling.html#species-choice",
+    "title": "Sampling",
+    "section": "Species choice",
+    "text": "Species choice\nTO DO: don’t put an overall graph, but make one for planted (all species, distinguishing native and exotic) and one for non-planted keeping 80% of indiv\n\n\nCode\nabd &lt;- inventory %&gt;% \n  st_drop_geometry() %&gt;% \n  filter(!is.na(botanical)) %&gt;% \n  count(botanical, bota_code) %&gt;% # TO DO: rajouter planted or not here\n  arrange(desc(n)) %&gt;% \n  mutate(prop = n/n_tree_tot,\n         cum_prop = cumsum(prop))\n\n\n\n\nSpecies with not enough individuals or leaves in 2025 campaign\nafter curation, think about resampling the cupui\n\n\nPlanted\ndo not select the exotic ones, select all the target species of the PP&D-SEN\n\n\nNon-planted",
+    "crumbs": [
+      "Belterra 2027",
+      "Sampling"
+    ]
+  },
+  {
+    "objectID": "31_sampling.html#wood-cores-for-wood-density",
+    "href": "31_sampling.html#wood-cores-for-wood-density",
+    "title": "Sampling",
+    "section": "Wood cores for wood density",
+    "text": "Wood cores for wood density\nprobably not sampled at the same time, and 2025 smapling not similar",
+    "crumbs": [
+      "Belterra 2027",
+      "Sampling"
+    ]
+  },
+  {
+    "objectID": "31_sampling.html#choice-of-individuals",
+    "href": "31_sampling.html#choice-of-individuals",
+    "title": "Sampling",
+    "section": "Choice of individuals",
+    "text": "Choice of individuals\n\n\nFor leaf samples\n\n\nFor wood samples",
+    "crumbs": [
+      "Belterra 2027",
+      "Sampling"
+    ]
+  },
+  {
     "objectID": "97_meeting.html",
     "href": "97_meeting.html",
     "title": "Meetings",
@@ -367,127 +454,6 @@
     "crumbs": [
       "Appendices",
       "References"
-    ]
-  },
-  {
-    "objectID": "14_workflow.html#every-evening-during-field-and-lab-work",
-    "href": "14_workflow.html#every-evening-during-field-and-lab-work",
-    "title": "Workflow",
-    "section": "Every evening during field and lab work",
-    "text": "Every evening during field and lab work\n\nList and check the samples\nRecord the individuals on which samples (leaf and wood) have been taken in sample_taken.xlsx before putting them in the oven (which allows checking that all the samples are put in the oven). Make one single file per day so it can be saved every evening, with the date format as follow sample_taken_YYYYMMDD.xlsx (ex sample_taken_20270120.xlsx), but increment the file of the previous day so that a single file contains all the samples taken since the beginning of the campaign. This file will be useful to prepare the next field day. The template of this file can be found here:\nLink English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : template_sample_taken.xlsx\n\n\nCode\nreadxl::read_xlsx(\"documents/template_sample_taken.xlsx\") |&gt; \n  knitr::kable()\n\n\n\n\n\ntaxon\ntree\nnb_wood\nnb_leaves\ncomment\n\n\n\n\nANDIR\n266\n2\n5\nNA\n\n\nANDIR\n270\n2\n5\nNA\n\n\n\n\n\n\n\nScan the field sheets\nAt the end of each day, scan the field sheets of the day and save them as a file named wood_field_sheet_YYYYMMDD.pdf (for wood samples) or leaf_field_sheet_YYYYMMDD.pdf (for leaf samples).\n\n\nInspect the scans\nIf time allow, process the leaf scans (following this procedure and inspect them manually to detect scan problems. If this is done on the day, a new scan can be redone if relevant.\nRecord the manual inspection of the leaf scan in a file called scan_inspection_YYYYMMDD.xlsx (ex: scan_inspection_20270120.xlsx), following the procedure detailled below. The template of this file can be found here:\nLink English 🏴󠁧󠁢󠁥󠁮󠁧󠁿 : template_scan_inspection.xlsx\n\n\nCode\nreadxl::read_xlsx(\"documents/template_scan_inspection.xlsx\") |&gt; \n  knitr::kable()\n\n\n\n\n\ntaxon\ntree\nleaf\nmissing_part\nanomaly\ntouching\nraw_scan\n\n\n\n\nANDIR\n266\n1\n0\nok\n0\ndamaged\n\n\nANDIR\n266\n2\n1\nok\n0\nyoung\n\n\nANDIR\n266\n3\n2\nok\n0\ndamaged\n\n\nANDIR\n266\n4\n0\nok\n0\nok\n\n\nANDIR\n266\n5\n1\nok\n0\nok\n\n\nANDIR\n270\n1\n0\nok\n0\nok\n\n\n\n\n\nHere is the list of problems that should be looked for, and how to code them:\n\nmissing_part: missing part in the leave due to herbivory or other damage. This can be seen on the mask or the raw scan:\n\n0: no missing part\n1: moderate missing part\n2: big missing part\n\nanomaly: any anomaly in the generated masks:\n\nok: no problem\nmiss_petiolul: for compound leaves, the petiolule is not included, while it should have been according to the protocol\npetiol_included: the petiole has been included, while it should have been according to the protocol\none_fol: just one foliole when the species has compound leaves\nabn_area: abnormal area, detected because they don’t have the shape of a leaf. Generally, it is because these areas correspond to some spaces between the folioles that are fully surrounded by leaf part, which are interpreted as holes and filled.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\ntouching: leaf touching the edges of the scan, observed on the mask:\n\n0 no part touching (all the leaf is coloured)\n1 leaf touching leading to part of the leaf not taken into account (only a part of the leaf is coloured),\n2 leaf touching leading to all the leaf not taken into account (the whole leaf is white)\n\n\n\n\n\n\n\n\ntouching = 0\n\n\n\n\n\n\n\ntouching = 1\n\n\n\n\n\n\n\ntouching = 2\n\n\n\n\n\n\nraw scan: problem seen on the raw scans\n\nok: no problem (or very small area concerns)\ndamaged: part of the leaf or the whole leaf appears black/brown or yellowish on the scan or there are any other damages (except missing part of the leaf) suggesting that the leaf is decaying or is attacked by insects\nyoung: the bright green colour of the leave compared to the other leaves from the individual and/or the species suggest non mature leaves\n\n\n\n\n\n\n\n\nok\n\n\n\n\n\n\n\ndamaged\n\n\n\n\n\n\n\nyoung\n\n\n\n\n\n\n\nSave the files\nAt the end of every day, data files, field sheets and scans should be saved locally in multiple places: on the computer that was used for recording, on a computer that will stored all data files, and on a USB stick/hard drive. In addition, if the access to the cloud allows, data files, field sheets and scans can be stored every evening on the NAS (TO DO: add link to the NAS when ok with Romain).\nThe following file structure should be used for the “central computer” and the USB stick/hard drive:\n\ndry_weight/ the leaf dry weights\nhydrated/ the leaf hydrated measurements\nfield_sheets/ the sampling field sheets in pdf names with the day and the type of\nosmo/ the leaf hydrated measurements with osmometer\nscans/ the leaf hydrated scans\nsample_taken/the list of wood and leaf samples taken\n\n\n\nPrepare the next field day\nBased on the planned sampling, the samples already done and the map, decide which tree should be collected the next day, for leaf and wood.",
-    "crumbs": [
-      "Preparation",
-      "Workflow"
-    ]
-  },
-  {
-    "objectID": "12_protocols.html#leaf-scan-processing",
-    "href": "12_protocols.html#leaf-scan-processing",
-    "title": "Protocols",
-    "section": "",
-    "text": "cd data/derived/Belterra_2025/\nmkdir pdfs\nls ../raw/Belterra_2025/scans/*/*\ncp ../raw/Belterra_2025/scans/*/* pdfs\nmkdirs pngs\nfor file in $(ls pdfs/)\ndo\n  pdftoppm pdfs/$file pngs/$file -png\ndone\n\n\nOpen virtual stack\nType &gt; 8-Bit\nAdjust &gt; Threshold &gt; Automatic\nAnalyze Particles\n\nSize: 1000-Infinity\nCircularity: 0-1\nDisplay results, clear results, exclude on edges, summarize, composite ROIs\nwith or without include holes depending on the question",
-    "crumbs": [
-      "Preparation",
-      "Protocols"
-    ]
-  },
-  {
-    "objectID": "31_sampling.html",
-    "href": "31_sampling.html",
-    "title": "Sampling for Belterra 2027 campaign",
-    "section": "",
-    "text": "Objective\nThese sampling choices are made considering the inventory data of the 22/09/2026. This inventory contains 10386 individuals  . For multistemed trees, we consider only the DBH of the bigger stem.\nUnlike in 2025, the sampling is decided based on the botanical names (as identification as occurred since). There are 82 different species, with 141 unidentified tree. We add a botanical code using the two first letters of the genus and species.\nWe also use the version 1 of cleaned data from field campaign of 2025 and the list of planted species TO ADD, and add the infor if they are exotic ou native.\nThe functional traits will be used to:\nFor the first objectives, we can focus in the planted species, but for the second, covering as much as possible the diversity of all species (planted or naturally regenerating) is important. We will therefore aim to sample all the planted species, and non-planted species representing the highest proportion of the stem number that we can achieve.\nWe will sample on minimum of 5 trees per species and per sites to account for intraspecific variability. However, to minimise the effect of ontogentic trait variations, we will standardise this by sampling on the biggest individuals (as a proxy for the tallest). TO DO: check for non-planted species that we are not sampling on too yound individuals.\nWe traits to measure are listed on this page, on 5 leaves per individual, except for TLP for which we take only two leaves and Gmin. For wood density, we take two wood cores per individual.\nThis second field campaig in Belterra aims at complementing the field campaign of 2025.",
-    "crumbs": [
-      "Belterra 2027",
-      "Sampling for Belterra 2027 campaign"
-    ]
-  },
-  {
-    "objectID": "31_sampling.html#objectives",
-    "href": "31_sampling.html#objectives",
-    "title": "1  Sampling for Belterra 2027 campaign",
-    "section": "",
-    "text": "characterize the ecological strategies of tree species in order to explain species demography and response to climate (T1.1)\npredict the outcome of species interactions on tree performances under drough (T2.1)",
-    "crumbs": [
-      "30_beterra27.qmd",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sampling for Belterra 2027 campaign</span>"
-    ]
-  },
-  {
-    "objectID": "12_protocols.html#scan_processing",
-    "href": "12_protocols.html#scan_processing",
-    "title": "Protocols",
-    "section": "",
-    "text": "cd data/derived/Belterra_2025/\nmkdir pdfs\nls ../raw/Belterra_2025/scans/*/*\ncp ../raw/Belterra_2025/scans/*/* pdfs\nmkdirs pngs\nfor file in $(ls pdfs/)\ndo\n  pdftoppm pdfs/$file pngs/$file -png\ndone\n\n\nOpen virtual stack\nType &gt; 8-Bit\nAdjust &gt; Threshold &gt; Automatic\nAnalyze Particles\n\nSize: 1000-Infinity\nCircularity: 0-1\nDisplay results, clear results, exclude on edges, summarize, composite ROIs\nwith or without include holes depending on the question",
-    "crumbs": [
-      "Preparation",
-      "Protocols"
-    ]
-  },
-  {
-    "objectID": "31_sampling.html#objective",
-    "href": "31_sampling.html#objective",
-    "title": "Sampling for Belterra 2027 campaign",
-    "section": "",
-    "text": "characterize the ecological strategies of tree species in order to explain species demography and response to climate (T1.1)\npredict the outcome of species interactions on tree performances under drough (T2.1)",
-    "crumbs": [
-      "Belterra 2027",
-      "Sampling for Belterra 2027 campaign"
-    ]
-  },
-  {
-    "objectID": "31_sampling.html#map-of-species-distribution",
-    "href": "31_sampling.html#map-of-species-distribution",
-    "title": "1  Sampling for Belterra 2027 campaign",
-    "section": "Map of species distribution",
-    "text": "Map of species distribution",
-    "crumbs": [
-      "30_beterra27.qmd",
-      "<span class='chapter-number'>1</span>  <span class='chapter-title'>Sampling for Belterra 2027 campaign</span>"
-    ]
-  },
-  {
-    "objectID": "31_sampling.html#species-choice",
-    "href": "31_sampling.html#species-choice",
-    "title": "Sampling for Belterra 2027 campaign",
-    "section": "Species choice",
-    "text": "Species choice\nTO DO: don’t put an overall graph, but make one for planted (all species, distinguishing native and exotic) and one for non-planted keeping 80% of indiv\n\n\nCode\nabd &lt;- inventory %&gt;% \n  st_drop_geometry() %&gt;% \n  filter(!is.na(botanical)) %&gt;% \n  count(botanical, bota_code) %&gt;% # TO DO: rajouter planted or not here\n  arrange(desc(n)) %&gt;% \n  mutate(prop = n/n_tree_tot,\n         cum_prop = cumsum(prop))\n\n\n\n\nSpecies with not enough individuals or leaves in 2025 campaign\nafter curation, think about resampling the cupui\n\n\nPlanted\ndo not select the exotic ones, select all the target species of the PP&D-SEN\n\n\nNon-planted",
-    "crumbs": [
-      "Belterra 2027",
-      "Sampling for Belterra 2027 campaign"
-    ]
-  },
-  {
-    "objectID": "31_sampling.html#wood-cores-for-wood-density",
-    "href": "31_sampling.html#wood-cores-for-wood-density",
-    "title": "Sampling for Belterra 2027 campaign",
-    "section": "Wood cores for wood density",
-    "text": "Wood cores for wood density\nprobably not sampled at the same time, and 2025 smapling not similar",
-    "crumbs": [
-      "Belterra 2027",
-      "Sampling for Belterra 2027 campaign"
-    ]
-  },
-  {
-    "objectID": "31_sampling.html#choice-of-individuals",
-    "href": "31_sampling.html#choice-of-individuals",
-    "title": "Sampling for Belterra 2027 campaign",
-    "section": "Choice of individuals",
-    "text": "Choice of individuals\n\n\nFor leaf samples\n\n\nFor wood samples",
-    "crumbs": [
-      "Belterra 2027",
-      "Sampling for Belterra 2027 campaign"
-    ]
-  },
-  {
-    "objectID": "31_sampling.html#maps-of-all-species",
-    "href": "31_sampling.html#maps-of-all-species",
-    "title": "Sampling for Belterra 2027 campaign",
-    "section": "Maps of all species",
-    "text": "Maps of all species\nMaps of species distribution to get a visual impression of the mixture, including planted and non-planted species.\n\n\nCode\nggplot() +\n  geom_sf(data = roads) +\n  geom_sf(data = path) +\n  geom_sf(data = inventory, aes(col = bota_code), size = 0.5) +\n  theme_bw() + \n  theme(legend.position = \"none\")\n\n\n\n\n\n\n\n\n\nTO DO: add a map of the planted vs non planted",
-    "crumbs": [
-      "Belterra 2027",
-      "Sampling for Belterra 2027 campaign"
     ]
   }
 ]
