@@ -734,6 +734,28 @@ traits_cor %>%
   distinct()
 ```
 
+The table below shows the botanical names that correspond to more than one vernacular name:
+
+```{r}
+#| message: false
+traits_cor %>% 
+     group_by(botanical) %>% 
+  summarise(nb_vern = n_distinct(verna_code)) %>% 
+  filter(nb_vern >1)
+```
+
+Here are the two vernacular names of Vochysia maxima:
+
+```{r}
+traits_cor %>% 
+  select(verna_code, vernacular, botanical) %>% 
+  filter(botanical =="Vochysia maxima Ducke") %>% 
+  distinct()
+```
+
+This has been checked: in the version of the inventory that we used to decide the individuals to sample, they were QUARU and CEDRU but the same individuals corresponded to only quaruba in the more recent inventory.
+This is not due to a problem of labelling.
+
 ```{r figure 2}
 #| message: false
 #| warning: false

@@ -4,13 +4,15 @@
 #| include: false
 library(tidyverse)
 library(sf)
+library(flextable)
+library(scales)
 ```
 
 
 ```{r data}
 #| message: false
 # inventory
-inventory <- readxl::read_excel("data/raw/inventory/inventory_Belterra_18062026.xlsx",
+inventory <- readxl::read_excel("data/raw/inventory/inventory_Belterra_20260618.xlsx",
                                 sheet = "22092026") %>% 
   select(PLACA, NOME_COMUM, NOME_CIENTIFICO, FAMILIA, 
          CAP1, CAP2, CAP3, CAP4, CAP5, CAP6, CAP7, E, N) %>% 
@@ -25,7 +27,9 @@ inventory <- readxl::read_excel("data/raw/inventory/inventory_Belterra_18062026.
          bota_code = paste0(
            str_sub(word(botanical, 1), 1, 2),
            str_sub(word(botanical, 2), 1, 2)),
-         label = paste0(bota_code, "\n", tree)) %>% 
+         label = paste0(bota_code, "_", tree),
+         botanical = replace_values(botanical, "Byrsonima crassifólia" ~ "Byrsonima crassifolia"),
+         bota_code = replace_values(bota_code, "NANA" ~ NA)) %>% 
   rowwise() %>% 
   mutate(dbh = max(CAP1, CAP2, CAP3, CAP4, CAP5, CAP6, CAP7)/pi) %>% 
   select(tree, x_utm, y_utm, 
@@ -53,21 +57,31 @@ Unlike in 2025, the sampling is decided based on the botanical names
 There are `r n_distinct(inventory$botanical, na.rm=TRUE)` different species,
 with `r inventory %>% filter(is.na(botanical)) %>% nrow()` unidentified tree.
 We add a botanical code using the two first letters of the genus and species.
+We also add a label using the botanical code and the tree ID, that will be used for sampling.
+*NB: in the field, only the tree ID is displayed on the trees.*
 
-We also use the version 1 of cleaned data from [field campaign of 2025](20_belterra25/26_junction) and the list of planted species [TO ADD, and add the infor if they are exotic ou native]{style="color: red;"}.
+We also use the version 1 of cleaned data from [field campaign of 2025](20_belterra25/26_junction) and the list of planted species [TO DO everything needs to be updated once this file is checked]{style="color: red;"}.
 
 
 ```{r}
 #| message: false
 meas_2025 <- read_csv("outputs/trait_PlantForAdapt_Belterra_2025_v1.csv") %>% 
-  group_by(tree) %>% 
+  mutate(botanical = str_extract(botanical, "^\\S+\\s+\\S+")) %>% 
+  group_by(tree, botanical, verna_code) %>% 
   summarise(n_la_2025 = sum(!is.na(la)),
             n_ldmc_2025 = sum(!is.na(ldmc)),
             n_lt_2025 = sum(!is.na(lt)),
             n_sla_2025 = sum(!is.na(sla)),
-            n_tlp_2025 = sum(!is.na(tlp))) 
+            n_tlp_2025 = sum(!is.na(tlp))) %>% 
+  ungroup()
 inventory <- inventory %>% 
   left_join(meas_2025)
+
+planted <- readxl::read_excel("data/raw/inventory/planted_sp_Belterra.xlsx",
+                              sheet = "planted_sp_Belterra",
+                              na = c("", "NA")) 
+inventory <- inventory %>% 
+  left_join(planted)
 ```
 
 
@@ -75,9 +89,9 @@ inventory <- inventory %>%
 
 The functional traits will be used to:
 
-* characterize the ecological strategies of tree species in order to explain species demography and response to climate (T1.1)
+* characterize the ecological strategies of native tree species in order to explain species demography and response to climate (T1.1)
 
-* predict the outcome of species interactions on tree performances under drough (T2.1)
+* predict the outcome of species interactions on tree performances under drought (T2.1)
 
 For the first objectives, we can focus in the planted species, 
 but for the second, covering as much as possible the diversity of all species (planted or naturally regenerating) is important.
@@ -109,36 +123,115 @@ ggplot() +
 ```
 
 
-[TO DO: add a map of the planted vs non planted]{style="color: red;"}
+Maps of planted species versus non planted (*NB: the information is at the species level and not available at the tree level*):
 
+```{r}
+#| message: false
+#| warning: false
+ggplot() +
+  geom_sf(data = roads) +
+  geom_sf(data = path) +
+  geom_sf(data = inventory, aes(col = planted), size = 0.5) +
+  theme_bw() + 
+  theme(legend.position = "bottom")
+```
+
+Maps of the native versus exotic species:
+
+```{r}
+#| message: false
+#| warning: false
+ggplot() +
+  geom_sf(data = roads) +
+  geom_sf(data = path) +
+  geom_sf(data = inventory, aes(col = native), size = 0.5) +
+  theme_bw() + 
+  theme(legend.position = "bottom")
+```
+
+As the exotic species are not mixed with the native ones, we don't need to sample traits on them (even for calculating neighbourhood indices).
 
 ## Species choice
 
-[TO DO: don't put an overall graph, but make one for planted (all species, distinguishing native and exotic) and one for non-planted keeping 80% of indiv]{style="color: red;"}
+<!-- TO DO add here if it was sampled of not in 2025-->
 
 ```{r}
 abd <- inventory %>% 
   st_drop_geometry() %>% 
   filter(!is.na(botanical)) %>% 
-  count(botanical, bota_code) %>% # TO DO: rajouter planted or not here
+  count(botanical, bota_code, planted, ppd_sen, native) %>% 
   arrange(desc(n)) %>% 
   mutate(prop = n/n_tree_tot,
          cum_prop = cumsum(prop))
 ```
 
 
-<!-- based on relative abundance graphs, with info on the already collected
--->
-
-### Species with not enough individuals or leaves in 2025 campaign
-
-after curation, think about resampling the cupui
-
 ### Planted
+
+The graph below show the abundance of planted and native species [TO DO: add a fill to say it was sampled and a border to say if ppd_sen]{style="color: red;"}
+
+
+```{r}
+abd %>% 
+  filter(planted == TRUE & native == TRUE) %>% 
+  mutate(botanical = fct_reorder(botanical, n)) %>% 
+  ggplot(aes(x = n, y =  botanical)) + 
+  geom_col() # +
+  #scale_fill_manual(values = c(`TRUE` = "forestgreen", `FALSE` = "grey70")) +
+  #scale_colour_manual(values = c(`TRUE` = "black", `FALSE` = "white"))
+  
+```
+
 
 do not select the exotic ones, select all the target species of the PP&D-SEN
 
 ### Non-planted
+
+## Species with not enough individuals or leaves in 2025 campaign
+
+
+```{r}
+#| label: tbl-meas_ind
+#| tbl-cap: "Number of individuals with a least one leaf with a valid trait measurment, per species and per trait"
+
+pal <- col_numeric(c("tomato", "gold", "forestgreen"), domain = c(0, 5))
+
+meas_ind <- meas_2025 %>%          
+  group_by(botanical) %>%
+  summarise(across(c(n_la_2025, n_ldmc_2025, n_lt_2025, n_sla_2025, n_tlp_2025),
+                   ~ sum(.x != 0)),
+            .groups = "drop_last")
+meas_ind %>% 
+  flextable() %>% 
+  bg(j = c("n_la_2025", "n_ldmc_2025", "n_lt_2025", "n_sla_2025", "n_tlp_2025"),
+     bg = function(x) pal(pmin(x, 5)),
+     part = "body") %>% 
+  autofit()
+```
+
+```{r}
+#| label: tbl-meas_leaf
+#| tbl-cap: "Mean number of leaves with a valid trait measurment accross individuals with a least one leaf with a valid trait measurment, per species and per trait"
+
+meas_leaf <- meas_2025 %>%          
+  group_by(botanical, verna_code) %>%
+  summarise(across(c(n_la_2025, n_ldmc_2025, n_lt_2025, n_sla_2025, n_tlp_2025),
+                   ~ round(mean(.x[.x != 0]), 2)),
+            .groups = "drop_last")
+meas_leaf %>% 
+  flextable() %>% 
+  bg(j = c("n_la_2025", "n_ldmc_2025", "n_lt_2025", "n_sla_2025"),
+     bg = col_numeric(c("tomato", "gold", "forestgreen"), domain = c(0, 5)),
+     part = "body") %>% 
+  bg(j = "n_tlp_2025",
+     bg = col_numeric(c("tomato", "gold", "forestgreen"), domain = c(0, 2)),
+     part = "body") %>% 
+  autofit()
+```
+
+*NB: Vochysia maxima has 10 individuals because it was sampled under two different vernacular names.*
+
+<!-- after curation, think about resampling the cupui-->
 
 
 ## Wood cores for wood density

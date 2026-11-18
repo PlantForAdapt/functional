@@ -2,7 +2,7 @@
 #| include: false
 library(tidyverse)
 library(sf)
-table_file <- "data/raw/inventory/dados_brutos_inventário_estrada_5.xlsx"
+table_file <- "data/raw/inventory/inventory_Belterra_20250623.xlsx"
 spat_file <- "data/raw/geographic/inventory_Belterra_20260922.gpkg"
 species <- c(
  "ANDIROBA",
