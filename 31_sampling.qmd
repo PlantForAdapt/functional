@@ -79,7 +79,9 @@ inventory <- inventory %>%
 
 planted <- readxl::read_excel("data/raw/inventory/planted_sp_Belterra.xlsx",
                               sheet = "planted_sp_Belterra",
-                              na = c("", "NA")) 
+                              na = c("", "NA")) %>% 
+  mutate(across(c(planted, ppd_sen, native) , as.logical))
+  
 inventory <- inventory %>% 
   left_join(planted)
 ```
@@ -101,10 +103,10 @@ We will sample on minimum of 5 trees per species and per sites to account for in
 However, to minimise the effect of ontogentic trait variations, we will standardise this by sampling on the biggest individuals (as a proxy for the tallest).
 [TO DO: check for non-planted species that we are not sampling on too yound individuals.]{style="color: red;"}
 
-We traits to measure are listed on this [page](11_traits), on 5 leaves per individual, except for TLP for which we take only two leaves and [Gmin]{style="color: red;"}.
+The traits to measure are listed on this [page](11_traits), on 5 leaves per individual, except for TLP for which we take only two leaves and [Gmin]{style="color: red;"}.
 For wood density, we take two wood cores per individual.
 
-This second field campaig in Belterra aims at complementing the [field campaign of 2025](20_belterra25).
+This second field campaign in Belterra aims at complementing the [field campaign of 2025](20_belterra25).
 
 
 ## Maps of all species
@@ -153,8 +155,6 @@ As the exotic species are not mixed with the native ones, we don't need to sampl
 
 ## Species choice
 
-<!-- TO DO add here if it was sampled of not in 2025-->
-
 ```{r}
 abd <- inventory %>% 
   st_drop_geometry() %>% 
@@ -162,46 +162,124 @@ abd <- inventory %>%
   count(botanical, bota_code, planted, ppd_sen, native) %>% 
   arrange(desc(n)) %>% 
   mutate(prop = n/n_tree_tot,
-         cum_prop = cumsum(prop))
+         cum_prop = cumsum(prop),
+         sampled_2025 = ifelse(botanical %in% unique(meas_2025$botanical),
+                               TRUE,
+                               FALSE))
 ```
 
 
 ### Planted
 
-The graph below show the abundance of planted and native species [TO DO: add a fill to say it was sampled and a border to say if ppd_sen]{style="color: red;"}
-
+The graph below show the abundance of native species that were planted (red dashed line indicates a number of individuals currently alive of 50).
+As the exotic species are not mixed with the native ones, we don't consider them (even for studying the neighbourhood) so we won't sample them.
 
 ```{r}
 abd %>% 
   filter(planted == TRUE & native == TRUE) %>% 
   mutate(botanical = fct_reorder(botanical, n)) %>% 
-  ggplot(aes(x = n, y =  botanical)) + 
-  geom_col() # +
-  #scale_fill_manual(values = c(`TRUE` = "forestgreen", `FALSE` = "grey70")) +
-  #scale_colour_manual(values = c(`TRUE` = "black", `FALSE` = "white"))
-  
+  ggplot(aes(x = n, y =  botanical, 
+             fill = sampled_2025, col = ppd_sen)) + 
+  geom_col(linewidth = 1) +
+  scale_fill_manual(values = c(`TRUE` = "forestgreen", `FALSE` = "grey70")) +
+  scale_colour_manual(values = c(`TRUE` = "black", `FALSE` = NA)) + 
+  geom_vline(xintercept=50, linetype = "dashed", linewidth = 0.5, col = "red") + 
+  theme_minimal()
+```
+
+```{r}
+# create a table of species to sample
+sampling <- abd %>% 
+  filter(planted == TRUE & native == TRUE & sampled_2025 == FALSE & n>= 50) %>% 
+  select(botanical, bota_code, planted, sampled_2025, n) %>% 
+  mutate(n_ind_leaf = 5)
+# n is the total number of living trees, n_ind_leaf is the number of individuals to sample on.
 ```
 
 
-do not select the exotic ones, select all the target species of the PP&D-SEN
+> Proposition 1:
+Sample all the native species that were planted, that currently have at least 50 living individuals and that were not sampled in 2025.
+This concerns the `r nrow(sampling)` following species : `r sampling$botanical`.
+
+*We could consider lowering the cutoff of 50, but the 3 most abundant ones with less than 50 tress are the following:*
+
+```{r}
+abd %>% 
+  filter(planted == TRUE & native == TRUE & sampled_2025 == FALSE & n < 50) %>% 
+  slice_head(n = 3) %>% 
+  flextable() %>% 
+  autofit()
+```
 
 ### Non-planted
 
-## Species with not enough individuals or leaves in 2025 campaign
+```{r}
+# nb of indiv of the species with > 0.9 of proportion cumulated
+cutoff_prop <- abd %>% filter(cum_prop > 0.9) %>% slice_max(n) %>% pull(n)
+```
+
+
+The graph below show the abundance of species that were not planted: red dashed line indicates a number of individuals currently alive of 50 and the purple dashed line indicates a cut-off corresponding to a cumulative proportion of trees of 90%.
+We assume that all the non-planted species are native [Lucas, Jessica, what do you think ? This can be checked if necessary.]{style="color: red;"}
 
 
 ```{r}
-#| label: tbl-meas_ind
-#| tbl-cap: "Number of individuals with a least one leaf with a valid trait measurment, per species and per trait"
+abd %>% 
+  filter(planted == FALSE) %>% 
+  mutate(botanical = fct_reorder(botanical, n)) %>% 
+  ggplot(aes(x = n, y =  botanical, 
+             fill = sampled_2025, col = ppd_sen)) + 
+  geom_col(linewidth = 1) +
+  scale_fill_manual(values = c(`TRUE` = "forestgreen", `FALSE` = "grey70")) +
+  scale_colour_manual(values = c(`TRUE` = "black", `FALSE` = NA)) + 
+  geom_vline(xintercept=50, linetype = "dashed", linewidth = 0.5, col = "red") + 
+  geom_vline(xintercept=cutoff_prop, linetype = "dashed", linewidth = 0.5, col = "purple") + 
+  theme_minimal()
+```
 
+
+```{r}
+# create a table of species to sample
+sampling_no_plant <- abd %>% 
+  filter(planted == FALSE & sampled_2025 == FALSE & n>= 50) %>% 
+  select(botanical, bota_code, planted, sampled_2025, n) %>% 
+  mutate(n_ind_leaf = 5)
+sampling <- rbind(sampling, sampling_no_plant)
+```
+
+> Proposition 2:
+Sample all the non-planted species that currently have at least 50 living individuals and that were not sampled in 2025.
+This concerns the `r nrow(sampling_no_plant)` following species : `r sampling_no_plant$botanical`.
+
+*We could consider lowering the cutoff of 50, the 5 most abundant ones with less than 50 tress are the following:*
+
+```{r}
+abd %>% 
+  filter(planted == FALSE & sampled_2025 == FALSE & n < 50) %>% 
+  slice_head(n = 5) %>% 
+  flextable() %>% 
+  autofit()
+```
+
+
+## Species with not enough individuals or leaves in 2025 campaign
+
+### Not enough individuals
+
+Number of individuals with a least one leaf with a valid trait measurment, per species and per trait:
+
+```{r}
 pal <- col_numeric(c("tomato", "gold", "forestgreen"), domain = c(0, 5))
 
 meas_ind <- meas_2025 %>%          
   group_by(botanical) %>%
   summarise(across(c(n_la_2025, n_ldmc_2025, n_lt_2025, n_sla_2025, n_tlp_2025),
                    ~ sum(.x != 0)),
-            .groups = "drop_last")
+            .groups = "drop_last") %>% 
+  left_join(select(abd, botanical, bota_code, planted, ppd_sen, sampled_2025, n), by = "botanical")
+
 meas_ind %>% 
+  select(-bota_code, -sampled_2025) %>% 
   flextable() %>% 
   bg(j = c("n_la_2025", "n_ldmc_2025", "n_lt_2025", "n_sla_2025", "n_tlp_2025"),
      bg = function(x) pal(pmin(x, 5)),
@@ -209,16 +287,37 @@ meas_ind %>%
   autofit()
 ```
 
-```{r}
-#| label: tbl-meas_leaf
-#| tbl-cap: "Mean number of leaves with a valid trait measurment accross individuals with a least one leaf with a valid trait measurment, per species and per trait"
+*NB: Vochysia maxima has 10 individuals because it was sampled under two different vernacular names.*
 
+> Proposition 3: keeping the same cutoff of 50 living individuals, we can sample the following species with n_ind_leaf trees to complement the sampling of 2025 :
+
+```{r}
+sampling_suppl <- meas_ind %>% 
+  rowwise() %>% 
+  mutate(n_ind_leaf = 5 - max(n_la_2025, n_ldmc_2025, n_lt_2025, n_sla_2025, n_tlp_2025)) %>% 
+  ungroup() %>% 
+  filter(n>= 50 & n_ind_leaf > 0 & n_la_2025 !=10) %>% 
+  select(botanical, bota_code, planted, sampled_2025, n, n_ind_leaf) 
+sampling <- rbind(sampling, sampling_suppl)
+sampling_suppl %>% 
+  flextable() %>% 
+  autofit()
+```
+
+### Not enough leaves
+
+Mean number of leaves with a valid trait measurment accross individuals with a least one leaf with a valid trait measurment, per species and per trait: 
+
+```{r}
 meas_leaf <- meas_2025 %>%          
-  group_by(botanical, verna_code) %>%
+  group_by(botanical) %>%
   summarise(across(c(n_la_2025, n_ldmc_2025, n_lt_2025, n_sla_2025, n_tlp_2025),
                    ~ round(mean(.x[.x != 0]), 2)),
-            .groups = "drop_last")
+            .groups = "drop_last") %>% 
+  left_join(select(abd, botanical, bota_code, planted, ppd_sen, sampled_2025, n), by = "botanical")
+
 meas_leaf %>% 
+  select(-bota_code, -sampled_2025) %>% 
   flextable() %>% 
   bg(j = c("n_la_2025", "n_ldmc_2025", "n_lt_2025", "n_sla_2025"),
      bg = col_numeric(c("tomato", "gold", "forestgreen"), domain = c(0, 5)),
@@ -229,14 +328,51 @@ meas_leaf %>%
   autofit()
 ```
 
-*NB: Vochysia maxima has 10 individuals because it was sampled under two different vernacular names.*
+Based on the mean number of leaves per individuals, and keeping the threshold of 50 living individuals, we could condider supplementing the number of leaves of these species:
 
-<!-- after curation, think about resampling the cupui-->
+```{r}
+meas_2025 %>% 
+  select(-verna_code) %>% 
+  filter(botanical %in% c("Bertholletia excelsa", "Copaifera reticulata", "Jacaranda copaia")) %>% 
+  arrange(botanical) %>% 
+  flextable() %>% 
+  bg(j = c("n_la_2025", "n_ldmc_2025", "n_lt_2025", "n_sla_2025"),
+     bg = col_numeric(c("tomato", "gold", "forestgreen"), domain = c(0, 5)),
+     part = "body") %>% 
+  bg(j = "n_tlp_2025",
+     bg = col_numeric(c("tomato", "gold", "forestgreen"), domain = c(0, 2)),
+     part = "body") %>% 
+  autofit()
+```
+
+> Proposition 4: Not sampling more for Bertholletia and Jacaranda, but sampling 3 new individuals of 
+Copaifera.
+
+```{r}
+sampling <- sampling %>% 
+  mutate(n_ind_leaf = ifelse(botanical == "Copaifera reticulata",
+                             n_ind_leaf + 3,
+                             n_ind_leaf))
+```
+
+## Sampling objective for leaves
+
+The sampling counts `r sum(sampling$n_ind_leaf)` from `r nrow(sampling)` species:
+
+```{r}
+sampling %>% 
+  flextable() %>% 
+  autofit() 
+```
 
 
 ## Wood cores for wood density
 
 probably not sampled at the same time, and 2025 smapling not similar
+
+aim for the same species than for leaves (2025 and 2027) and complement the 2025 sampling 
+
+will need to be adjusted during fieldwork if some of the collected cores are judged not ok by Romain
 
 ## Choice of individuals
 
