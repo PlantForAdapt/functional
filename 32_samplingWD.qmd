@@ -1,0 +1,171 @@
+# Sampling Wood Cores {.unnumbered}
+
+Some thinking regarding the sampling of wood cores in Belterra, complementing 2025 sampling
+
+```{r set}
+#| include: false
+library(tidyverse)
+library(sf)
+library(flextable)
+library(scales)
+```
+
+```{r data}
+#| message: false
+inventory <- readxl::read_excel("data/raw/inventory/inventory_Belterra_20260618.xlsx",
+                                sheet = "22092026") %>% 
+              select(PLACA, NOME_COMUM, NOME_CIENTIFICO, FAMILIA, 
+                     CAP1, CAP2, CAP3, CAP4, CAP5, CAP6, CAP7, E, N) %>% 
+              mutate(across(num_range("CAP", 1:7), as.numeric)) %>% 
+              rename(tree = PLACA,
+                     vernacular = NOME_COMUM,
+                     botanical = NOME_CIENTIFICO,
+                     family = FAMILIA,
+                     x_utm = E,
+                     y_utm = N) %>% 
+              mutate(botanical = str_extract(botanical, "^\\S+\\s+\\S+"), 
+                     bota_code = paste0(
+                       str_sub(word(botanical, 1), 1, 2),
+                       str_sub(word(botanical, 2), 1, 2)),
+                     label = paste0(bota_code, "_", tree),
+                     botanical = replace_values(botanical, "Byrsonima crassifólia" ~ "Byrsonima crassifolia"),
+                     bota_code = replace_values(bota_code, "NANA" ~ NA)) %>% 
+              rowwise() %>% 
+              mutate(dbh = max(CAP1, CAP2, CAP3, CAP4, CAP5, CAP6, CAP7)/pi) %>% 
+              select(tree, x_utm, y_utm, 
+                     vernacular, botanical, family, bota_code, label, dbh) %>% 
+              ungroup() # to remove row_wise
+
+
+meas_2025 <- read_csv("./outputs/trait_PlantForAdapt_Belterra_2025_v1.csv") %>% 
+              mutate(botanical = str_extract(botanical, "^\\S+\\s+\\S+")) %>% 
+              group_by(tree, botanical, verna_code) %>% 
+              summarise(n_la_2025 = sum(!is.na(la)),
+                        n_ldmc_2025 = sum(!is.na(ldmc)),
+                        n_lt_2025  = sum(!is.na(lt)),
+                        n_sla_2025 = sum(!is.na(sla)),
+                        n_tlp_2025 = sum(!is.na(tlp))) %>% 
+              ungroup()
+
+wd2025 <- readxl::read_excel("data/raw/inventory/sample_taken.xlsx",
+                                sheet = "Feuil1") %>%
+                  rowwise() %>%
+                  mutate(n_core_2025 = sum(c(Wood1 + Wood2), na.rm=T))
+
+meas_2025 <- meas_2025 %>%
+                      full_join(wd2025[,c("n_core_2025","tree")], by='tree')%>%
+                      mutate(across(c(n_la_2025, n_ldmc_2025, n_lt_2025, n_sla_2025, n_tlp_2025, n_core_2025), ~ replace_na(.x,0)))
+
+
+#### Filling botanical names absent from WD2025
+for(i in 1:dim(meas_2025)[1]){
+  if(is.na(meas_2025$botanical[i])) {meas_2025$botanical[i] <- inventory$botanical[inventory$tree == meas_2025$tree[i]] }            
+  #if(is.na(meas_2025$verna_code[i])) {meas_2025$verna_code[i] <- inventory$bota_code[inventory$tree == meas_2025$tree[i]] }  
+}
+
+inventory <- inventory %>% 
+                      left_join(meas_2025)
+
+planted <- readxl::read_excel("data/raw/inventory/planted_sp_Belterra.xlsx",
+                              sheet = "planted_sp_Belterra",
+                              na = c("", "NA")) %>% 
+                   mutate(across(c(planted, ppd_sen, native) , as.logical))
+
+inventory <- inventory %>% 
+  left_join(planted)
+
+n_tree_tot <- length(unique(inventory$tree))
+
+abd <- inventory %>% 
+  st_drop_geometry() %>% 
+  filter(!is.na(botanical)) %>% 
+  count(botanical, bota_code, planted, ppd_sen, native) %>% 
+  arrange(desc(n)) %>% 
+  mutate(prop = n/n_tree_tot,
+         cum_prop = cumsum(prop),
+         sampled_2025 = ifelse(botanical %in% unique(meas_2025$botanical),
+                               TRUE,
+                               FALSE))
+
+
+ pal <- col_numeric(c("tomato", "gold", "forestgreen"), domain = c(0, 5))
+ pal2 <- col_numeric(c("tomato", "gold", "forestgreen"), domain = c(0, 2))
+# 
+# 
+# meas_ind <- meas_2025 %>%          
+#                         group_by(botanical) 
+# 
+#       meas_ind %>% arrange(botanical) %>%
+#                         
+#                         flextable() %>% 
+#                         bg(j = c("n_la_2025", "n_ldmc_2025", "n_lt_2025", "n_sla_2025", "n_tlp_2025"),
+#                            bg = function(x) pal(pmin(x, 5)),
+#                            part = "body") %>%
+#         
+#                         bg(j=c("n_core_2025"),
+#                            bg = function(x) pal2(pmin(x, 2)),
+#                            part = "body" )%>%
+#                         autofit()
+
+```
+
+## Leaf and Wood sampled in 2025
+
+The table below is the same as the table found in "sampling" chapter with the number of individual ('n_core_2025') sampled in 2025.
+
+```{r}
+#| message: false
+meas_ind <- meas_2025 %>%          
+                        group_by(botanical)  %>%
+                        mutate(n_core_2025 = n_core_2025/2) %>%
+                        summarise( across(c(n_la_2025, n_ldmc_2025, n_lt_2025, n_sla_2025, n_tlp_2025, n_core_2025),
+                                         ~ sum(.x != 0)),
+                                  .groups = "drop_last") %>% 
+                        left_join(select(abd, botanical, bota_code, planted, ppd_sen, sampled_2025, n), by = "botanical")
+
+            meas_ind %>% 
+                        select(-bota_code, -sampled_2025) %>% 
+                        flextable() %>% 
+                        bg(j = c("n_la_2025", "n_ldmc_2025", "n_lt_2025", "n_sla_2025", "n_tlp_2025","n_core_2025"),
+                           bg = function(x) pal(pmin(x, 5)),
+                           part = "body") %>% 
+                        autofit()
+
+```
+
+Filtering not planted species and n \< 50
+
+```{r}
+#| message: false
+#| include: true
+meas_ind <- meas_ind %>% filter(planted == T )%>% 
+                          filter( n >50)
+                     
+meas_ind %>% 
+                        select(-bota_code, -sampled_2025) %>% 
+                        flextable() %>% 
+                        bg(j = c("n_la_2025", "n_ldmc_2025", "n_lt_2025", "n_sla_2025", "n_tlp_2025","n_core_2025"),
+                           bg = function(x) pal(pmin(x, 5)),
+                           part = "body") %>% 
+                        autofit()
+
+
+
+
+```
+
+For species already sampled in 2025 for leaves and for which it is needed to sample new leaves in 2027. We may consider to sample leaves on individual we already have wood cores :
+
+```{r}
+#| message: false
+#| warning: false
+#| include: TRUE
+#| 
+meas_2025 %>%          
+                        group_by(botanical)  %>%
+                        mutate(n_core_2025 = n_core_2025/2) %>%
+                        filter(botanical %in% c("Bertholletia excelsa","Copaifera reticulata", "Jacaranda copaia", "Vismia cayennensis"))%>%
+                        filter(n_la_2025 == 0)%>%
+                        flextable() %>% 
+                        autofit()
+```
