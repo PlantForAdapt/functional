@@ -24,6 +24,7 @@ book:
     - part: 30_belterra27.qmd
       chapters:
         - 31_sampling.qmd
+        - 32_samplingWD.qmd
   appendices:
     - 97_meeting.qmd
     - 99_references.qmd
