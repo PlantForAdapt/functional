@@ -17,7 +17,7 @@ inventory <- readxl::read_excel("data/raw/inventory/inventory_Belterra_20260618.
               select(PLACA, NOME_COMUM, NOME_CIENTIFICO, FAMILIA, 
                      CAP1, CAP2, CAP3, CAP4, CAP5, CAP6, CAP7, E, N) %>% 
               mutate(across(num_range("CAP", 1:7), as.numeric)) %>% 
-              rename(tree = PLACA,
+              rename(tree = PLACA, 
                      vernacular = NOME_COMUM,
                      botanical = NOME_CIENTIFICO,
                      family = FAMILIA,
