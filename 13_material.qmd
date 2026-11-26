@@ -9,19 +9,24 @@ We need to gather the following material.
 - Big Shot
 - Big Shot weight
 - Big Shot wire
-- Helmets (\~15)
+- Helmets
+- Gueters
 - Micrometer
 - SPAD
 - Oven
 - Vapor pressure osmometer (Vapro 5520, Wescor, Logan, UT)
 - Vapro software (Vapro Lab Report)
 - Liquid nitrogen
+- Liquid nitrogen gloves
+- Liquid nitrogen goggles
+- Liquid nitrogen contenant
 - Fridge
 - Distilled water
 - Precision balance
 - Scanner
 - Computer
 - Hard drive to centralise the data files
+- Wood corer
 
 ## Small material
 
@@ -47,8 +52,4 @@ We need to gather the following material.
 - Metal tea ball
 - Tin foil
 - Needle
-- Liquid nitrogen gloves
-- Liquid nitrogen goggles
-- Liquid nitrogen contenant
 - 2 Tweezers
-- Cork borer
