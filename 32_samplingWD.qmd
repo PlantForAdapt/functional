@@ -47,14 +47,21 @@ meas_2025 <- read_csv("./outputs/trait_PlantForAdapt_Belterra_2025_v1.csv") %>%
                         n_tlp_2025 = sum(!is.na(tlp))) %>% 
               ungroup()
 
-wd2025 <- readxl::read_excel("data/raw/inventory/sample_taken.xlsx",
-                                sheet = "Feuil1") %>%
-                  rowwise() %>%
-                  mutate(n_core_2025 = sum(c(Wood1 + Wood2), na.rm=T))
+wd2025 <- readxl::read_excel("data/raw/Belterra_2025/sample_taken.xlsx",
+                                sheet = "Feuil1",
+                             na = c("", "NA")) %>%
+  rename(tree = ID,
+         verna_code = Species) %>% 
+  mutate(Wood1 = as.integer(Wood1),
+         Wood2 = as.integer(Wood2)) %>% 
+  rowwise() %>%
+  mutate(n_core_2025 = sum(c(Wood1,Wood2), na.rm=T)) %>% 
+  ungroup()
+
 
 meas_2025 <- meas_2025 %>%
-                      full_join(wd2025[,c("n_core_2025","tree")], by='tree')%>%
-                      mutate(across(c(n_la_2025, n_ldmc_2025, n_lt_2025, n_sla_2025, n_tlp_2025, n_core_2025), ~ replace_na(.x,0)))
+  full_join(wd2025[,c("n_core_2025","tree")])%>%
+  mutate(across(c(n_la_2025, n_ldmc_2025, n_lt_2025, n_sla_2025, n_tlp_2025, n_core_2025), ~ replace_na(.x,0)))
 
 
 #### Filling botanical names absent from WD2025
