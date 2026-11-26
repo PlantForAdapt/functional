@@ -14,7 +14,7 @@
     "href": "index.html#people",
     "title": "functional",
     "section": "People",
-    "text": "People\n\nSylvain Schmitt (sylvain.schmitt@cirad.fr)\nGéraldine Derroire (geraldine.derroire@cirad.fr)\nJoannès Guillemot (joannes.guillemot@cirad.fr)\nLucas Mazzei de Freitas (lucas.mazzei@embrapa.br)",
+    "text": "People\n\nSylvain Schmitt (sylvain.schmitt@cirad.fr)\nGéraldine Derroire (geraldine.derroire@cirad.fr)\nJoannès Guillemot (joannes.guillemot@cirad.fr)\nLucas Mazzei de Freitas (lucas.mazzei@embrapa.br)\nRomain Lehnebach (romain.lehnebach@cirad.fr)\nJessica Reis",
     "crumbs": [
       "Introduction"
     ]
@@ -78,7 +78,7 @@
     "href": "13_material.html#big-material",
     "title": "Material",
     "section": "",
-    "text": "Camera\nBinoculars\nBig Shot\nBig Shot weight\nBig Shot wire\nHelmets (~15)\nMicrometer\nSPAD\nOven\nVapor pressure osmometer (Vapro 5520, Wescor, Logan, UT)\nVapro software (Vapro Lab Report)\nLiquid nitrogen\nFridge\nDistilled water\nPrecision balance\nScanner\nComputer\nHard drive to centralise the data files",
+    "text": "Camera\nBinoculars\nBig Shot\nBig Shot weight\nBig Shot wire\nHelmets\nGueters\nMicrometer\nSPAD\nOven\nVapor pressure osmometer (Vapro 5520, Wescor, Logan, UT)\nVapro software (Vapro Lab Report)\nLiquid nitrogen\nLiquid nitrogen gloves\nLiquid nitrogen goggles\nLiquid nitrogen contenant\nFridge\nDistilled water\nPrecision balance\nScanner\nComputer\nHard drive to centralise the data files\nWood corer",
     "crumbs": [
       "Preparation",
       "Material"
@@ -89,7 +89,7 @@
     "href": "13_material.html#small-material",
     "title": "Material",
     "section": "Small material",
-    "text": "Small material\n\nField support\nAA batteries\nFlat batteries\nCisors\nZiplocks\nLabels\nTissues\nBin bafs\nPlastic box\nMister\nPencil\nMarkers\nMaps\nField notebook\nPruning shears\nEnvelopes\nJournal\nPress\nPaper towel\nMetal tea ball\nTin foil\nNeedle\nLiquid nitrogen gloves\nLiquid nitrogen goggles\nLiquid nitrogen contenant\n2 Tweezers\nCork borer",
+    "text": "Small material\n\nField support\nAA batteries\nFlat batteries\nCisors\nZiplocks\nLabels\nTissues\nBin bafs\nPlastic box\nMister\nPencil\nMarkers\nMaps\nField notebook\nPruning shears\nEnvelopes\nJournal\nPress\nPaper towel\nMetal tea ball\nTin foil\nNeedle\n2 Tweezers",
     "crumbs": [
       "Preparation",
       "Material"

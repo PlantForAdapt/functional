@@ -8,3 +8,5 @@
 - Géraldine Derroire (geraldine.derroire\@cirad.fr)
 - Joannès Guillemot (joannes.guillemot\@cirad.fr)
 - Lucas Mazzei de Freitas (lucas.mazzei\@embrapa.br)
+- Romain Lehnebach (romain.lehnebach\@cirad.fr)
+- Jessica Reis
