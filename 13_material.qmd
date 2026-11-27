@@ -15,7 +15,6 @@ We need to gather the following material.
 - SPAD
 - Oven
 - Vapor pressure osmometer (Vapro 5520, Wescor, Logan, UT)
-- Vapro software (Vapro Lab Report)
 - Liquid nitrogen
 - Liquid nitrogen gloves
 - Liquid nitrogen goggles
